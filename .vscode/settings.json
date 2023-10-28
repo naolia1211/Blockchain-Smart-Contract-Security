@@ -1,0 +1,11 @@
+{
+    "slither.solcPath": "",
+    "slither.hiddenDetectors": [
+        "abiencoderv2-array",
+        "arbitrary-send-erc20",
+        "arbitrary-send-erc20-permit",
+        "arbitrary-send-eth",
+        "assembly",
+        "assert-state-change"
+    ]
+}
