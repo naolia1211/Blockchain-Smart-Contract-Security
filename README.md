@@ -1,6 +1,6 @@
 # Blockchain-Smart-Contract-Security
 
-##1. Hướng dẫn sử sử dụng [slither](https://github.com/crytic/slither)
+## 1. Hướng dẫn sử sử dụng [slither](https://github.com/crytic/slither)
 * Bước 1: tải về bằng `pip3 install slither-analyzer`
 * Bước 2: tải [solc-select](https://github.com/crytic/solc-select)
 Bước 3: khi tải slither về nhớ tải tất cả phiên bản về bằng lệnh `solc-select install all` 
