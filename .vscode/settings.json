@@ -1,4 +1,6 @@
 {
-    "slither.solcPath": "",
-    "slither.hiddenDetectors": []
+    "slither.hiddenDetectors": [
+        007E
+    ],
+    "slither.solcPath": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset"
 }
