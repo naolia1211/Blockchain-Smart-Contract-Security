@@ -3,11 +3,11 @@ import requests
 import os
 
 # Đường dẫn tới file CSV
-csv_file = 'C:\\Users\\20520\\Downloads\\doanblockchain\\get_source\\export-verified-contractaddress-opensource-license.csv'
+csv_file = r'C:\Users\20520\Blockchain-Smart-Contract-Security\get_source\export-verified-contractaddress-opensource-license.csv'
 
 # Đường dẫn tới thư mục chứa các file .sol
-source_dir = r'C:\Users\20520\Downloads\doanblockchain\get_source\dataset'
-
+source_dir = r'C:\Users\20520\Blockchain-Smart-Contract-Security\get_source\dataset'
+count = 0
 # Đọc file CSV và lấy danh sách các hợp đồng
 with open(csv_file, 'r') as f:
     reader = csv.DictReader(f)
@@ -15,6 +15,8 @@ with open(csv_file, 'r') as f:
 
 # Duyệt qua danh sách hợp đồng
 for contract in contracts:
+    if count == 10:
+        break
     address = contract['ContractAddress']
     name = contract['ContractName']
 
