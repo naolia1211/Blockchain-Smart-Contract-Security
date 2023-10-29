@@ -1,0 +1,656 @@
+{
+  "success": true,
+  "error": null,
+  "results": {
+    "detectors": [
+      {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "feeReceiver_",
+            "source_mapping": {
+              "start": 11347,
+              "length": 28,
+              "filename_relative": "get_source/dataset/$.sol",
+              "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+              "filename_short": "get_source/dataset/$.sol",
+              "is_dependency": false,
+              "lines": [
+                683
+              ],
+              "starting_column": 9,
+              "ending_column": 37
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "constructor",
+                "source_mapping": {
+                  "start": 11166,
+                  "length": 348,
+                  "filename_relative": "get_source/dataset/$.sol",
+                  "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+                  "filename_short": "get_source/dataset/$.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    671,
+                    672,
+                    673,
+                    674,
+                    675,
+                    676,
+                    677,
+                    678,
+                    679,
+                    680,
+                    681,
+                    682,
+                    683,
+                    684,
+                    685,
+                    686,
+                    687,
+                    688,
+                    689
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "$",
+                    "source_mapping": {
+                      "start": 11138,
+                      "length": 380,
+                      "filename_relative": "get_source/dataset/$.sol",
+                      "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+                      "filename_short": "get_source/dataset/$.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        669,
+                        670,
+                        671,
+                        672,
+                        673,
+                        674,
+                        675,
+                        676,
+                        677,
+                        678,
+                        679,
+                        680,
+                        681,
+                        682,
+                        683,
+                        684,
+                        685,
+                        686,
+                        687,
+                        688,
+                        689,
+                        690,
+                        691,
+                        692
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "constructor(string,string,uint256,uint256,address,address)"
+                }
+              }
+            }
+          },
+          {
+            "type": "node",
+            "name": "address(feeReceiver_).transfer(msg.value)",
+            "source_mapping": {
+              "start": 11464,
+              "length": 41,
+              "filename_relative": "get_source/dataset/$.sol",
+              "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+              "filename_short": "get_source/dataset/$.sol",
+              "is_dependency": false,
+              "lines": [
+                687
+              ],
+              "starting_column": 9,
+              "ending_column": 50
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "constructor",
+                "source_mapping": {
+                  "start": 11166,
+                  "length": 348,
+                  "filename_relative": "get_source/dataset/$.sol",
+                  "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+                  "filename_short": "get_source/dataset/$.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    671,
+                    672,
+                    673,
+                    674,
+                    675,
+                    676,
+                    677,
+                    678,
+                    679,
+                    680,
+                    681,
+                    682,
+                    683,
+                    684,
+                    685,
+                    686,
+                    687,
+                    688,
+                    689
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "$",
+                    "source_mapping": {
+                      "start": 11138,
+                      "length": 380,
+                      "filename_relative": "get_source/dataset/$.sol",
+                      "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+                      "filename_short": "get_source/dataset/$.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        669,
+                        670,
+                        671,
+                        672,
+                        673,
+                        674,
+                        675,
+                        676,
+                        677,
+                        678,
+                        679,
+                        680,
+                        681,
+                        682,
+                        683,
+                        684,
+                        685,
+                        686,
+                        687,
+                        688,
+                        689,
+                        690,
+                        691,
+                        692
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "constructor(string,string,uint256,uint256,address,address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "$.constructor(string,string,uint256,uint256,address,address).feeReceiver_ (get_source/dataset/$.sol#683) lacks a zero-check on :\n\t\t- address(feeReceiver_).transfer(msg.value) (get_source/dataset/$.sol#687)\n",
+        "markdown": "[$.constructor(string,string,uint256,uint256,address,address).feeReceiver_](get_source/dataset/$.sol#L683) lacks a zero-check on :\n\t\t- [address(feeReceiver_).transfer(msg.value)](get_source/dataset/$.sol#L687)\n",
+        "first_markdown_element": "get_source/dataset/$.sol#L683",
+        "id": "8b61050f3315322fe2d5dfbcf677259fb2abe9a1b4184c988d7c61560635974c",
+        "check": "missing-zero-check",
+        "impact": "Low",
+        "confidence": "Medium"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "_msgData",
+            "source_mapping": {
+              "start": 3808,
+              "length": 238,
+              "filename_relative": "get_source/dataset/$.sol",
+              "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+              "filename_short": "get_source/dataset/$.sol",
+              "is_dependency": false,
+              "lines": [
+                241,
+                242,
+                243,
+                244,
+                245,
+                246,
+                247
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "Context",
+                "source_mapping": {
+                  "start": 3664,
+                  "length": 386,
+                  "filename_relative": "get_source/dataset/$.sol",
+                  "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+                  "filename_short": "get_source/dataset/$.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    231,
+                    232,
+                    233,
+                    234,
+                    235,
+                    236,
+                    237,
+                    238,
+                    239,
+                    240,
+                    241,
+                    242,
+                    243,
+                    244,
+                    245,
+                    246,
+                    247,
+                    248,
+                    249
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "_msgData()"
+            }
+          }
+        ],
+        "description": "Context._msgData() (get_source/dataset/$.sol#241-247) is never used and should be removed\n",
+        "markdown": "[Context._msgData()](get_source/dataset/$.sol#L241-L247) is never used and should be removed\n",
+        "first_markdown_element": "get_source/dataset/$.sol#L241-L247",
+        "id": "93bd23634a3bf022810e43138345cf58db61248a704a7d277c8ec3d68c3ad188",
+        "check": "dead-code",
+        "impact": "Informational",
+        "confidence": "Medium"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.8.0",
+            "source_mapping": {
+              "start": 3632,
+              "length": 23,
+              "filename_relative": "get_source/dataset/$.sol",
+              "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+              "filename_short": "get_source/dataset/$.sol",
+              "is_dependency": false,
+              "lines": [
+                225
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.8",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Pragma version^0.8.0 (get_source/dataset/$.sol#225) allows old versions\n",
+        "markdown": "Pragma version[^0.8.0](get_source/dataset/$.sol#L225) allows old versions\n",
+        "first_markdown_element": "get_source/dataset/$.sol#L225",
+        "id": "07d5c26157fa75403e7ffd49f577a7406a05e574528e780075fc49c74ba87116",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.8.0",
+            "source_mapping": {
+              "start": 11108,
+              "length": 23,
+              "filename_relative": "get_source/dataset/$.sol",
+              "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+              "filename_short": "get_source/dataset/$.sol",
+              "is_dependency": false,
+              "lines": [
+                665
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.8",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Pragma version^0.8.0 (get_source/dataset/$.sol#665) allows old versions\n",
+        "markdown": "Pragma version[^0.8.0](get_source/dataset/$.sol#L665) allows old versions\n",
+        "first_markdown_element": "get_source/dataset/$.sol#L665",
+        "id": "09afea39bd622193ab7c34dd1ac9252f01dc688d384e4285aa6671d15c84c505",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.8.0",
+            "source_mapping": {
+              "start": 4122,
+              "length": 23,
+              "filename_relative": "get_source/dataset/$.sol",
+              "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+              "filename_short": "get_source/dataset/$.sol",
+              "is_dependency": false,
+              "lines": [
+                261
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.8",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Pragma version^0.8.0 (get_source/dataset/$.sol#261) allows old versions\n",
+        "markdown": "Pragma version[^0.8.0](get_source/dataset/$.sol#L261) allows old versions\n",
+        "first_markdown_element": "get_source/dataset/$.sol#L261",
+        "id": "13340142ab9b522e8c8e79a694bce1404d936ec977451ac7badbf7b5d98699a3",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.8.0",
+            "source_mapping": {
+              "start": 67,
+              "length": 23,
+              "filename_relative": "get_source/dataset/$.sol",
+              "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+              "filename_short": "get_source/dataset/$.sol",
+              "is_dependency": false,
+              "lines": [
+                7
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.8",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Pragma version^0.8.0 (get_source/dataset/$.sol#7) allows old versions\n",
+        "markdown": "Pragma version[^0.8.0](get_source/dataset/$.sol#L7) allows old versions\n",
+        "first_markdown_element": "get_source/dataset/$.sol#L7",
+        "id": "5ce053c9c9fe25e44da4b99988f1433f6b0822cf2289446198ffbc9a8bf59e93",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [],
+        "description": "solc-0.8.0 is not recommended for deployment\n",
+        "markdown": "solc-0.8.0 is not recommended for deployment\n",
+        "first_markdown_element": "",
+        "id": "c298e4718eba1e635e63e4c3206d561ac1974eaef1a3bba154ff9c56bcf6282a",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.8.0",
+            "source_mapping": {
+              "start": 2968,
+              "length": 23,
+              "filename_relative": "get_source/dataset/$.sol",
+              "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+              "filename_short": "get_source/dataset/$.sol",
+              "is_dependency": false,
+              "lines": [
+                167
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.8",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Pragma version^0.8.0 (get_source/dataset/$.sol#167) allows old versions\n",
+        "markdown": "Pragma version[^0.8.0](get_source/dataset/$.sol#L167) allows old versions\n",
+        "first_markdown_element": "get_source/dataset/$.sol#L167",
+        "id": "c55763b28d2f8dd9fae0fcef7da761a2ba4cd380377080ae51861c4b0bb0cbc5",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "contract",
+            "name": "$",
+            "source_mapping": {
+              "start": 11138,
+              "length": 380,
+              "filename_relative": "get_source/dataset/$.sol",
+              "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+              "filename_short": "get_source/dataset/$.sol",
+              "is_dependency": false,
+              "lines": [
+                669,
+                670,
+                671,
+                672,
+                673,
+                674,
+                675,
+                676,
+                677,
+                678,
+                679,
+                680,
+                681,
+                682,
+                683,
+                684,
+                685,
+                686,
+                687,
+                688,
+                689,
+                690,
+                691,
+                692
+              ],
+              "starting_column": 1,
+              "ending_column": 0
+            },
+            "additional_fields": {
+              "target": "contract",
+              "convention": "CapWords"
+            }
+          }
+        ],
+        "description": "Contract $ (get_source/dataset/$.sol#669-692) is not in CapWords\n",
+        "markdown": "Contract [$](get_source/dataset/$.sol#L669-L692) is not in CapWords\n",
+        "first_markdown_element": "get_source/dataset/$.sol#L669-L692",
+        "id": "4637c9216abcce60f5e15b30bac9d5a810c773fbecb3f7c36107894d54b813ff",
+        "check": "naming-convention",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "node",
+            "name": "this",
+            "source_mapping": {
+              "start": 3887,
+              "length": 4,
+              "filename_relative": "get_source/dataset/$.sol",
+              "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+              "filename_short": "get_source/dataset/$.sol",
+              "is_dependency": false,
+              "lines": [
+                243
+              ],
+              "starting_column": 9,
+              "ending_column": 13
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "_msgData",
+                "source_mapping": {
+                  "start": 3808,
+                  "length": 238,
+                  "filename_relative": "get_source/dataset/$.sol",
+                  "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+                  "filename_short": "get_source/dataset/$.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    241,
+                    242,
+                    243,
+                    244,
+                    245,
+                    246,
+                    247
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "Context",
+                    "source_mapping": {
+                      "start": 3664,
+                      "length": 386,
+                      "filename_relative": "get_source/dataset/$.sol",
+                      "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+                      "filename_short": "get_source/dataset/$.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        231,
+                        232,
+                        233,
+                        234,
+                        235,
+                        236,
+                        237,
+                        238,
+                        239,
+                        240,
+                        241,
+                        242,
+                        243,
+                        244,
+                        245,
+                        246,
+                        247,
+                        248,
+                        249
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "_msgData()"
+                }
+              }
+            }
+          },
+          {
+            "type": "contract",
+            "name": "Context",
+            "source_mapping": {
+              "start": 3664,
+              "length": 386,
+              "filename_relative": "get_source/dataset/$.sol",
+              "filename_absolute": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\$.sol",
+              "filename_short": "get_source/dataset/$.sol",
+              "is_dependency": false,
+              "lines": [
+                231,
+                232,
+                233,
+                234,
+                235,
+                236,
+                237,
+                238,
+                239,
+                240,
+                241,
+                242,
+                243,
+                244,
+                245,
+                246,
+                247,
+                248,
+                249
+              ],
+              "starting_column": 1,
+              "ending_column": 2
+            }
+          }
+        ],
+        "description": "Redundant expression \"this (get_source/dataset/$.sol#243)\" inContext (get_source/dataset/$.sol#231-249)\n",
+        "markdown": "Redundant expression \"[this](get_source/dataset/$.sol#L243)\" in[Context](get_source/dataset/$.sol#L231-L249)\n",
+        "first_markdown_element": "get_source/dataset/$.sol#L243",
+        "id": "f6ccb724db6e24dfd261c52e64f5615095ff8f35c042ee7611f6e529fb942bce",
+        "check": "redundant-statements",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    ]
+  }
+}
