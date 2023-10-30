@@ -1,4 +1,5 @@
 import os
+import json
 import subprocess
 from packaging import version
 
@@ -33,5 +34,16 @@ def run_slither():
             print(f"Running slither on {filename} with Solidity version {max_version}")
             json_file = os.path.join(output_directory, f"{os.path.splitext(filename)[0]}.json")
             subprocess.run(["slither", file_path, "--json", json_file])
+            
+            # Đọc tệp JSON đầu ra của Slither
+            with open(json_file, 'r') as f:
+                data = json.load(f)
+            
+            # Lọc chỉ những lỗi có mức độ nghiêm trọng là 'High' hoặc 'Medium'
+            high_and_medium_errors = [result for result in data['results'] if result['severity'] in ['High', 'Medium']]
+            
+            # Lưu những lỗi có mức độ nghiêm trọng là 'High' hoặc 'Medium' vào một tệp JSON mới
+            with open(os.path.join(output_directory, f"{os.path.splitext(filename)[0]}_high_medium.json"), 'w') as f:
+                json.dump(high_and_medium_errors, f)
 
 run_slither()
