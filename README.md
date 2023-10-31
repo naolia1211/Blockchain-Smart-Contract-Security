@@ -9,10 +9,10 @@
 * Bước 6: chạy `slither [file]`
 ## 2. Hướng dẫn sử dụng [securify2](https://github.com/eth-sri/securify2)
 khi chạy lệnh `sudo add-apt-repository ppa:ethereum/ethereum` nó sẽ hiện ra lệnh lỗi 
-> Traceback (most recent call last):<br>
-> &nbsp File "/usr/bin/add-apt-repository", line 3, in <module> <br>
-> <hr>import apt_pkg<br>
-> ModuleNotFoundError: No module named 'apt_pkg'
+Traceback (most recent call last):<br>
+File "/usr/bin/add-apt-repository", line 3, in (<module>) <br>
+import apt_pkg <br>
+ModuleNotFoundError: No module named 'apt_pkg' <br>
 và sau khi tìm hiểu thì nó sử dụng python3.6 để chạy cho nên là mọi người chạy thì nhớ cài **python3.6** nha
 ### cách để cài python3.7 cũng như 3.6
 * Bước 1: đầu tiên mọi người lên https://www.python.org/downloads/ để tải phiên bản đó về (file tar) sau đó giải nén và ghi các lệnh dưới đây
