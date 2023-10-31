@@ -22,5 +22,5 @@ và sau khi tìm hiểu thì nó sử dụng python3.6 để chạy cho nên là
     sudo make install`
 * Bước 2: sau khi chạy xong thì ta sẽ cấp độ ưu tiên cho bó bằng lệnh
 `sudo update-alternatives --install /usr/bin/python3 python3 /home/kali/Downloads/Python-3.7.16/python 1`
-ở đường dãn đầu là python3 có trong hệ thông và đường đãn thứ 2 là nơi mà mọi người đã giải nén và chạy
-Bước 4:sau khi chạy xong mọi người kiểm tra phiên bản python hiện có là python3 --version
+* Bước 3 ở đường dãn đầu là python3 có trong hệ thông và đường đãn thứ 2 là nơi mà mọi người đã giải nén và chạy
+* Bước 4:sau khi chạy xong mọi người kiểm tra phiên bản python hiện có là python3 --version
