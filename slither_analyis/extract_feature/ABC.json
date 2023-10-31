@@ -11,9 +11,9 @@
             "source_mapping": {
               "start": 383,
               "length": 107,
-              "filename_relative": "get_source/dataset/ABC.sol",
+              "filename_relative": "ABC.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-              "filename_short": "get_source/dataset/ABC.sol",
+              "filename_short": "ABC.sol",
               "is_dependency": false,
               "lines": [
                 33,
@@ -32,9 +32,9 @@
                 "source_mapping": {
                   "start": 95,
                   "length": 698,
-                  "filename_relative": "get_source/dataset/ABC.sol",
+                  "filename_relative": "ABC.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-                  "filename_short": "get_source/dataset/ABC.sol",
+                  "filename_short": "ABC.sol",
                   "is_dependency": false,
                   "lines": [
                     7,
@@ -109,9 +109,9 @@
             "source_mapping": {
               "start": 454,
               "length": 27,
-              "filename_relative": "get_source/dataset/ABC.sol",
+              "filename_relative": "ABC.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-              "filename_short": "get_source/dataset/ABC.sol",
+              "filename_short": "ABC.sol",
               "is_dependency": false,
               "lines": [
                 35
@@ -126,9 +126,9 @@
                 "source_mapping": {
                   "start": 383,
                   "length": 107,
-                  "filename_relative": "get_source/dataset/ABC.sol",
+                  "filename_relative": "ABC.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-                  "filename_short": "get_source/dataset/ABC.sol",
+                  "filename_short": "ABC.sol",
                   "is_dependency": false,
                   "lines": [
                     33,
@@ -147,9 +147,9 @@
                     "source_mapping": {
                       "start": 95,
                       "length": 698,
-                      "filename_relative": "get_source/dataset/ABC.sol",
+                      "filename_relative": "ABC.sol",
                       "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-                      "filename_short": "get_source/dataset/ABC.sol",
+                      "filename_short": "ABC.sol",
                       "is_dependency": false,
                       "lines": [
                         7,
@@ -221,21 +221,11 @@
             }
           }
         ],
-        "description": "ABC.Save(address,address,uint256) (get_source/dataset/ABC.sol#33-37) compares to a boolean constant:\n\t-require(bool)(_list[addr1] != true) (get_source/dataset/ABC.sol#35)\n",
-        "markdown": "[ABC.Save(address,address,uint256)](get_source/dataset/ABC.sol#L33-L37) compares to a boolean constant:\n\t-[require(bool)(_list[addr1] != true)](get_source/dataset/ABC.sol#L35)\n",
-        "first_markdown_element": "get_source/dataset/ABC.sol#L33-L37",
-        "id": "77409d05f09d1d23b7ba881c074e4a90e2f695365381af89fe308df82e1f0c8b",
+        "description": "ABC.Save(address,address,uint256) (ABC.sol#33-37) compares to a boolean constant:\n\t-require(bool)(_list[addr1] != true) (ABC.sol#35)\n",
+        "markdown": "[ABC.Save(address,address,uint256)](ABC.sol#L33-L37) compares to a boolean constant:\n\t-[require(bool)(_list[addr1] != true)](ABC.sol#L35)\n",
+        "first_markdown_element": "ABC.sol#L33-L37",
+        "id": "1a92fd5f0f61640c6fa4be289a2506fdaaf48b9e499748caf5be432773b11335",
         "check": "boolean-equal",
-        "impact": "Informational",
-        "confidence": "High"
-      },
-      {
-        "elements": [],
-        "description": "solc-0.8.19 is not recommended for deployment\n",
-        "markdown": "solc-0.8.19 is not recommended for deployment\n",
-        "first_markdown_element": "",
-        "id": "bc0e6f5edf86fec0e8668af5b6535a97ff60d9ff435d7796649d79d0b5e89ed6",
-        "check": "solc-version",
         "impact": "Informational",
         "confidence": "High"
       },
@@ -247,9 +237,9 @@
             "source_mapping": {
               "start": 68,
               "length": 24,
-              "filename_relative": "get_source/dataset/ABC.sol",
+              "filename_relative": "ABC.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-              "filename_short": "get_source/dataset/ABC.sol",
+              "filename_short": "ABC.sol",
               "is_dependency": false,
               "lines": [
                 5
@@ -267,10 +257,20 @@
             }
           }
         ],
-        "description": "Pragma version=0.8.19 (get_source/dataset/ABC.sol#5) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.16\n",
-        "markdown": "Pragma version[=0.8.19](get_source/dataset/ABC.sol#L5) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.16\n",
-        "first_markdown_element": "get_source/dataset/ABC.sol#L5",
-        "id": "d4de586529a009b980b8fe569d543076122192929a762fdc77ba96b58f6a17b3",
+        "description": "Pragma version=0.8.19 (ABC.sol#5) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.16\n",
+        "markdown": "Pragma version[=0.8.19](ABC.sol#L5) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.16\n",
+        "first_markdown_element": "ABC.sol#L5",
+        "id": "0dd505d32482f8e7115220ff19fc8ce4a2e35b7fd175180959775ab01a33fc3c",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [],
+        "description": "solc-0.8.19 is not recommended for deployment\n",
+        "markdown": "solc-0.8.19 is not recommended for deployment\n",
+        "first_markdown_element": "",
+        "id": "bc0e6f5edf86fec0e8668af5b6535a97ff60d9ff435d7796649d79d0b5e89ed6",
         "check": "solc-version",
         "impact": "Informational",
         "confidence": "High"
@@ -283,9 +283,9 @@
             "source_mapping": {
               "start": 383,
               "length": 107,
-              "filename_relative": "get_source/dataset/ABC.sol",
+              "filename_relative": "ABC.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-              "filename_short": "get_source/dataset/ABC.sol",
+              "filename_short": "ABC.sol",
               "is_dependency": false,
               "lines": [
                 33,
@@ -304,9 +304,9 @@
                 "source_mapping": {
                   "start": 95,
                   "length": 698,
-                  "filename_relative": "get_source/dataset/ABC.sol",
+                  "filename_relative": "ABC.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-                  "filename_short": "get_source/dataset/ABC.sol",
+                  "filename_short": "ABC.sol",
                   "is_dependency": false,
                   "lines": [
                     7,
@@ -380,9 +380,9 @@
             }
           }
         ],
-        "description": "Function ABC.Save(address,address,uint256) (get_source/dataset/ABC.sol#33-37) is not in mixedCase\n",
-        "markdown": "Function [ABC.Save(address,address,uint256)](get_source/dataset/ABC.sol#L33-L37) is not in mixedCase\n",
-        "first_markdown_element": "get_source/dataset/ABC.sol#L33-L37",
+        "description": "Function ABC.Save(address,address,uint256) (ABC.sol#33-37) is not in mixedCase\n",
+        "markdown": "Function [ABC.Save(address,address,uint256)](ABC.sol#L33-L37) is not in mixedCase\n",
+        "first_markdown_element": "ABC.sol#L33-L37",
         "id": "6c472f748684dd3eff4182316bd5bd23e16462b5db034c34396a013b8b83cfe8",
         "check": "naming-convention",
         "impact": "Informational",
@@ -396,9 +396,9 @@
             "source_mapping": {
               "start": 701,
               "length": 16,
-              "filename_relative": "get_source/dataset/ABC.sol",
+              "filename_relative": "ABC.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-              "filename_short": "get_source/dataset/ABC.sol",
+              "filename_short": "ABC.sol",
               "is_dependency": false,
               "lines": [
                 57
@@ -413,9 +413,9 @@
                 "source_mapping": {
                   "start": 685,
                   "length": 104,
-                  "filename_relative": "get_source/dataset/ABC.sol",
+                  "filename_relative": "ABC.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-                  "filename_short": "get_source/dataset/ABC.sol",
+                  "filename_short": "ABC.sol",
                   "is_dependency": false,
                   "lines": [
                     57,
@@ -434,9 +434,9 @@
                     "source_mapping": {
                       "start": 95,
                       "length": 698,
-                      "filename_relative": "get_source/dataset/ABC.sol",
+                      "filename_relative": "ABC.sol",
                       "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-                      "filename_short": "get_source/dataset/ABC.sol",
+                      "filename_short": "ABC.sol",
                       "is_dependency": false,
                       "lines": [
                         7,
@@ -512,9 +512,9 @@
             }
           }
         ],
-        "description": "Parameter ABC.result(address)._account (get_source/dataset/ABC.sol#57) is not in mixedCase\n",
-        "markdown": "Parameter [ABC.result(address)._account](get_source/dataset/ABC.sol#L57) is not in mixedCase\n",
-        "first_markdown_element": "get_source/dataset/ABC.sol#L57",
+        "description": "Parameter ABC.result(address)._account (ABC.sol#57) is not in mixedCase\n",
+        "markdown": "Parameter [ABC.result(address)._account](ABC.sol#L57) is not in mixedCase\n",
+        "first_markdown_element": "ABC.sol#L57",
         "id": "6efdeff720d00a2963737b1a06ac630647477696c76cb2ccf19da50a22526d27",
         "check": "naming-convention",
         "impact": "Informational",
@@ -528,9 +528,9 @@
             "source_mapping": {
               "start": 146,
               "length": 28,
-              "filename_relative": "get_source/dataset/ABC.sol",
+              "filename_relative": "ABC.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-              "filename_short": "get_source/dataset/ABC.sol",
+              "filename_short": "ABC.sol",
               "is_dependency": false,
               "lines": [
                 11
@@ -545,9 +545,9 @@
                 "source_mapping": {
                   "start": 95,
                   "length": 698,
-                  "filename_relative": "get_source/dataset/ABC.sol",
+                  "filename_relative": "ABC.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-                  "filename_short": "get_source/dataset/ABC.sol",
+                  "filename_short": "ABC.sol",
                   "is_dependency": false,
                   "lines": [
                     7,
@@ -620,9 +620,9 @@
             }
           }
         ],
-        "description": "Variable ABC._list (get_source/dataset/ABC.sol#11) is not in mixedCase\n",
-        "markdown": "Variable [ABC._list](get_source/dataset/ABC.sol#L11) is not in mixedCase\n",
-        "first_markdown_element": "get_source/dataset/ABC.sol#L11",
+        "description": "Variable ABC._list (ABC.sol#11) is not in mixedCase\n",
+        "markdown": "Variable [ABC._list](ABC.sol#L11) is not in mixedCase\n",
+        "first_markdown_element": "ABC.sol#L11",
         "id": "bcf6486c1d49418cbe90df59d366e793de190c4c1f70d92334acfc16c51a2d46",
         "check": "naming-convention",
         "impact": "Informational",
@@ -636,9 +636,9 @@
             "source_mapping": {
               "start": 116,
               "length": 22,
-              "filename_relative": "get_source/dataset/ABC.sol",
+              "filename_relative": "ABC.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-              "filename_short": "get_source/dataset/ABC.sol",
+              "filename_short": "ABC.sol",
               "is_dependency": false,
               "lines": [
                 9
@@ -653,9 +653,9 @@
                 "source_mapping": {
                   "start": 95,
                   "length": 698,
-                  "filename_relative": "get_source/dataset/ABC.sol",
+                  "filename_relative": "ABC.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\ABC.sol",
-                  "filename_short": "get_source/dataset/ABC.sol",
+                  "filename_short": "ABC.sol",
                   "is_dependency": false,
                   "lines": [
                     7,
@@ -724,9 +724,9 @@
             }
           }
         ],
-        "description": "ABC._owner (get_source/dataset/ABC.sol#9) should be immutable \n",
-        "markdown": "[ABC._owner](get_source/dataset/ABC.sol#L9) should be immutable \n",
-        "first_markdown_element": "get_source/dataset/ABC.sol#L9",
+        "description": "ABC._owner (ABC.sol#9) should be immutable \n",
+        "markdown": "[ABC._owner](ABC.sol#L9) should be immutable \n",
+        "first_markdown_element": "ABC.sol#L9",
         "id": "324f772ef6d26c431c1aee7fc0b6952a0984b477bba2d75f447dda3d5b0f8f0e",
         "check": "immutable-states",
         "impact": "Optimization",

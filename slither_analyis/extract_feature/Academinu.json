@@ -11,9 +11,9 @@
             "source_mapping": {
               "start": 844,
               "length": 103,
-              "filename_relative": "get_source/dataset/Academinu.sol",
+              "filename_relative": "Academinu.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\Academinu.sol",
-              "filename_short": "get_source/dataset/Academinu.sol",
+              "filename_short": "Academinu.sol",
               "is_dependency": false,
               "lines": [
                 49,
@@ -32,9 +32,9 @@
                 "source_mapping": {
                   "start": 700,
                   "length": 251,
-                  "filename_relative": "get_source/dataset/Academinu.sol",
+                  "filename_relative": "Academinu.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\Academinu.sol",
-                  "filename_short": "get_source/dataset/Academinu.sol",
+                  "filename_short": "Academinu.sol",
                   "is_dependency": false,
                   "lines": [
                     39,
@@ -63,9 +63,9 @@
             }
           }
         ],
-        "description": "Context._msgData() (get_source/dataset/Academinu.sol#49-53) is never used and should be removed\n",
-        "markdown": "[Context._msgData()](get_source/dataset/Academinu.sol#L49-L53) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/Academinu.sol#L49-L53",
+        "description": "Context._msgData() (Academinu.sol#49-53) is never used and should be removed\n",
+        "markdown": "[Context._msgData()](Academinu.sol#L49-L53) is never used and should be removed\n",
+        "first_markdown_element": "Academinu.sol#L49-L53",
         "id": "93bd23634a3bf022810e43138345cf58db61248a704a7d277c8ec3d68c3ad188",
         "check": "dead-code",
         "impact": "Informational",
@@ -77,83 +77,11 @@
             "type": "pragma",
             "name": "^0.8.0",
             "source_mapping": {
-              "start": 4826,
-              "length": 23,
-              "filename_relative": "get_source/dataset/Academinu.sol",
-              "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\Academinu.sol",
-              "filename_short": "get_source/dataset/Academinu.sol",
-              "is_dependency": false,
-              "lines": [
-                299
-              ],
-              "starting_column": 1,
-              "ending_column": 24
-            },
-            "type_specific_fields": {
-              "directive": [
-                "solidity",
-                "^",
-                "0.8",
-                ".0"
-              ]
-            }
-          }
-        ],
-        "description": "Pragma version^0.8.0 (get_source/dataset/Academinu.sol#299) allows old versions\n",
-        "markdown": "Pragma version[^0.8.0](get_source/dataset/Academinu.sol#L299) allows old versions\n",
-        "first_markdown_element": "get_source/dataset/Academinu.sol#L299",
-        "id": "1a1403422217d16ca9eaf39644bf5da1dfd0692882c83302791d6e0f4a86a69f",
-        "check": "solc-version",
-        "impact": "Informational",
-        "confidence": "High"
-      },
-      {
-        "elements": [
-          {
-            "type": "pragma",
-            "name": "^0.8.0",
-            "source_mapping": {
-              "start": 154,
-              "length": 23,
-              "filename_relative": "get_source/dataset/Academinu.sol",
-              "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\Academinu.sol",
-              "filename_short": "get_source/dataset/Academinu.sol",
-              "is_dependency": false,
-              "lines": [
-                15
-              ],
-              "starting_column": 1,
-              "ending_column": 24
-            },
-            "type_specific_fields": {
-              "directive": [
-                "solidity",
-                "^",
-                "0.8",
-                ".0"
-              ]
-            }
-          }
-        ],
-        "description": "Pragma version^0.8.0 (get_source/dataset/Academinu.sol#15) allows old versions\n",
-        "markdown": "Pragma version[^0.8.0](get_source/dataset/Academinu.sol#L15) allows old versions\n",
-        "first_markdown_element": "get_source/dataset/Academinu.sol#L15",
-        "id": "269921983d2ae408193cb3fd4f3520712a33e29abc8056711656b0fb3eeee01e",
-        "check": "solc-version",
-        "impact": "Informational",
-        "confidence": "High"
-      },
-      {
-        "elements": [
-          {
-            "type": "pragma",
-            "name": "^0.8.0",
-            "source_mapping": {
               "start": 4086,
               "length": 23,
-              "filename_relative": "get_source/dataset/Academinu.sol",
+              "filename_relative": "Academinu.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\Academinu.sol",
-              "filename_short": "get_source/dataset/Academinu.sol",
+              "filename_short": "Academinu.sol",
               "is_dependency": false,
               "lines": [
                 239
@@ -171,10 +99,10 @@
             }
           }
         ],
-        "description": "Pragma version^0.8.0 (get_source/dataset/Academinu.sol#239) allows old versions\n",
-        "markdown": "Pragma version[^0.8.0](get_source/dataset/Academinu.sol#L239) allows old versions\n",
-        "first_markdown_element": "get_source/dataset/Academinu.sol#L239",
-        "id": "285bf144bb47a679f71ef27b1b4fcdf07d77ba7acb1a4b9e2302f77ad6d786d4",
+        "description": "Pragma version^0.8.0 (Academinu.sol#239) allows old versions\n",
+        "markdown": "Pragma version[^0.8.0](Academinu.sol#L239) allows old versions\n",
+        "first_markdown_element": "Academinu.sol#L239",
+        "id": "30cdaeb5f3fc4be6b8ba24079709852c439e4cd71eb31ecf007a861643545ec5",
         "check": "solc-version",
         "impact": "Informational",
         "confidence": "High"
@@ -187,9 +115,9 @@
             "source_mapping": {
               "start": 17656,
               "length": 23,
-              "filename_relative": "get_source/dataset/Academinu.sol",
+              "filename_relative": "Academinu.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\Academinu.sol",
-              "filename_short": "get_source/dataset/Academinu.sol",
+              "filename_short": "Academinu.sol",
               "is_dependency": false,
               "lines": [
                 1033
@@ -207,10 +135,10 @@
             }
           }
         ],
-        "description": "Pragma version^0.8.0 (get_source/dataset/Academinu.sol#1033) allows old versions\n",
-        "markdown": "Pragma version[^0.8.0](get_source/dataset/Academinu.sol#L1033) allows old versions\n",
-        "first_markdown_element": "get_source/dataset/Academinu.sol#L1033",
-        "id": "ab30c14e4cf5051ebcdb37270aca491525ffc48b5de6afc813a63b6296450fbf",
+        "description": "Pragma version^0.8.0 (Academinu.sol#1033) allows old versions\n",
+        "markdown": "Pragma version[^0.8.0](Academinu.sol#L1033) allows old versions\n",
+        "first_markdown_element": "Academinu.sol#L1033",
+        "id": "82cae764ea83c5018eca32e5fb1cea232a30712e637f6f304a72ebda8b73f77d",
         "check": "solc-version",
         "impact": "Informational",
         "confidence": "High"
@@ -223,9 +151,9 @@
             "source_mapping": {
               "start": 1099,
               "length": 23,
-              "filename_relative": "get_source/dataset/Academinu.sol",
+              "filename_relative": "Academinu.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\Academinu.sol",
-              "filename_short": "get_source/dataset/Academinu.sol",
+              "filename_short": "Academinu.sol",
               "is_dependency": false,
               "lines": [
                 69
@@ -243,10 +171,46 @@
             }
           }
         ],
-        "description": "Pragma version^0.8.0 (get_source/dataset/Academinu.sol#69) allows old versions\n",
-        "markdown": "Pragma version[^0.8.0](get_source/dataset/Academinu.sol#L69) allows old versions\n",
-        "first_markdown_element": "get_source/dataset/Academinu.sol#L69",
-        "id": "abcf1f0defaa010f47ab6432d9284bea4b4ebc6d58a643709764304c45da088e",
+        "description": "Pragma version^0.8.0 (Academinu.sol#69) allows old versions\n",
+        "markdown": "Pragma version[^0.8.0](Academinu.sol#L69) allows old versions\n",
+        "first_markdown_element": "Academinu.sol#L69",
+        "id": "924e6671f9881fcabec6e1d1984a624b7596601d8f440611989103689d413df3",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.8.0",
+            "source_mapping": {
+              "start": 154,
+              "length": 23,
+              "filename_relative": "Academinu.sol",
+              "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\Academinu.sol",
+              "filename_short": "Academinu.sol",
+              "is_dependency": false,
+              "lines": [
+                15
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.8",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Pragma version^0.8.0 (Academinu.sol#15) allows old versions\n",
+        "markdown": "Pragma version[^0.8.0](Academinu.sol#L15) allows old versions\n",
+        "first_markdown_element": "Academinu.sol#L15",
+        "id": "9e27e59e733e2ce57bcadb19337aff5cdce5f82fbb0f1026b65760f63b7d3d3d",
         "check": "solc-version",
         "impact": "Informational",
         "confidence": "High"
@@ -257,6 +221,42 @@
         "markdown": "solc-0.8.0 is not recommended for deployment\n",
         "first_markdown_element": "",
         "id": "c298e4718eba1e635e63e4c3206d561ac1974eaef1a3bba154ff9c56bcf6282a",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.8.0",
+            "source_mapping": {
+              "start": 4826,
+              "length": 23,
+              "filename_relative": "Academinu.sol",
+              "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\Academinu.sol",
+              "filename_short": "Academinu.sol",
+              "is_dependency": false,
+              "lines": [
+                299
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.8",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Pragma version^0.8.0 (Academinu.sol#299) allows old versions\n",
+        "markdown": "Pragma version[^0.8.0](Academinu.sol#L299) allows old versions\n",
+        "first_markdown_element": "Academinu.sol#L299",
+        "id": "f15b747d3b5c05c2e20120c8abe0e761cbcce2f70d47102c822032f7e6248c8e",
         "check": "solc-version",
         "impact": "Informational",
         "confidence": "High"

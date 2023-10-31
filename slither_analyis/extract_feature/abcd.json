@@ -11,9 +11,9 @@
             "source_mapping": {
               "start": 9098,
               "length": 564,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 463,
@@ -52,9 +52,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -542,9 +542,9 @@
             "source_mapping": {
               "start": 9439,
               "length": 148,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 473,
@@ -565,9 +565,9 @@
                 "source_mapping": {
                   "start": 9098,
                   "length": 564,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     463,
@@ -606,9 +606,9 @@
                     "source_mapping": {
                       "start": 232,
                       "length": 9434,
-                      "filename_relative": "get_source/dataset/abcd.sol",
+                      "filename_relative": "abcd.sol",
                       "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                      "filename_short": "get_source/dataset/abcd.sol",
+                      "filename_short": "abcd.sol",
                       "is_dependency": false,
                       "lines": [
                         19,
@@ -1093,10 +1093,10 @@
             }
           }
         ],
-        "description": "Address._revert(bytes,string) (get_source/dataset/abcd.sol#463-487) uses assembly\n\t- INLINE ASM (get_source/dataset/abcd.sol#473-479)\n",
-        "markdown": "[Address._revert(bytes,string)](get_source/dataset/abcd.sol#L463-L487) uses assembly\n\t- [INLINE ASM](get_source/dataset/abcd.sol#L473-L479)\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L463-L487",
-        "id": "6071e5d0d78510a9f3ff2ffc10b45f7c8eb4e2c8f8b1bb7bd77854af4ddc7b0c",
+        "description": "Address._revert(bytes,string) (abcd.sol#463-487) uses assembly\n\t- INLINE ASM (abcd.sol#473-479)\n",
+        "markdown": "[Address._revert(bytes,string)](abcd.sol#L463-L487) uses assembly\n\t- [INLINE ASM](abcd.sol#L473-L479)\n",
+        "first_markdown_element": "abcd.sol#L463-L487",
+        "id": "661e9b565ffc6de5b35d85fad124bc9eead3618fd3802eb3929d18691006d1f2",
         "check": "assembly",
         "impact": "Informational",
         "confidence": "High"
@@ -1109,9 +1109,9 @@
             "source_mapping": {
               "start": 9816,
               "length": 23,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 503
@@ -1134,9 +1134,9 @@
             "source_mapping": {
               "start": 17060,
               "length": 23,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 963
@@ -1159,9 +1159,9 @@
             "source_mapping": {
               "start": 129,
               "length": 23,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 9
@@ -1184,9 +1184,9 @@
             "source_mapping": {
               "start": 17934,
               "length": 24,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 1019
@@ -1204,10 +1204,10 @@
             }
           }
         ],
-        "description": "Different versions of Solidity are used:\n\t- Version used: ['^0.8.0', '^0.8.1', '^0.8.18']\n\t- ^0.8.0 (get_source/dataset/abcd.sol#503)\n\t- ^0.8.0 (get_source/dataset/abcd.sol#963)\n\t- ^0.8.1 (get_source/dataset/abcd.sol#9)\n\t- ^0.8.18 (get_source/dataset/abcd.sol#1019)\n",
-        "markdown": "Different versions of Solidity are used:\n\t- Version used: ['^0.8.0', '^0.8.1', '^0.8.18']\n\t- [^0.8.0](get_source/dataset/abcd.sol#L503)\n\t- [^0.8.0](get_source/dataset/abcd.sol#L963)\n\t- [^0.8.1](get_source/dataset/abcd.sol#L9)\n\t- [^0.8.18](get_source/dataset/abcd.sol#L1019)\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L503",
-        "id": "2b5dd1c7ec0d7c42c95225e64da8a2d10312a046824e13938854f5ecec3a3baa",
+        "description": "Different versions of Solidity are used:\n\t- Version used: ['^0.8.0', '^0.8.1', '^0.8.18']\n\t- ^0.8.0 (abcd.sol#503)\n\t- ^0.8.0 (abcd.sol#963)\n\t- ^0.8.1 (abcd.sol#9)\n\t- ^0.8.18 (abcd.sol#1019)\n",
+        "markdown": "Different versions of Solidity are used:\n\t- Version used: ['^0.8.0', '^0.8.1', '^0.8.18']\n\t- [^0.8.0](abcd.sol#L503)\n\t- [^0.8.0](abcd.sol#L963)\n\t- [^0.8.1](abcd.sol#L9)\n\t- [^0.8.18](abcd.sol#L1019)\n",
+        "first_markdown_element": "abcd.sol#L503",
+        "id": "2a4e495400e9d67c108f604350e1d4eb9c9127a60c9c8c7e10fd75a40029df0a",
         "check": "pragma",
         "impact": "Informational",
         "confidence": "High"
@@ -1220,9 +1220,9 @@
             "source_mapping": {
               "start": 13408,
               "length": 100,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 737,
@@ -1241,9 +1241,9 @@
                 "source_mapping": {
                   "start": 10215,
                   "length": 6722,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     527,
@@ -1678,9 +1678,9 @@
             }
           }
         ],
-        "description": "SafeMath.mul(uint256,uint256) (get_source/dataset/abcd.sol#737-741) is never used and should be removed\n",
-        "markdown": "[SafeMath.mul(uint256,uint256)](get_source/dataset/abcd.sol#L737-L741) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L737-L741",
+        "description": "SafeMath.mul(uint256,uint256) (abcd.sol#737-741) is never used and should be removed\n",
+        "markdown": "[SafeMath.mul(uint256,uint256)](abcd.sol#L737-L741) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L737-L741",
         "id": "01304cc4312b37902daca45f84c38ca41bb71ffe24e353e8143a18f4c9731983",
         "check": "dead-code",
         "impact": "Informational",
@@ -1694,9 +1694,9 @@
             "source_mapping": {
               "start": 8773,
               "length": 315,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 439,
@@ -1731,9 +1731,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -2216,9 +2216,9 @@
             }
           }
         ],
-        "description": "Address.verifyCallResult(bool,bytes,string) (get_source/dataset/abcd.sol#439-459) is never used and should be removed\n",
-        "markdown": "[Address.verifyCallResult(bool,bytes,string)](get_source/dataset/abcd.sol#L439-L459) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L439-L459",
+        "description": "Address.verifyCallResult(bool,bytes,string) (abcd.sol#439-459) is never used and should be removed\n",
+        "markdown": "[Address.verifyCallResult(bool,bytes,string)](abcd.sol#L439-L459) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L439-L459",
         "id": "04cea58413b7cafa4b855b75bfca0c0f05654ed55974a40e5e72ebf779e917c0",
         "check": "dead-code",
         "impact": "Informational",
@@ -2232,9 +2232,9 @@
             "source_mapping": {
               "start": 13037,
               "length": 100,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 709,
@@ -2253,9 +2253,9 @@
                 "source_mapping": {
                   "start": 10215,
                   "length": 6722,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     527,
@@ -2690,9 +2690,9 @@
             }
           }
         ],
-        "description": "SafeMath.sub(uint256,uint256) (get_source/dataset/abcd.sol#709-713) is never used and should be removed\n",
-        "markdown": "[SafeMath.sub(uint256,uint256)](get_source/dataset/abcd.sol#L709-L713) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L709-L713",
+        "description": "SafeMath.sub(uint256,uint256) (abcd.sol#709-713) is never used and should be removed\n",
+        "markdown": "[SafeMath.sub(uint256,uint256)](abcd.sol#L709-L713) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L709-L713",
         "id": "0597ae61b0a7d596bb9d6115f18ba9ca50e326614caee57b8155a4db524ba57b",
         "check": "dead-code",
         "impact": "Informational",
@@ -2706,9 +2706,9 @@
             "source_mapping": {
               "start": 11810,
               "length": 200,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 623,
@@ -2733,9 +2733,9 @@
                 "source_mapping": {
                   "start": 10215,
                   "length": 6722,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     527,
@@ -3170,9 +3170,9 @@
             }
           }
         ],
-        "description": "SafeMath.tryDiv(uint256,uint256) (get_source/dataset/abcd.sol#623-633) is never used and should be removed\n",
-        "markdown": "[SafeMath.tryDiv(uint256,uint256)](get_source/dataset/abcd.sol#L623-L633) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L623-L633",
+        "description": "SafeMath.tryDiv(uint256,uint256) (abcd.sol#623-633) is never used and should be removed\n",
+        "markdown": "[SafeMath.tryDiv(uint256,uint256)](abcd.sol#L623-L633) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L623-L633",
         "id": "0b505f6275b117d511640ae285ef86e89bed0c3ac321b6d9e53194c937c522de",
         "check": "dead-code",
         "impact": "Informational",
@@ -3186,9 +3186,9 @@
             "source_mapping": {
               "start": 2552,
               "length": 322,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 121,
@@ -3213,9 +3213,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -3698,9 +3698,9 @@
             }
           }
         ],
-        "description": "Address.sendValue(address,uint256) (get_source/dataset/abcd.sol#121-131) is never used and should be removed\n",
-        "markdown": "[Address.sendValue(address,uint256)](get_source/dataset/abcd.sol#L121-L131) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L121-L131",
+        "description": "Address.sendValue(address,uint256) (abcd.sol#121-131) is never used and should be removed\n",
+        "markdown": "[Address.sendValue(address,uint256)](abcd.sol#L121-L131) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L121-L131",
         "id": "12a942d5be420eca31c018a0c7174f38ee974cb96fb40dd119447b534a3e53cc",
         "check": "dead-code",
         "impact": "Informational",
@@ -3714,9 +3714,9 @@
             "source_mapping": {
               "start": 4706,
               "length": 266,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 229,
@@ -3743,9 +3743,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -4228,9 +4228,9 @@
             }
           }
         ],
-        "description": "Address.functionCallWithValue(address,bytes,uint256) (get_source/dataset/abcd.sol#229-241) is never used and should be removed\n",
-        "markdown": "[Address.functionCallWithValue(address,bytes,uint256)](get_source/dataset/abcd.sol#L229-L241) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L229-L241",
+        "description": "Address.functionCallWithValue(address,bytes,uint256) (abcd.sol#229-241) is never used and should be removed\n",
+        "markdown": "[Address.functionCallWithValue(address,bytes,uint256)](abcd.sol#L229-L241) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L229-L241",
         "id": "1a011acfb8b1a4ba5c814ed2c6e65fe0e9a06cab5372a052ba509f504eeb55c8",
         "check": "dead-code",
         "impact": "Informational",
@@ -4244,9 +4244,9 @@
             "source_mapping": {
               "start": 12183,
               "length": 200,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 647,
@@ -4271,9 +4271,9 @@
                 "source_mapping": {
                   "start": 10215,
                   "length": 6722,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     527,
@@ -4708,9 +4708,9 @@
             }
           }
         ],
-        "description": "SafeMath.tryMod(uint256,uint256) (get_source/dataset/abcd.sol#647-657) is never used and should be removed\n",
-        "markdown": "[SafeMath.tryMod(uint256,uint256)](get_source/dataset/abcd.sol#L647-L657) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L647-L657",
+        "description": "SafeMath.tryMod(uint256,uint256) (abcd.sol#647-657) is never used and should be removed\n",
+        "markdown": "[SafeMath.tryMod(uint256,uint256)](abcd.sol#L647-L657) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L647-L657",
         "id": "34a0aa1e072c7dde823a01f4d0d9960ae5cee235b3717887ed3519df5b947e56",
         "check": "dead-code",
         "impact": "Informational",
@@ -4724,9 +4724,9 @@
             "source_mapping": {
               "start": 7233,
               "length": 339,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 361,
@@ -4755,9 +4755,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -5240,9 +5240,9 @@
             }
           }
         ],
-        "description": "Address.functionDelegateCall(address,bytes,string) (get_source/dataset/abcd.sol#361-375) is never used and should be removed\n",
-        "markdown": "[Address.functionDelegateCall(address,bytes,string)](get_source/dataset/abcd.sol#L361-L375) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L361-L375",
+        "description": "Address.functionDelegateCall(address,bytes,string) (abcd.sol#361-375) is never used and should be removed\n",
+        "markdown": "[Address.functionDelegateCall(address,bytes,string)](abcd.sol#L361-L375) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L361-L375",
         "id": "37fdcf04d10bee1b4f21f62f3b26ddd73f189396822ddcb016a8b29ea4632d76",
         "check": "dead-code",
         "impact": "Informational",
@@ -5256,9 +5256,9 @@
             "source_mapping": {
               "start": 6829,
               "length": 202,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 341,
@@ -5277,9 +5277,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -5762,9 +5762,9 @@
             }
           }
         ],
-        "description": "Address.functionDelegateCall(address,bytes) (get_source/dataset/abcd.sol#341-345) is never used and should be removed\n",
-        "markdown": "[Address.functionDelegateCall(address,bytes)](get_source/dataset/abcd.sol#L341-L345) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L341-L345",
+        "description": "Address.functionDelegateCall(address,bytes) (abcd.sol#341-345) is never used and should be removed\n",
+        "markdown": "[Address.functionDelegateCall(address,bytes)](abcd.sol#L341-L345) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L341-L345",
         "id": "5e22d84e635d6e4a0d2095ca874f1ab71f3604b2725cb200802146fc0efc0bea",
         "check": "dead-code",
         "impact": "Informational",
@@ -5778,9 +5778,9 @@
             "source_mapping": {
               "start": 10386,
               "length": 228,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 539,
@@ -5807,9 +5807,9 @@
                 "source_mapping": {
                   "start": 10215,
                   "length": 6722,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     527,
@@ -6244,9 +6244,9 @@
             }
           }
         ],
-        "description": "SafeMath.tryAdd(uint256,uint256) (get_source/dataset/abcd.sol#539-551) is never used and should be removed\n",
-        "markdown": "[SafeMath.tryAdd(uint256,uint256)](get_source/dataset/abcd.sol#L539-L551) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L539-L551",
+        "description": "SafeMath.tryAdd(uint256,uint256) (abcd.sol#539-551) is never used and should be removed\n",
+        "markdown": "[SafeMath.tryAdd(uint256,uint256)](abcd.sol#L539-L551) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L539-L551",
         "id": "6e59aeae379daf502c1b273118cd86642516e1da52b15eef32cb6a445136093a",
         "check": "dead-code",
         "impact": "Informational",
@@ -6260,9 +6260,9 @@
             "source_mapping": {
               "start": 16685,
               "length": 248,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 929,
@@ -6295,9 +6295,9 @@
                 "source_mapping": {
                   "start": 10215,
                   "length": 6722,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     527,
@@ -6732,9 +6732,9 @@
             }
           }
         ],
-        "description": "SafeMath.mod(uint256,uint256,string) (get_source/dataset/abcd.sol#929-947) is never used and should be removed\n",
-        "markdown": "[SafeMath.mod(uint256,uint256,string)](get_source/dataset/abcd.sol#L929-L947) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L929-L947",
+        "description": "SafeMath.mod(uint256,uint256,string) (abcd.sol#929-947) is never used and should be removed\n",
+        "markdown": "[SafeMath.mod(uint256,uint256,string)](abcd.sol#L929-L947) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L929-L947",
         "id": "712768d3a481f9b1f37a8cd35c2349b153122c762e1ab1fa90e492ff24916157",
         "check": "dead-code",
         "impact": "Informational",
@@ -6748,9 +6748,9 @@
             "source_mapping": {
               "start": 5236,
               "length": 464,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 257,
@@ -6783,9 +6783,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -7268,9 +7268,9 @@
             }
           }
         ],
-        "description": "Address.functionCallWithValue(address,bytes,uint256,string) (get_source/dataset/abcd.sol#257-275) is never used and should be removed\n",
-        "markdown": "[Address.functionCallWithValue(address,bytes,uint256,string)](get_source/dataset/abcd.sol#L257-L275) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L257-L275",
+        "description": "Address.functionCallWithValue(address,bytes,uint256,string) (abcd.sol#257-275) is never used and should be removed\n",
+        "markdown": "[Address.functionCallWithValue(address,bytes,uint256,string)](abcd.sol#L257-L275) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L257-L275",
         "id": "85a4fe0d48c6c3cdc64f8b7bd4a177d494dd662dc1bdb968533dd0f5c431cab8",
         "check": "dead-code",
         "impact": "Informational",
@@ -7284,9 +7284,9 @@
             "source_mapping": {
               "start": 15757,
               "length": 248,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 877,
@@ -7319,9 +7319,9 @@
                 "source_mapping": {
                   "start": 10215,
                   "length": 6722,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     527,
@@ -7756,9 +7756,9 @@
             }
           }
         ],
-        "description": "SafeMath.div(uint256,uint256,string) (get_source/dataset/abcd.sol#877-895) is never used and should be removed\n",
-        "markdown": "[SafeMath.div(uint256,uint256,string)](get_source/dataset/abcd.sol#L877-L895) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L877-L895",
+        "description": "SafeMath.div(uint256,uint256,string) (abcd.sol#877-895) is never used and should be removed\n",
+        "markdown": "[SafeMath.div(uint256,uint256,string)](abcd.sol#L877-L895) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L877-L895",
         "id": "883adadc70fb7eb2cd5136eb24fcd93a1842b6e88470e572c4dbdb1119863e3c",
         "check": "dead-code",
         "impact": "Informational",
@@ -7772,9 +7772,9 @@
             "source_mapping": {
               "start": 17750,
               "length": 103,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 997,
@@ -7793,9 +7793,9 @@
                 "source_mapping": {
                   "start": 17606,
                   "length": 251,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     987,
@@ -7824,9 +7824,9 @@
             }
           }
         ],
-        "description": "Context._msgData() (get_source/dataset/abcd.sol#997-1001) is never used and should be removed\n",
-        "markdown": "[Context._msgData()](get_source/dataset/abcd.sol#L997-L1001) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L997-L1001",
+        "description": "Context._msgData() (abcd.sol#997-1001) is never used and should be removed\n",
+        "markdown": "[Context._msgData()](abcd.sol#L997-L1001) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L997-L1001",
         "id": "93bd23634a3bf022810e43138345cf58db61248a704a7d277c8ec3d68c3ad188",
         "check": "dead-code",
         "impact": "Informational",
@@ -7840,9 +7840,9 @@
             "source_mapping": {
               "start": 5893,
               "length": 201,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 291,
@@ -7861,9 +7861,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -8346,9 +8346,9 @@
             }
           }
         ],
-        "description": "Address.functionStaticCall(address,bytes) (get_source/dataset/abcd.sol#291-295) is never used and should be removed\n",
-        "markdown": "[Address.functionStaticCall(address,bytes)](get_source/dataset/abcd.sol#L291-L295) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L291-L295",
+        "description": "Address.functionStaticCall(address,bytes) (abcd.sol#291-295) is never used and should be removed\n",
+        "markdown": "[Address.functionStaticCall(address,bytes)](abcd.sol#L291-L295) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L291-L295",
         "id": "965cf19414c2dfcc76c22ba9c520aae5df9f273448285f0a897561950984b0c0",
         "check": "dead-code",
         "impact": "Informational",
@@ -8362,9 +8362,9 @@
             "source_mapping": {
               "start": 14402,
               "length": 100,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 797,
@@ -8383,9 +8383,9 @@
                 "source_mapping": {
                   "start": 10215,
                   "length": 6722,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     527,
@@ -8820,9 +8820,9 @@
             }
           }
         ],
-        "description": "SafeMath.mod(uint256,uint256) (get_source/dataset/abcd.sol#797-801) is never used and should be removed\n",
-        "markdown": "[SafeMath.mod(uint256,uint256)](get_source/dataset/abcd.sol#L797-L801) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L797-L801",
+        "description": "SafeMath.mod(uint256,uint256) (abcd.sol#797-801) is never used and should be removed\n",
+        "markdown": "[SafeMath.mod(uint256,uint256)](abcd.sol#L797-L801) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L797-L801",
         "id": "a40074a7206e6c7604771b463c9123cfc4ede6357ef86feb34ea247a1be8f5e1",
         "check": "dead-code",
         "impact": "Informational",
@@ -8836,9 +8836,9 @@
             "source_mapping": {
               "start": 9098,
               "length": 564,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 463,
@@ -8877,9 +8877,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -9362,9 +9362,9 @@
             }
           }
         ],
-        "description": "Address._revert(bytes,string) (get_source/dataset/abcd.sol#463-487) is never used and should be removed\n",
-        "markdown": "[Address._revert(bytes,string)](get_source/dataset/abcd.sol#L463-L487) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L463-L487",
+        "description": "Address._revert(bytes,string) (abcd.sol#463-487) is never used and should be removed\n",
+        "markdown": "[Address._revert(bytes,string)](abcd.sol#L463-L487) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L463-L487",
         "id": "af7d0cee330304d995ba1b595e8b8cf1a3df7df0056ab6d48199d164e96879b9",
         "check": "dead-code",
         "impact": "Informational",
@@ -9378,9 +9378,9 @@
             "source_mapping": {
               "start": 13821,
               "length": 100,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 765,
@@ -9399,9 +9399,9 @@
                 "source_mapping": {
                   "start": 10215,
                   "length": 6722,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     527,
@@ -9836,9 +9836,9 @@
             }
           }
         ],
-        "description": "SafeMath.div(uint256,uint256) (get_source/dataset/abcd.sol#765-769) is never used and should be removed\n",
-        "markdown": "[SafeMath.div(uint256,uint256)](get_source/dataset/abcd.sol#L765-L769) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L765-L769",
+        "description": "SafeMath.div(uint256,uint256) (abcd.sol#765-769) is never used and should be removed\n",
+        "markdown": "[SafeMath.div(uint256,uint256)](abcd.sol#L765-L769) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L765-L769",
         "id": "b49b4889f1b304a84f2984119b9a2fc4e67dfb2f730e0a6de8fe6113d3fbcc39",
         "check": "dead-code",
         "impact": "Informational",
@@ -9852,9 +9852,9 @@
             "source_mapping": {
               "start": 11134,
               "length": 513,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 589,
@@ -9889,9 +9889,9 @@
                 "source_mapping": {
                   "start": 10215,
                   "length": 6722,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     527,
@@ -10326,9 +10326,9 @@
             }
           }
         ],
-        "description": "SafeMath.tryMul(uint256,uint256) (get_source/dataset/abcd.sol#589-609) is never used and should be removed\n",
-        "markdown": "[SafeMath.tryMul(uint256,uint256)](get_source/dataset/abcd.sol#L589-L609) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L589-L609",
+        "description": "SafeMath.tryMul(uint256,uint256) (abcd.sol#589-609) is never used and should be removed\n",
+        "markdown": "[SafeMath.tryMul(uint256,uint256)](abcd.sol#L589-L609) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L589-L609",
         "id": "bfe189351e9ab6cc1449da2cd46c36f6aea6f9ef6c146d242f5de81888ea98fa",
         "check": "dead-code",
         "impact": "Informational",
@@ -10342,9 +10342,9 @@
             "source_mapping": {
               "start": 10773,
               "length": 199,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 565,
@@ -10369,9 +10369,9 @@
                 "source_mapping": {
                   "start": 10215,
                   "length": 6722,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     527,
@@ -10806,9 +10806,9 @@
             }
           }
         ],
-        "description": "SafeMath.trySub(uint256,uint256) (get_source/dataset/abcd.sol#565-575) is never used and should be removed\n",
-        "markdown": "[SafeMath.trySub(uint256,uint256)](get_source/dataset/abcd.sol#L565-L575) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L565-L575",
+        "description": "SafeMath.trySub(uint256,uint256) (abcd.sol#565-575) is never used and should be removed\n",
+        "markdown": "[SafeMath.trySub(uint256,uint256)](abcd.sol#L565-L575) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L565-L575",
         "id": "c98303950cb105754fb2d74861937c424360cdf5e53c27fc8067c87253d37a07",
         "check": "dead-code",
         "impact": "Informational",
@@ -10822,9 +10822,9 @@
             "source_mapping": {
               "start": 1267,
               "length": 332,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 73,
@@ -10851,9 +10851,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -11336,9 +11336,9 @@
             }
           }
         ],
-        "description": "Address.isContract(address) (get_source/dataset/abcd.sol#73-85) is never used and should be removed\n",
-        "markdown": "[Address.isContract(address)](get_source/dataset/abcd.sol#L73-L85) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L73-L85",
+        "description": "Address.isContract(address) (abcd.sol#73-85) is never used and should be removed\n",
+        "markdown": "[Address.isContract(address)](abcd.sol#L73-L85) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L73-L85",
         "id": "de7443462f44ab8c4d96b5210d641361c6ca8e94ba96c9d8f16c12ec08844a9d",
         "check": "dead-code",
         "impact": "Informational",
@@ -11352,9 +11352,9 @@
             "source_mapping": {
               "start": 4083,
               "length": 235,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 191,
@@ -11381,9 +11381,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -11866,9 +11866,9 @@
             }
           }
         ],
-        "description": "Address.functionCall(address,bytes,string) (get_source/dataset/abcd.sol#191-203) is never used and should be removed\n",
-        "markdown": "[Address.functionCall(address,bytes,string)](get_source/dataset/abcd.sol#L191-L203) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L191-L203",
+        "description": "Address.functionCall(address,bytes,string) (abcd.sol#191-203) is never used and should be removed\n",
+        "markdown": "[Address.functionCall(address,bytes,string)](abcd.sol#L191-L203) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L191-L203",
         "id": "dfc946dd3013bd85836a308eb18ca3e17bf254b4a64ff17db2c544d41d937799",
         "check": "dead-code",
         "impact": "Informational",
@@ -11882,9 +11882,9 @@
             "source_mapping": {
               "start": 6294,
               "length": 340,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 311,
@@ -11913,9 +11913,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -12398,9 +12398,9 @@
             }
           }
         ],
-        "description": "Address.functionStaticCall(address,bytes,string) (get_source/dataset/abcd.sol#311-325) is never used and should be removed\n",
-        "markdown": "[Address.functionStaticCall(address,bytes,string)](get_source/dataset/abcd.sol#L311-L325) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L311-L325",
+        "description": "Address.functionStaticCall(address,bytes,string) (abcd.sol#311-325) is never used and should be removed\n",
+        "markdown": "[Address.functionStaticCall(address,bytes,string)](abcd.sol#L311-L325) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L311-L325",
         "id": "e9c2d2c2c167f9b14318ae4e28c7bf51d183c5de02877f31c7ce8596e3f4132c",
         "check": "dead-code",
         "impact": "Informational",
@@ -12414,9 +12414,9 @@
             "source_mapping": {
               "start": 7876,
               "length": 660,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 391,
@@ -12463,9 +12463,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -12948,9 +12948,9 @@
             }
           }
         ],
-        "description": "Address.verifyCallResultFromTarget(address,bool,bytes,string) (get_source/dataset/abcd.sol#391-423) is never used and should be removed\n",
-        "markdown": "[Address.verifyCallResultFromTarget(address,bool,bytes,string)](get_source/dataset/abcd.sol#L391-L423) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L391-L423",
+        "description": "Address.verifyCallResultFromTarget(address,bool,bytes,string) (abcd.sol#391-423) is never used and should be removed\n",
+        "markdown": "[Address.verifyCallResultFromTarget(address,bool,bytes,string)](abcd.sol#L391-L423) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L391-L423",
         "id": "edce799326638ddd044b2d8de7fa0ff38a41134112f1b0a85a518fa5c4a1bcd1",
         "check": "dead-code",
         "impact": "Informational",
@@ -12964,9 +12964,9 @@
             "source_mapping": {
               "start": 3656,
               "length": 189,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 171,
@@ -12985,9 +12985,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -13470,131 +13470,13 @@
             }
           }
         ],
-        "description": "Address.functionCall(address,bytes) (get_source/dataset/abcd.sol#171-175) is never used and should be removed\n",
-        "markdown": "[Address.functionCall(address,bytes)](get_source/dataset/abcd.sol#L171-L175) is never used and should be removed\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L171-L175",
+        "description": "Address.functionCall(address,bytes) (abcd.sol#171-175) is never used and should be removed\n",
+        "markdown": "[Address.functionCall(address,bytes)](abcd.sol#L171-L175) is never used and should be removed\n",
+        "first_markdown_element": "abcd.sol#L171-L175",
         "id": "fea5c9eedf61ab3f6f82d5652ccc5af6a58b82f13b03fdb9152af39708badca1",
         "check": "dead-code",
         "impact": "Informational",
         "confidence": "Medium"
-      },
-      {
-        "elements": [],
-        "description": "solc-0.8.18 is not recommended for deployment\n",
-        "markdown": "solc-0.8.18 is not recommended for deployment\n",
-        "first_markdown_element": "",
-        "id": "58072301770d458aa65d74d061be4e4106085009f2de76bd70e8ee33136c3fa4",
-        "check": "solc-version",
-        "impact": "Informational",
-        "confidence": "High"
-      },
-      {
-        "elements": [
-          {
-            "type": "pragma",
-            "name": "^0.8.0",
-            "source_mapping": {
-              "start": 17060,
-              "length": 23,
-              "filename_relative": "get_source/dataset/abcd.sol",
-              "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
-              "is_dependency": false,
-              "lines": [
-                963
-              ],
-              "starting_column": 1,
-              "ending_column": 24
-            },
-            "type_specific_fields": {
-              "directive": [
-                "solidity",
-                "^",
-                "0.8",
-                ".0"
-              ]
-            }
-          }
-        ],
-        "description": "Pragma version^0.8.0 (get_source/dataset/abcd.sol#963) allows old versions\n",
-        "markdown": "Pragma version[^0.8.0](get_source/dataset/abcd.sol#L963) allows old versions\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L963",
-        "id": "6d0d194da23b4b4261c837394ccb272f71937854f204372c0ba5bbeeb0fdeb0a",
-        "check": "solc-version",
-        "impact": "Informational",
-        "confidence": "High"
-      },
-      {
-        "elements": [
-          {
-            "type": "pragma",
-            "name": "^0.8.1",
-            "source_mapping": {
-              "start": 129,
-              "length": 23,
-              "filename_relative": "get_source/dataset/abcd.sol",
-              "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
-              "is_dependency": false,
-              "lines": [
-                9
-              ],
-              "starting_column": 1,
-              "ending_column": 24
-            },
-            "type_specific_fields": {
-              "directive": [
-                "solidity",
-                "^",
-                "0.8",
-                ".1"
-              ]
-            }
-          }
-        ],
-        "description": "Pragma version^0.8.1 (get_source/dataset/abcd.sol#9) allows old versions\n",
-        "markdown": "Pragma version[^0.8.1](get_source/dataset/abcd.sol#L9) allows old versions\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L9",
-        "id": "8979fb1ec15fe5f1e1cabf99bd991fc69f34f94acd02207ef31856f7b7a11417",
-        "check": "solc-version",
-        "impact": "Informational",
-        "confidence": "High"
-      },
-      {
-        "elements": [
-          {
-            "type": "pragma",
-            "name": "^0.8.0",
-            "source_mapping": {
-              "start": 9816,
-              "length": 23,
-              "filename_relative": "get_source/dataset/abcd.sol",
-              "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
-              "is_dependency": false,
-              "lines": [
-                503
-              ],
-              "starting_column": 1,
-              "ending_column": 24
-            },
-            "type_specific_fields": {
-              "directive": [
-                "solidity",
-                "^",
-                "0.8",
-                ".0"
-              ]
-            }
-          }
-        ],
-        "description": "Pragma version^0.8.0 (get_source/dataset/abcd.sol#503) allows old versions\n",
-        "markdown": "Pragma version[^0.8.0](get_source/dataset/abcd.sol#L503) allows old versions\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L503",
-        "id": "9cd0ca1147a369ffd8a72907f65e31674014ecc89b636ef4527478e78221cdd1",
-        "check": "solc-version",
-        "impact": "Informational",
-        "confidence": "High"
       },
       {
         "elements": [
@@ -13604,9 +13486,9 @@
             "source_mapping": {
               "start": 17934,
               "length": 24,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 1019
@@ -13624,10 +13506,128 @@
             }
           }
         ],
-        "description": "Pragma version^0.8.18 (get_source/dataset/abcd.sol#1019) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.16\n",
-        "markdown": "Pragma version[^0.8.18](get_source/dataset/abcd.sol#L1019) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.16\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L1019",
-        "id": "a56fb929369cb13096fddbf75854c4d659aade69e2394aa1ed4bbc95e2b6d78d",
+        "description": "Pragma version^0.8.18 (abcd.sol#1019) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.16\n",
+        "markdown": "Pragma version[^0.8.18](abcd.sol#L1019) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.16\n",
+        "first_markdown_element": "abcd.sol#L1019",
+        "id": "04e5825c8a3691c60bee9cb418cfda10aa6183d3b5e0000b61762125933f02d2",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.8.0",
+            "source_mapping": {
+              "start": 9816,
+              "length": 23,
+              "filename_relative": "abcd.sol",
+              "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
+              "filename_short": "abcd.sol",
+              "is_dependency": false,
+              "lines": [
+                503
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.8",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Pragma version^0.8.0 (abcd.sol#503) allows old versions\n",
+        "markdown": "Pragma version[^0.8.0](abcd.sol#L503) allows old versions\n",
+        "first_markdown_element": "abcd.sol#L503",
+        "id": "342bc94c84a1e584fe24330c19769b7c43dc20f724c5bc2a6a48571a2d14554d",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.8.0",
+            "source_mapping": {
+              "start": 17060,
+              "length": 23,
+              "filename_relative": "abcd.sol",
+              "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
+              "filename_short": "abcd.sol",
+              "is_dependency": false,
+              "lines": [
+                963
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.8",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Pragma version^0.8.0 (abcd.sol#963) allows old versions\n",
+        "markdown": "Pragma version[^0.8.0](abcd.sol#L963) allows old versions\n",
+        "first_markdown_element": "abcd.sol#L963",
+        "id": "5246fc63023451bcfb6d4540af69b869ccdb2207fe74e3b341db628b6b270453",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [],
+        "description": "solc-0.8.18 is not recommended for deployment\n",
+        "markdown": "solc-0.8.18 is not recommended for deployment\n",
+        "first_markdown_element": "",
+        "id": "58072301770d458aa65d74d061be4e4106085009f2de76bd70e8ee33136c3fa4",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.8.1",
+            "source_mapping": {
+              "start": 129,
+              "length": 23,
+              "filename_relative": "abcd.sol",
+              "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
+              "filename_short": "abcd.sol",
+              "is_dependency": false,
+              "lines": [
+                9
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.8",
+                ".1"
+              ]
+            }
+          }
+        ],
+        "description": "Pragma version^0.8.1 (abcd.sol#9) allows old versions\n",
+        "markdown": "Pragma version[^0.8.1](abcd.sol#L9) allows old versions\n",
+        "first_markdown_element": "abcd.sol#L9",
+        "id": "62d856d8fa4fb106286a29c9f8fc0cc1e9336f0695d7a5ebe51f08b2001bb16a",
         "check": "solc-version",
         "impact": "Informational",
         "confidence": "High"
@@ -13640,9 +13640,9 @@
             "source_mapping": {
               "start": 7233,
               "length": 339,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 361,
@@ -13671,9 +13671,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -14161,9 +14161,9 @@
             "source_mapping": {
               "start": 7408,
               "length": 67,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 371
@@ -14178,9 +14178,9 @@
                 "source_mapping": {
                   "start": 7233,
                   "length": 339,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     361,
@@ -14209,9 +14209,9 @@
                     "source_mapping": {
                       "start": 232,
                       "length": 9434,
-                      "filename_relative": "get_source/dataset/abcd.sol",
+                      "filename_relative": "abcd.sol",
                       "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                      "filename_short": "get_source/dataset/abcd.sol",
+                      "filename_short": "abcd.sol",
                       "is_dependency": false,
                       "lines": [
                         19,
@@ -14696,10 +14696,10 @@
             }
           }
         ],
-        "description": "Low level call in Address.functionDelegateCall(address,bytes,string) (get_source/dataset/abcd.sol#361-375):\n\t- (success,returndata) = target.delegatecall(data) (get_source/dataset/abcd.sol#371)\n",
-        "markdown": "Low level call in [Address.functionDelegateCall(address,bytes,string)](get_source/dataset/abcd.sol#L361-L375):\n\t- [(success,returndata) = target.delegatecall(data)](get_source/dataset/abcd.sol#L371)\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L361-L375",
-        "id": "3b93b0125898a8d2bc2a1e927f389cf7a8e5c68e3d017d7f7b1b71b717b03a10",
+        "description": "Low level call in Address.functionDelegateCall(address,bytes,string) (abcd.sol#361-375):\n\t- (success,returndata) = target.delegatecall(data) (abcd.sol#371)\n",
+        "markdown": "Low level call in [Address.functionDelegateCall(address,bytes,string)](abcd.sol#L361-L375):\n\t- [(success,returndata) = target.delegatecall(data)](abcd.sol#L371)\n",
+        "first_markdown_element": "abcd.sol#L361-L375",
+        "id": "1289612fe72805dc116973ecfe1e3727a162205a42803766953272a625ffb33e",
         "check": "low-level-calls",
         "impact": "Informational",
         "confidence": "High"
@@ -14712,9 +14712,9 @@
             "source_mapping": {
               "start": 2552,
               "length": 322,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 121,
@@ -14739,9 +14739,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -15229,9 +15229,9 @@
             "source_mapping": {
               "start": 2723,
               "length": 52,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 127
@@ -15246,9 +15246,9 @@
                 "source_mapping": {
                   "start": 2552,
                   "length": 322,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     121,
@@ -15273,9 +15273,9 @@
                     "source_mapping": {
                       "start": 232,
                       "length": 9434,
-                      "filename_relative": "get_source/dataset/abcd.sol",
+                      "filename_relative": "abcd.sol",
                       "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                      "filename_short": "get_source/dataset/abcd.sol",
+                      "filename_short": "abcd.sol",
                       "is_dependency": false,
                       "lines": [
                         19,
@@ -15760,10 +15760,10 @@
             }
           }
         ],
-        "description": "Low level call in Address.sendValue(address,uint256) (get_source/dataset/abcd.sol#121-131):\n\t- (success) = recipient.call{value: amount}() (get_source/dataset/abcd.sol#127)\n",
-        "markdown": "Low level call in [Address.sendValue(address,uint256)](get_source/dataset/abcd.sol#L121-L131):\n\t- [(success) = recipient.call{value: amount}()](get_source/dataset/abcd.sol#L127)\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L121-L131",
-        "id": "4b394d492e0e7e2bb57872d6950313ad68cf4dae4d76dce63154932a8002d1de",
+        "description": "Low level call in Address.sendValue(address,uint256) (abcd.sol#121-131):\n\t- (success) = recipient.call{value: amount}() (abcd.sol#127)\n",
+        "markdown": "Low level call in [Address.sendValue(address,uint256)](abcd.sol#L121-L131):\n\t- [(success) = recipient.call{value: amount}()](abcd.sol#L127)\n",
+        "first_markdown_element": "abcd.sol#L121-L131",
+        "id": "583e86528e9dfc29df25e9064b06a075dfe6de7616fb6de8b19780d88a6c4c72",
         "check": "low-level-calls",
         "impact": "Informational",
         "confidence": "High"
@@ -15776,9 +15776,9 @@
             "source_mapping": {
               "start": 5236,
               "length": 464,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 257,
@@ -15811,9 +15811,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -16301,9 +16301,9 @@
             "source_mapping": {
               "start": 5530,
               "length": 73,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 271
@@ -16318,9 +16318,9 @@
                 "source_mapping": {
                   "start": 5236,
                   "length": 464,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     257,
@@ -16353,9 +16353,9 @@
                     "source_mapping": {
                       "start": 232,
                       "length": 9434,
-                      "filename_relative": "get_source/dataset/abcd.sol",
+                      "filename_relative": "abcd.sol",
                       "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                      "filename_short": "get_source/dataset/abcd.sol",
+                      "filename_short": "abcd.sol",
                       "is_dependency": false,
                       "lines": [
                         19,
@@ -16840,10 +16840,10 @@
             }
           }
         ],
-        "description": "Low level call in Address.functionCallWithValue(address,bytes,uint256,string) (get_source/dataset/abcd.sol#257-275):\n\t- (success,returndata) = target.call{value: value}(data) (get_source/dataset/abcd.sol#271)\n",
-        "markdown": "Low level call in [Address.functionCallWithValue(address,bytes,uint256,string)](get_source/dataset/abcd.sol#L257-L275):\n\t- [(success,returndata) = target.call{value: value}(data)](get_source/dataset/abcd.sol#L271)\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L257-L275",
-        "id": "9d5210443b1b37180903ee6b449189dde71c1d6d2dbcb9fbc438c2f744118a75",
+        "description": "Low level call in Address.functionCallWithValue(address,bytes,uint256,string) (abcd.sol#257-275):\n\t- (success,returndata) = target.call{value: value}(data) (abcd.sol#271)\n",
+        "markdown": "Low level call in [Address.functionCallWithValue(address,bytes,uint256,string)](abcd.sol#L257-L275):\n\t- [(success,returndata) = target.call{value: value}(data)](abcd.sol#L271)\n",
+        "first_markdown_element": "abcd.sol#L257-L275",
+        "id": "6f0c389d01ee2c35d4b4cc07eaa605d5385b80bed647fef0bde4b8dd61c06c5d",
         "check": "low-level-calls",
         "impact": "Informational",
         "confidence": "High"
@@ -16856,9 +16856,9 @@
             "source_mapping": {
               "start": 6294,
               "length": 340,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 311,
@@ -16887,9 +16887,9 @@
                 "source_mapping": {
                   "start": 232,
                   "length": 9434,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     19,
@@ -17377,9 +17377,9 @@
             "source_mapping": {
               "start": 6472,
               "length": 65,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 321
@@ -17394,9 +17394,9 @@
                 "source_mapping": {
                   "start": 6294,
                   "length": 340,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     311,
@@ -17425,9 +17425,9 @@
                     "source_mapping": {
                       "start": 232,
                       "length": 9434,
-                      "filename_relative": "get_source/dataset/abcd.sol",
+                      "filename_relative": "abcd.sol",
                       "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                      "filename_short": "get_source/dataset/abcd.sol",
+                      "filename_short": "abcd.sol",
                       "is_dependency": false,
                       "lines": [
                         19,
@@ -17912,10 +17912,10 @@
             }
           }
         ],
-        "description": "Low level call in Address.functionStaticCall(address,bytes,string) (get_source/dataset/abcd.sol#311-325):\n\t- (success,returndata) = target.staticcall(data) (get_source/dataset/abcd.sol#321)\n",
-        "markdown": "Low level call in [Address.functionStaticCall(address,bytes,string)](get_source/dataset/abcd.sol#L311-L325):\n\t- [(success,returndata) = target.staticcall(data)](get_source/dataset/abcd.sol#L321)\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L311-L325",
-        "id": "cac111fa6f4364f2f33e496cbbf10346d46291e2dac2fdddf1153eefba3fb847",
+        "description": "Low level call in Address.functionStaticCall(address,bytes,string) (abcd.sol#311-325):\n\t- (success,returndata) = target.staticcall(data) (abcd.sol#321)\n",
+        "markdown": "Low level call in [Address.functionStaticCall(address,bytes,string)](abcd.sol#L311-L325):\n\t- [(success,returndata) = target.staticcall(data)](abcd.sol#L321)\n",
+        "first_markdown_element": "abcd.sol#L311-L325",
+        "id": "d16532ab6c0a21ac85e7754e906d21ae2151b089043149e91e509a7d5c3cb659",
         "check": "low-level-calls",
         "impact": "Informational",
         "confidence": "High"
@@ -17928,9 +17928,9 @@
             "source_mapping": {
               "start": 18685,
               "length": 3767,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 1067,
@@ -18139,9 +18139,9 @@
             }
           }
         ],
-        "description": "Contract abcd (get_source/dataset/abcd.sol#1067-1262) is not in CapWords\n",
-        "markdown": "Contract [abcd](get_source/dataset/abcd.sol#L1067-L1262) is not in CapWords\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L1067-L1262",
+        "description": "Contract abcd (abcd.sol#1067-1262) is not in CapWords\n",
+        "markdown": "Contract [abcd](abcd.sol#L1067-L1262) is not in CapWords\n",
+        "first_markdown_element": "abcd.sol#L1067-L1262",
         "id": "d52f6a894496775b61421b3b75f3e446a3c297368b6c67e4035cda8ebaab4d38",
         "check": "naming-convention",
         "impact": "Informational",
@@ -18155,9 +18155,9 @@
             "source_mapping": {
               "start": 19088,
               "length": 262,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 1091,
@@ -18186,9 +18186,9 @@
                 "source_mapping": {
                   "start": 18685,
                   "length": 3767,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     1067,
@@ -18401,9 +18401,9 @@
             "source_mapping": {
               "start": 19218,
               "length": 36,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 1099
@@ -18418,9 +18418,9 @@
                 "source_mapping": {
                   "start": 19088,
                   "length": 262,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     1091,
@@ -18449,9 +18449,9 @@
                     "source_mapping": {
                       "start": 18685,
                       "length": 3767,
-                      "filename_relative": "get_source/dataset/abcd.sol",
+                      "filename_relative": "abcd.sol",
                       "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                      "filename_short": "get_source/dataset/abcd.sol",
+                      "filename_short": "abcd.sol",
                       "is_dependency": false,
                       "lines": [
                         1067,
@@ -18661,10 +18661,10 @@
             }
           }
         ],
-        "description": "abcd.constructor() (get_source/dataset/abcd.sol#1091-1105) uses literals with too many digits:\n\t- initialSupply = 274000000000 (get_source/dataset/abcd.sol#1099)\n",
-        "markdown": "[abcd.constructor()](get_source/dataset/abcd.sol#L1091-L1105) uses literals with too many digits:\n\t- [initialSupply = 274000000000](get_source/dataset/abcd.sol#L1099)\n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L1091-L1105",
-        "id": "b8c9a7e74e1d0b78fa2858740620884677b88dcf555f028a09767110925b5d29",
+        "description": "abcd.constructor() (abcd.sol#1091-1105) uses literals with too many digits:\n\t- initialSupply = 274000000000 (abcd.sol#1099)\n",
+        "markdown": "[abcd.constructor()](abcd.sol#L1091-L1105) uses literals with too many digits:\n\t- [initialSupply = 274000000000](abcd.sol#L1099)\n",
+        "first_markdown_element": "abcd.sol#L1091-L1105",
+        "id": "dd83ae5efeca3382b0d7b56fb97ab53e648aa0e4b5f982310f272a5994123968",
         "check": "too-many-digits",
         "impact": "Informational",
         "confidence": "Medium"
@@ -18677,9 +18677,9 @@
             "source_mapping": {
               "start": 19056,
               "length": 24,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 1089
@@ -18694,9 +18694,9 @@
                 "source_mapping": {
                   "start": 18685,
                   "length": 3767,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     1067,
@@ -18903,9 +18903,9 @@
             }
           }
         ],
-        "description": "abcd.craftsman (get_source/dataset/abcd.sol#1089) should be immutable \n",
-        "markdown": "[abcd.craftsman](get_source/dataset/abcd.sol#L1089) should be immutable \n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L1089",
+        "description": "abcd.craftsman (abcd.sol#1089) should be immutable \n",
+        "markdown": "[abcd.craftsman](abcd.sol#L1089) should be immutable \n",
+        "first_markdown_element": "abcd.sol#L1089",
         "id": "79d91e5d9021e80764aaf57e3c6012573fdcac779bbfe1b7fddbd4efeb837648",
         "check": "immutable-states",
         "impact": "Optimization",
@@ -18919,9 +18919,9 @@
             "source_mapping": {
               "start": 18928,
               "length": 20,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 1079
@@ -18936,9 +18936,9 @@
                 "source_mapping": {
                   "start": 18685,
                   "length": 3767,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     1067,
@@ -19145,9 +19145,9 @@
             }
           }
         ],
-        "description": "abcd._name (get_source/dataset/abcd.sol#1079) should be immutable \n",
-        "markdown": "[abcd._name](get_source/dataset/abcd.sol#L1079) should be immutable \n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L1079",
+        "description": "abcd._name (abcd.sol#1079) should be immutable \n",
+        "markdown": "[abcd._name](abcd.sol#L1079) should be immutable \n",
+        "first_markdown_element": "abcd.sol#L1079",
         "id": "cbe9a282ab01f1b1257ea85a490d73dab14452e7a4d3baf16754f916b97be6f3",
         "check": "immutable-states",
         "impact": "Optimization",
@@ -19161,9 +19161,9 @@
             "source_mapping": {
               "start": 18986,
               "length": 23,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 1083
@@ -19178,9 +19178,9 @@
                 "source_mapping": {
                   "start": 18685,
                   "length": 3767,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     1067,
@@ -19387,9 +19387,9 @@
             }
           }
         ],
-        "description": "abcd._decimals (get_source/dataset/abcd.sol#1083) should be immutable \n",
-        "markdown": "[abcd._decimals](get_source/dataset/abcd.sol#L1083) should be immutable \n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L1083",
+        "description": "abcd._decimals (abcd.sol#1083) should be immutable \n",
+        "markdown": "[abcd._decimals](abcd.sol#L1083) should be immutable \n",
+        "first_markdown_element": "abcd.sol#L1083",
         "id": "cd2b200d042ac3fa33bdf3fd6bf636ab6a75942eb3d02a8447dbabb3764f6d62",
         "check": "immutable-states",
         "impact": "Optimization",
@@ -19403,9 +19403,9 @@
             "source_mapping": {
               "start": 18956,
               "length": 22,
-              "filename_relative": "get_source/dataset/abcd.sol",
+              "filename_relative": "abcd.sol",
               "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-              "filename_short": "get_source/dataset/abcd.sol",
+              "filename_short": "abcd.sol",
               "is_dependency": false,
               "lines": [
                 1081
@@ -19420,9 +19420,9 @@
                 "source_mapping": {
                   "start": 18685,
                   "length": 3767,
-                  "filename_relative": "get_source/dataset/abcd.sol",
+                  "filename_relative": "abcd.sol",
                   "filename_absolute": "C:\\Users\\20520\\Blockchain-Smart-Contract-Security\\get_source\\dataset\\abcd.sol",
-                  "filename_short": "get_source/dataset/abcd.sol",
+                  "filename_short": "abcd.sol",
                   "is_dependency": false,
                   "lines": [
                     1067,
@@ -19629,9 +19629,9 @@
             }
           }
         ],
-        "description": "abcd._symbol (get_source/dataset/abcd.sol#1081) should be immutable \n",
-        "markdown": "[abcd._symbol](get_source/dataset/abcd.sol#L1081) should be immutable \n",
-        "first_markdown_element": "get_source/dataset/abcd.sol#L1081",
+        "description": "abcd._symbol (abcd.sol#1081) should be immutable \n",
+        "markdown": "[abcd._symbol](abcd.sol#L1081) should be immutable \n",
+        "first_markdown_element": "abcd.sol#L1081",
         "id": "d2fec1fbdd3513510a199d03e7e6747a5a216aa2fe17c3cd409b91977c0f0a4e",
         "check": "immutable-states",
         "impact": "Optimization",
