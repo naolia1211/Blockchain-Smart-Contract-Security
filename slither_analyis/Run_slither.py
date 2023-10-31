@@ -4,8 +4,8 @@ import subprocess
 from packaging import version
 
 def run_slither():
-    source_directory = "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\get_source\\dataset"
-    output_directory = "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\slither_analyis\\extract_feature"
+    source_directory = r'C:\Users\20520\Blockchain-Smart-Contract-Security\get_source\dataset'
+    output_directory = r'C:\Users\20520\Blockchain-Smart-Contract-Security\slither_analyis\extract_feature'
     for filename in os.listdir(source_directory):
         if filename.endswith(".sol"):
             file_path = os.path.join(source_directory, filename)
@@ -31,19 +31,18 @@ def run_slither():
             # Sử dụng solc-select để chọn phiên bản Solidity phù hợp
             subprocess.run(['solc-select', 'use', max_version])
             
-            print(f"Running slither on {filename} with Solidity version {max_version}")
             json_file = os.path.join(output_directory, f"{os.path.splitext(filename)[0]}.json")
+            
+            # Kiểm tra xem tệp JSON đã tồn tại hay chưa
+            if os.path.exists(json_file):
+                print(f"JSON file for {filename} already exists. Skipping...")
+                continue
+            
+            print(f"Running slither on {filename} with Solidity version {max_version}")
             subprocess.run(["slither", file_path, "--json", json_file])
             
             # Đọc tệp JSON đầu ra của Slither
             with open(json_file, 'r') as f:
                 data = json.load(f)
             
-            # Lọc chỉ những lỗi có mức độ nghiêm trọng là 'High' hoặc 'Medium'
-            high_and_medium_errors = [result for result in data['results'] if result['severity'] in ['High', 'Medium']]
-            
-            # Lưu những lỗi có mức độ nghiêm trọng là 'High' hoặc 'Medium' vào một tệp JSON mới
-            with open(os.path.join(output_directory, f"{os.path.splitext(filename)[0]}_high_medium.json"), 'w') as f:
-                json.dump(high_and_medium_errors, f)
-
 run_slither()
