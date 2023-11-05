@@ -4,8 +4,8 @@ import subprocess
 from packaging import version
 
 def run_slither():
-    source_directory = r'C:\Users\20520\Blockchain-Smart-Contract-Security\get_source\dataset'
-    output_directory = r'C:\Users\20520\Blockchain-Smart-Contract-Security\slither_analyis\extract_feature'
+    source_directory = r'C:\Users\Admin\Downloads\Blockchain-Smart-Contract-Security\get_source\dataset'
+    output_directory = r'C:\Users\Admin\Documents\GitHub\Blockchain-Smart-Contract-Security\slither_analyis\extract_feature'
     for filename in os.listdir(source_directory):
         if filename.endswith(".sol"):
             file_path = os.path.join(source_directory, filename)
