@@ -3,12 +3,21 @@ import requests
 import os
 
 # Đường dẫn tới file CSV
+<<<<<<< HEAD
 csv_file = r'C:\Users\Admin\Downloads\Blockchain-Smart-Contract-Security\get_source\export-verified-contractaddress-opensource-license.csv'
 #csv_file = r'C:\Users\Admin\OneDrive\Documents\GitHub\Blockchain-Smart-Contract-Security\get_source\export-verified-contractaddress-opensource-license.csv'
 
 # Đường dẫn tới thư mục chứa các file .sol
 source_dir = r'C:\Users\Admin\Downloads\Blockchain-Smart-Contract-Security\get_source\dataset'
 #source_dir = r'C:\Users\Admin\OneDrive\Documents\GitHub\Blockchain-Smart-Contract-Security\get_source\dataset'
+=======
+#csv_file = r'C:\Users\20520\Blockchain-Smart-Contract-Security\get_source\export-verified-contractaddress-opensource-license.csv'
+csv_file = r'C:\Users\Admin\OneDrive\Documents\GitHub\Blockchain-Smart-Contract-Security\get_source\export-verified-contractaddress-opensource-license.csv'
+
+# Đường dẫn tới thư mục chứa các file .sol
+#source_dir = r'C:\Users\20520\Blockchain-Smart-Contract-Security\get_source\dataset'
+source_dir = r'C:\Users\Admin\OneDrive\Documents\GitHub\Blockchain-Smart-Contract-Security\get_source\dataset'
+>>>>>>> 671267b3af256008f51f9c715632d4493adda470
 count = 0
 # Đọc file CSV và lấy danh sách các hợp đồng
 with open(csv_file, 'r') as f:
