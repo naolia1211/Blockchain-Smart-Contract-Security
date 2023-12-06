@@ -1,0 +1,53 @@
+digraph{
+0[label="Node Type: OTHER_ENTRYPOINT 0
+
+EXPRESSION:
+name = Trams LP Token
+
+IRs:
+name(string) := Trams LP Token(string)"];
+0->1;
+1[label="Node Type: OTHER_ENTRYPOINT 1
+
+EXPRESSION:
+symbol = TLP
+
+IRs:
+symbol(string) := TLP(string)"];
+1->2;
+2[label="Node Type: OTHER_ENTRYPOINT 2
+
+EXPRESSION:
+decimals = 18
+
+IRs:
+decimals(uint8) := 18(uint256)"];
+2->3;
+3[label="Node Type: OTHER_ENTRYPOINT 3
+
+EXPRESSION:
+PERMIT_TYPEHASH = 0x6e71edae12b1b97f4d1f60370fef10105fa2faae0126114a169c64845d6126c9
+
+IRs:
+PERMIT_TYPEHASH(bytes32) := 49955707469362902507454157297736832118868343942642399513960811609542965143241(uint256)"];
+3->4;
+4[label="Node Type: OTHER_ENTRYPOINT 4
+
+EXPRESSION:
+MINIMUM_LIQUIDITY = 10 ** 3
+
+IRs:
+TMP_309(uint256) = 10 ** 3
+MINIMUM_LIQUIDITY(uint256) := TMP_309(uint256)"];
+4->5;
+5[label="Node Type: OTHER_ENTRYPOINT 5
+
+EXPRESSION:
+SELECTOR = bytes4(keccak256(bytes)(bytes(transfer(address,uint256))))
+
+IRs:
+TMP_310 = CONVERT transfer(address,uint256) to bytes
+TMP_311(bytes32) = SOLIDITY_CALL keccak256(bytes)(TMP_310)
+TMP_312 = CONVERT TMP_311 to bytes4
+SELECTOR(bytes4) := TMP_312(bytes4)"];
+}

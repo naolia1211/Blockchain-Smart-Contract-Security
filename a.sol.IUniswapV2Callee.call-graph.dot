@@ -1,0 +1,8 @@
+strict digraph {
+subgraph cluster_747_IUniswapV2Callee {
+label = "IUniswapV2Callee"
+"747_uniswapV2Call" [label="uniswapV2Call"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

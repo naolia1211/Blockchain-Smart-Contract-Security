@@ -1,0 +1,34 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+balanceOf[from] = balanceOf[from].sub(value)
+
+IRs:
+REF_38(uint256) -> balanceOf[from]
+REF_39(uint256) -> balanceOf[from]
+TMP_86(uint256) = LIBRARY_CALL, dest:SafeMathUniswap, function:SafeMathUniswap.sub(uint256,uint256), arguments:['REF_39', 'value'] 
+REF_38(uint256) (->balanceOf) := TMP_86(uint256)"];
+1->2;
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+balanceOf[to] = balanceOf[to].add(value)
+
+IRs:
+REF_41(uint256) -> balanceOf[to]
+REF_42(uint256) -> balanceOf[to]
+TMP_87(uint256) = LIBRARY_CALL, dest:SafeMathUniswap, function:SafeMathUniswap.add(uint256,uint256), arguments:['REF_42', 'value'] 
+REF_41(uint256) (->balanceOf) := TMP_87(uint256)"];
+2->3;
+3[label="Node Type: EXPRESSION 3
+
+EXPRESSION:
+Transfer(from,to,value)
+
+IRs:
+Emit Transfer(from,to,value)"];
+}

@@ -1,0 +1,8 @@
+strict digraph {
+subgraph cluster_754_IMigrator {
+label = "IMigrator"
+"754_desiredLiquidity" [label="desiredLiquidity"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

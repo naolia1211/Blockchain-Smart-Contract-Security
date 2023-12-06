@@ -1,0 +1,114 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+require(bool,string)(balance0 <= uint112(- 1) && balance1 <= uint112(- 1),UniswapV2: OVERFLOW)
+
+IRs:
+TMP_118(uint256) = 0 - 1
+TMP_119 = CONVERT TMP_118 to uint112
+TMP_120(bool) = balance0 <= TMP_119
+TMP_121(uint256) = 0 - 1
+TMP_122 = CONVERT TMP_121 to uint112
+TMP_123(bool) = balance1 <= TMP_122
+TMP_124(bool) = TMP_120 && TMP_123
+TMP_125(None) = SOLIDITY_CALL require(bool,string)(TMP_124,UniswapV2: OVERFLOW)"];
+1->2;
+2[label="Node Type: NEW VARIABLE 2
+
+EXPRESSION:
+blockTimestamp = uint32(block.timestamp % 2 ** 32)
+
+IRs:
+TMP_126(uint256) = 2 ** 32
+TMP_127(uint256) = block.timestamp % TMP_126
+TMP_128 = CONVERT TMP_127 to uint32
+blockTimestamp(uint32) := TMP_128(uint32)"];
+2->3;
+3[label="Node Type: NEW VARIABLE 3
+
+EXPRESSION:
+timeElapsed = blockTimestamp - blockTimestampLast
+
+IRs:
+TMP_129(uint32) = blockTimestamp - blockTimestampLast
+timeElapsed(uint32) := TMP_129(uint32)"];
+3->4;
+4[label="Node Type: IF 4
+
+EXPRESSION:
+timeElapsed > 0 && _reserve0 != 0 && _reserve1 != 0
+
+IRs:
+TMP_130(bool) = timeElapsed > 0
+TMP_131(bool) = _reserve0 != 0
+TMP_132(bool) = TMP_130 && TMP_131
+TMP_133(bool) = _reserve1 != 0
+TMP_134(bool) = TMP_132 && TMP_133
+CONDITION TMP_134"];
+4->5[label="True"];
+4->7[label="False"];
+5[label="Node Type: EXPRESSION 5
+
+EXPRESSION:
+price0CumulativeLast += uint256(UQ112x112.encode(_reserve1).uqdiv(_reserve0)) * timeElapsed
+
+IRs:
+TMP_135(uint224) = LIBRARY_CALL, dest:UQ112x112, function:UQ112x112.encode(uint112), arguments:['_reserve1'] 
+TMP_136(uint224) = LIBRARY_CALL, dest:UQ112x112, function:UQ112x112.uqdiv(uint224,uint112), arguments:['TMP_135', '_reserve0'] 
+TMP_137 = CONVERT TMP_136 to uint256
+TMP_138(uint256) = TMP_137 * timeElapsed
+price0CumulativeLast(uint256) = price0CumulativeLast + TMP_138"];
+5->6;
+6[label="Node Type: EXPRESSION 6
+
+EXPRESSION:
+price1CumulativeLast += uint256(UQ112x112.encode(_reserve0).uqdiv(_reserve1)) * timeElapsed
+
+IRs:
+TMP_139(uint224) = LIBRARY_CALL, dest:UQ112x112, function:UQ112x112.encode(uint112), arguments:['_reserve0'] 
+TMP_140(uint224) = LIBRARY_CALL, dest:UQ112x112, function:UQ112x112.uqdiv(uint224,uint112), arguments:['TMP_139', '_reserve1'] 
+TMP_141 = CONVERT TMP_140 to uint256
+TMP_142(uint256) = TMP_141 * timeElapsed
+price1CumulativeLast(uint256) = price1CumulativeLast + TMP_142"];
+6->7;
+7[label="Node Type: END_IF 7
+"];
+7->8;
+8[label="Node Type: EXPRESSION 8
+
+EXPRESSION:
+reserve0 = uint112(balance0)
+
+IRs:
+TMP_143 = CONVERT balance0 to uint112
+reserve0(uint112) := TMP_143(uint112)"];
+8->9;
+9[label="Node Type: EXPRESSION 9
+
+EXPRESSION:
+reserve1 = uint112(balance1)
+
+IRs:
+TMP_144 = CONVERT balance1 to uint112
+reserve1(uint112) := TMP_144(uint112)"];
+9->10;
+10[label="Node Type: EXPRESSION 10
+
+EXPRESSION:
+blockTimestampLast = blockTimestamp
+
+IRs:
+blockTimestampLast(uint32) := blockTimestamp(uint32)"];
+10->11;
+11[label="Node Type: EXPRESSION 11
+
+EXPRESSION:
+Sync(reserve0,reserve1)
+
+IRs:
+Emit Sync(reserve0,reserve1)"];
+}

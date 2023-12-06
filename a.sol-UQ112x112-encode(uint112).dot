@@ -1,0 +1,14 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+z = uint224(y) * Q112
+
+IRs:
+TMP_63 = CONVERT y to uint224
+TMP_64(uint224) = TMP_63 * Q112
+z(uint224) := TMP_64(uint224)"];
+}

@@ -1,0 +1,9 @@
+digraph{
+0[label="Node Type: OTHER_ENTRYPOINT 0
+
+EXPRESSION:
+unlocked = 1
+
+IRs:
+unlocked(uint256) := 1(uint256)"];
+}

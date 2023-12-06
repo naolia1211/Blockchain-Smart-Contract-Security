@@ -1,0 +1,22 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+allowance[owner][spender] = value
+
+IRs:
+REF_36(mapping(address => uint256)) -> allowance[owner]
+REF_37(uint256) -> REF_36[spender]
+REF_37(uint256) (->allowance) := value(uint256)"];
+1->2;
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+Approval(owner,spender,value)
+
+IRs:
+Emit Approval(owner,spender,value)"];
+}

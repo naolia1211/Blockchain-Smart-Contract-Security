@@ -1,0 +1,80 @@
+strict digraph {
+subgraph cluster_533_UniswapV2ERC20 {
+label = "UniswapV2ERC20"
+"533__approve" [label="_approve"]
+"533_permit" [label="permit"]
+"533__burn" [label="_burn"]
+"533_approve" [label="approve"]
+"533_transfer" [label="transfer"]
+"533__transfer" [label="_transfer"]
+"533__mint" [label="_mint"]
+"533_transferFrom" [label="transferFrom"]
+"533_constructor" [label="constructor"]
+"533_approve" -> "533__approve"
+"533_transfer" -> "533__transfer"
+"533_permit" -> "533__approve"
+"533_transferFrom" -> "533__transfer"
+}subgraph cluster_1862_UniswapV2Pair {
+label = "UniswapV2Pair"
+"1862_burn" [label="burn"]
+"1862_mint" [label="mint"]
+"1862_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
+"1862_sync" [label="sync"]
+"1862__update" [label="_update"]
+"1862_getReserves" [label="getReserves"]
+"1862_constructor" [label="constructor"]
+"1862_initialize" [label="initialize"]
+"1862_skim" [label="skim"]
+"1862__safeTransfer" [label="_safeTransfer"]
+"1862_swap" [label="swap"]
+"1862_slitherConstructorVariables" [label="slitherConstructorVariables"]
+"1862__mintFee" [label="_mintFee"]
+"1862_burn" -> "1862_getReserves"
+"1862_burn" -> "1862__mintFee"
+"1862_burn" -> "1862__burn"
+"1862_mint" -> "1862__mintFee"
+"1862_burn" -> "1862__safeTransfer"
+"1862_burn" -> "1862_lock"
+"1862_skim" -> "1862__safeTransfer"
+"1862_sync" -> "1862__update"
+"1862_burn" -> "1862__update"
+"1862_swap" -> "1862_lock"
+"1862_skim" -> "1862_lock"
+"1862_mint" -> "1862_getReserves"
+"1862_swap" -> "1862_getReserves"
+"1862__mintFee" -> "1862__mint"
+"1862_mint" -> "1862_lock"
+"1862_sync" -> "1862_lock"
+"1862_swap" -> "1862__update"
+"1862_mint" -> "1862__update"
+"1862_swap" -> "1862__safeTransfer"
+"1862_mint" -> "1862__mint"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"keccak256(bytes)" 
+"abi.encode()" 
+"abi.decode()" 
+"require(bool,string)" 
+"chainid()" 
+"ecrecover(bytes32,uint8,bytes32,bytes32)" 
+"abi.encodeWithSelector()" 
+"abi.encodePacked()" 
+"533_constructor" -> "abi.encode()"
+"533_permit" -> "ecrecover(bytes32,uint8,bytes32,bytes32)"
+"1862_mint" -> "require(bool,string)"
+"1862_slitherConstructorConstantVariables" -> "keccak256(bytes)"
+"533_permit" -> "require(bool,string)"
+"533_constructor" -> "chainid()"
+"1862__safeTransfer" -> "abi.decode()"
+"533_permit" -> "abi.encodePacked()"
+"1862__safeTransfer" -> "abi.encodeWithSelector()"
+"533_constructor" -> "keccak256(bytes)"
+"1862_swap" -> "require(bool,string)"
+"1862__safeTransfer" -> "require(bool,string)"
+"1862_initialize" -> "require(bool,string)"
+"533_permit" -> "abi.encode()"
+"1862_burn" -> "require(bool,string)"
+"1862__update" -> "require(bool,string)"
+"533_permit" -> "keccak256(bytes)"
+}
+}

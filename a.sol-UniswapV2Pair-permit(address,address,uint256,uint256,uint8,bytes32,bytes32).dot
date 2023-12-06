@@ -1,0 +1,57 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+require(bool,string)(deadline >= block.timestamp,UniswapV2: EXPIRED)
+
+IRs:
+TMP_96(bool) = deadline >= block.timestamp
+TMP_97(None) = SOLIDITY_CALL require(bool,string)(TMP_96,UniswapV2: EXPIRED)"];
+1->2;
+2[label="Node Type: NEW VARIABLE 2
+
+EXPRESSION:
+digest = keccak256(bytes)(abi.encodePacked(,DOMAIN_SEPARATOR,keccak256(bytes)(abi.encode(PERMIT_TYPEHASH,owner,spender,value,nonces[owner] ++,deadline))))
+
+IRs:
+REF_53(uint256) -> nonces[owner]
+TMP_98(uint256) := REF_53(uint256)
+REF_53(-> nonces) = REF_53 + 1
+TMP_99(bytes) = SOLIDITY_CALL abi.encode()(PERMIT_TYPEHASH,owner,spender,value,TMP_98,deadline)
+TMP_100(bytes32) = SOLIDITY_CALL keccak256(bytes)(TMP_99)
+TMP_101(bytes) = SOLIDITY_CALL abi.encodePacked()(,DOMAIN_SEPARATOR,TMP_100)
+TMP_102(bytes32) = SOLIDITY_CALL keccak256(bytes)(TMP_101)
+digest(bytes32) := TMP_102(bytes32)"];
+2->3;
+3[label="Node Type: NEW VARIABLE 3
+
+EXPRESSION:
+recoveredAddress = ecrecover(bytes32,uint8,bytes32,bytes32)(digest,v,r,s)
+
+IRs:
+TMP_103(address) = SOLIDITY_CALL ecrecover(bytes32,uint8,bytes32,bytes32)(digest,v,r,s)
+recoveredAddress(address) := TMP_103(address)"];
+3->4;
+4[label="Node Type: EXPRESSION 4
+
+EXPRESSION:
+require(bool,string)(recoveredAddress != address(0) && recoveredAddress == owner,UniswapV2: INVALID_SIGNATURE)
+
+IRs:
+TMP_104 = CONVERT 0 to address
+TMP_105(bool) = recoveredAddress != TMP_104
+TMP_106(bool) = recoveredAddress == owner
+TMP_107(bool) = TMP_105 && TMP_106
+TMP_108(None) = SOLIDITY_CALL require(bool,string)(TMP_107,UniswapV2: INVALID_SIGNATURE)"];
+4->5;
+5[label="Node Type: EXPRESSION 5
+
+EXPRESSION:
+_approve(owner,spender,value)
+
+IRs:
+INTERNAL_CALL, UniswapV2ERC20._approve(address,address,uint256)(owner,spender,value)"];
+}

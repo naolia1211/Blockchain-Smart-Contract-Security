@@ -1,0 +1,26 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->2;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+_update(IERC20Uniswap(token0).balanceOf(address(this)),IERC20Uniswap(token1).balanceOf(address(this)),reserve0,reserve1)
+
+IRs:
+TMP_301 = CONVERT token0 to IERC20Uniswap
+TMP_302 = CONVERT this to address
+TMP_303(uint256) = HIGH_LEVEL_CALL, dest:TMP_301(IERC20Uniswap), function:balanceOf, arguments:['TMP_302']  
+TMP_304 = CONVERT token1 to IERC20Uniswap
+TMP_305 = CONVERT this to address
+TMP_306(uint256) = HIGH_LEVEL_CALL, dest:TMP_304(IERC20Uniswap), function:balanceOf, arguments:['TMP_305']  
+INTERNAL_CALL, UniswapV2Pair._update(uint256,uint256,uint112,uint112)(TMP_303,TMP_306,reserve0,reserve1)"];
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+lock()
+
+IRs:
+MODIFIER_CALL, UniswapV2Pair.lock()()"];
+2->1;
+}

@@ -1,0 +1,38 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: NEW VARIABLE 1
+"];
+1->2;
+2[label="Node Type: INLINE ASM 2
+"];
+2->3;
+3[label="Node Type: EXPRESSION 3
+
+EXPRESSION:
+chainId = chainid()()
+
+IRs:
+TMP_12(uint256) = SOLIDITY_CALL chainid()()
+chainId(uint256) := TMP_12(uint256)"];
+3->4;
+4[label="Node Type: END INLINE ASM 4
+"];
+4->5;
+5[label="Node Type: EXPRESSION 5
+
+EXPRESSION:
+DOMAIN_SEPARATOR = keccak256(bytes)(abi.encode(keccak256(bytes)(EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)),keccak256(bytes)(bytes(name)),keccak256(bytes)(bytes(1)),chainId,address(this)))
+
+IRs:
+TMP_13(bytes32) = SOLIDITY_CALL keccak256(bytes)(EIP712Domain(string name,string version,uint256 chainId,address verifyingContract))
+TMP_14 = CONVERT name to bytes
+TMP_15(bytes32) = SOLIDITY_CALL keccak256(bytes)(TMP_14)
+TMP_16 = CONVERT 1 to bytes
+TMP_17(bytes32) = SOLIDITY_CALL keccak256(bytes)(TMP_16)
+TMP_18 = CONVERT this to address
+TMP_19(bytes) = SOLIDITY_CALL abi.encode()(TMP_13,TMP_15,TMP_17,chainId,TMP_18)
+TMP_20(bytes32) = SOLIDITY_CALL keccak256(bytes)(TMP_19)
+DOMAIN_SEPARATOR(bytes32) := TMP_20(bytes32)"];
+}

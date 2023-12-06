@@ -1,0 +1,20 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+_approve(msg.sender,spender,value)
+
+IRs:
+INTERNAL_CALL, UniswapV2ERC20._approve(address,address,uint256)(msg.sender,spender,value)"];
+1->2;
+2[label="Node Type: RETURN 2
+
+EXPRESSION:
+true
+
+IRs:
+RETURN True"];
+}

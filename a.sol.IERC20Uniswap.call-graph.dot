@@ -1,0 +1,16 @@
+strict digraph {
+subgraph cluster_734_IERC20Uniswap {
+label = "IERC20Uniswap"
+"734_symbol" [label="symbol"]
+"734_transferFrom" [label="transferFrom"]
+"734_approve" [label="approve"]
+"734_decimals" [label="decimals"]
+"734_balanceOf" [label="balanceOf"]
+"734_name" [label="name"]
+"734_totalSupply" [label="totalSupply"]
+"734_allowance" [label="allowance"]
+"734_transfer" [label="transfer"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+}
+}

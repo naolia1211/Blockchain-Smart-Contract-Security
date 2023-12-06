@@ -1,0 +1,50 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: IF 1
+
+EXPRESSION:
+allowance[from][msg.sender] != uint256(- 1)
+
+IRs:
+REF_17(mapping(address => uint256)) -> allowance[from]
+REF_18(uint256) -> REF_17[msg.sender]
+TMP_35(uint256) = 0 - 1
+TMP_36 = CONVERT TMP_35 to uint256
+TMP_37(bool) = REF_18 != TMP_36
+CONDITION TMP_37"];
+1->2[label="True"];
+1->3[label="False"];
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+allowance[from][msg.sender] = allowance[from][msg.sender].sub(value)
+
+IRs:
+REF_19(mapping(address => uint256)) -> allowance[from]
+REF_20(uint256) -> REF_19[msg.sender]
+REF_21(mapping(address => uint256)) -> allowance[from]
+REF_22(uint256) -> REF_21[msg.sender]
+TMP_38(uint256) = LIBRARY_CALL, dest:SafeMathUniswap, function:SafeMathUniswap.sub(uint256,uint256), arguments:['REF_22', 'value'] 
+REF_20(uint256) (->allowance) := TMP_38(uint256)"];
+2->3;
+3[label="Node Type: END_IF 3
+"];
+3->4;
+4[label="Node Type: EXPRESSION 4
+
+EXPRESSION:
+_transfer(from,to,value)
+
+IRs:
+INTERNAL_CALL, UniswapV2ERC20._transfer(address,address,uint256)(from,to,value)"];
+4->5;
+5[label="Node Type: RETURN 5
+
+EXPRESSION:
+true
+
+IRs:
+RETURN True"];
+}
