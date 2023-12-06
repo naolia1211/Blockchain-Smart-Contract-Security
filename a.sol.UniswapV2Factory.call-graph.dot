@@ -1,43 +1,43 @@
 strict digraph {
 subgraph cluster_72_IUniswapV2Factory {
 label = "IUniswapV2Factory"
-"72_getPair" [label="getPair"]
-"72_feeToSetter" [label="feeToSetter"]
-"72_allPairs" [label="allPairs"]
 "72_feeTo" [label="feeTo"]
-"72_allPairsLength" [label="allPairsLength"]
-"72_setFeeTo" [label="setFeeTo"]
-"72_createPair" [label="createPair"]
-"72_setFeeToSetter" [label="setFeeToSetter"]
 "72_setMigrator" [label="setMigrator"]
 "72_migrator" [label="migrator"]
+"72_allPairs" [label="allPairs"]
+"72_getPair" [label="getPair"]
+"72_setFeeTo" [label="setFeeTo"]
+"72_createPair" [label="createPair"]
+"72_feeToSetter" [label="feeToSetter"]
+"72_setFeeToSetter" [label="setFeeToSetter"]
+"72_allPairsLength" [label="allPairsLength"]
 }subgraph cluster_2099_UniswapV2Factory {
 label = "UniswapV2Factory"
+"2099_constructor" [label="constructor"]
 "2099_setMigrator" [label="setMigrator"]
 "2099_setFeeToSetter" [label="setFeeToSetter"]
-"2099_allPairsLength" [label="allPairsLength"]
-"2099_createPair" [label="createPair"]
-"2099_constructor" [label="constructor"]
 "2099_setFeeTo" [label="setFeeTo"]
 "2099_pairCodeHash" [label="pairCodeHash"]
+"2099_createPair" [label="createPair"]
+"2099_allPairsLength" [label="allPairsLength"]
 }subgraph cluster_solidity {
 label = "[Solidity]"
-"type()" 
-"keccak256(bytes)" 
 "require(bool,string)" 
-"create2(uint256,uint256,uint256,uint256)" 
+"keccak256(bytes)" 
 "mload(uint256)" 
+"create2(uint256,uint256,uint256,uint256)" 
+"type()" 
 "abi.encodePacked()" 
 "2099_createPair" -> "create2(uint256,uint256,uint256,uint256)"
-"2099_pairCodeHash" -> "type()"
-"2099_setFeeTo" -> "require(bool,string)"
-"2099_createPair" -> "keccak256(bytes)"
-"2099_pairCodeHash" -> "keccak256(bytes)"
 "2099_createPair" -> "abi.encodePacked()"
-"2099_createPair" -> "type()"
 "2099_createPair" -> "require(bool,string)"
-"2099_createPair" -> "mload(uint256)"
+"2099_createPair" -> "type()"
+"2099_pairCodeHash" -> "type()"
 "2099_setMigrator" -> "require(bool,string)"
 "2099_setFeeToSetter" -> "require(bool,string)"
+"2099_pairCodeHash" -> "keccak256(bytes)"
+"2099_setFeeTo" -> "require(bool,string)"
+"2099_createPair" -> "keccak256(bytes)"
+"2099_createPair" -> "mload(uint256)"
 }
 }

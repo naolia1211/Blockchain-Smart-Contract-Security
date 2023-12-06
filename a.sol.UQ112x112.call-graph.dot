@@ -1,9 +1,9 @@
 strict digraph {
 subgraph cluster_651_UQ112x112 {
 label = "UQ112x112"
+"651_uqdiv" [label="uqdiv"]
 "651_slitherConstructorConstantVariables" [label="slitherConstructorConstantVariables"]
 "651_encode" [label="encode"]
-"651_uqdiv" [label="uqdiv"]
 }subgraph cluster_solidity {
 label = "[Solidity]"
 }
