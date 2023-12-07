@@ -2,3 +2,4 @@ slither-analyzer
 datasets
 solc-select
 packaging
+pymongo

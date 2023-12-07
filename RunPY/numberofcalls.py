@@ -1,3 +1,4 @@
+import os
 import json
 
 def print_external_call_counts(file_path):
@@ -21,6 +22,14 @@ def print_external_call_counts(file_path):
     for function_name, count in function_counts.items():
         print(f"{function_name}: {count}")
 
+def process_directory(directory_path):
+    for filename in os.listdir(directory_path):
+        if filename.endswith(".json"):
+            file_path = os.path.join(directory_path, filename)
+            print(f"Processing {filename}...")
+            print_external_call_counts(file_path)
+            print("\n")  # Add a newline for better readability between files
+
 # Usage
-file_path = 'a.json'
-print_external_call_counts(file_path)
+directory_path = 'D:\\Github\\Blockchain-Smart-Contract-Security\\extract_feature_from_slither'
+process_directory(directory_path)
