@@ -15,13 +15,11 @@ db = client['blockchain']
 collection = db['slither_analyze']
 
 ETHERSCAN_API_KEY = 'VSYSX5BCCMYTIFHP2BR7EBY5U12TG3I6X5'
-source_code_dir = r'D:\Github\Blockchain-Smart-Contract-Security\source'
-output_directory = r'D:\Github\Blockchain-Smart-Contract-Security\source'
+source = r'D:\Github\Blockchain-Smart-Contract-Security\source'
+source = r'D:\Github\Blockchain-Smart-Contract-Security\source'
 
-if not os.path.exists(source_code_dir):
-    os.makedirs(source_code_dir)
-if not os.path.exists(output_directory):
-    os.makedirs(output_directory)
+if not os.path.exists(source):
+    os.makedirs(source)
 
 def get_source_code(contract_address, file_path):
     url = f"https://api.etherscan.io/api?module=contract&action=getsourcecode&address={contract_address}&apikey={ETHERSCAN_API_KEY}"
@@ -32,7 +30,7 @@ def get_source_code(contract_address, file_path):
         with open(file_path, 'w', encoding='utf-8') as file:
             file.write(source_code)
 
-def run_slither_and_save(filename, source_directory, output_directory):
+def run_slither_and_save(filename, source_directory, source):
     file_path = os.path.join(source_directory, filename)
     
     # Xác định phiên bản Solidity phù hợp
@@ -52,7 +50,7 @@ def run_slither_and_save(filename, source_directory, output_directory):
     subprocess.run(['solc-select', 'use', max_version], cwd=source_directory)
 
     # Tạo đường dẫn cho file json
-    json_file_path = os.path.join(output_directory, f"{os.path.splitext(filename)[0]}.json")
+    json_file_path = os.path.join(source, f"{os.path.splitext(filename)[0]}.json")
 
     # Chạy Slither và đợi cho đến khi hoàn thành
     try:
@@ -88,11 +86,11 @@ def main():
                 start_processing = True
             continue
 
-        file_path = os.path.join(source_code_dir, f'{file_name}.sol')
+        file_path = os.path.join(source, f'{file_name}.sol')
         
         if not os.path.exists(file_path):
             get_source_code(row['contract_address'], file_path)
         
-        run_slither_and_save(f'{file_name}.sol', source_code_dir, output_directory)
+        run_slither_and_save(f'{file_name}.sol', source, source)
 
 main()
