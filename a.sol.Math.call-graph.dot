@@ -1,9 +1,0 @@
-strict digraph {
-subgraph cluster_608_Math {
-label = "Math"
-"608_sqrt" [label="sqrt"]
-"608_min" [label="min"]
-}subgraph cluster_solidity {
-label = "[Solidity]"
-}
-}
