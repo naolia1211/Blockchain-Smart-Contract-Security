@@ -1,0 +1,206 @@
+{
+    "success": true,
+    "error": null,
+    "results": {
+        "detectors": [
+            {
+                "description": "ERC20Detailed.constructor(string,string,uint8).symbol (XDEX.sol#1037) shadows:\n\t- ERC20Detailed.symbol() (XDEX.sol#1071-1075) (function)\n",
+                "markdown": "[ERC20Detailed.constructor(string,string,uint8).symbol](XDEX.sol#L1037) shadows:\n\t- [ERC20Detailed.symbol()](XDEX.sol#L1071-L1075) (function)\n",
+                "first_markdown_element": "XDEX.sol#L1037",
+                "id": "8001ef8aa02973c3b50a70701dd29bd34da99677c332f5ece9c5ad02f96df070",
+                "check": "shadowing-local",
+                "impact": "Low",
+                "confidence": "High"
+            },
+            {
+                "description": "ERC20Detailed.constructor(string,string,uint8).decimals (XDEX.sol#1037) shadows:\n\t- ERC20Detailed.decimals() (XDEX.sol#1103-1107) (function)\n",
+                "markdown": "[ERC20Detailed.constructor(string,string,uint8).decimals](XDEX.sol#L1037) shadows:\n\t- [ERC20Detailed.decimals()](XDEX.sol#L1103-L1107) (function)\n",
+                "first_markdown_element": "XDEX.sol#L1037",
+                "id": "9845f20fbb5426ca76f8323c89209ef9241cc258bb2d3177ffb8d85a5b354720",
+                "check": "shadowing-local",
+                "impact": "Low",
+                "confidence": "High"
+            },
+            {
+                "description": "ERC20Detailed.constructor(string,string,uint8).name (XDEX.sol#1037) shadows:\n\t- ERC20Detailed.name() (XDEX.sol#1055-1059) (function)\n",
+                "markdown": "[ERC20Detailed.constructor(string,string,uint8).name](XDEX.sol#L1037) shadows:\n\t- [ERC20Detailed.name()](XDEX.sol#L1055-L1059) (function)\n",
+                "first_markdown_element": "XDEX.sol#L1037",
+                "id": "cc79c402b72d738360f3eefe4386e6c2bf77198844db08fa7e421f821cc00851",
+                "check": "shadowing-local",
+                "impact": "Low",
+                "confidence": "High"
+            },
+            {
+                "description": "XDEX.setCore(address)._core (XDEX.sol#1153) lacks a zero-check on :\n\t\t- core = _core (XDEX.sol#1157)\n",
+                "markdown": "[XDEX.setCore(address)._core](XDEX.sol#L1153) lacks a zero-check on :\n\t\t- [core = _core](XDEX.sol#L1157)\n",
+                "first_markdown_element": "XDEX.sol#L1153",
+                "id": "da915799184bb90819aa09a0f340b4cd660ca5646d21bfdb0285033cf0f9ec9c",
+                "check": "missing-zero-check",
+                "impact": "Low",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Different versions of Solidity are used:\n\t- Version used: ['0.5.17', '^0.5.0']\n\t- 0.5.17 (XDEX.sol#1117)\n\t- ^0.5.0 (XDEX.sol#5)\n\t- ^0.5.0 (XDEX.sol#65)\n\t- ^0.5.0 (XDEX.sol#223)\n\t- ^0.5.0 (XDEX.sol#541)\n\t- ^0.5.0 (XDEX.sol#1005)\n",
+                "markdown": "Different versions of Solidity are used:\n\t- Version used: ['0.5.17', '^0.5.0']\n\t- [0.5.17](XDEX.sol#L1117)\n\t- [^0.5.0](XDEX.sol#L5)\n\t- [^0.5.0](XDEX.sol#L65)\n\t- [^0.5.0](XDEX.sol#L223)\n\t- [^0.5.0](XDEX.sol#L541)\n\t- [^0.5.0](XDEX.sol#L1005)\n",
+                "first_markdown_element": "XDEX.sol#L1117",
+                "id": "e07b587150f448e6620b789c28292e802082428d1cc2764a2ad5d093f755c029",
+                "check": "pragma",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "SafeMath.mul(uint256,uint256) (XDEX.sol#367-391) is never used and should be removed\n",
+                "markdown": "[SafeMath.mul(uint256,uint256)](XDEX.sol#L367-L391) is never used and should be removed\n",
+                "first_markdown_element": "XDEX.sol#L367-L391",
+                "id": "01304cc4312b37902daca45f84c38ca41bb71ffe24e353e8143a18f4c9731983",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "ERC20._burnFrom(address,uint256) (XDEX.sol#989-995) is never used and should be removed\n",
+                "markdown": "[ERC20._burnFrom(address,uint256)](XDEX.sol#L989-L995) is never used and should be removed\n",
+                "first_markdown_element": "XDEX.sol#L989-L995",
+                "id": "18ac620bc06e4fe2fe49291821f2887bbf2a7b83eb771627c2e1a68065c64b77",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "SafeMath.mod(uint256,uint256,string) (XDEX.sol#525-531) is never used and should be removed\n",
+                "markdown": "[SafeMath.mod(uint256,uint256,string)](XDEX.sol#L525-L531) is never used and should be removed\n",
+                "first_markdown_element": "XDEX.sol#L525-L531",
+                "id": "712768d3a481f9b1f37a8cd35c2349b153122c762e1ab1fa90e492ff24916157",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "SafeMath.div(uint256,uint256,string) (XDEX.sol#451-465) is never used and should be removed\n",
+                "markdown": "[SafeMath.div(uint256,uint256,string)](XDEX.sol#L451-L465) is never used and should be removed\n",
+                "first_markdown_element": "XDEX.sol#L451-L465",
+                "id": "883adadc70fb7eb2cd5136eb24fcd93a1842b6e88470e572c4dbdb1119863e3c",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Context._msgData() (XDEX.sol#49-55) is never used and should be removed\n",
+                "markdown": "[Context._msgData()](XDEX.sol#L49-L55) is never used and should be removed\n",
+                "first_markdown_element": "XDEX.sol#L49-L55",
+                "id": "93bd23634a3bf022810e43138345cf58db61248a704a7d277c8ec3d68c3ad188",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "SafeMath.mod(uint256,uint256) (XDEX.sol#491-495) is never used and should be removed\n",
+                "markdown": "[SafeMath.mod(uint256,uint256)](XDEX.sol#L491-L495) is never used and should be removed\n",
+                "first_markdown_element": "XDEX.sol#L491-L495",
+                "id": "a40074a7206e6c7604771b463c9123cfc4ede6357ef86feb34ea247a1be8f5e1",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "SafeMath.div(uint256,uint256) (XDEX.sol#417-421) is never used and should be removed\n",
+                "markdown": "[SafeMath.div(uint256,uint256)](XDEX.sol#L417-L421) is never used and should be removed\n",
+                "first_markdown_element": "XDEX.sol#L417-L421",
+                "id": "b49b4889f1b304a84f2984119b9a2fc4e67dfb2f730e0a6de8fe6113d3fbcc39",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Pragma version^0.5.0 (XDEX.sol#5) allows old versions\n",
+                "markdown": "Pragma version[^0.5.0](XDEX.sol#L5) allows old versions\n",
+                "first_markdown_element": "XDEX.sol#L5",
+                "id": "1628fe0250e37121ed0df030703d76d853c4a07cd92c6310caf397f5f840fbf6",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "solc-0.5.17 is not recommended for deployment\n",
+                "markdown": "solc-0.5.17 is not recommended for deployment\n",
+                "first_markdown_element": "",
+                "id": "5bd686c48bf92a38131975851ec441b82f34ce2932896f11ef229d4dc3ea2e02",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.5.0 (XDEX.sol#223) allows old versions\n",
+                "markdown": "Pragma version[^0.5.0](XDEX.sol#L223) allows old versions\n",
+                "first_markdown_element": "XDEX.sol#L223",
+                "id": "6082d5de35e97e5685881cf35cafc3fd5b816ac0d9d8dd3ae264fc2e792fe668",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.5.0 (XDEX.sol#1005) allows old versions\n",
+                "markdown": "Pragma version[^0.5.0](XDEX.sol#L1005) allows old versions\n",
+                "first_markdown_element": "XDEX.sol#L1005",
+                "id": "9e210cfdfd800641929102c6fe5386fceef19c739437c1382e5cee6368e32a5e",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version0.5.17 (XDEX.sol#1117) allows old versions\n",
+                "markdown": "Pragma version[0.5.17](XDEX.sol#L1117) allows old versions\n",
+                "first_markdown_element": "XDEX.sol#L1117",
+                "id": "a8cf657e3c25845e0b94a3eee2b480f3f1b396bc8e063608d3e8e47085e27410",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.5.0 (XDEX.sol#65) allows old versions\n",
+                "markdown": "Pragma version[^0.5.0](XDEX.sol#L65) allows old versions\n",
+                "first_markdown_element": "XDEX.sol#L65",
+                "id": "f5aa6fed289d418526e4448e9bd5cbd027faea4af2b17a2bc757b43b30d8263e",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.5.0 (XDEX.sol#541) allows old versions\n",
+                "markdown": "Pragma version[^0.5.0](XDEX.sol#L541) allows old versions\n",
+                "first_markdown_element": "XDEX.sol#L541",
+                "id": "fe74b82517f892c30469dec46e64882ffeb65a9a2da2069833a6edd4d3002911",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Event XDEX.SET_CORE(address,address) (XDEX.sol#1131) is not in CapWords\n",
+                "markdown": "Event [XDEX.SET_CORE(address,address)](XDEX.sol#L1131) is not in CapWords\n",
+                "first_markdown_element": "XDEX.sol#L1131",
+                "id": "18fb3832445ad367b7ee8fc64e0e3d8539c566f044e91e7222a20cf568fb0b2e",
+                "check": "naming-convention",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Parameter XDEX.setCore(address)._core (XDEX.sol#1153) is not in mixedCase\n",
+                "markdown": "Parameter [XDEX.setCore(address)._core](XDEX.sol#L1153) is not in mixedCase\n",
+                "first_markdown_element": "XDEX.sol#L1153",
+                "id": "e6f3498fc6d46af0d73167c4a55c12c0cc5e3692176e4399ba735c39c3990823",
+                "check": "naming-convention",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Redundant expression \"this (XDEX.sol#51)\" inContext (XDEX.sol#29-57)\n",
+                "markdown": "Redundant expression \"[this](XDEX.sol#L51)\" in[Context](XDEX.sol#L29-L57)\n",
+                "first_markdown_element": "XDEX.sol#L51",
+                "id": "9e90059b6fa137f17b3fb33c31a54566278ca091dd669ad8fdd283ecb9819659",
+                "check": "redundant-statements",
+                "impact": "Informational",
+                "confidence": "High"
+            }
+        ]
+    }
+}

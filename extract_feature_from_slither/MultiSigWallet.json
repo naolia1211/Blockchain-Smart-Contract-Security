@@ -1,0 +1,107 @@
+{
+    "success": true,
+    "error": null,
+    "results": {
+        "detectors": [
+            {
+                "description": "Contract locking ether found:\n\tContract MultiSigWallet (MultiSigWallet.sol#11-784) has payable functions:\n\t - MultiSigWallet.fallback() (MultiSigWallet.sol#189-199)\n\tBut does not have a function to withdraw the ether\n",
+                "markdown": "Contract locking ether found:\n\tContract [MultiSigWallet](MultiSigWallet.sol#L11-L784) has payable functions:\n\t - [MultiSigWallet.fallback()](MultiSigWallet.sol#L189-L199)\n\tBut does not have a function to withdraw the ether\n",
+                "first_markdown_element": "MultiSigWallet.sol#L11-L784",
+                "id": "5e0eca9eff1e1d3681f7f6ee7fff1eb418eff6958cc4ab9b8b171e518c78b816",
+                "check": "locked-ether",
+                "impact": "Medium",
+                "confidence": "High"
+            },
+            {
+                "description": "MultiSigWallet.external_call(address,uint256,uint256,bytes) (MultiSigWallet.sol#487-523) uses assembly\n\t- INLINE ASM (MultiSigWallet.sol#491-521)\n",
+                "markdown": "[MultiSigWallet.external_call(address,uint256,uint256,bytes)](MultiSigWallet.sol#L487-L523) uses assembly\n\t- [INLINE ASM](MultiSigWallet.sol#L491-L521)\n",
+                "first_markdown_element": "MultiSigWallet.sol#L487-L523",
+                "id": "b4b00b8bc331cd9f8d42c4b36e45dc8160b323a224e67dfcacba7d3a9357237a",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version0.4.26 (MultiSigWallet.sol#1) allows old versions\n",
+                "markdown": "Pragma version[0.4.26](MultiSigWallet.sol#L1) allows old versions\n",
+                "first_markdown_element": "MultiSigWallet.sol#L1",
+                "id": "47e1c3a21300fd65d5bb8488c3d93b0c3936ba9135261e5942878bb8c0e272e6",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "solc-0.4.26 is not recommended for deployment\n",
+                "markdown": "solc-0.4.26 is not recommended for deployment\n",
+                "first_markdown_element": "",
+                "id": "e85e93c612cb109c115ab31accf43cd25c590bd8f9b6a43b662115b987f777c3",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Function MultiSigWallet.external_call(address,uint256,uint256,bytes) (MultiSigWallet.sol#487-523) is not in mixedCase\n",
+                "markdown": "Function [MultiSigWallet.external_call(address,uint256,uint256,bytes)](MultiSigWallet.sol#L487-L523) is not in mixedCase\n",
+                "first_markdown_element": "MultiSigWallet.sol#L487-L523",
+                "id": "22632b896037b2a5aa7569e3580a2a79c4c84a353442e57b527ce311dddc4ecc",
+                "check": "naming-convention",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Parameter MultiSigWallet.changeRequirement(uint256)._required (MultiSigWallet.sol#349) is not in mixedCase\n",
+                "markdown": "Parameter [MultiSigWallet.changeRequirement(uint256)._required](MultiSigWallet.sol#L349) is not in mixedCase\n",
+                "first_markdown_element": "MultiSigWallet.sol#L349",
+                "id": "3dabefd6f4bebb5eed96264df230bf8ca50527a980af65577827f734f9fd5574",
+                "check": "naming-convention",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Loop condition i < owners.length (MultiSigWallet.sol#545) should use cached array length instead of referencing `length` member of the storage array.\n ",
+                "markdown": "Loop condition [i < owners.length](MultiSigWallet.sol#L545) should use cached array length instead of referencing `length` member of the storage array.\n ",
+                "first_markdown_element": "MultiSigWallet.sol#L545",
+                "id": "07087cad41cfd6fea1da78c18128cb36f167133921f6eba19c104bbf796a7516",
+                "check": "cache-array-length",
+                "impact": "Optimization",
+                "confidence": "High"
+            },
+            {
+                "description": "Loop condition i < owners.length (MultiSigWallet.sol#713) should use cached array length instead of referencing `length` member of the storage array.\n ",
+                "markdown": "Loop condition [i < owners.length](MultiSigWallet.sol#L713) should use cached array length instead of referencing `length` member of the storage array.\n ",
+                "first_markdown_element": "MultiSigWallet.sol#L713",
+                "id": "249513122bcd77badfff54ca8636a6606e183d854b24d9831836b1e10801b92d",
+                "check": "cache-array-length",
+                "impact": "Optimization",
+                "confidence": "High"
+            },
+            {
+                "description": "Loop condition i < owners.length (MultiSigWallet.sol#631) should use cached array length instead of referencing `length` member of the storage array.\n ",
+                "markdown": "Loop condition [i < owners.length](MultiSigWallet.sol#L631) should use cached array length instead of referencing `length` member of the storage array.\n ",
+                "first_markdown_element": "MultiSigWallet.sol#L631",
+                "id": "40f20bd067b6349c4a3067136fa6b74abcbb54c661d81c60deedfccaffecdc6c",
+                "check": "cache-array-length",
+                "impact": "Optimization",
+                "confidence": "High"
+            },
+            {
+                "description": "Loop condition i < owners.length (MultiSigWallet.sol#323) should use cached array length instead of referencing `length` member of the storage array.\n ",
+                "markdown": "Loop condition [i < owners.length](MultiSigWallet.sol#L323) should use cached array length instead of referencing `length` member of the storage array.\n ",
+                "first_markdown_element": "MultiSigWallet.sol#L323",
+                "id": "55be529ced940cf067a495a84383909541c7e81f344b9601a208e7e9f3db7476",
+                "check": "cache-array-length",
+                "impact": "Optimization",
+                "confidence": "High"
+            },
+            {
+                "description": "submitTransaction(address,uint256,bytes) should be declared external:\n\t- MultiSigWallet.submitTransaction(address,uint256,bytes) (MultiSigWallet.sol#377-389)\n",
+                "markdown": "submitTransaction(address,uint256,bytes) should be declared external:\n\t- [MultiSigWallet.submitTransaction(address,uint256,bytes)](MultiSigWallet.sol#L377-L389)\n",
+                "first_markdown_element": "MultiSigWallet.sol#L377-L389",
+                "id": "3a4bf78400f844a61ea306cc04cd4bf2d22d784aa2e7708782e9cf65ab42b545",
+                "check": "external-function",
+                "impact": "Optimization",
+                "confidence": "High"
+            }
+        ]
+    }
+}

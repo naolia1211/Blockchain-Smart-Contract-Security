@@ -1,0 +1,170 @@
+{
+    "success": true,
+    "error": null,
+    "results": {
+        "detectors": [
+            {
+                "description": "UpgradeabilityProxy.implementation() (OwnedUpgradeabilityProxy.sol#121-131) is declared view but contains assembly code\n",
+                "markdown": "[UpgradeabilityProxy.implementation()](OwnedUpgradeabilityProxy.sol#L121-L131) is declared view but contains assembly code\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L121-L131",
+                "id": "41c8edf18b16a46d040a9e14ffd25d64f46b17191e81ed8035c4e385452cb504",
+                "additional_fields": {
+                    "contains_assembly": true
+                },
+                "check": "constant-function-asm",
+                "impact": "Medium",
+                "confidence": "Medium"
+            },
+            {
+                "description": "OwnedUpgradeabilityProxy.proxyOwner() (OwnedUpgradeabilityProxy.sol#285-295) is declared view but contains assembly code\n",
+                "markdown": "[OwnedUpgradeabilityProxy.proxyOwner()](OwnedUpgradeabilityProxy.sol#L285-L295) is declared view but contains assembly code\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L285-L295",
+                "id": "8060b0cd225372f62fb7d0e4a728f41b38a528bbd00a344757f07ff85133c2c2",
+                "additional_fields": {
+                    "contains_assembly": true
+                },
+                "check": "constant-function-asm",
+                "impact": "Medium",
+                "confidence": "Medium"
+            },
+            {
+                "description": "OwnedUpgradeabilityProxy.pendingProxyOwner() (OwnedUpgradeabilityProxy.sol#307-317) is declared view but contains assembly code\n",
+                "markdown": "[OwnedUpgradeabilityProxy.pendingProxyOwner()](OwnedUpgradeabilityProxy.sol#L307-L317) is declared view but contains assembly code\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L307-L317",
+                "id": "cbc2f9e1d876121ab771659b744f122773feb8d9fde86660a621fd7e3b0cd195",
+                "additional_fields": {
+                    "contains_assembly": true
+                },
+                "check": "constant-function-asm",
+                "impact": "Medium",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Contract locking ether found:\n\tContract OwnedUpgradeabilityProxy (OwnedUpgradeabilityProxy.sol#193-416) has payable functions:\n\t - Proxy.fallback() (OwnedUpgradeabilityProxy.sol#45-75)\n\tBut does not have a function to withdraw the ether\n",
+                "markdown": "Contract locking ether found:\n\tContract [OwnedUpgradeabilityProxy](OwnedUpgradeabilityProxy.sol#L193-L416) has payable functions:\n\t - [Proxy.fallback()](OwnedUpgradeabilityProxy.sol#L45-L75)\n\tBut does not have a function to withdraw the ether\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L193-L416",
+                "id": "fbde40e61b4dc06001b5a178c086322c0cbeb81301a7187e81d94692b0606de8",
+                "check": "locked-ether",
+                "impact": "Medium",
+                "confidence": "High"
+            },
+            {
+                "description": "OwnedUpgradeabilityProxy.upgradeTo(address).implementation (OwnedUpgradeabilityProxy.sol#409) shadows:\n\t- UpgradeabilityProxy.implementation() (OwnedUpgradeabilityProxy.sol#121-131) (function)\n\t- Proxy.implementation() (OwnedUpgradeabilityProxy.sol#33) (function)\n",
+                "markdown": "[OwnedUpgradeabilityProxy.upgradeTo(address).implementation](OwnedUpgradeabilityProxy.sol#L409) shadows:\n\t- [UpgradeabilityProxy.implementation()](OwnedUpgradeabilityProxy.sol#L121-L131) (function)\n\t- [Proxy.implementation()](OwnedUpgradeabilityProxy.sol#L33) (function)\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L409",
+                "id": "7c91b994e613ba4d8dffeeee2a6261da8b4b65904beef9c0b88ab11b5157cdde",
+                "check": "shadowing-local",
+                "impact": "Low",
+                "confidence": "High"
+            },
+            {
+                "description": "UpgradeabilityProxy.implementation() (OwnedUpgradeabilityProxy.sol#121-131) uses assembly\n\t- INLINE ASM (OwnedUpgradeabilityProxy.sol#125-131)\n",
+                "markdown": "[UpgradeabilityProxy.implementation()](OwnedUpgradeabilityProxy.sol#L121-L131) uses assembly\n\t- [INLINE ASM](OwnedUpgradeabilityProxy.sol#L125-L131)\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L121-L131",
+                "id": "1bb562df9b871f3dbe35690ef099ce02030b67f2502b617d3a4e978dfd0812ef",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "OwnedUpgradeabilityProxy._setPendingUpgradeabilityOwner(address) (OwnedUpgradeabilityProxy.sol#347-357) uses assembly\n\t- INLINE ASM (OwnedUpgradeabilityProxy.sol#351-357)\n",
+                "markdown": "[OwnedUpgradeabilityProxy._setPendingUpgradeabilityOwner(address)](OwnedUpgradeabilityProxy.sol#L347-L357) uses assembly\n\t- [INLINE ASM](OwnedUpgradeabilityProxy.sol#L351-L357)\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L347-L357",
+                "id": "208cecd0da8979e744b12cc79ab3f8e0ac2a7052a1672fde80ae8589f3a71f1b",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "OwnedUpgradeabilityProxy._setUpgradeabilityOwner(address) (OwnedUpgradeabilityProxy.sol#327-337) uses assembly\n\t- INLINE ASM (OwnedUpgradeabilityProxy.sol#331-337)\n",
+                "markdown": "[OwnedUpgradeabilityProxy._setUpgradeabilityOwner(address)](OwnedUpgradeabilityProxy.sol#L327-L337) uses assembly\n\t- [INLINE ASM](OwnedUpgradeabilityProxy.sol#L331-L337)\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L327-L337",
+                "id": "358a186814133370cc1c778076bb1c21e8dee3841f16f290a201d098dd386a90",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "OwnedUpgradeabilityProxy.proxyOwner() (OwnedUpgradeabilityProxy.sol#285-295) uses assembly\n\t- INLINE ASM (OwnedUpgradeabilityProxy.sol#289-295)\n",
+                "markdown": "[OwnedUpgradeabilityProxy.proxyOwner()](OwnedUpgradeabilityProxy.sol#L285-L295) uses assembly\n\t- [INLINE ASM](OwnedUpgradeabilityProxy.sol#L289-L295)\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L285-L295",
+                "id": "37f6005aa4d2ad77c5094d420f5d5b74e299be0992e7a1a77be60f730b67f609",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "UpgradeabilityProxy._setImplementation(address) (OwnedUpgradeabilityProxy.sol#143-153) uses assembly\n\t- INLINE ASM (OwnedUpgradeabilityProxy.sol#147-153)\n",
+                "markdown": "[UpgradeabilityProxy._setImplementation(address)](OwnedUpgradeabilityProxy.sol#L143-L153) uses assembly\n\t- [INLINE ASM](OwnedUpgradeabilityProxy.sol#L147-L153)\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L143-L153",
+                "id": "432adfa96063de78ed1b46a07fb77439b295a631a0d86052efd39a0190e595a5",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "OwnedUpgradeabilityProxy.pendingProxyOwner() (OwnedUpgradeabilityProxy.sol#307-317) uses assembly\n\t- INLINE ASM (OwnedUpgradeabilityProxy.sol#311-317)\n",
+                "markdown": "[OwnedUpgradeabilityProxy.pendingProxyOwner()](OwnedUpgradeabilityProxy.sol#L307-L317) uses assembly\n\t- [INLINE ASM](OwnedUpgradeabilityProxy.sol#L311-L317)\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L307-L317",
+                "id": "4802172c07518ab0aeac5f71b637d5fc39eb5f9887f81c392acad0b741f088bc",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Proxy.fallback() (OwnedUpgradeabilityProxy.sol#45-75) uses assembly\n\t- INLINE ASM (OwnedUpgradeabilityProxy.sol#53-75)\n",
+                "markdown": "[Proxy.fallback()](OwnedUpgradeabilityProxy.sol#L45-L75) uses assembly\n\t- [INLINE ASM](OwnedUpgradeabilityProxy.sol#L53-L75)\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L45-L75",
+                "id": "adb5721618d64887ca71e9ccad340c6543dbfa4ff847f85990356754af2ffce7",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "solc-0.4.23 is not recommended for deployment\n",
+                "markdown": "solc-0.4.23 is not recommended for deployment\n",
+                "first_markdown_element": "",
+                "id": "382fda39bb161fb6bd84dab76b9e9c2b52aca3c7e5a51e412552f94dbe59a506",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.4.23 (OwnedUpgradeabilityProxy.sol#1) allows old versions\n",
+                "markdown": "Pragma version[^0.4.23](OwnedUpgradeabilityProxy.sol#L1) allows old versions\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L1",
+                "id": "b3046eda385a94587df0be2ac76bf03f15d2866886c76a82cb1f466bea3e5e34",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Constant OwnedUpgradeabilityProxy.pendingProxyOwnerPosition (OwnedUpgradeabilityProxy.sol#227) is not in UPPER_CASE_WITH_UNDERSCORES\n",
+                "markdown": "Constant [OwnedUpgradeabilityProxy.pendingProxyOwnerPosition](OwnedUpgradeabilityProxy.sol#L227) is not in UPPER_CASE_WITH_UNDERSCORES\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L227",
+                "id": "4e371e28f286763d63b5edafcc5fc41888fe7bc4b87378c7e25742aedf517588",
+                "check": "naming-convention",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Constant UpgradeabilityProxy.implementationPosition (OwnedUpgradeabilityProxy.sol#109) is not in UPPER_CASE_WITH_UNDERSCORES\n",
+                "markdown": "Constant [UpgradeabilityProxy.implementationPosition](OwnedUpgradeabilityProxy.sol#L109) is not in UPPER_CASE_WITH_UNDERSCORES\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L109",
+                "id": "6d6bb6e6b00c6f974ea9930aaea0d21dfac3186ba8e77b6c44300cda5078081a",
+                "check": "naming-convention",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Constant OwnedUpgradeabilityProxy.proxyOwnerPosition (OwnedUpgradeabilityProxy.sol#225) is not in UPPER_CASE_WITH_UNDERSCORES\n",
+                "markdown": "Constant [OwnedUpgradeabilityProxy.proxyOwnerPosition](OwnedUpgradeabilityProxy.sol#L225) is not in UPPER_CASE_WITH_UNDERSCORES\n",
+                "first_markdown_element": "OwnedUpgradeabilityProxy.sol#L225",
+                "id": "7236c06261288fbc83d477d7f1141647f5b5d712bad4b42e017229d43e607fdb",
+                "check": "naming-convention",
+                "impact": "Informational",
+                "confidence": "High"
+            }
+        ]
+    }
+}

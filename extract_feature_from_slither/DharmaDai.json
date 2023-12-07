@@ -1,0 +1,53 @@
+{
+    "success": true,
+    "error": null,
+    "results": {
+        "detectors": [
+            {
+                "description": "Contract locking ether found:\n\tContract DharmaDai (DharmaDai.sol#21-110) has payable functions:\n\t - DharmaDai.fallback() (DharmaDai.sol#41-107)\n\tBut does not have a function to withdraw the ether\n",
+                "markdown": "Contract locking ether found:\n\tContract [DharmaDai](DharmaDai.sol#L21-L110) has payable functions:\n\t - [DharmaDai.fallback()](DharmaDai.sol#L41-L107)\n\tBut does not have a function to withdraw the ether\n",
+                "first_markdown_element": "DharmaDai.sol#L21-L110",
+                "id": "13af4a3da046b24a04819d97f8ad4a659afa5b00011324b547bc50c0071aa156",
+                "check": "locked-ether",
+                "impact": "Medium",
+                "confidence": "High"
+            },
+            {
+                "description": "DharmaDai.fallback() (DharmaDai.sol#41-107) uses assembly\n\t- INLINE ASM (DharmaDai.sol#53-59)\n\t- INLINE ASM (DharmaDai.sol#71-105)\n",
+                "markdown": "[DharmaDai.fallback()](DharmaDai.sol#L41-L107) uses assembly\n\t- [INLINE ASM](DharmaDai.sol#L53-L59)\n\t- [INLINE ASM](DharmaDai.sol#L71-L105)\n",
+                "first_markdown_element": "DharmaDai.sol#L41-L107",
+                "id": "1bc67d45f47c891c7dffee407b22a0525358719dd463288e386b4e520a96b112",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version0.5.11 (DharmaDai.sol#1) allows old versions\n",
+                "markdown": "Pragma version[0.5.11](DharmaDai.sol#L1) allows old versions\n",
+                "first_markdown_element": "DharmaDai.sol#L1",
+                "id": "9ad16a7b3082a5a30cc13fd9ab50e0868fec6316afd0601cd21384ebdf5617ce",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "solc-0.5.11 is not recommended for deployment\n",
+                "markdown": "solc-0.5.11 is not recommended for deployment\n",
+                "first_markdown_element": "",
+                "id": "d3bcf07a6ef1efa85e2deea753a2feee14d3b263b881c698197d19af627735a7",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Low level call in DharmaDai.fallback() (DharmaDai.sol#41-107):\n\t- (ok,returnData) = _UPGRADE_BEACON.staticcall() (DharmaDai.sol#45)\n",
+                "markdown": "Low level call in [DharmaDai.fallback()](DharmaDai.sol#L41-L107):\n\t- [(ok,returnData) = _UPGRADE_BEACON.staticcall()](DharmaDai.sol#L45)\n",
+                "first_markdown_element": "DharmaDai.sol#L41-L107",
+                "id": "e0c694af87c522fd30d5565a4e095ddcd71458f63be0e79d1177aa4f679df3f4",
+                "check": "low-level-calls",
+                "impact": "Informational",
+                "confidence": "High"
+            }
+        ]
+    }
+}

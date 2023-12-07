@@ -1,0 +1,152 @@
+{
+    "success": true,
+    "error": null,
+    "results": {
+        "detectors": [
+            {
+                "description": "Reentrancy in ChiToken._destroyChildren(uint256) (ChiToken.sol#879-891):\n\tExternal calls:\n\t- computeAddress2(_totalBurned + i).call() (ChiToken.sol#885)\n\tState variables written after the call(s):\n\t- totalBurned = _totalBurned + value (ChiToken.sol#889)\n\tChiToken.totalBurned (ChiToken.sol#783) can be used in cross function reentrancies:\n\t- ChiToken._destroyChildren(uint256) (ChiToken.sol#879-891)\n\t- ChiToken.totalBurned (ChiToken.sol#783)\n\t- ChiToken.totalSupply() (ChiToken.sol#787-791)\n",
+                "markdown": "Reentrancy in [ChiToken._destroyChildren(uint256)](ChiToken.sol#L879-L891):\n\tExternal calls:\n\t- [computeAddress2(_totalBurned + i).call()](ChiToken.sol#L885)\n\tState variables written after the call(s):\n\t- [totalBurned = _totalBurned + value](ChiToken.sol#L889)\n\t[ChiToken.totalBurned](ChiToken.sol#L783) can be used in cross function reentrancies:\n\t- [ChiToken._destroyChildren(uint256)](ChiToken.sol#L879-L891)\n\t- [ChiToken.totalBurned](ChiToken.sol#L783)\n\t- [ChiToken.totalSupply()](ChiToken.sol#L787-L791)\n",
+                "first_markdown_element": "ChiToken.sol#L879-L891",
+                "id": "5524cc9f9eb95378967a1efa5de0d842e41fa8085bccb73553dfb96f95f06734",
+                "check": "reentrancy-no-eth",
+                "impact": "Medium",
+                "confidence": "Medium"
+            },
+            {
+                "description": "ChiToken._destroyChildren(uint256) (ChiToken.sol#879-891) ignores return value by computeAddress2(_totalBurned + i).call() (ChiToken.sol#885)\n",
+                "markdown": "[ChiToken._destroyChildren(uint256)](ChiToken.sol#L879-L891) ignores return value by [computeAddress2(_totalBurned + i).call()](ChiToken.sol#L885)\n",
+                "first_markdown_element": "ChiToken.sol#L879-L891",
+                "id": "77c5914276129abaf84acbcfe88c78b539458306b31656c6c2c6070568905694",
+                "check": "unchecked-lowlevel",
+                "impact": "Medium",
+                "confidence": "Medium"
+            },
+            {
+                "description": "ChiToken.mint(uint256) (ChiToken.sol#795-861) uses assembly\n\t- INLINE ASM (ChiToken.sol#799-853)\n",
+                "markdown": "[ChiToken.mint(uint256)](ChiToken.sol#L795-L861) uses assembly\n\t- [INLINE ASM](ChiToken.sol#L799-L853)\n",
+                "first_markdown_element": "ChiToken.sol#L795-L861",
+                "id": "e94540cd1eb54f5bf086e74639cafd04b908720e2c34a00222f0de6ae41e8c3d",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "SafeMath.mul(uint256,uint256) (ChiToken.sol#321-345) is never used and should be removed\n",
+                "markdown": "[SafeMath.mul(uint256,uint256)](ChiToken.sol#L321-L345) is never used and should be removed\n",
+                "first_markdown_element": "ChiToken.sol#L321-L345",
+                "id": "01304cc4312b37902daca45f84c38ca41bb71ffe24e353e8143a18f4c9731983",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Math.max(uint256,uint256) (ChiToken.sol#135-139) is never used and should be removed\n",
+                "markdown": "[Math.max(uint256,uint256)](ChiToken.sol#L135-L139) is never used and should be removed\n",
+                "first_markdown_element": "ChiToken.sol#L135-L139",
+                "id": "4a3177ea9490e6f46964b433de103f9dcaa115ecb608b38006eb2eca3751a08e",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Math.average(uint256,uint256) (ChiToken.sol#165-171) is never used and should be removed\n",
+                "markdown": "[Math.average(uint256,uint256)](ChiToken.sol#L165-L171) is never used and should be removed\n",
+                "first_markdown_element": "ChiToken.sol#L165-L171",
+                "id": "4da33cf1bcc5c409d2f9d3fb487d83c29cd2f6f93543c7afcd901cf60e03da1c",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "SafeMath.mod(uint256,uint256,string) (ChiToken.sol#471-477) is never used and should be removed\n",
+                "markdown": "[SafeMath.mod(uint256,uint256,string)](ChiToken.sol#L471-L477) is never used and should be removed\n",
+                "first_markdown_element": "ChiToken.sol#L471-L477",
+                "id": "712768d3a481f9b1f37a8cd35c2349b153122c762e1ab1fa90e492ff24916157",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "SafeMath.div(uint256,uint256,string) (ChiToken.sol#401-415) is never used and should be removed\n",
+                "markdown": "[SafeMath.div(uint256,uint256,string)](ChiToken.sol#L401-L415) is never used and should be removed\n",
+                "first_markdown_element": "ChiToken.sol#L401-L415",
+                "id": "883adadc70fb7eb2cd5136eb24fcd93a1842b6e88470e572c4dbdb1119863e3c",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "SafeMath.mod(uint256,uint256) (ChiToken.sol#441-445) is never used and should be removed\n",
+                "markdown": "[SafeMath.mod(uint256,uint256)](ChiToken.sol#L441-L445) is never used and should be removed\n",
+                "first_markdown_element": "ChiToken.sol#L441-L445",
+                "id": "a40074a7206e6c7604771b463c9123cfc4ede6357ef86feb34ea247a1be8f5e1",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "SafeMath.div(uint256,uint256) (ChiToken.sol#371-375) is never used and should be removed\n",
+                "markdown": "[SafeMath.div(uint256,uint256)](ChiToken.sol#L371-L375) is never used and should be removed\n",
+                "first_markdown_element": "ChiToken.sol#L371-L375",
+                "id": "b49b4889f1b304a84f2984119b9a2fc4e67dfb2f730e0a6de8fe6113d3fbcc39",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Pragma version^0.6.0 (ChiToken.sol#117) allows old versions\n",
+                "markdown": "Pragma version[^0.6.0](ChiToken.sol#L117) allows old versions\n",
+                "first_markdown_element": "ChiToken.sol#L117",
+                "id": "1a95085fc23523ab3c1c367a8d0eac136f42f750962ef22bea771ed9376fd485",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.6.0 (ChiToken.sol#487) allows old versions\n",
+                "markdown": "Pragma version[^0.6.0](ChiToken.sol#L487) allows old versions\n",
+                "first_markdown_element": "ChiToken.sol#L487",
+                "id": "74a018020c699c03a8bdcdf95746c2a6b8463cae187e37423a224c9739961189",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "solc-0.6.0 is not recommended for deployment\n",
+                "markdown": "solc-0.6.0 is not recommended for deployment\n",
+                "first_markdown_element": "",
+                "id": "7740810b9fcfaf3efb5f0190072038a7d60dee014bb62485850611033bd7a5f0",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.6.0 (ChiToken.sol#643) allows old versions\n",
+                "markdown": "Pragma version[^0.6.0](ChiToken.sol#L643) allows old versions\n",
+                "first_markdown_element": "ChiToken.sol#L643",
+                "id": "cddc87ba4456c3f793fe877a9e96c0926bd39a20dd6879342e65c7f735640533",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.6.0 (ChiToken.sol#181) allows old versions\n",
+                "markdown": "Pragma version[^0.6.0](ChiToken.sol#L181) allows old versions\n",
+                "first_markdown_element": "ChiToken.sol#L181",
+                "id": "d5dfa9007ac1bc6b7b089ddb523a188fbc7d6efca6b131164432543a1838dc6e",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Low level call in ChiToken._destroyChildren(uint256) (ChiToken.sol#879-891):\n\t- computeAddress2(_totalBurned + i).call() (ChiToken.sol#885)\n",
+                "markdown": "Low level call in [ChiToken._destroyChildren(uint256)](ChiToken.sol#L879-L891):\n\t- [computeAddress2(_totalBurned + i).call()](ChiToken.sol#L885)\n",
+                "first_markdown_element": "ChiToken.sol#L879-L891",
+                "id": "966c5ad8c35c73a2614c57dd376e523e3701939525618173650e2dde01e25842",
+                "check": "low-level-calls",
+                "impact": "Informational",
+                "confidence": "High"
+            }
+        ]
+    }
+}

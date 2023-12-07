@@ -1,0 +1,281 @@
+{
+    "success": true,
+    "error": null,
+    "results": {
+        "detectors": [
+            {
+                "description": "GasToken2.mk_contract_address(address,uint256) (GasToken2.sol#51-167) is declared view but contains assembly code\n",
+                "markdown": "[GasToken2.mk_contract_address(address,uint256)](GasToken2.sol#L51-L167) is declared view but contains assembly code\n",
+                "first_markdown_element": "GasToken2.sol#L51-L167",
+                "id": "0897f9feb22c937536ad1da5430db75295abb353f818295683468841414d8a1e",
+                "additional_fields": {
+                    "contains_assembly": true
+                },
+                "check": "constant-function-asm",
+                "impact": "Medium",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Reentrancy in GasToken2.destroyChildren(uint256) (GasToken2.sol#475-491):\n\tExternal calls:\n\t- mk_contract_address(this,i).call() (GasToken2.sol#483)\n\tState variables written after the call(s):\n\t- s_tail = tail + value (GasToken2.sol#489)\n\tGasToken2.s_tail (GasToken2.sol#345) can be used in cross function reentrancies:\n\t- GasToken2.destroyChildren(uint256) (GasToken2.sol#475-491)\n\t- GasToken2.totalSupply() (GasToken2.sol#355-359)\n",
+                "markdown": "Reentrancy in [GasToken2.destroyChildren(uint256)](GasToken2.sol#L475-L491):\n\tExternal calls:\n\t- [mk_contract_address(this,i).call()](GasToken2.sol#L483)\n\tState variables written after the call(s):\n\t- [s_tail = tail + value](GasToken2.sol#L489)\n\t[GasToken2.s_tail](GasToken2.sol#L345) can be used in cross function reentrancies:\n\t- [GasToken2.destroyChildren(uint256)](GasToken2.sol#L475-L491)\n\t- [GasToken2.totalSupply()](GasToken2.sol#L355-L359)\n",
+                "first_markdown_element": "GasToken2.sol#L475-L491",
+                "id": "3cedffe9cd5ebd0ffca43d75cdc05c4a8bd5fe9bec47776abb6186d9462b2b1b",
+                "check": "reentrancy-no-eth",
+                "impact": "Medium",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Reentrancy in GasToken2.freeFromUpTo(address,uint256) (GasToken2.sol#623-661):\n\tExternal calls:\n\t- destroyChildren(value) (GasToken2.sol#649)\n\t\t- mk_contract_address(this,i).call() (GasToken2.sol#483)\n\tState variables written after the call(s):\n\t- from_allowances[spender] = spender_allowance - value (GasToken2.sol#655)\n\tGasToken2.s_allowances (GasToken2.sol#185) can be used in cross function reentrancies:\n\t- GasToken2.allowance(address,address) (GasToken2.sol#299-303)\n\t- GasToken2.approve(address,uint256) (GasToken2.sol#269-285)\n\t- GasToken2.freeFrom(address,uint256) (GasToken2.sol#573-611)\n\t- GasToken2.freeFromUpTo(address,uint256) (GasToken2.sol#623-661)\n\t- GasToken2.transferFrom(address,address,uint256) (GasToken2.sol#243-259)\n\t- s_balances[from] = from_balance - value (GasToken2.sol#653)\n\tGasToken2.s_balances (GasToken2.sol#181) can be used in cross function reentrancies:\n\t- GasToken2.balanceOf(address) (GasToken2.sol#199-203)\n\t- GasToken2.free(uint256) (GasToken2.sol#505-527)\n\t- GasToken2.freeFrom(address,uint256) (GasToken2.sol#573-611)\n\t- GasToken2.freeFromUpTo(address,uint256) (GasToken2.sol#623-661)\n\t- GasToken2.freeUpTo(uint256) (GasToken2.sol#539-561)\n\t- GasToken2.internalTransfer(address,address,uint256) (GasToken2.sol#207-225)\n\t- GasToken2.mint(uint256) (GasToken2.sol#437-449)\n",
+                "markdown": "Reentrancy in [GasToken2.freeFromUpTo(address,uint256)](GasToken2.sol#L623-L661):\n\tExternal calls:\n\t- [destroyChildren(value)](GasToken2.sol#L649)\n\t\t- [mk_contract_address(this,i).call()](GasToken2.sol#L483)\n\tState variables written after the call(s):\n\t- [from_allowances[spender] = spender_allowance - value](GasToken2.sol#L655)\n\t[GasToken2.s_allowances](GasToken2.sol#L185) can be used in cross function reentrancies:\n\t- [GasToken2.allowance(address,address)](GasToken2.sol#L299-L303)\n\t- [GasToken2.approve(address,uint256)](GasToken2.sol#L269-L285)\n\t- [GasToken2.freeFrom(address,uint256)](GasToken2.sol#L573-L611)\n\t- [GasToken2.freeFromUpTo(address,uint256)](GasToken2.sol#L623-L661)\n\t- [GasToken2.transferFrom(address,address,uint256)](GasToken2.sol#L243-L259)\n\t- [s_balances[from] = from_balance - value](GasToken2.sol#L653)\n\t[GasToken2.s_balances](GasToken2.sol#L181) can be used in cross function reentrancies:\n\t- [GasToken2.balanceOf(address)](GasToken2.sol#L199-L203)\n\t- [GasToken2.free(uint256)](GasToken2.sol#L505-L527)\n\t- [GasToken2.freeFrom(address,uint256)](GasToken2.sol#L573-L611)\n\t- [GasToken2.freeFromUpTo(address,uint256)](GasToken2.sol#L623-L661)\n\t- [GasToken2.freeUpTo(uint256)](GasToken2.sol#L539-L561)\n\t- [GasToken2.internalTransfer(address,address,uint256)](GasToken2.sol#L207-L225)\n\t- [GasToken2.mint(uint256)](GasToken2.sol#L437-L449)\n",
+                "first_markdown_element": "GasToken2.sol#L623-L661",
+                "id": "6a28512013d21f0d9729c7609c44e11e5b740ed44aa25d39f798849bd44c6a9f",
+                "check": "reentrancy-no-eth",
+                "impact": "Medium",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Reentrancy in GasToken2.freeFrom(address,uint256) (GasToken2.sol#573-611):\n\tExternal calls:\n\t- destroyChildren(value) (GasToken2.sol#599)\n\t\t- mk_contract_address(this,i).call() (GasToken2.sol#483)\n\tState variables written after the call(s):\n\t- from_allowances[spender] = spender_allowance - value (GasToken2.sol#605)\n\tGasToken2.s_allowances (GasToken2.sol#185) can be used in cross function reentrancies:\n\t- GasToken2.allowance(address,address) (GasToken2.sol#299-303)\n\t- GasToken2.approve(address,uint256) (GasToken2.sol#269-285)\n\t- GasToken2.freeFrom(address,uint256) (GasToken2.sol#573-611)\n\t- GasToken2.freeFromUpTo(address,uint256) (GasToken2.sol#623-661)\n\t- GasToken2.transferFrom(address,address,uint256) (GasToken2.sol#243-259)\n\t- s_balances[from] = from_balance - value (GasToken2.sol#603)\n\tGasToken2.s_balances (GasToken2.sol#181) can be used in cross function reentrancies:\n\t- GasToken2.balanceOf(address) (GasToken2.sol#199-203)\n\t- GasToken2.free(uint256) (GasToken2.sol#505-527)\n\t- GasToken2.freeFrom(address,uint256) (GasToken2.sol#573-611)\n\t- GasToken2.freeFromUpTo(address,uint256) (GasToken2.sol#623-661)\n\t- GasToken2.freeUpTo(uint256) (GasToken2.sol#539-561)\n\t- GasToken2.internalTransfer(address,address,uint256) (GasToken2.sol#207-225)\n\t- GasToken2.mint(uint256) (GasToken2.sol#437-449)\n",
+                "markdown": "Reentrancy in [GasToken2.freeFrom(address,uint256)](GasToken2.sol#L573-L611):\n\tExternal calls:\n\t- [destroyChildren(value)](GasToken2.sol#L599)\n\t\t- [mk_contract_address(this,i).call()](GasToken2.sol#L483)\n\tState variables written after the call(s):\n\t- [from_allowances[spender] = spender_allowance - value](GasToken2.sol#L605)\n\t[GasToken2.s_allowances](GasToken2.sol#L185) can be used in cross function reentrancies:\n\t- [GasToken2.allowance(address,address)](GasToken2.sol#L299-L303)\n\t- [GasToken2.approve(address,uint256)](GasToken2.sol#L269-L285)\n\t- [GasToken2.freeFrom(address,uint256)](GasToken2.sol#L573-L611)\n\t- [GasToken2.freeFromUpTo(address,uint256)](GasToken2.sol#L623-L661)\n\t- [GasToken2.transferFrom(address,address,uint256)](GasToken2.sol#L243-L259)\n\t- [s_balances[from] = from_balance - value](GasToken2.sol#L603)\n\t[GasToken2.s_balances](GasToken2.sol#L181) can be used in cross function reentrancies:\n\t- [GasToken2.balanceOf(address)](GasToken2.sol#L199-L203)\n\t- [GasToken2.free(uint256)](GasToken2.sol#L505-L527)\n\t- [GasToken2.freeFrom(address,uint256)](GasToken2.sol#L573-L611)\n\t- [GasToken2.freeFromUpTo(address,uint256)](GasToken2.sol#L623-L661)\n\t- [GasToken2.freeUpTo(uint256)](GasToken2.sol#L539-L561)\n\t- [GasToken2.internalTransfer(address,address,uint256)](GasToken2.sol#L207-L225)\n\t- [GasToken2.mint(uint256)](GasToken2.sol#L437-L449)\n",
+                "first_markdown_element": "GasToken2.sol#L573-L611",
+                "id": "79ff143d57f399d2baafd2956484bec8b28cefa139204fb36740e6307fbc061e",
+                "check": "reentrancy-no-eth",
+                "impact": "Medium",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Reentrancy in GasToken2.freeUpTo(uint256) (GasToken2.sol#539-561):\n\tExternal calls:\n\t- destroyChildren(value) (GasToken2.sol#551)\n\t\t- mk_contract_address(this,i).call() (GasToken2.sol#483)\n\tState variables written after the call(s):\n\t- s_balances[msg.sender] = from_balance - value (GasToken2.sol#555)\n\tGasToken2.s_balances (GasToken2.sol#181) can be used in cross function reentrancies:\n\t- GasToken2.balanceOf(address) (GasToken2.sol#199-203)\n\t- GasToken2.free(uint256) (GasToken2.sol#505-527)\n\t- GasToken2.freeFrom(address,uint256) (GasToken2.sol#573-611)\n\t- GasToken2.freeFromUpTo(address,uint256) (GasToken2.sol#623-661)\n\t- GasToken2.freeUpTo(uint256) (GasToken2.sol#539-561)\n\t- GasToken2.internalTransfer(address,address,uint256) (GasToken2.sol#207-225)\n\t- GasToken2.mint(uint256) (GasToken2.sol#437-449)\n",
+                "markdown": "Reentrancy in [GasToken2.freeUpTo(uint256)](GasToken2.sol#L539-L561):\n\tExternal calls:\n\t- [destroyChildren(value)](GasToken2.sol#L551)\n\t\t- [mk_contract_address(this,i).call()](GasToken2.sol#L483)\n\tState variables written after the call(s):\n\t- [s_balances[msg.sender] = from_balance - value](GasToken2.sol#L555)\n\t[GasToken2.s_balances](GasToken2.sol#L181) can be used in cross function reentrancies:\n\t- [GasToken2.balanceOf(address)](GasToken2.sol#L199-L203)\n\t- [GasToken2.free(uint256)](GasToken2.sol#L505-L527)\n\t- [GasToken2.freeFrom(address,uint256)](GasToken2.sol#L573-L611)\n\t- [GasToken2.freeFromUpTo(address,uint256)](GasToken2.sol#L623-L661)\n\t- [GasToken2.freeUpTo(uint256)](GasToken2.sol#L539-L561)\n\t- [GasToken2.internalTransfer(address,address,uint256)](GasToken2.sol#L207-L225)\n\t- [GasToken2.mint(uint256)](GasToken2.sol#L437-L449)\n",
+                "first_markdown_element": "GasToken2.sol#L539-L561",
+                "id": "d54488f6dc91bf14537924120b10e51b2765d39af16c6f23ff5c13151f960b53",
+                "check": "reentrancy-no-eth",
+                "impact": "Medium",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Reentrancy in GasToken2.free(uint256) (GasToken2.sol#505-527):\n\tExternal calls:\n\t- destroyChildren(value) (GasToken2.sol#517)\n\t\t- mk_contract_address(this,i).call() (GasToken2.sol#483)\n\tState variables written after the call(s):\n\t- s_balances[msg.sender] = from_balance - value (GasToken2.sol#521)\n\tGasToken2.s_balances (GasToken2.sol#181) can be used in cross function reentrancies:\n\t- GasToken2.balanceOf(address) (GasToken2.sol#199-203)\n\t- GasToken2.free(uint256) (GasToken2.sol#505-527)\n\t- GasToken2.freeFrom(address,uint256) (GasToken2.sol#573-611)\n\t- GasToken2.freeFromUpTo(address,uint256) (GasToken2.sol#623-661)\n\t- GasToken2.freeUpTo(uint256) (GasToken2.sol#539-561)\n\t- GasToken2.internalTransfer(address,address,uint256) (GasToken2.sol#207-225)\n\t- GasToken2.mint(uint256) (GasToken2.sol#437-449)\n",
+                "markdown": "Reentrancy in [GasToken2.free(uint256)](GasToken2.sol#L505-L527):\n\tExternal calls:\n\t- [destroyChildren(value)](GasToken2.sol#L517)\n\t\t- [mk_contract_address(this,i).call()](GasToken2.sol#L483)\n\tState variables written after the call(s):\n\t- [s_balances[msg.sender] = from_balance - value](GasToken2.sol#L521)\n\t[GasToken2.s_balances](GasToken2.sol#L181) can be used in cross function reentrancies:\n\t- [GasToken2.balanceOf(address)](GasToken2.sol#L199-L203)\n\t- [GasToken2.free(uint256)](GasToken2.sol#L505-L527)\n\t- [GasToken2.freeFrom(address,uint256)](GasToken2.sol#L573-L611)\n\t- [GasToken2.freeFromUpTo(address,uint256)](GasToken2.sol#L623-L661)\n\t- [GasToken2.freeUpTo(uint256)](GasToken2.sol#L539-L561)\n\t- [GasToken2.internalTransfer(address,address,uint256)](GasToken2.sol#L207-L225)\n\t- [GasToken2.mint(uint256)](GasToken2.sol#L437-L449)\n",
+                "first_markdown_element": "GasToken2.sol#L505-L527",
+                "id": "f01cdf3d0a4994b4f73e58d252ca5501849d7707a4d0763a0f6ad08e38c09a58",
+                "check": "reentrancy-no-eth",
+                "impact": "Medium",
+                "confidence": "Medium"
+            },
+            {
+                "description": "GasToken2.destroyChildren(uint256) (GasToken2.sol#475-491) ignores return value by mk_contract_address(this,i).call() (GasToken2.sol#483)\n",
+                "markdown": "[GasToken2.destroyChildren(uint256)](GasToken2.sol#L475-L491) ignores return value by [mk_contract_address(this,i).call()](GasToken2.sol#L483)\n",
+                "first_markdown_element": "GasToken2.sol#L475-L491",
+                "id": "034acb075ba366ce6e0e5ae604bc9827f7d1e49766bf82e3e0b77bcac3aa0303",
+                "check": "unchecked-lowlevel",
+                "impact": "Medium",
+                "confidence": "Medium"
+            },
+            {
+                "description": "GasToken2.mk_contract_address(address,uint256) (GasToken2.sol#51-167) uses assembly\n\t- INLINE ASM (GasToken2.sol#145-165)\n",
+                "markdown": "[GasToken2.mk_contract_address(address,uint256)](GasToken2.sol#L51-L167) uses assembly\n\t- [INLINE ASM](GasToken2.sol#L145-L165)\n",
+                "first_markdown_element": "GasToken2.sol#L51-L167",
+                "id": "b9dd1b886987891631d658836b4772025342aa50736ec85afee4e11e77b28265",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "GasToken2.makeChild() (GasToken2.sol#365-427) uses assembly\n\t- INLINE ASM (GasToken2.sol#367-427)\n",
+                "markdown": "[GasToken2.makeChild()](GasToken2.sol#L365-L427) uses assembly\n\t- [INLINE ASM](GasToken2.sol#L367-L427)\n",
+                "first_markdown_element": "GasToken2.sol#L365-L427",
+                "id": "c3e8c760854b7adb2f09edf52b0061b901752802c63024db7b2b35f84a87733d",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "solc-0.4.10 is not recommended for deployment\n",
+                "markdown": "solc-0.4.10 is not recommended for deployment\n",
+                "first_markdown_element": "",
+                "id": "0eb2863571dc5faae5942bcb279abacd3e70424aa95146384321c9743a3cf58c",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.4.10 (GasToken2.sol#1) allows old versions\n",
+                "markdown": "Pragma version[^0.4.10](GasToken2.sol#L1) allows old versions\n",
+                "first_markdown_element": "GasToken2.sol#L1",
+                "id": "5bbd2600b1b814b42f2c0edfa2ab92e5c949ba9abae1188a58491b106f1dbb54",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Low level call in GasToken2.destroyChildren(uint256) (GasToken2.sol#475-491):\n\t- mk_contract_address(this,i).call() (GasToken2.sol#483)\n",
+                "markdown": "Low level call in [GasToken2.destroyChildren(uint256)](GasToken2.sol#L475-L491):\n\t- [mk_contract_address(this,i).call()](GasToken2.sol#L483)\n",
+                "first_markdown_element": "GasToken2.sol#L475-L491",
+                "id": "6a56aed02ca32f976ed0cdae3620e6cba3602621a7179be3e862e5110971c129",
+                "check": "low-level-calls",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Variable GasToken2.MAX_NONCE (GasToken2.sol#23) is not in mixedCase\n",
+                "markdown": "Variable [GasToken2.MAX_NONCE](GasToken2.sol#L23) is not in mixedCase\n",
+                "first_markdown_element": "GasToken2.sol#L23",
+                "id": "0ed30448375edc9a19e93c1cdbd1faeba648248a3a032ab2d0a9a60b19a0ef95",
+                "check": "naming-convention",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Variable GasToken2.MAX_SINGLE_BYTE (GasToken2.sol#21) is not in mixedCase\n",
+                "markdown": "Variable [GasToken2.MAX_SINGLE_BYTE](GasToken2.sol#L21) is not in mixedCase\n",
+                "first_markdown_element": "GasToken2.sol#L21",
+                "id": "12cc0cea92c5232f9dccc04df0b6ff1bebf579e7c7365a68643e06978badb617",
+                "check": "naming-convention",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Function GasToken2.mk_contract_address(address,uint256) (GasToken2.sol#51-167) is not in mixedCase\n",
+                "markdown": "Function [GasToken2.mk_contract_address(address,uint256)](GasToken2.sol#L51-L167) is not in mixedCase\n",
+                "first_markdown_element": "GasToken2.sol#L51-L167",
+                "id": "157fa971f6515f17ee21ed352b36a1c71102bc1a4a4c0b204a62eed0461fec06",
+                "check": "naming-convention",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Function GasToken2.count_bytes(uint256) (GasToken2.sol#29-47) is not in mixedCase\n",
+                "markdown": "Function [GasToken2.count_bytes(uint256)](GasToken2.sol#L29-L47) is not in mixedCase\n",
+                "first_markdown_element": "GasToken2.sol#L29-L47",
+                "id": "4d1546096b7bdd7480c49fa428f39eeb52e02e3acd710c6c69c7f1c4ff4151ee",
+                "check": "naming-convention",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Variable GasToken2.ADDRESS_BYTES (GasToken2.sol#19) is not in mixedCase\n",
+                "markdown": "Variable [GasToken2.ADDRESS_BYTES](GasToken2.sol#L19) is not in mixedCase\n",
+                "first_markdown_element": "GasToken2.sol#L19",
+                "id": "a817d02563e9db8284c7ca936b9eba4f2108a379f5c8365a6ef4efdc23613dfc",
+                "check": "naming-convention",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "ERC20 event GasToken2.Approval(address,address,uint256) (GasToken2.sol#193)does not index parameter spender\n",
+                "markdown": "ERC20 event [GasToken2.Approval(address,address,uint256)](GasToken2.sol#L193)does not index parameter spender\n",
+                "first_markdown_element": "GasToken2.sol#L193",
+                "id": "4ae19bbea747138521ec09685fd303cb2a1b8501f847f3538dd34bb2d1246136",
+                "check": "erc20-indexed",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "ERC20 event GasToken2.Transfer(address,address,uint256) (GasToken2.sol#189)does not index parameter to\n",
+                "markdown": "ERC20 event [GasToken2.Transfer(address,address,uint256)](GasToken2.sol#L189)does not index parameter to\n",
+                "first_markdown_element": "GasToken2.sol#L189",
+                "id": "5869a2cb8e37cba54b61de0485c5cb992899828f50dcf5d7f19e5842cc335cd5",
+                "check": "erc20-indexed",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "ERC20 event GasToken2.Approval(address,address,uint256) (GasToken2.sol#193)does not index parameter owner\n",
+                "markdown": "ERC20 event [GasToken2.Approval(address,address,uint256)](GasToken2.sol#L193)does not index parameter owner\n",
+                "first_markdown_element": "GasToken2.sol#L193",
+                "id": "6e1809062f4a02057c48520df6f0b335b79fcbe61bd5dfea7d171f3a700809aa",
+                "check": "erc20-indexed",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "ERC20 event GasToken2.Transfer(address,address,uint256) (GasToken2.sol#189)does not index parameter from\n",
+                "markdown": "ERC20 event [GasToken2.Transfer(address,address,uint256)](GasToken2.sol#L189)does not index parameter from\n",
+                "first_markdown_element": "GasToken2.sol#L189",
+                "id": "b572c7a52ee76969f7e41d078a20579075fe453da9ea0e28700219014de44442",
+                "check": "erc20-indexed",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "GasToken2.decimals (GasToken2.sol#315) is never used in GasToken2 (GasToken2.sol#5-664)\n",
+                "markdown": "[GasToken2.decimals](GasToken2.sol#L315) is never used in [GasToken2](GasToken2.sol#L5-L664)\n",
+                "first_markdown_element": "GasToken2.sol#L315",
+                "id": "191e92b15af0c81e84b4109862706a20965211d68ed9b3590897bc27e53c3436",
+                "check": "unused-state",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "GasToken2.symbol (GasToken2.sol#319) is never used in GasToken2 (GasToken2.sol#5-664)\n",
+                "markdown": "[GasToken2.symbol](GasToken2.sol#L319) is never used in [GasToken2](GasToken2.sol#L5-L664)\n",
+                "first_markdown_element": "GasToken2.sol#L319",
+                "id": "1fdd4727f332802db6f5f17181f5cddde6dfbfc2a684b4b0debf81ecd323a5f8",
+                "check": "unused-state",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "GasToken2.name (GasToken2.sol#317) is never used in GasToken2 (GasToken2.sol#5-664)\n",
+                "markdown": "[GasToken2.name](GasToken2.sol#L317) is never used in [GasToken2](GasToken2.sol#L5-L664)\n",
+                "first_markdown_element": "GasToken2.sol#L317",
+                "id": "909991bbf5525b062843b21a4b7c763c360909be289d78ba52e2acd6b902ae68",
+                "check": "unused-state",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "GasToken2.symbol (GasToken2.sol#319) should be constant \n",
+                "markdown": "[GasToken2.symbol](GasToken2.sol#L319) should be constant \n",
+                "first_markdown_element": "GasToken2.sol#L319",
+                "id": "1618a7fe345d823b05a24cc13dd291b332f7dd89b387a42fee6a1eef768799b5",
+                "check": "constable-states",
+                "impact": "Optimization",
+                "confidence": "High"
+            },
+            {
+                "description": "GasToken2.MAX_NONCE (GasToken2.sol#23) should be constant \n",
+                "markdown": "[GasToken2.MAX_NONCE](GasToken2.sol#L23) should be constant \n",
+                "first_markdown_element": "GasToken2.sol#L23",
+                "id": "3888ed9d18be96fd2c3cc2277a92831cfb576b6af4081e39feef812a9415c786",
+                "check": "constable-states",
+                "impact": "Optimization",
+                "confidence": "High"
+            },
+            {
+                "description": "GasToken2.ADDRESS_BYTES (GasToken2.sol#19) should be constant \n",
+                "markdown": "[GasToken2.ADDRESS_BYTES](GasToken2.sol#L19) should be constant \n",
+                "first_markdown_element": "GasToken2.sol#L19",
+                "id": "5bc8c22c361d642f6ded57217dda630c07f7a3c1dc5fa55f22369d4dde14fe8f",
+                "check": "constable-states",
+                "impact": "Optimization",
+                "confidence": "High"
+            },
+            {
+                "description": "GasToken2.decimals (GasToken2.sol#315) should be constant \n",
+                "markdown": "[GasToken2.decimals](GasToken2.sol#L315) should be constant \n",
+                "first_markdown_element": "GasToken2.sol#L315",
+                "id": "915eaae169eb363e5a3ed104e79976a3875053f2c00b15e3b9cc08a6900b9709",
+                "check": "constable-states",
+                "impact": "Optimization",
+                "confidence": "High"
+            },
+            {
+                "description": "GasToken2.MAX_SINGLE_BYTE (GasToken2.sol#21) should be constant \n",
+                "markdown": "[GasToken2.MAX_SINGLE_BYTE](GasToken2.sol#L21) should be constant \n",
+                "first_markdown_element": "GasToken2.sol#L21",
+                "id": "9fdb53748decf59e8db5b96c29378a17757d0aa7a45681a06aa2ea2badf208ae",
+                "check": "constable-states",
+                "impact": "Optimization",
+                "confidence": "High"
+            },
+            {
+                "description": "GasToken2.name (GasToken2.sol#317) should be constant \n",
+                "markdown": "[GasToken2.name](GasToken2.sol#L317) should be constant \n",
+                "first_markdown_element": "GasToken2.sol#L317",
+                "id": "b10c4fc21a522c2dc2c41c55764f7e758264a68d58f4eae065d4b8d21cff52b1",
+                "check": "constable-states",
+                "impact": "Optimization",
+                "confidence": "High"
+            }
+        ]
+    }
+}

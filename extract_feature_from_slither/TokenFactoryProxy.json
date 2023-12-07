@@ -1,0 +1,197 @@
+{
+    "success": true,
+    "error": null,
+    "results": {
+        "detectors": [
+            {
+                "description": "TokenFactoryProxy.constructor(address,address,bytes)._admin (TokenFactoryProxy.sol#731) shadows:\n\t- BaseAdminUpgradeabilityProxy._admin() (TokenFactoryProxy.sol#597-607) (function)\n",
+                "markdown": "[TokenFactoryProxy.constructor(address,address,bytes)._admin](TokenFactoryProxy.sol#L731) shadows:\n\t- [BaseAdminUpgradeabilityProxy._admin()](TokenFactoryProxy.sol#L597-L607) (function)\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L731",
+                "id": "511db92102612b93c47a827e916024b36f8f4c869853c2c21339d41e680b34ce",
+                "check": "shadowing-local",
+                "impact": "Low",
+                "confidence": "High"
+            },
+            {
+                "description": "AdminUpgradeabilityProxy.constructor(address,address,bytes)._admin (TokenFactoryProxy.sol#699) shadows:\n\t- BaseAdminUpgradeabilityProxy._admin() (TokenFactoryProxy.sol#597-607) (function)\n",
+                "markdown": "[AdminUpgradeabilityProxy.constructor(address,address,bytes)._admin](TokenFactoryProxy.sol#L699) shadows:\n\t- [BaseAdminUpgradeabilityProxy._admin()](TokenFactoryProxy.sol#L597-L607) (function)\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L699",
+                "id": "dcf84b089d06ec6e472158dede49bb3f4ef416381765034e418844dd485ea5f4",
+                "check": "shadowing-local",
+                "impact": "Low",
+                "confidence": "High"
+            },
+            {
+                "description": "BaseAdminUpgradeabilityProxy.upgradeToAndCall(address,bytes).newImplementation (TokenFactoryProxy.sol#579) lacks a zero-check on :\n\t\t- (success) = newImplementation.delegatecall(data) (TokenFactoryProxy.sol#583)\n",
+                "markdown": "[BaseAdminUpgradeabilityProxy.upgradeToAndCall(address,bytes).newImplementation](TokenFactoryProxy.sol#L579) lacks a zero-check on :\n\t\t- [(success) = newImplementation.delegatecall(data)](TokenFactoryProxy.sol#L583)\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L579",
+                "id": "1a7fdb1857cd324e3bdbe8b6fcc0029e8b1e10a5bdd242a32971e8a2d700a932",
+                "check": "missing-zero-check",
+                "impact": "Low",
+                "confidence": "Medium"
+            },
+            {
+                "description": "UpgradeabilityProxy.constructor(address,bytes)._logic (TokenFactoryProxy.sol#391) lacks a zero-check on :\n\t\t- (success) = _logic.delegatecall(_data) (TokenFactoryProxy.sol#399)\n",
+                "markdown": "[UpgradeabilityProxy.constructor(address,bytes)._logic](TokenFactoryProxy.sol#L391) lacks a zero-check on :\n\t\t- [(success) = _logic.delegatecall(_data)](TokenFactoryProxy.sol#L399)\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L391",
+                "id": "caa88f283cc2580be4b0d45c0a23323886e48677c01c81ed79b53b240ad837aa",
+                "check": "missing-zero-check",
+                "impact": "Low",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Modifier BaseAdminUpgradeabilityProxy.ifAdmin() (TokenFactoryProxy.sol#477-489) does not always execute _; or revert",
+                "markdown": "Modifier [BaseAdminUpgradeabilityProxy.ifAdmin()](TokenFactoryProxy.sol#L477-L489) does not always execute _; or revert",
+                "first_markdown_element": "TokenFactoryProxy.sol#L477-L489",
+                "id": "6caf5c4a0a1447cb53de3871081defbc16cb2f4d93cae37e6bfe72b16e8552f9",
+                "check": "incorrect-modifier",
+                "impact": "Low",
+                "confidence": "High"
+            },
+            {
+                "description": "BaseUpgradeabilityProxy._implementation() (TokenFactoryProxy.sol#285-295) uses assembly\n\t- INLINE ASM (TokenFactoryProxy.sol#289-293)\n",
+                "markdown": "[BaseUpgradeabilityProxy._implementation()](TokenFactoryProxy.sol#L285-L295) uses assembly\n\t- [INLINE ASM](TokenFactoryProxy.sol#L289-L293)\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L285-L295",
+                "id": "2730a697fbe7fff43c558093f99dc4fa681f1b654bb935e3ba0cc688a768b078",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "AddressUtils.isContract(address) (TokenFactoryProxy.sol#191-217) uses assembly\n\t- INLINE ASM (TokenFactoryProxy.sol#209-213)\n",
+                "markdown": "[AddressUtils.isContract(address)](TokenFactoryProxy.sol#L191-L217) uses assembly\n\t- [INLINE ASM](TokenFactoryProxy.sol#L209-L213)\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L191-L217",
+                "id": "3a4b7b7475d857e4b90f727de472f6d690e37c30070d49909a39b3c41be5bce4",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "BaseAdminUpgradeabilityProxy._admin() (TokenFactoryProxy.sol#597-607) uses assembly\n\t- INLINE ASM (TokenFactoryProxy.sol#601-605)\n",
+                "markdown": "[BaseAdminUpgradeabilityProxy._admin()](TokenFactoryProxy.sol#L597-L607) uses assembly\n\t- [INLINE ASM](TokenFactoryProxy.sol#L601-L605)\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L597-L607",
+                "id": "51498ad2ab7872aca7562fd803e20b032e2b25533696b53520c530b894b139b9",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "BaseUpgradeabilityProxy._setImplementation(address) (TokenFactoryProxy.sol#325-347) uses assembly\n\t- INLINE ASM (TokenFactoryProxy.sol#341-345)\n",
+                "markdown": "[BaseUpgradeabilityProxy._setImplementation(address)](TokenFactoryProxy.sol#L325-L347) uses assembly\n\t- [INLINE ASM](TokenFactoryProxy.sol#L341-L345)\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L325-L347",
+                "id": "7eab78bf7077b3349f4bc3b62b311cf4b68f9025ebe3f4ed51c81d68997b76c4",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Proxy._delegate(address) (TokenFactoryProxy.sol#63-123) uses assembly\n\t- INLINE ASM (TokenFactoryProxy.sol#65-121)\n",
+                "markdown": "[Proxy._delegate(address)](TokenFactoryProxy.sol#L63-L123) uses assembly\n\t- [INLINE ASM](TokenFactoryProxy.sol#L65-L121)\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L63-L123",
+                "id": "7f3be41342f488173bc23f42be649075f7aa7a2dacf5e13ea6f730f37377beec",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "BaseAdminUpgradeabilityProxy._setAdmin(address) (TokenFactoryProxy.sol#619-631) uses assembly\n\t- INLINE ASM (TokenFactoryProxy.sol#625-629)\n",
+                "markdown": "[BaseAdminUpgradeabilityProxy._setAdmin(address)](TokenFactoryProxy.sol#L619-L631) uses assembly\n\t- [INLINE ASM](TokenFactoryProxy.sol#L625-L629)\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L619-L631",
+                "id": "b1ba6385f9b8959dbb7b3938f094736fb6e7215453ac86b3225782bc52cb46b5",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.5.8 (TokenFactoryProxy.sol#415) allows old versions\n",
+                "markdown": "Pragma version[^0.5.8](TokenFactoryProxy.sol#L415) allows old versions\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L415",
+                "id": "27affab331b6e45ed3d4117f3150d62507666470e851d313d4cdab689d030659",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.5.8 (TokenFactoryProxy.sol#229) allows old versions\n",
+                "markdown": "Pragma version[^0.5.8](TokenFactoryProxy.sol#L229) allows old versions\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L229",
+                "id": "31cfd85bd9b3931c8cc025736233158e79de003a95e3190a3343f4a35b197480",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.5.8 (TokenFactoryProxy.sol#357) allows old versions\n",
+                "markdown": "Pragma version[^0.5.8](TokenFactoryProxy.sol#L357) allows old versions\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L357",
+                "id": "392e3fb9f0715ac11abe8b8ddc1bafcde3de2d1ee39fc003f1ec4d8f557b3d03",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.5.8 (TokenFactoryProxy.sol#657) allows old versions\n",
+                "markdown": "Pragma version[^0.5.8](TokenFactoryProxy.sol#L657) allows old versions\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L657",
+                "id": "6a54e5e344000e3fb044ee0dbbc9ab45ada3f68c8d9dbb00fda15a5e8367fc17",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "solc-0.5.8 is not recommended for deployment\n",
+                "markdown": "solc-0.5.8 is not recommended for deployment\n",
+                "first_markdown_element": "",
+                "id": "9ac5705453fdf5f2e22c1fc46d8016c7ff08b68311942a6daf1a1cef7e3d6438",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.5.8 (TokenFactoryProxy.sol#165) allows old versions\n",
+                "markdown": "Pragma version[^0.5.8](TokenFactoryProxy.sol#L165) allows old versions\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L165",
+                "id": "a89a158df4d97fa074bc45a27789b073609eeb0ecad22bd82a8c3bd9aa7c4a3e",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.5.8 (TokenFactoryProxy.sol#723) allows old versions\n",
+                "markdown": "Pragma version[^0.5.8](TokenFactoryProxy.sol#L723) allows old versions\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L723",
+                "id": "c92c8306e0828c4a333de89873f7cb3cbcf6a579644519302e3bc8f27aedd775",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Pragma version^0.5.8 (TokenFactoryProxy.sol#5) allows old versions\n",
+                "markdown": "Pragma version[^0.5.8](TokenFactoryProxy.sol#L5) allows old versions\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L5",
+                "id": "d8791430b9a74eea79e256e6022e6bcf5019a26bc649d6dab5d8145ea90e4bff",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Low level call in BaseAdminUpgradeabilityProxy.upgradeToAndCall(address,bytes) (TokenFactoryProxy.sol#579-587):\n\t- (success) = newImplementation.delegatecall(data) (TokenFactoryProxy.sol#583)\n",
+                "markdown": "Low level call in [BaseAdminUpgradeabilityProxy.upgradeToAndCall(address,bytes)](TokenFactoryProxy.sol#L579-L587):\n\t- [(success) = newImplementation.delegatecall(data)](TokenFactoryProxy.sol#L583)\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L579-L587",
+                "id": "b897f2d3e5832f9c23f4000a956ab1eb988e4f8cbabf556be0d4dcd19d58be92",
+                "check": "low-level-calls",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "Low level call in UpgradeabilityProxy.constructor(address,bytes) (TokenFactoryProxy.sol#391-405):\n\t- (success) = _logic.delegatecall(_data) (TokenFactoryProxy.sol#399)\n",
+                "markdown": "Low level call in [UpgradeabilityProxy.constructor(address,bytes)](TokenFactoryProxy.sol#L391-L405):\n\t- [(success) = _logic.delegatecall(_data)](TokenFactoryProxy.sol#L399)\n",
+                "first_markdown_element": "TokenFactoryProxy.sol#L391-L405",
+                "id": "e944dfc21032576c5fb4ae4bb3ff6e0a7dbc9e2f37e3d9b732f56fe91a355870",
+                "check": "low-level-calls",
+                "impact": "Informational",
+                "confidence": "High"
+            }
+        ]
+    }
+}

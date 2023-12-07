@@ -1,0 +1,116 @@
+{
+    "success": true,
+    "error": null,
+    "results": {
+        "detectors": [
+            {
+                "description": "ERC20Detailed.constructor(string,string,uint8).symbol (BID.sol#179) shadows:\n\t- ERC20Detailed.symbol() (BID.sol#195-199) (function)\n",
+                "markdown": "[ERC20Detailed.constructor(string,string,uint8).symbol](BID.sol#L179) shadows:\n\t- [ERC20Detailed.symbol()](BID.sol#L195-L199) (function)\n",
+                "first_markdown_element": "BID.sol#L179",
+                "id": "8001ef8aa02973c3b50a70701dd29bd34da99677c332f5ece9c5ad02f96df070",
+                "check": "shadowing-local",
+                "impact": "Low",
+                "confidence": "High"
+            },
+            {
+                "description": "ERC20Detailed.constructor(string,string,uint8).decimals (BID.sol#179) shadows:\n\t- ERC20Detailed.decimals() (BID.sol#201-205) (function)\n",
+                "markdown": "[ERC20Detailed.constructor(string,string,uint8).decimals](BID.sol#L179) shadows:\n\t- [ERC20Detailed.decimals()](BID.sol#L201-L205) (function)\n",
+                "first_markdown_element": "BID.sol#L179",
+                "id": "9845f20fbb5426ca76f8323c89209ef9241cc258bb2d3177ffb8d85a5b354720",
+                "check": "shadowing-local",
+                "impact": "Low",
+                "confidence": "High"
+            },
+            {
+                "description": "ERC20Detailed.constructor(string,string,uint8).name (BID.sol#179) shadows:\n\t- ERC20Detailed.name() (BID.sol#189-193) (function)\n",
+                "markdown": "[ERC20Detailed.constructor(string,string,uint8).name](BID.sol#L179) shadows:\n\t- [ERC20Detailed.name()](BID.sol#L189-L193) (function)\n",
+                "first_markdown_element": "BID.sol#L179",
+                "id": "cc79c402b72d738360f3eefe4386e6c2bf77198844db08fa7e421f821cc00851",
+                "check": "shadowing-local",
+                "impact": "Low",
+                "confidence": "High"
+            },
+            {
+                "description": "Address.isContract(address) (BID.sol#289-301) uses assembly\n\t- INLINE ASM (BID.sol#297)\n",
+                "markdown": "[Address.isContract(address)](BID.sol#L289-L301) uses assembly\n\t- [INLINE ASM](BID.sol#L297)\n",
+                "first_markdown_element": "BID.sol#L289-L301",
+                "id": "9cb4935e5b60decb6076b85f019db23dba7debc81ad4b69bec7b8529eaaeec8c",
+                "check": "assembly",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "SafeMath.mul(uint256,uint256) (BID.sol#243-261) is never used and should be removed\n",
+                "markdown": "[SafeMath.mul(uint256,uint256)](BID.sol#L243-L261) is never used and should be removed\n",
+                "first_markdown_element": "BID.sol#L243-L261",
+                "id": "01304cc4312b37902daca45f84c38ca41bb71ffe24e353e8143a18f4c9731983",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "SafeMath.sub(uint256,uint256) (BID.sol#225-229) is never used and should be removed\n",
+                "markdown": "[SafeMath.sub(uint256,uint256)](BID.sol#L225-L229) is never used and should be removed\n",
+                "first_markdown_element": "BID.sol#L225-L229",
+                "id": "0597ae61b0a7d596bb9d6115f18ba9ca50e326614caee57b8155a4db524ba57b",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "SafeMath.div(uint256,uint256,string) (BID.sol#269-281) is never used and should be removed\n",
+                "markdown": "[SafeMath.div(uint256,uint256,string)](BID.sol#L269-L281) is never used and should be removed\n",
+                "first_markdown_element": "BID.sol#L269-L281",
+                "id": "883adadc70fb7eb2cd5136eb24fcd93a1842b6e88470e572c4dbdb1119863e3c",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "SafeMath.div(uint256,uint256) (BID.sol#263-267) is never used and should be removed\n",
+                "markdown": "[SafeMath.div(uint256,uint256)](BID.sol#L263-L267) is never used and should be removed\n",
+                "first_markdown_element": "BID.sol#L263-L267",
+                "id": "b49b4889f1b304a84f2984119b9a2fc4e67dfb2f730e0a6de8fe6113d3fbcc39",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Address.isContract(address) (BID.sol#289-301) is never used and should be removed\n",
+                "markdown": "[Address.isContract(address)](BID.sol#L289-L301) is never used and should be removed\n",
+                "first_markdown_element": "BID.sol#L289-L301",
+                "id": "de7443462f44ab8c4d96b5210d641361c6ca8e94ba96c9d8f16c12ec08844a9d",
+                "check": "dead-code",
+                "impact": "Informational",
+                "confidence": "Medium"
+            },
+            {
+                "description": "Pragma version^0.5.16 (BID.sol#1) allows old versions\n",
+                "markdown": "Pragma version[^0.5.16](BID.sol#L1) allows old versions\n",
+                "first_markdown_element": "BID.sol#L1",
+                "id": "2a7f05c37865ad848e72750cec14f16d5a304d7b2a9862599beeba5de7e704e5",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "solc-0.5.16 is not recommended for deployment\n",
+                "markdown": "solc-0.5.16 is not recommended for deployment\n",
+                "first_markdown_element": "",
+                "id": "94ddf430efb860e471a768a108c851848fa998e8a2c489c6fb23ed71d3ef4b09",
+                "check": "solc-version",
+                "impact": "Informational",
+                "confidence": "High"
+            },
+            {
+                "description": "BID.constructor(address) (BID.sol#313-317) uses literals with too many digits:\n\t- _mint(_controller,100000000 * 1e18) (BID.sol#315)\n",
+                "markdown": "[BID.constructor(address)](BID.sol#L313-L317) uses literals with too many digits:\n\t- [_mint(_controller,100000000 * 1e18)](BID.sol#L315)\n",
+                "first_markdown_element": "BID.sol#L313-L317",
+                "id": "ed19996d10a6717f212c63c85048d10999b0cf6a6d62c44cc7eae5eaf532885a",
+                "check": "too-many-digits",
+                "impact": "Informational",
+                "confidence": "Medium"
+            }
+        ]
+    }
+}
