@@ -29,7 +29,7 @@ for root, dirs, files in os.walk(input_folder):
             # Tạo tệp .dot
             dot_file_path = os.path.join(output_subfolder, f"{os.path.splitext(file)[0]}.dot")
             with open(dot_file_path, 'w') as dot_file:
-                dot_file.write('digraph { \n')
+                dot_file.write(f'digraph {os.path.splitext(file)[0]} {{\n')
                 dot_file.write('bgcolor=transparent rankdir=UD;\n')
                 dot_file.write('node [shape=box style=filled color=black fillcolor=white fontname=arial fontcolor=black];\n')
                 node_connections = ''
