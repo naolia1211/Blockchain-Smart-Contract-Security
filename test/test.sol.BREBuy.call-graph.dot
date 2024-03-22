@@ -1,0 +1,43 @@
+strict digraph {
+subgraph cluster_597_BREBuy {
+label = "BREBuy"
+"597_changeConfig" [label="changeConfig"]
+"597_startNewGame" [label="startNewGame"]
+"597_transferOwnership" [label="transferOwnership"]
+"597_getGameInfo" [label="getGameInfo"]
+"597_fallback" [label="fallback"]
+"597_stopGame" [label="stopGame"]
+"597_gameResult" [label="gameResult"]
+"597_slitherConstructorVariables" [label="slitherConstructorVariables"]
+"597_constructor" [label="constructor"]
+"597_isNotContract" [label="isNotContract"]
+"597_getRamdon" [label="getRamdon"]
+"597_updateLock" [label="updateLock"]
+"597_stopGame" -> "597_onlyOwner"
+"597_transferOwnership" -> "597_onlyOwner"
+"597_gameResult" -> "597_getRamdon"
+"597_fallback" -> "597_startNewGame"
+"597_updateLock" -> "597_startNewGame"
+"597_changeConfig" -> "597_onlyOwner"
+"597_fallback" -> "597_notLock"
+"597_updateLock" -> "597_stopGame"
+"597_fallback" -> "597_isNotContract"
+"597_updateLock" -> "597_onlyOwner"
+"597_fallback" -> "597_gameResult"
+"597_constructor" -> "597_startNewGame"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"abi.encodePacked()" 
+"require(bool,string)" 
+"balance(address)" 
+"blockhash(uint256)" 
+"keccak256()" 
+"597_updateLock" -> "require(bool,string)"
+"597_stopGame" -> "balance(address)"
+"597_fallback" -> "require(bool,string)"
+"597_getRamdon" -> "blockhash(uint256)"
+"597_getRamdon" -> "abi.encodePacked()"
+"597_getRamdon" -> "keccak256()"
+"597_gameResult" -> "balance(address)"
+}
+}
