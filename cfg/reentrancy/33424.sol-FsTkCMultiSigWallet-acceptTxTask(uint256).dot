@@ -1,0 +1,208 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->23;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+require(bool)(txTaskMap[_txNumber].taskType != 0)
+
+IRs:
+REF_41(FsTkCMultiSigWallet.Task) -> txTaskMap[_txNumber]
+REF_42(uint256) -> REF_41.taskType
+TMP_72(bool) = REF_42 != 0
+TMP_73(None) = SOLIDITY_CALL require(bool)(TMP_72)"];
+1->2;
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+require(bool)(txTaskMap[_txNumber].completed == false)
+
+IRs:
+REF_43(FsTkCMultiSigWallet.Task) -> txTaskMap[_txNumber]
+REF_44(bool) -> REF_43.completed
+TMP_74(bool) = REF_44 == False
+TMP_75(None) = SOLIDITY_CALL require(bool)(TMP_74)"];
+2->3;
+3[label="Node Type: EXPRESSION 3
+
+EXPRESSION:
+require(bool)(txTaskMap[_txNumber].acceptedCommitteesMap[msg.sender] == false)
+
+IRs:
+REF_45(FsTkCMultiSigWallet.Task) -> txTaskMap[_txNumber]
+REF_46(mapping(address => bool)) -> REF_45.acceptedCommitteesMap
+REF_47(bool) -> REF_46[msg.sender]
+TMP_76(bool) = REF_47 == False
+TMP_77(None) = SOLIDITY_CALL require(bool)(TMP_76)"];
+3->4;
+4[label="Node Type: EXPRESSION 4
+
+EXPRESSION:
+AcceptTxTaskEvent(msg.sender,_txNumber)
+
+IRs:
+Emit AcceptTxTaskEvent(msg.sender,_txNumber)"];
+4->5;
+5[label="Node Type: EXPRESSION 5
+
+EXPRESSION:
+txTaskMap[_txNumber].acceptedCounter ++
+
+IRs:
+REF_48(FsTkCMultiSigWallet.Task) -> txTaskMap[_txNumber]
+REF_49(uint256) -> REF_48.acceptedCounter
+TMP_79(uint256) := REF_49(uint256)
+REF_49(-> txTaskMap) = REF_49 + 1"];
+5->6;
+6[label="Node Type: EXPRESSION 6
+
+EXPRESSION:
+txTaskMap[_txNumber].acceptedCommitteesMap[msg.sender] = true
+
+IRs:
+REF_50(FsTkCMultiSigWallet.Task) -> txTaskMap[_txNumber]
+REF_51(mapping(address => bool)) -> REF_50.acceptedCommitteesMap
+REF_52(bool) -> REF_51[msg.sender]
+REF_52(bool) (->txTaskMap) := True(bool)"];
+6->7;
+7[label="Node Type: NEW VARIABLE 7
+
+EXPRESSION:
+theTask = txTaskMap[_txNumber]
+
+IRs:
+REF_53(FsTkCMultiSigWallet.Task) -> txTaskMap[_txNumber]
+theTask(FsTkCMultiSigWallet.Task) := REF_53(FsTkCMultiSigWallet.Task)"];
+7->8;
+8[label="Node Type: IF 8
+
+EXPRESSION:
+theTask.acceptedCounter == getCommitteesNumber()
+
+IRs:
+REF_54(uint256) -> theTask.acceptedCounter
+TMP_80(uint256) = INTERNAL_CALL, FsTkCMultiSigWallet.getCommitteesNumber()()
+TMP_81(bool) = REF_54 == TMP_80
+CONDITION TMP_81"];
+8->9[label="True"];
+8->21[label="False"];
+9[label="Node Type: IF 9
+
+EXPRESSION:
+theTask.taskType == 1
+
+IRs:
+REF_55(uint256) -> theTask.taskType
+TMP_82(bool) = REF_55 == 1
+CONDITION TMP_82"];
+9->10[label="True"];
+9->15[label="False"];
+10[label="Node Type: EXPRESSION 10
+
+EXPRESSION:
+txTaskMap[_txNumber].completed = true
+
+IRs:
+REF_56(FsTkCMultiSigWallet.Task) -> txTaskMap[_txNumber]
+REF_57(bool) -> REF_56.completed
+REF_57(bool) (->txTaskMap) := True(bool)"];
+10->11;
+11[label="Node Type: IF 11
+
+EXPRESSION:
+! theTask.tokenContractAddress.call(theTask.functionIdentifier,theTask.receiver,theTask.value)
+
+IRs:
+REF_58(address) -> theTask.tokenContractAddress
+REF_60(bytes4) -> theTask.functionIdentifier
+REF_61(address) -> theTask.receiver
+REF_62(uint256) -> theTask.value
+TMP_83(bool) = LOW_LEVEL_CALL, dest:REF_58, function:call, arguments:['REF_60', 'REF_61', 'REF_62']  
+TMP_84 = UnaryType.BANG TMP_83 
+CONDITION TMP_84"];
+11->12[label="True"];
+11->13[label="False"];
+12[label="Node Type: EXPRESSION 12
+
+EXPRESSION:
+revert()()
+
+IRs:
+TMP_85(None) = SOLIDITY_CALL revert()()"];
+12->13;
+13[label="Node Type: END_IF 13
+"];
+13->14;
+14[label="Node Type: EXPRESSION 14
+
+EXPRESSION:
+TaskCompletedEvent(_txNumber)
+
+IRs:
+Emit TaskCompletedEvent(_txNumber)"];
+14->15;
+15[label="Node Type: END_IF 15
+"];
+15->16;
+16[label="Node Type: IF 16
+
+EXPRESSION:
+theTask.taskType == 2
+
+IRs:
+REF_63(uint256) -> theTask.taskType
+TMP_87(bool) = REF_63 == 2
+CONDITION TMP_87"];
+16->17[label="True"];
+16->20[label="False"];
+17[label="Node Type: EXPRESSION 17
+
+EXPRESSION:
+txTaskMap[_txNumber].completed = true
+
+IRs:
+REF_64(FsTkCMultiSigWallet.Task) -> txTaskMap[_txNumber]
+REF_65(bool) -> REF_64.completed
+REF_65(bool) (->txTaskMap) := True(bool)"];
+17->18;
+18[label="Node Type: EXPRESSION 18
+
+EXPRESSION:
+theTask.receiver.transfer(theTask.value)
+
+IRs:
+REF_66(address) -> theTask.receiver
+REF_68(uint256) -> theTask.value
+Transfer dest:REF_66 value:REF_68"];
+18->19;
+19[label="Node Type: EXPRESSION 19
+
+EXPRESSION:
+TaskCompletedEvent(_txNumber)
+
+IRs:
+Emit TaskCompletedEvent(_txNumber)"];
+19->20;
+20[label="Node Type: END_IF 20
+"];
+20->21;
+21[label="Node Type: END_IF 21
+"];
+21->22;
+22[label="Node Type: RETURN 22
+
+EXPRESSION:
+true
+
+IRs:
+RETURN True"];
+23[label="Node Type: EXPRESSION 23
+
+EXPRESSION:
+onlyCommitteesAfterInitialization()
+
+IRs:
+MODIFIER_CALL, FsTkCMultiSigWallet.onlyCommitteesAfterInitialization()()"];
+23->1;
+}

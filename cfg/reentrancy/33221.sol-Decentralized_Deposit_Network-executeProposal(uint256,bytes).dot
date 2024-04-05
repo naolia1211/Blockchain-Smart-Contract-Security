@@ -1,0 +1,98 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: NEW VARIABLE 1
+
+EXPRESSION:
+p = proposals[proposalNumber]
+
+IRs:
+REF_36(Decentralized_Deposit_Network.Proposal) -> proposals[proposalNumber]
+p(Decentralized_Deposit_Network.Proposal) := REF_36(Decentralized_Deposit_Network.Proposal)"];
+1->2;
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+require(bool)(now > p.votingDeadline && ! p.executed && p.proposalHash == keccak256()(p.recipient,p.amount,transactionBytecode) && p.numberOfVotes >= minimumQuorum)
+
+IRs:
+REF_37(uint256) -> p.votingDeadline
+TMP_52(bool) = now > REF_37
+REF_38(bool) -> p.executed
+TMP_53 = UnaryType.BANG REF_38 
+TMP_54(bool) = TMP_52 && TMP_53
+REF_39(bytes32) -> p.proposalHash
+REF_40(address) -> p.recipient
+REF_41(uint256) -> p.amount
+TMP_55(bytes32) = SOLIDITY_CALL keccak256()(REF_40,REF_41,transactionBytecode)
+TMP_56(bool) = REF_39 == TMP_55
+TMP_57(bool) = TMP_54 && TMP_56
+REF_42(uint256) -> p.numberOfVotes
+TMP_58(bool) = REF_42 >= minimumQuorum
+TMP_59(bool) = TMP_57 && TMP_58
+TMP_60(None) = SOLIDITY_CALL require(bool)(TMP_59)"];
+2->3;
+3[label="Node Type: IF 3
+
+EXPRESSION:
+p.currentResult > majorityMargin
+
+IRs:
+REF_43(int256) -> p.currentResult
+TMP_61(bool) = REF_43 > majorityMargin
+CONDITION TMP_61"];
+3->4[label="True"];
+3->7[label="False"];
+4[label="Node Type: EXPRESSION 4
+
+EXPRESSION:
+p.executed = true
+
+IRs:
+REF_44(bool) -> p.executed
+REF_44(bool) (->p) := True(bool)"];
+4->5;
+5[label="Node Type: EXPRESSION 5
+
+EXPRESSION:
+require(bool)(p.recipient.call.value(p.amount)(transactionBytecode))
+
+IRs:
+REF_45(address) -> p.recipient
+REF_48(uint256) -> p.amount
+TMP_63(bool) = LOW_LEVEL_CALL, dest:REF_45, function:call, arguments:['transactionBytecode'] value:REF_48 
+TMP_64(None) = SOLIDITY_CALL require(bool)(TMP_63)"];
+5->6;
+6[label="Node Type: EXPRESSION 6
+
+EXPRESSION:
+p.proposalPassed = true
+
+IRs:
+REF_49(bool) -> p.proposalPassed
+REF_49(bool) (->p) := True(bool)"];
+6->8;
+7[label="Node Type: EXPRESSION 7
+
+EXPRESSION:
+p.proposalPassed = false
+
+IRs:
+REF_50(bool) -> p.proposalPassed
+REF_50(bool) (->p) := False(bool)"];
+7->8;
+8[label="Node Type: END_IF 8
+"];
+8->9;
+9[label="Node Type: EXPRESSION 9
+
+EXPRESSION:
+ProposalTallied(proposalNumber,p.currentResult,p.numberOfVotes,p.proposalPassed)
+
+IRs:
+REF_51(int256) -> p.currentResult
+REF_52(uint256) -> p.numberOfVotes
+REF_53(bool) -> p.proposalPassed
+Emit ProposalTallied(proposalNumber,REF_51,REF_52,REF_53)"];
+}

@@ -1,0 +1,145 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->3;
+1[label="Node Type: BEGIN_LOOP 1
+"];
+1->4;
+2[label="Node Type: END_LOOP 2
+"];
+3[label="Node Type: NEW VARIABLE 3
+
+EXPRESSION:
+i = 0
+
+IRs:
+i(uint256) := 0(uint256)"];
+3->1;
+4[label="Node Type: IF_LOOP 4
+
+EXPRESSION:
+i < activityCount
+
+IRs:
+TMP_27(bool) = i < activityCount
+CONDITION TMP_27"];
+4->5[label="True"];
+4->2[label="False"];
+5[label="Node Type: NEW VARIABLE 5
+
+EXPRESSION:
+addr = activityAccounts[i].addr
+
+IRs:
+REF_34(OrganizeFunds.ActivityAccount) -> activityAccounts[i]
+REF_35(address) -> REF_34.addr
+addr(address) := REF_35(address)"];
+5->6;
+6[label="Node Type: IF 6
+
+EXPRESSION:
+addr == msg.sender || msg.sender == owner
+
+IRs:
+TMP_28(bool) = addr == msg.sender
+TMP_29(bool) = msg.sender == owner
+TMP_30(bool) = TMP_28 || TMP_29
+CONDITION TMP_30"];
+6->7[label="True"];
+6->18[label="False"];
+7[label="Node Type: NEW VARIABLE 7
+
+EXPRESSION:
+amount = activityAccounts[i].balance
+
+IRs:
+REF_36(OrganizeFunds.ActivityAccount) -> activityAccounts[i]
+REF_37(uint256) -> REF_36.balance
+amount(uint256) := REF_37(uint256)"];
+7->8;
+8[label="Node Type: IF 8
+
+EXPRESSION:
+amount > 0
+
+IRs:
+TMP_31(bool) = amount > 0
+CONDITION TMP_31"];
+8->9[label="True"];
+8->17[label="False"];
+9[label="Node Type: EXPRESSION 9
+
+EXPRESSION:
+activityAccounts[i].balance = 0
+
+IRs:
+REF_38(OrganizeFunds.ActivityAccount) -> activityAccounts[i]
+REF_39(uint256) -> REF_38.balance
+REF_39(uint256) (->activityAccounts) := 0(uint256)"];
+9->10;
+10[label="Node Type: EXPRESSION 10
+
+EXPRESSION:
+totalFundsWithdrawn += amount
+
+IRs:
+totalFundsWithdrawn(uint256) = totalFundsWithdrawn + amount"];
+10->11;
+11[label="Node Type: IF 11
+
+EXPRESSION:
+! addr.call.gas(withdrawGas).value(amount)()
+
+IRs:
+TMP_34(bool) = LOW_LEVEL_CALL, dest:addr, function:call, arguments:[] value:amount gas:withdrawGas
+TMP_35 = UnaryType.BANG TMP_34 
+CONDITION TMP_35"];
+11->12[label="True"];
+11->16[label="False"];
+12[label="Node Type: EXPRESSION 12
+
+EXPRESSION:
+activityAccounts[i].balance = amount
+
+IRs:
+REF_43(OrganizeFunds.ActivityAccount) -> activityAccounts[i]
+REF_44(uint256) -> REF_43.balance
+REF_44(uint256) (->activityAccounts) := amount(uint256)"];
+12->13;
+13[label="Node Type: EXPRESSION 13
+
+EXPRESSION:
+totalFundsWithdrawn -= amount
+
+IRs:
+totalFundsWithdrawn(uint256) = totalFundsWithdrawn - amount"];
+13->14;
+14[label="Node Type: EXPRESSION 14
+
+EXPRESSION:
+MessageEvent(err: error sending funds)
+
+IRs:
+Emit MessageEvent(err: error sending funds)"];
+14->15;
+15[label="Node Type: RETURN 15
+"];
+16[label="Node Type: END_IF 16
+"];
+16->17;
+17[label="Node Type: END_IF 17
+"];
+17->18;
+18[label="Node Type: END_IF 18
+"];
+18->19;
+19[label="Node Type: EXPRESSION 19
+
+EXPRESSION:
+i ++
+
+IRs:
+TMP_37(uint256) := i(uint256)
+i(uint256) = i + 1"];
+19->4;
+}

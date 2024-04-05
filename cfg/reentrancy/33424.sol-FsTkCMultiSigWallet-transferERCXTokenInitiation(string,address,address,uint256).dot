@@ -1,0 +1,75 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->8;
+1[label="Node Type: NEW VARIABLE 1
+
+EXPRESSION:
+tmpIdentifier = tokenTransferFunctionIdentifierMap[keccak256()(_ercVersion)]
+
+IRs:
+TMP_54(bytes32) = SOLIDITY_CALL keccak256()(_ercVersion)
+REF_37(bytes4) -> tokenTransferFunctionIdentifierMap[TMP_54]
+tmpIdentifier(bytes4) := REF_37(bytes4)"];
+1->2;
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+require(bool)(tmpIdentifier != bytes4(0))
+
+IRs:
+TMP_55 = CONVERT 0 to bytes4
+TMP_56(bool) = tmpIdentifier != TMP_55
+TMP_57(None) = SOLIDITY_CALL require(bool)(TMP_56)"];
+2->3;
+3[label="Node Type: EXPRESSION 3
+
+EXPRESSION:
+txTaskMap[txCounter] = Task({taskType:1,receiver:_to,value:_tokenValue,tokenContractAddress:_tokenContractAddress,functionIdentifier:tmpIdentifier,acceptedCounter:0,completed:false})
+
+IRs:
+REF_38(FsTkCMultiSigWallet.Task) -> txTaskMap[txCounter]
+TMP_58(FsTkCMultiSigWallet.Task) = new Task(1,_to,_tokenValue,_tokenContractAddress,tmpIdentifier,0,False)
+REF_38(FsTkCMultiSigWallet.Task) (->txTaskMap) := TMP_58(FsTkCMultiSigWallet.Task)"];
+3->4;
+4[label="Node Type: EXPRESSION 4
+
+EXPRESSION:
+TransferERCXTokenInitiationEvent(txCounter,msg.sender,_ercVersion,_tokenContractAddress,_to,_tokenValue)
+
+IRs:
+Emit TransferERCXTokenInitiationEvent(txCounter,msg.sender,_ercVersion,_tokenContractAddress,_to,_tokenValue)"];
+4->5;
+5[label="Node Type: EXPRESSION 5
+
+EXPRESSION:
+acceptTxTask(txCounter)
+
+IRs:
+TMP_60(bool) = INTERNAL_CALL, FsTkCMultiSigWallet.acceptTxTask(uint256)(txCounter)"];
+5->6;
+6[label="Node Type: EXPRESSION 6
+
+EXPRESSION:
+txCounter ++
+
+IRs:
+TMP_61(uint256) := txCounter(uint256)
+txCounter(uint256) = txCounter + 1"];
+6->7;
+7[label="Node Type: RETURN 7
+
+EXPRESSION:
+true
+
+IRs:
+RETURN True"];
+8[label="Node Type: EXPRESSION 8
+
+EXPRESSION:
+onlyCommitteesAfterInitialization()
+
+IRs:
+MODIFIER_CALL, FsTkCMultiSigWallet.onlyCommitteesAfterInitialization()()"];
+8->1;
+}
