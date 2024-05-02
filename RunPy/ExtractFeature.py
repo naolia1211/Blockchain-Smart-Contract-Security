@@ -11,8 +11,6 @@ def preprocess_code(code):
     # Standard preprocessing to clean up the source code
     code = re.sub(re.compile(r"/\*.*?\*/", re.DOTALL), "", code)
     code = re.sub(re.compile(r"//.*?$", re.MULTILINE), "", code)
-    code = re.sub(r'\d+', '<number>', code)
-    code = re.sub(r'".*?"', '<string>', code)
     code = re.sub(r'\t', '    ', code)
     code = re.sub(r' {2,}', ' ', code)
     code = re.sub(r' *\n', '\n', code)
@@ -64,8 +62,6 @@ def check_for_reentrancy_issues(function_content):
     'usage_in_comparison_operations': r'block\.number\s*(==|!=|>|<|>=|<=)\s*<number>',
     'random_number_generation': r'(block\.blockhash\(block\.number\)|block\.number)'
     }
-
-
 
     issues = []
     for issue, pattern in vulnerability_patterns.items():
