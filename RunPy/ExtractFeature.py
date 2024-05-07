@@ -4,8 +4,8 @@ from pymongo import MongoClient
 
 # Setup MongoDB connection
 client = MongoClient('mongodb://localhost:27017/')
-db = client['database']
-collection = db['block number dependency']
+db = client['a']
+collection = db['a']
 
 def preprocess_code(code):
     # Standard preprocessing to clean up the source code
@@ -18,7 +18,8 @@ def preprocess_code(code):
     return code.strip()
 
 def check_for_reentrancy_issues(function_content):
-    # #reentrancy
+ 
+       # #reentrancy
     # vulnerability_patterns = {
     #     'external_calls': r'\.(call|delegatecall|send|transfer)\b',
     #     'state_changes_after_external_calls': r'\.(call|delegatecall|send|transfer)\(.*\);.*=',
@@ -55,6 +56,7 @@ def check_for_reentrancy_issues(function_content):
     # 'incorrect_time_estimation': r'block\.number\s*(?:\*|\/)\s*\d+',
     # 'timestamp_used_for_randomness': r'block\.timestamp.*%(?:\s*\d+)'
     # }
+    
     #block number denpendency
     vulnerability_patterns = {
     'dependence_on_block_number': r'block\.number',
@@ -69,9 +71,8 @@ def check_for_reentrancy_issues(function_content):
             issues.append(issue.replace('_', ' '))
     return issues
 
-def extract_contracts_and_functions(content):
-    contracts_functions = {}
-    current_contract = None
+def extract_functions_with_issues(content):
+    functions_with_issues = []
     function_block = []
     brace_count = 0
     inside_function = False
@@ -79,33 +80,28 @@ def extract_contracts_and_functions(content):
     lines = content.split('\n')
     for line in lines:
         line = line.strip()
-        if 'contract' in line and '{' in line:  # Check if it's a contract definition line
-            current_contract = re.search(r'contract\s+(\w+)', line)
-            if current_contract:
-                current_contract = current_contract.group(1)
-                contracts_functions[current_contract] = []
+        if 'function' in line and '{' in line:  # Function starts
+            inside_function = True
+            brace_count = 1
+            function_block = [line]
+        elif inside_function:
+            function_block.append(line)
+            if '{' in line:
+                brace_count += line.count('{')
+            if '}' in line:
+                brace_count -= line.count('}')
+            if brace_count == 0:  # Function ends
+                inside_function = False
+                function_text = '\n'.join(function_block)
+                function_name_match = re.search(r'function\s+([\w]+)', function_text)
+                if function_name_match:
+                    function_name = function_name_match.group(1)
+                    issues = check_for_reentrancy_issues(function_text)
+                    if issues:
+                        functions_with_issues.append((function_name, function_text, issues))
+                function_block = []
 
-        if current_contract:
-            if 'function' in line and '{' in line:  # Function starts
-                inside_function = True
-                brace_count = 1
-                function_block = [line]
-            elif inside_function:
-                function_block.append(line)
-                if '{' in line:
-                    brace_count += line.count('{')
-                if '}' in line:
-                    brace_count -= line.count('}')
-                if brace_count == 0:  # Function ends
-                    inside_function = False
-                    function_text = '\n'.join(function_block)
-                    function_name_match = re.search(r'function\s+([\w]+)', function_text)
-                    if function_name_match:
-                        function_name = function_name_match.group(1)
-                        contracts_functions[current_contract].append((function_name, function_text))
-                    function_block = []
-
-    return contracts_functions
+    return functions_with_issues
 
 
 def process_directory(directory_path):
@@ -115,22 +111,21 @@ def process_directory(directory_path):
             with open(file_path, 'r', encoding='utf-8') as file:
                 content = file.read()
             preprocessed_content = preprocess_code(content)
-            contracts_functions = extract_contracts_and_functions(preprocessed_content)
-            for contract, functions in contracts_functions.items():
-                for function_name, function_content in functions:
-                    issues = check_for_reentrancy_issues(function_content)
-                    if issues:  # Only save if there are issues
-                        document = {
-                            "filename": filename,
-                            "content": preprocessed_content,
-                            "extract_feature": f"{contract}.{function_name}\n{function_content}",
-                            "issues": issues
-                        }
-                        collection.insert_one(document)
-                        print(f"Processed and stored findings for {contract}.{function_name} in MongoDB.")
+            functions_with_issues = extract_functions_with_issues(preprocessed_content)
+            if functions_with_issues:
+                extracted_functions = []
+                for function_name, function_content, issues in functions_with_issues:
+                    extracted_functions.append(f"{function_content}")
+                document = {
+                    "filename": filename,
+                    "content": preprocessed_content,
+                    "extract_feature": extracted_functions,
+                }
+                collection.insert_one(document)
+                print(f"Processed and stored findings for {filename} in MongoDB.")
 
 # Specify the directory containing Solidity files
-solidity_files_directory = r'D:\GitHub\Blockchain-Smart-Contract-Security\Dataset\block number dependency'
+solidity_files_directory = r'C:\Users\hao30\Documents\GitHub\Blockchain-Smart-Contract-Security\Dataset\block number dependency (BN)\source'
 
 # Process the directory
 process_directory(solidity_files_directory)
