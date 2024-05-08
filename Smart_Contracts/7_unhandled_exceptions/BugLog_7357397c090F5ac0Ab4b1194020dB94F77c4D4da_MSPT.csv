@@ -1,0 +1,13 @@
+start,line_number,size,bug_type,approach,bug_snip
+6395,310,107,Unhandled-Exceptions,code snippet injection,"function withdrawBal_unchk41 () public{
+	uint64 Balances_unchk41 = 0;
+	msg.sender.send(Balances_unchk41);}
+"
+2309,117,93,Unhandled-Exceptions,code snippet injection,"function callnotchecked_unchk13(address callee) public {
+    callee.call.value(1 ether);
+  }
+"
+1935,98,93,Unhandled-Exceptions,code snippet injection,"function callnotchecked_unchk25(address callee) public {
+    callee.call.value(1 ether);
+  }
+"

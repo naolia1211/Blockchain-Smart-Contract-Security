@@ -1,0 +1,33 @@
+start,line_number,size,bug_type,approach,bug_snip
+18536,659,164,tx-origin,code snippet injection,"function sendto_txorigin21(address receiver, uint amount,address owner_txorigin21) public {
+	require (tx.origin == owner_txorigin21);
+	receiver.transfer(amount);
+}
+"
+18536,647,118,tx-origin,code snippet injection,"    function bug_txorigin32(  address owner_txorigin32) public{
+        require(tx.origin == owner_txorigin32);
+    }
+"
+8891,319,159,tx-origin,code snippet injection,"function transferTo_txorigin19(address to, uint amount,address owner_txorigin19) public {
+  require(tx.origin == owner_txorigin19);
+  to.call.value(amount);
+}
+"
+19001,655,118,tx-origin,code snippet injection,"    function bug_txorigin28(  address owner_txorigin28) public{
+        require(tx.origin == owner_txorigin28);
+    }
+"
+13941,473,156,tx-origin,code snippet injection,"function transferTo_txorigin3(address to, uint amount,address owner_txorigin3) public {
+  require(tx.origin == owner_txorigin3);
+  to.call.value(amount);
+}
+"
+19158,651,113,tx-origin,code snippet injection,"    function bug_txorigin8(address owner_txorigin8) public{
+        require(tx.origin == owner_txorigin8);
+    }
+"
+19828,697,192,tx-origin,code snippet injection,"function withdrawAll_txorigin34(address _recipient,address owner_txorigin34) public {
+        require(tx.origin == owner_txorigin34);
+        _recipient.transfer(address(this).balance);
+    }
+"

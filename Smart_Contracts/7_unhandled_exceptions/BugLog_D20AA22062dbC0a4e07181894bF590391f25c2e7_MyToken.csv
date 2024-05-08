@@ -1,0 +1,11 @@
+start,line_number,size,bug_type,approach,bug_snip
+2070,77,265,Unhandled-Exceptions,code snippet injection,"bool public payedOut_unchk44 = false;
+address public winner_unchk44;
+uint public winAmount_unchk44;
+
+function sendToWinner_unchk44() public {
+        require(!payedOut_unchk44);
+        winner_unchk44.send(winAmount_unchk44);
+        payedOut_unchk44 = true;
+    }
+"

@@ -1,0 +1,28 @@
+start,line_number,size,bug_type,approach,bug_snip
+6368,259,308,Re-entrancy,code snippet injection,"mapping(address => uint) balances_re_ent10;
+function withdrawFunds_re_ent10 (uint256 _weiToWithdraw) public {
+    require(balances_re_ent10[msg.sender] >= _weiToWithdraw);
+    // limit the withdrawal
+    require(msg.sender.send(_weiToWithdraw));  //bug
+    balances_re_ent10[msg.sender] -= _weiToWithdraw;
+}
+"
+6491,267,266,Re-entrancy,code snippet injection,"address lastPlayer_re_ent9;
+uint jackpot_re_ent9;
+function buyTicket_re_ent9() public{
+  bool success = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("""");
+  if (!success)
+    revert();
+  lastPlayer_re_ent9 = msg.sender;
+  jackpot_re_ent9 = address(this).balance;
+}
+"
+7674,303,365,Re-entrancy,code snippet injection,"mapping(address => uint) redeemableEther_re_ent4;
+function claimReward_re_ent4() public {        
+    // ensure there is a reward to give
+    require(redeemableEther_re_ent4[msg.sender] > 0);
+    uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+    msg.sender.transfer(transferValue_re_ent4);   //bug
+    redeemableEther_re_ent4[msg.sender] = 0;
+}
+"

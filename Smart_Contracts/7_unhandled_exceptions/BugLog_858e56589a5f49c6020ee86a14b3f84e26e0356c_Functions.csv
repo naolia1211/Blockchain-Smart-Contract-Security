@@ -1,0 +1,10 @@
+start,line_number,size,bug_type,approach,bug_snip
+1330,76,157,Unhandled-Exceptions,code snippet injection,"function bug_unchk18() public{
+uint receivers_unchk18;
+address addr_unchk18;
+if (!addr_unchk18.send(42 ether))
+	{receivers_unchk18 +=1;}
+else
+	{revert();}
+}
+"

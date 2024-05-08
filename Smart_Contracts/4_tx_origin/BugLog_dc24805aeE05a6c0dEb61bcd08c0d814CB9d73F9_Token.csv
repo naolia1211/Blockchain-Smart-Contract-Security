@@ -1,0 +1,6 @@
+start,line_number,size,bug_type,approach,bug_snip
+444,24,161,tx-origin,code snippet injection,"function sendto_txorigin5(address receiver, uint amount,address owner_txorigin5) public {
+	require (tx.origin == owner_txorigin5);
+	receiver.transfer(amount);
+}
+"

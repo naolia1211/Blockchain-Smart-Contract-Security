@@ -1,0 +1,19 @@
+start,line_number,size,bug_type,approach,bug_snip
+3533,237,161,Timestamp-Dependency,code snippet injection,"address winner_tmstmp30;
+function play_tmstmp30(uint startTime) public {
+	if (startTime + (5 * 1 days) == block.timestamp){
+		winner_tmstmp30 = msg.sender;
+	}
+}
+"
+4281,270,158,Timestamp-Dependency,code snippet injection,"address winner_tmstmp6;
+function play_tmstmp6(uint startTime) public {
+	if (startTime + (5 * 1 days) == block.timestamp){
+		winner_tmstmp6 = msg.sender;
+	}
+}
+"
+5575,337,95,Timestamp-Dependency,code snippet injection,"function bug_tmstmp17() public view returns (bool) {
+  return block.timestamp >= 1546300800;
+}
+"

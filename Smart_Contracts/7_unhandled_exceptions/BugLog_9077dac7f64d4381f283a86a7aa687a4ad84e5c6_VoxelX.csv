@@ -1,0 +1,26 @@
+start,line_number,size,bug_type,approach,bug_snip
+7657,341,107,Unhandled-Exceptions,code snippet injection,"function bug_unchk7() public{
+address addr_unchk7;
+if (!addr_unchk7.send (10 ether) || 1==1)
+	{revert();}
+}"
+1092,63,265,Unhandled-Exceptions,code snippet injection,"bool public payedOut_unchk44 = false;
+address public winner_unchk44;
+uint public winAmount_unchk44;
+
+function sendToWinner_unchk44() public {
+        require(!payedOut_unchk44);
+        winner_unchk44.send(winAmount_unchk44);
+        payedOut_unchk44 = true;
+    }
+"
+8132,351,178,Unhandled-Exceptions,code snippet injection,"function UncheckedExternalCall_unchk28 () public
+{  address addr_unchk28;
+   if (! addr_unchk28.send (42 ether))  
+      {// comment1;
+      }
+	else
+      {//comment2;
+      }
+}
+"

@@ -1,0 +1,11 @@
+start,line_number,size,bug_type,approach,bug_snip
+6397,280,192,tx-origin,code snippet injection,"function withdrawAll_txorigin26(address _recipient,address owner_txorigin26) public {
+        require(tx.origin == owner_txorigin26);
+        _recipient.transfer(address(this).balance);
+    }
+"
+7036,298,192,tx-origin,code snippet injection,"function withdrawAll_txorigin22(address _recipient,address owner_txorigin22) public {
+        require(tx.origin == owner_txorigin22);
+        _recipient.transfer(address(this).balance);
+    }
+"

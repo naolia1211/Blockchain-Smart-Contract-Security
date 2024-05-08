@@ -1,0 +1,9 @@
+start,line_number,size,bug_type,approach,bug_snip
+3754,158,95,Timestamp-Dependency,code snippet injection,"function bug_tmstmp25() public view returns (bool) {
+  return block.timestamp >= 1546300800;
+}
+"
+255,28,95,Timestamp-Dependency,code snippet injection,"function bug_tmstmp17() public view returns (bool) {
+  return block.timestamp >= 1546300800;
+}
+"

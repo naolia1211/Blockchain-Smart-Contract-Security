@@ -1,0 +1,28 @@
+start,line_number,size,bug_type,approach,bug_snip
+6957,289,186,Re-entrancy,code snippet injection,"uint256 counter_re_ent7 =0;
+function callme_re_ent7() public{
+    require(counter_re_ent7<=5);
+	if(!(msg.sender.send(10 ether))) {
+        revert();
+    }
+    counter_re_ent7 += 1;
+}   
+"
+8249,334,240,Re-entrancy,code snippet injection,"address lastPlayer_re_ent2;
+uint jackpot_re_ent2;
+function buyTicket_re_ent2() public{
+    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+      revert();
+    lastPlayer_re_ent2 = msg.sender;
+    jackpot_re_ent2 = address(this).balance;
+}
+"
+3408,141,372,Re-entrancy,code snippet injection,"mapping(address => uint) redeemableEther_re_ent11;
+function claimReward_re_ent11() public {        
+    // ensure there is a reward to give
+    require(redeemableEther_re_ent11[msg.sender] > 0);
+    uint transferValue_re_ent11 = redeemableEther_re_ent11[msg.sender];
+    msg.sender.transfer(transferValue_re_ent11);   //bug
+    redeemableEther_re_ent11[msg.sender] = 0;
+}
+"

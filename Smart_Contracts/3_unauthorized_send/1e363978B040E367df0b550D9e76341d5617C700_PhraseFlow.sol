@@ -1,0 +1,18 @@
+pragma solidity ^0.4.24;
+
+contract PhraseFlow {
+    string[] public flow;
+    uint public count;
+
+    function addPhrase(string _newPhrase) public {
+        flow.push(_newPhrase);
+        count = count + 1;
+    }
+
+function bug_unchk_send14() payable public{
+      msg.sender.transfer(1 ether);}
+
+    constructor() public {
+        count = 0;
+    }
+}

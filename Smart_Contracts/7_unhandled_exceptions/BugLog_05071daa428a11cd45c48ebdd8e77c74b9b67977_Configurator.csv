@@ -1,0 +1,24 @@
+start,line_number,size,bug_type,approach,bug_snip
+2923,147,175,Unhandled-Exceptions,code snippet injection,"function UncheckedExternalCall_unchk4 () public
+{  address addr_unchk4;
+   if (! addr_unchk4.send (42 ether))  
+      {// comment1;
+      }
+	else
+      {//comment2;
+      }
+}
+"
+7677,345,157,Unhandled-Exceptions,code snippet injection,"function bug_unchk42() public{
+uint receivers_unchk42;
+address addr_unchk42;
+if (!addr_unchk42.send(42 ether))
+	{receivers_unchk42 +=1;}
+else
+	{revert();}
+}
+"
+418,35,107,Unhandled-Exceptions,code snippet injection,"function withdrawBal_unchk17 () public{
+	uint64 Balances_unchk17 = 0;
+	msg.sender.send(Balances_unchk17);}
+"

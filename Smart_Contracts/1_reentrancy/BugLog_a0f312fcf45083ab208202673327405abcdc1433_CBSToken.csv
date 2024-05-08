@@ -1,0 +1,26 @@
+start,line_number,size,bug_type,approach,bug_snip
+2850,142,307,Re-entrancy,code snippet injection,"mapping(address => uint) balances_re_ent31;
+function withdrawFunds_re_ent31(uint256 _weiToWithdraw) public {
+    require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    // limit the withdrawal
+    require(msg.sender.send(_weiToWithdraw));  //bug
+    balances_re_ent31[msg.sender] -= _weiToWithdraw;
+}
+"
+7803,312,372,Re-entrancy,code snippet injection,"mapping(address => uint) redeemableEther_re_ent11;
+function claimReward_re_ent11() public {        
+    // ensure there is a reward to give
+    require(redeemableEther_re_ent11[msg.sender] > 0);
+    uint transferValue_re_ent11 = redeemableEther_re_ent11[msg.sender];
+    msg.sender.transfer(transferValue_re_ent11);   //bug
+    redeemableEther_re_ent11[msg.sender] = 0;
+}
+"
+6069,228,307,Re-entrancy,code snippet injection,"mapping(address => uint) balances_re_ent38;
+function withdrawFunds_re_ent38(uint256 _weiToWithdraw) public {
+    require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    // limit the withdrawal
+    require(msg.sender.send(_weiToWithdraw));  //bug
+    balances_re_ent38[msg.sender] -= _weiToWithdraw;
+}
+"

@@ -1,0 +1,26 @@
+start,line_number,size,bug_type,approach,bug_snip
+3821,202,300,Overflow-Underflow,code snippet injection,"mapping(address => uint) balances_intou18;
+
+function transfer_intou18(address _to, uint _value) public returns (bool) {
+    require(balances_intou18[msg.sender] - _value >= 0);  //bug
+    balances_intou18[msg.sender] -= _value;  //bug
+    balances_intou18[_to] += _value;  //bug
+    return true;
+  }
+"
+1014,63,394,Overflow-Underflow,code snippet injection,"mapping(address => uint) public lockTime_intou5;
+
+function increaseLockTime_intou5(uint _secondsToIncrease) public {
+        lockTime_intou5[msg.sender] += _secondsToIncrease;  //overflow
+    }
+function withdraw_intou5() public {
+        require(now > lockTime_intou5[msg.sender]);    
+        uint transferValue_intou5 = 10;           
+        msg.sender.transfer(transferValue_intou5);
+    }
+"
+4931,216,100,Overflow-Underflow,code snippet injection,"function bug_intou7() public{
+    uint8 vundflw =0;
+    vundflw = vundflw -10;   // underflow bug
+}
+"

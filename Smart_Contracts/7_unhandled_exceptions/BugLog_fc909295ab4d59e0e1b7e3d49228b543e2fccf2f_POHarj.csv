@@ -1,0 +1,32 @@
+start,line_number,size,bug_type,approach,bug_snip
+6177,345,86,Unhandled-Exceptions,code snippet injection,"function unhandledsend_unchk14(address callee) public {
+    callee.send(5 ether);
+  }
+"
+15314,668,72,Unhandled-Exceptions,code snippet injection,"function bug_unchk39(address addr) public
+      {addr.send (4 ether); }
+"
+5060,294,92,Unhandled-Exceptions,code snippet injection,"function callnotchecked_unchk1(address callee) public {
+    callee.call.value(2 ether);
+  }
+"
+3289,159,107,Unhandled-Exceptions,code snippet injection,"function withdrawBal_unchk41 () public{
+	uint64 Balances_unchk41 = 0;
+	msg.sender.send(Balances_unchk41);}
+"
+5168,284,177,Unhandled-Exceptions,code snippet injection,"function UncheckedExternalCall_unchk40 () public
+{  address addr_unchk40;
+   if (! addr_unchk40.send (2 ether))  
+      {// comment1;
+      }
+	else
+      {//comment2;
+      }
+}
+"
+3801,207,212,Unhandled-Exceptions,code snippet injection,"function cash_unchk34(uint roundIndex, uint subpotIndex, address winner_unchk34) public{
+        uint64 subpot_unchk34 = 10 ether;
+        winner_unchk34.send(subpot_unchk34);  //bug
+        subpot_unchk34= 0;
+}
+"

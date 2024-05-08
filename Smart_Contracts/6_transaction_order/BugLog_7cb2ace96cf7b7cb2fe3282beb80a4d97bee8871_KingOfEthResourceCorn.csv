@@ -1,0 +1,48 @@
+start,line_number,size,bug_type,approach,bug_snip
+1323,102,297,TOD,code snippet injection,"address winner_TOD11;
+function play_TOD11(bytes32 guess) public{
+ 
+       if (keccak256(abi.encode(guess)) == keccak256(abi.encode('hello'))) {
+
+            winner_TOD11 = msg.sender;
+        }
+    }
+
+function getReward_TOD11() payable public{
+     
+       winner_TOD11.transfer(msg.value);
+    }
+"
+4619,277,487,TOD,code snippet injection,"bool claimed_TOD26 = false;
+address owner_TOD26;
+uint256 reward_TOD26;
+function setReward_TOD26() public payable {
+        require (!claimed_TOD26);
+
+        require(msg.sender == owner_TOD26);
+        owner_TOD26.transfer(reward_TOD26);
+        reward_TOD26 = msg.value;
+    }
+
+    function claimReward_TOD26(uint256 submission) public {
+        require (!claimed_TOD26);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD26);
+        claimed_TOD26 = true;
+    }
+"
+5108,296,297,TOD,code snippet injection,"address winner_TOD25;
+function play_TOD25(bytes32 guess) public{
+ 
+       if (keccak256(abi.encode(guess)) == keccak256(abi.encode('hello'))) {
+
+            winner_TOD25 = msg.sender;
+        }
+    }
+
+function getReward_TOD25() payable public{
+     
+       winner_TOD25.transfer(msg.value);
+    }
+"

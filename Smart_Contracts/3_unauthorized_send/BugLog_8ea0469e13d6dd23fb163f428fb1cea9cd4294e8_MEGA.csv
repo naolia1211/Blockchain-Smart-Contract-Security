@@ -1,0 +1,16 @@
+start,line_number,size,bug_type,approach,bug_snip
+9554,313,81,Unchecked-Send,code snippet injection,"function bug_unchk_send11() payable public{
+      msg.sender.transfer(1 ether);}
+"
+3723,157,80,Unchecked-Send,code snippet injection,"function bug_unchk_send4() payable public{
+      msg.sender.transfer(1 ether);}
+"
+15255,517,81,Unchecked-Send,code snippet injection,"function bug_unchk_send23() payable public{
+      msg.sender.transfer(1 ether);}
+"
+5596,221,81,Unchecked-Send,code snippet injection,"function bug_unchk_send32() payable public{
+      msg.sender.transfer(1 ether);}
+"
+11280,398,81,Unchecked-Send,code snippet injection,"function bug_unchk_send20() payable public{
+      msg.sender.transfer(1 ether);}
+"

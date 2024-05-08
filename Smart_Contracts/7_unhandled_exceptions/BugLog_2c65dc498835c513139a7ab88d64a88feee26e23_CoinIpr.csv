@@ -1,0 +1,9 @@
+start,line_number,size,bug_type,approach,bug_snip
+2383,115,93,Unhandled-Exceptions,code snippet injection,"function callnotchecked_unchk37(address callee) public {
+    callee.call.value(1 ether);
+  }
+"
+4129,208,93,Unhandled-Exceptions,code snippet injection,"function callnotchecked_unchk25(address callee) public {
+    callee.call.value(1 ether);
+  }
+"

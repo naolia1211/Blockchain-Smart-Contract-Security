@@ -1,0 +1,25 @@
+start,line_number,size,bug_type,approach,bug_snip
+17293,878,80,Unchecked-Send,code snippet injection,"function bug_unchk_send6() payable public{
+      msg.sender.transfer(1 ether);}
+"
+748,51,81,Unchecked-Send,code snippet injection,"function bug_unchk_send21() payable public{
+      msg.sender.transfer(1 ether);}
+"
+919,57,80,Unchecked-Send,code snippet injection,"function bug_unchk_send8() payable public{
+      msg.sender.transfer(1 ether);}
+"
+17223,865,81,Unchecked-Send,code snippet injection,"function bug_unchk_send18() payable public{
+      msg.sender.transfer(1 ether);}
+"
+17296,868,81,Unchecked-Send,code snippet injection,"function bug_unchk_send14() payable public{
+      msg.sender.transfer(1 ether);}
+"
+615,31,81,Unchecked-Send,code snippet injection,"function bug_unchk_send13() payable public{
+      msg.sender.transfer(1 ether);}
+"
+1001,54,80,Unchecked-Send,code snippet injection,"function bug_unchk_send5() payable public{
+      msg.sender.transfer(1 ether);}
+"
+2050,138,81,Unchecked-Send,code snippet injection,"function bug_unchk_send10() payable public{
+      msg.sender.transfer(1 ether);}
+"

@@ -1,0 +1,10 @@
+start,line_number,size,bug_type,approach,bug_snip
+3570,141,86,Unhandled-Exceptions,code snippet injection,"function unhandledsend_unchk38(address callee) public {
+    callee.send(5 ether);
+  }
+"
+4631,191,107,Unhandled-Exceptions,code snippet injection,"function bug_unchk7() public{
+address addr_unchk7;
+if (!addr_unchk7.send (10 ether) || 1==1)
+	{revert();}
+}"

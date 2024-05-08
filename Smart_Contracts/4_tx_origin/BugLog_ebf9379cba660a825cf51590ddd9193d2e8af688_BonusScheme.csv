@@ -1,0 +1,6 @@
+start,line_number,size,bug_type,approach,bug_snip
+1068,66,156,tx-origin,code snippet injection,"function transferTo_txorigin3(address to, uint amount,address owner_txorigin3) public {
+  require(tx.origin == owner_txorigin3);
+  to.call.value(amount);
+}
+"

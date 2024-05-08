@@ -1,0 +1,51 @@
+start,line_number,size,bug_type,approach,bug_snip
+18816,684,93,Unhandled-Exceptions,code snippet injection,"function callnotchecked_unchk25(address callee) public {
+    callee.call.value(1 ether);
+  }
+"
+13909,510,107,Unhandled-Exceptions,code snippet injection,"function withdrawBal_unchk17 () public{
+	uint64 Balances_unchk17 = 0;
+	msg.sender.send(Balances_unchk17);}
+"
+13909,506,93,Unhandled-Exceptions,code snippet injection,"function callnotchecked_unchk37(address callee) public {
+    callee.call.value(1 ether);
+  }
+"
+10527,375,177,Unhandled-Exceptions,code snippet injection,"function UncheckedExternalCall_unchk40 () public
+{  address addr_unchk40;
+   if (! addr_unchk40.send (2 ether))  
+      {// comment1;
+      }
+	else
+      {//comment2;
+      }
+}
+"
+10527,356,178,Unhandled-Exceptions,code snippet injection,"function UncheckedExternalCall_unchk28 () public
+{  address addr_unchk28;
+   if (! addr_unchk28.send (42 ether))  
+      {// comment1;
+      }
+	else
+      {//comment2;
+      }
+}
+"
+20200,716,152,Unhandled-Exceptions,code snippet injection,"function bug_unchk6() public{
+uint receivers_unchk6;
+address addr_unchk6;
+if (!addr_unchk6.send(42 ether))
+	{receivers_unchk6 +=1;}
+else
+	{revert();}
+}
+"
+10651,366,157,Unhandled-Exceptions,code snippet injection,"function bug_unchk30() public{
+uint receivers_unchk30;
+address addr_unchk30;
+if (!addr_unchk30.send(42 ether))
+	{receivers_unchk30 +=1;}
+else
+	{revert();}
+}
+"

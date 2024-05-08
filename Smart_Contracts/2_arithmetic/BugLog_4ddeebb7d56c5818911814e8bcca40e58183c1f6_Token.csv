@@ -1,0 +1,41 @@
+start,line_number,size,bug_type,approach,bug_snip
+11996,596,125,Overflow-Underflow,code snippet injection,"function bug_intou12(uint8 p_intou12) public{
+    uint8 vundflw1=0;
+    vundflw1 = vundflw1 + p_intou12;   // overflow bug
+}
+"
+9908,520,100,Overflow-Underflow,code snippet injection,"function bug_intou3() public{
+    uint8 vundflw =0;
+    vundflw = vundflw -10;   // underflow bug
+}
+"
+15114,692,401,Overflow-Underflow,code snippet injection,"mapping(address => uint) public lockTime_intou21;
+
+function increaseLockTime_intou21(uint _secondsToIncrease) public {
+        lockTime_intou21[msg.sender] += _secondsToIncrease;  //overflow
+    }
+function withdraw_intou21() public {
+        require(now > lockTime_intou21[msg.sender]);    
+        uint transferValue_intou21 = 10;           
+        msg.sender.transfer(transferValue_intou21);
+    }
+"
+15219,698,122,Overflow-Underflow,code snippet injection,"function bug_intou8(uint8 p_intou8) public{
+    uint8 vundflw1=0;
+    vundflw1 = vundflw1 + p_intou8;   // overflow bug
+}
+"
+1899,103,125,Overflow-Underflow,code snippet injection,"function bug_intou20(uint8 p_intou20) public{
+    uint8 vundflw1=0;
+    vundflw1 = vundflw1 + p_intou20;   // overflow bug
+}
+"
+6620,348,298,Overflow-Underflow,code snippet injection,"mapping(address => uint) balances_intou2;
+
+function transfer_undrflow2(address _to, uint _value) public returns (bool) {
+    require(balances_intou2[msg.sender] - _value >= 0);  //bug
+    balances_intou2[msg.sender] -= _value;  //bug
+    balances_intou2[_to] += _value;  //bug
+    return true;
+  }
+"

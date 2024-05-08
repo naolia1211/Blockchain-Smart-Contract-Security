@@ -1,0 +1,29 @@
+start,line_number,size,bug_type,approach,bug_snip
+5136,196,268,TOD,code snippet injection,"address winner_TOD3;
+function play_TOD3(bytes32 guess) public{
+ 
+       if (keccak256(guess) == keccak256('hello')) {
+
+            winner_TOD3 = msg.sender;
+        }
+    }
+
+function getReward_TOD3() payable public{
+     
+       winner_TOD3.transfer(msg.value);
+    }
+"
+6110,239,268,TOD,code snippet injection,"address winner_TOD7;
+function play_TOD7(bytes32 guess) public{
+ 
+       if (keccak256(guess) == keccak256('hello')) {
+
+            winner_TOD7 = msg.sender;
+        }
+    }
+
+function getReward_TOD7() payable public{
+     
+       winner_TOD7.transfer(msg.value);
+    }
+"

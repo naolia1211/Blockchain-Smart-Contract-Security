@@ -1,0 +1,11 @@
+start,line_number,size,bug_type,approach,bug_snip
+1796,87,211,Unhandled-Exceptions,code snippet injection,"function cash_unchk22(uint roundIndex, uint subpotIndex, address winner_unchk22)public{
+        uint64 subpot_unchk22 = 10 ether;
+        winner_unchk22.send(subpot_unchk22);  //bug
+        subpot_unchk22= 0;
+}
+"
+3798,184,107,Unhandled-Exceptions,code snippet injection,"function withdrawBal_unchk17 () public{
+	uint64 Balances_unchk17 = 0;
+	msg.sender.send(Balances_unchk17);}
+"

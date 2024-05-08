@@ -1,0 +1,5 @@
+start,line_number,size,bug_type,approach,bug_snip
+3971,153,118,tx-origin,code snippet injection,"    function bug_txorigin36(  address owner_txorigin36) public{
+        require(tx.origin == owner_txorigin36);
+    }
+"

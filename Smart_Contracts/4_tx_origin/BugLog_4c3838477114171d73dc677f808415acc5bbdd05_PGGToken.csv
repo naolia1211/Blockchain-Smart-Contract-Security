@@ -1,0 +1,11 @@
+start,line_number,size,bug_type,approach,bug_snip
+4351,197,159,tx-origin,code snippet injection,"function transferTo_txorigin19(address to, uint amount,address owner_txorigin19) public {
+  require(tx.origin == owner_txorigin19);
+  to.call.value(amount);
+}
+"
+3298,145,164,tx-origin,code snippet injection,"function sendto_txorigin25(address receiver, uint amount,address owner_txorigin25) public {
+	require (tx.origin == owner_txorigin25);
+	receiver.transfer(amount);
+}
+"

@@ -1,0 +1,39 @@
+start,line_number,size,bug_type,approach,bug_snip
+6766,321,257,Unhandled-Exceptions,code snippet injection,"bool public payedOut_unchk8 = false;
+address public winner_unchk8;
+uint public winAmount_unchk8;
+
+function sendToWinner_unchk8() public {
+        require(!payedOut_unchk8);
+        winner_unchk8.send(winAmount_unchk8);
+        payedOut_unchk8 = true;
+    }
+"
+6766,315,211,Unhandled-Exceptions,code snippet injection,"function cash_unchk46(uint roundIndex, uint subpotIndex, address winner_unchk46) public{
+        uint64 subpot_unchk46 = 3 ether;
+        winner_unchk46.send(subpot_unchk46);  //bug
+        subpot_unchk46= 0;
+}
+"
+8230,404,90,Unhandled-Exceptions,code snippet injection," function my_func_unchk23(address dst) public payable{
+        dst.send(msg.value);
+    }
+"
+4777,266,93,Unhandled-Exceptions,code snippet injection,"function callnotchecked_unchk13(address callee) public {
+    callee.call.value(1 ether);
+  }
+"
+14942,648,178,Unhandled-Exceptions,code snippet injection,"function UncheckedExternalCall_unchk16 () public
+{  address addr_unchk16;
+   if (! addr_unchk16.send (42 ether))  
+      {// comment1;
+      }
+	else
+      {//comment2;
+      }
+}
+"
+8060,379,101,Unhandled-Exceptions,code snippet injection,"function my_func_uncheck12(address dst) public payable{
+        dst.call.value(msg.value)("""");
+    }
+"

@@ -1,0 +1,14 @@
+start,line_number,size,bug_type,approach,bug_snip
+3543,237,90,Unhandled-Exceptions,code snippet injection," function my_func_unchk11(address dst) public payable{
+        dst.send(msg.value);
+    }
+"
+5939,365,107,Unhandled-Exceptions,code snippet injection,"function bug_unchk7() public{
+address addr_unchk7;
+if (!addr_unchk7.send (10 ether) || 1==1)
+	{revert();}
+}"
+3942,256,105,Unhandled-Exceptions,code snippet injection,"function withdrawBal_unchk29 () public{
+	uint Balances_unchk29 = 0;
+	msg.sender.send(Balances_unchk29);}
+"

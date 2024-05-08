@@ -1,0 +1,39 @@
+start,line_number,size,bug_type,approach,bug_snip
+4521,219,487,TOD,code snippet injection,"bool claimed_TOD10 = false;
+address owner_TOD10;
+uint256 reward_TOD10;
+function setReward_TOD10() public payable {
+        require (!claimed_TOD10);
+
+        require(msg.sender == owner_TOD10);
+        owner_TOD10.transfer(reward_TOD10);
+        reward_TOD10 = msg.value;
+    }
+
+    function claimReward_TOD10(uint256 submission) public {
+        require (!claimed_TOD10);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD10);
+        claimed_TOD10 = true;
+    }
+"
+674,29,487,TOD,code snippet injection,"bool claimed_TOD22 = false;
+address owner_TOD22;
+uint256 reward_TOD22;
+function setReward_TOD22() public payable {
+        require (!claimed_TOD22);
+
+        require(msg.sender == owner_TOD22);
+        owner_TOD22.transfer(reward_TOD22);
+        reward_TOD22 = msg.value;
+    }
+
+    function claimReward_TOD22(uint256 submission) public {
+        require (!claimed_TOD22);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD22);
+        claimed_TOD22 = true;
+    }
+"

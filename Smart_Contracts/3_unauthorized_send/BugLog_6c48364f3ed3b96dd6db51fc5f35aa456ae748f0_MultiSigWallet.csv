@@ -1,0 +1,10 @@
+start,line_number,size,bug_type,approach,bug_snip
+2236,98,81,Unchecked-Send,code snippet injection,"function bug_unchk_send13() payable public{
+      msg.sender.transfer(1 ether);}
+"
+2454,118,81,Unchecked-Send,code snippet injection,"function bug_unchk_send30() payable public{
+      msg.sender.transfer(1 ether);}
+"
+7634,335,81,Unchecked-Send,code snippet injection,"function bug_unchk_send19() payable public{
+      msg.sender.transfer(1 ether);}
+"

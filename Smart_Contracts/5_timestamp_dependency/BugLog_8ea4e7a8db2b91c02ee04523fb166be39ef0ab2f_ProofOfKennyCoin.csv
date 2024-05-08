@@ -1,0 +1,46 @@
+start,line_number,size,bug_type,approach,bug_snip
+10471,506,184,Timestamp-Dependency,code snippet injection,"address winner_tmstmp31;
+function play_tmstmp31(uint startTime) public {
+	uint _vtime = block.timestamp;
+	if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp31 = msg.sender;
+	}
+}
+"
+8568,417,184,Timestamp-Dependency,code snippet injection,"address winner_tmstmp39;
+function play_tmstmp39(uint startTime) public {
+	uint _vtime = block.timestamp;
+	if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp39 = msg.sender;
+	}
+}
+"
+4523,241,390,Timestamp-Dependency,code snippet injection,"function bug_tmstmp8 () public payable {
+uint pastBlockTime_tmstmp8; // Forces one bet per block
+require(msg.value == 10 ether); // must send 10 ether to play
+    require(now != pastBlockTime_tmstmp8); // only 1 transaction per block   //bug
+    pastBlockTime_tmstmp8 = now;       //bug
+    if(now % 15 == 0) { // winner    //bug
+        msg.sender.transfer(address(this).balance);
+    }
+}
+"
+8959,410,158,Timestamp-Dependency,code snippet injection,"address winner_tmstmp6;
+function play_tmstmp6(uint startTime) public {
+	if (startTime + (5 * 1 days) == block.timestamp){
+		winner_tmstmp6 = msg.sender;
+	}
+}
+"
+15456,661,94,Timestamp-Dependency,code snippet injection,"function bug_tmstmp5() view public returns (bool) {
+  return block.timestamp >= 1546300800;
+}
+"
+4271,209,184,Timestamp-Dependency,code snippet injection,"address winner_tmstmp35;
+function play_tmstmp35(uint startTime) public {
+	uint _vtime = block.timestamp;
+	if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp35 = msg.sender;
+	}
+}
+"

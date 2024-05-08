@@ -1,0 +1,8 @@
+start,line_number,size,bug_type,approach,bug_snip
+2343,123,170,Unhandled-Exceptions,code snippet injection,"bool public payedOut_unchk9 = false;
+
+function withdrawLeftOver_unchk9() public {
+        require(payedOut_unchk9);
+        msg.sender.send(address(this).balance);
+    }
+"

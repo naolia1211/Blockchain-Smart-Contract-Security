@@ -1,0 +1,4 @@
+start,line_number,size,bug_type,approach,bug_snip
+3032,116,72,Unhandled-Exceptions,code snippet injection,"function bug_unchk3(address addr) public
+      {addr.send (42 ether); }
+"

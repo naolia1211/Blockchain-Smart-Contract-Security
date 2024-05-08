@@ -1,0 +1,145 @@
+start,line_number,size,bug_type,approach,bug_snip
+33907,1,162,tx-origin,code snippet injection,"
+function sendto_txorigin1(address receiver, uint amount,address owner_txorigin1) public {
+	require (tx.origin == owner_txorigin1);
+	receiver.transfer(amount);
+}
+"
+33808,1672,161,tx-origin,code snippet injection,"function sendto_txorigin9(address receiver, uint amount,address owner_txorigin9) public {
+	require (tx.origin == owner_txorigin9);
+	receiver.transfer(amount);
+}
+"
+20877,1060,164,tx-origin,code snippet injection,"function sendto_txorigin17(address receiver, uint amount,address owner_txorigin17) public {
+	require (tx.origin == owner_txorigin17);
+	receiver.transfer(amount);
+}
+"
+4714,253,118,tx-origin,code snippet injection,"    function bug_txorigin36(  address owner_txorigin36) public{
+        require(tx.origin == owner_txorigin36);
+    }
+"
+35100,1730,164,tx-origin,code snippet injection,"function sendto_txorigin21(address receiver, uint amount,address owner_txorigin21) public {
+	require (tx.origin == owner_txorigin21);
+	receiver.transfer(amount);
+}
+"
+49092,2352,192,tx-origin,code snippet injection,"function withdrawAll_txorigin34(address _recipient,address owner_txorigin34) public {
+        require(tx.origin == owner_txorigin34);
+        _recipient.transfer(address(this).balance);
+    }
+"
+32535,1582,118,tx-origin,code snippet injection,"      function bug_txorigin40(address owner_txorigin40) public{
+        require(tx.origin == owner_txorigin40);
+    }
+"
+29063,1425,159,tx-origin,code snippet injection,"function transferTo_txorigin31(address to, uint amount,address owner_txorigin31) public {
+  require(tx.origin == owner_txorigin31);
+  to.call.value(amount);
+}
+"
+49418,2357,192,tx-origin,code snippet injection,"function withdrawAll_txorigin30(address _recipient,address owner_txorigin30) public {
+        require(tx.origin == owner_txorigin30);
+        _recipient.transfer(address(this).balance);
+    }
+"
+37929,1884,116,tx-origin,code snippet injection,"    function bug_txorigin16(address owner_txorigin16) public{
+        require(tx.origin == owner_txorigin16);
+    }
+"
+62065,3089,109,tx-origin,code snippet injection,"function bug_txorigin4(address owner_txorigin4) public{
+        require(tx.origin == owner_txorigin4);
+    }
+"
+59858,2952,161,tx-origin,code snippet injection,"function sendto_txorigin5(address receiver, uint amount,address owner_txorigin5) public {
+	require (tx.origin == owner_txorigin5);
+	receiver.transfer(amount);
+}
+"
+19009,966,116,tx-origin,code snippet injection,"  function bug_txorigin24(  address owner_txorigin24) public{
+        require(tx.origin == owner_txorigin24);
+    }
+"
+57621,2900,192,tx-origin,code snippet injection,"function withdrawAll_txorigin14(address _recipient,address owner_txorigin14) public {
+        require(tx.origin == owner_txorigin14);
+        _recipient.transfer(address(this).balance);
+    }
+"
+29180,1420,159,tx-origin,code snippet injection,"function transferTo_txorigin35(address to, uint amount,address owner_txorigin35) public {
+  require(tx.origin == owner_txorigin35);
+  to.call.value(amount);
+}
+"
+34109,1637,116,tx-origin,code snippet injection,"    function bug_txorigin20(address owner_txorigin20) public{
+        require(tx.origin == owner_txorigin20);
+    }
+"
+36153,1756,164,tx-origin,code snippet injection,"function sendto_txorigin13(address receiver, uint amount,address owner_txorigin13) public {
+	require (tx.origin == owner_txorigin13);
+	receiver.transfer(amount);
+}
+"
+43496,2141,189,tx-origin,code snippet injection,"function withdrawAll_txorigin6(address _recipient,address owner_txorigin6) public {
+        require(tx.origin == owner_txorigin6);
+        _recipient.transfer(address(this).balance);
+    }
+"
+49150,2290,159,tx-origin,code snippet injection,"function transferTo_txorigin19(address to, uint amount,address owner_txorigin19) public {
+  require(tx.origin == owner_txorigin19);
+  to.call.value(amount);
+}
+"
+29180,1415,159,tx-origin,code snippet injection,"function transferTo_txorigin11(address to, uint amount,address owner_txorigin11) public {
+  require(tx.origin == owner_txorigin11);
+  to.call.value(amount);
+}
+"
+16365,820,192,tx-origin,code snippet injection,"function withdrawAll_txorigin18(address _recipient,address owner_txorigin18) public {
+        require(tx.origin == owner_txorigin18);
+        _recipient.transfer(address(this).balance);
+    }
+"
+15319,753,116,tx-origin,code snippet injection,"    function bug_txorigin12(address owner_txorigin12) public{
+        require(tx.origin == owner_txorigin12);
+    }
+"
+66317,3164,156,tx-origin,code snippet injection,"function transferTo_txorigin3(address to, uint amount,address owner_txorigin3) public {
+  require(tx.origin == owner_txorigin3);
+  to.call.value(amount);
+}
+"
+43966,2136,164,tx-origin,code snippet injection,"function sendto_txorigin29(address receiver, uint amount,address owner_txorigin29) public {
+	require (tx.origin == owner_txorigin29);
+	receiver.transfer(amount);
+}
+"
+21748,1085,113,tx-origin,code snippet injection,"    function bug_txorigin8(address owner_txorigin8) public{
+        require(tx.origin == owner_txorigin8);
+    }
+"
+38584,1854,159,tx-origin,code snippet injection,"function transferTo_txorigin23(address to, uint amount,address owner_txorigin23) public {
+  require(tx.origin == owner_txorigin23);
+  to.call.value(amount);
+}
+"
+15807,1,190,tx-origin,code snippet injection,"
+function withdrawAll_txorigin2(address _recipient,address owner_txorigin2) public {
+        require(tx.origin == owner_txorigin2);
+        _recipient.transfer(address(this).balance);
+    }
+"
+51294,2340,164,tx-origin,code snippet injection,"function sendto_txorigin25(address receiver, uint amount,address owner_txorigin25) public {
+	require (tx.origin == owner_txorigin25);
+	receiver.transfer(amount);
+}
+"
+53539,2461,159,tx-origin,code snippet injection,"function transferTo_txorigin15(address to, uint amount,address owner_txorigin15) public {
+  require(tx.origin == owner_txorigin15);
+  to.call.value(amount);
+}
+"
+30519,1455,188,tx-origin,code snippet injection,"function withdrawAll_txorigin38(address _recipient,address owner_txorigin38) public {
+        require(tx.origin == owner_txorigin38);
+        _recipient.transfer(address(this).balance);
+}
+"

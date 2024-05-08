@@ -1,0 +1,12 @@
+start,line_number,size,bug_type,approach,bug_snip
+4226,192,90,Unhandled-Exceptions,code snippet injection," function my_func_unchk11(address dst) public payable{
+        dst.send(msg.value);
+    }
+"
+7431,346,72,Unhandled-Exceptions,code snippet injection,"function bug_unchk39(address addr) public
+      {addr.send (4 ether); }
+"
+6960,311,90,Unhandled-Exceptions,code snippet injection," function my_func_unchk23(address dst) public payable{
+        dst.send(msg.value);
+    }
+"

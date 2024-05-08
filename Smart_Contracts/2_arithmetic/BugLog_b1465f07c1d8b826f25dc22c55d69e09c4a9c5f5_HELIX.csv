@@ -1,0 +1,11 @@
+start,line_number,size,bug_type,approach,bug_snip
+3727,188,101,Overflow-Underflow,code snippet injection,"function bug_intou31() public{
+    uint8 vundflw =0;
+    vundflw = vundflw -10;   // underflow bug
+}
+"
+2931,137,101,Overflow-Underflow,code snippet injection,"function bug_intou39() public{
+    uint8 vundflw =0;
+    vundflw = vundflw -10;   // underflow bug
+}
+"

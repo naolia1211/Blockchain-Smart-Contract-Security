@@ -1,0 +1,35 @@
+start,line_number,size,bug_type,approach,bug_snip
+8119,368,111,Unhandled-Exceptions,code snippet injection,"function bug_unchk31() public{
+address addr_unchk31;
+if (!addr_unchk31.send (10 ether) || 1==1)
+	{revert();}
+}
+"
+3673,177,101,Unhandled-Exceptions,code snippet injection,"function my_func_uncheck12(address dst) public payable{
+        dst.call.value(msg.value)("""");
+    }
+"
+7871,346,86,Unhandled-Exceptions,code snippet injection,"function unhandledsend_unchk38(address callee) public {
+    callee.send(5 ether);
+  }
+"
+3352,152,111,Unhandled-Exceptions,code snippet injection,"function bug_unchk19() public{
+address addr_unchk19;
+if (!addr_unchk19.send (10 ether) || 1==1)
+	{revert();}
+}
+"
+7983,342,90,Unhandled-Exceptions,code snippet injection," function my_func_unchk47(address dst) public payable{
+        dst.send(msg.value);
+    }
+"
+9153,416,265,Unhandled-Exceptions,code snippet injection,"bool public payedOut_unchk20 = false;
+address public winner_unchk20;
+uint public winAmount_unchk20;
+
+function sendToWinner_unchk20() public {
+        require(!payedOut_unchk20);
+        winner_unchk20.send(winAmount_unchk20);
+        payedOut_unchk20 = true;
+    }
+"

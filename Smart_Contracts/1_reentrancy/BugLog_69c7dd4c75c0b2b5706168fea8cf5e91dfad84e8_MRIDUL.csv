@@ -1,0 +1,19 @@
+start,line_number,size,bug_type,approach,bug_snip
+2657,132,233,Re-entrancy,code snippet injection,"bool not_called_re_ent13 = true;
+function bug_re_ent13() public {
+    require(not_called_re_ent13);
+    bool success=msg.sender.call.value(1 ether)("""");
+    if(!success){
+        revert();
+    }
+    not_called_re_ent13 = false;
+}   
+"
+747,39,308,Re-entrancy,code snippet injection,"mapping(address => uint) balances_re_ent24;
+function withdrawFunds_re_ent24 (uint256 _weiToWithdraw) public {
+    require(balances_re_ent24[msg.sender] >= _weiToWithdraw);
+    // limit the withdrawal
+    require(msg.sender.send(_weiToWithdraw));  //bug
+    balances_re_ent24[msg.sender] -= _weiToWithdraw;
+}
+"

@@ -1,0 +1,104 @@
+start,line_number,size,bug_type,approach,bug_snip
+12994,614,372,Re-entrancy,code snippet injection,"mapping(address => uint) redeemableEther_re_ent18;
+function claimReward_re_ent18() public {        
+    // ensure there is a reward to give
+    require(redeemableEther_re_ent18[msg.sender] > 0);
+    uint transferValue_re_ent18 = redeemableEther_re_ent18[msg.sender];
+    msg.sender.transfer(transferValue_re_ent18);   //bug
+    redeemableEther_re_ent18[msg.sender] = 0;
+}
+"
+21261,926,191,Re-entrancy,code snippet injection,"uint256 counter_re_ent14 = 0;
+function callme_re_ent14() public {
+    require(counter_re_ent14<=5);
+	if(!(msg.sender.send(10 ether))){
+        revert();
+    }
+    counter_re_ent14 += 1;
+}   
+"
+21149,912,308,Re-entrancy,code snippet injection,"mapping(address => uint) balances_re_ent24;
+function withdrawFunds_re_ent24 (uint256 _weiToWithdraw) public {
+    require(balances_re_ent24[msg.sender] >= _weiToWithdraw);
+    // limit the withdrawal
+    require(msg.sender.send(_weiToWithdraw));  //bug
+    balances_re_ent24[msg.sender] -= _weiToWithdraw;
+}
+"
+8211,434,372,Re-entrancy,code snippet injection,"mapping(address => uint) redeemableEther_re_ent11;
+function claimReward_re_ent11() public {        
+    // ensure there is a reward to give
+    require(redeemableEther_re_ent11[msg.sender] > 0);
+    uint transferValue_re_ent11 = redeemableEther_re_ent11[msg.sender];
+    msg.sender.transfer(transferValue_re_ent11);   //bug
+    redeemableEther_re_ent11[msg.sender] = 0;
+}
+"
+11264,525,227,Re-entrancy,code snippet injection,"mapping(address => uint) balances_re_ent1;
+function withdraw_balances_re_ent1() public {
+    bool success = msg.sender.call.value(balances_re_ent1[msg.sender])("""");
+    if (success)
+        balances_re_ent1[msg.sender] = 0;
+}	
+"
+3327,203,197,Re-entrancy,code snippet injection,"mapping(address => uint) balances_re_ent29;
+function withdraw_balances_re_ent29() public {
+    if (msg.sender.send(balances_re_ent29[msg.sender]))
+        balances_re_ent29[msg.sender] = 0;
+    }	
+"
+20846,855,266,Re-entrancy,code snippet injection,"address lastPlayer_re_ent9;
+uint jackpot_re_ent9;
+function buyTicket_re_ent9() public{
+  bool success = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("""");
+  if (!success)
+    revert();
+  lastPlayer_re_ent9 = msg.sender;
+  jackpot_re_ent9 = address(this).balance;
+}
+"
+28810,1146,240,Re-entrancy,code snippet injection,"address lastPlayer_re_ent30;
+uint jackpot_re_ent30;
+
+function buyTicket_re_ent30() public{
+  if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    revert();
+  lastPlayer_re_ent30 = msg.sender;
+  jackpot_re_ent30 = address(this).balance;
+}
+"
+20518,830,372,Re-entrancy,code snippet injection,"mapping(address => uint) redeemableEther_re_ent25;
+function claimReward_re_ent25() public {        
+    // ensure there is a reward to give
+    require(redeemableEther_re_ent25[msg.sender] > 0);
+    uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+    msg.sender.transfer(transferValue_re_ent25);   //bug
+    redeemableEther_re_ent25[msg.sender] = 0;
+}
+"
+19938,788,191,Re-entrancy,code snippet injection,"uint256 counter_re_ent28 =0;
+function callme_re_ent28() public {
+    require(counter_re_ent28<=5);
+	if(!(msg.sender.send(10 ether))) {
+        revert();
+    }
+    counter_re_ent28 += 1;
+}   
+"
+29910,1162,307,Re-entrancy,code snippet injection,"mapping(address => uint) balances_re_ent38;
+function withdrawFunds_re_ent38(uint256 _weiToWithdraw) public {
+    require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    // limit the withdrawal
+    require(msg.sender.send(_weiToWithdraw));  //bug
+    balances_re_ent38[msg.sender] -= _weiToWithdraw;
+}
+"
+1578,104,240,Re-entrancy,code snippet injection,"address lastPlayer_re_ent2;
+uint jackpot_re_ent2;
+function buyTicket_re_ent2() public{
+    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+      revert();
+    lastPlayer_re_ent2 = msg.sender;
+    jackpot_re_ent2 = address(this).balance;
+}
+"

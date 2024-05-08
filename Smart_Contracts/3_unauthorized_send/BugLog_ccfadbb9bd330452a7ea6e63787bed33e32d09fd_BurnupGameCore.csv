@@ -1,0 +1,37 @@
+start,line_number,size,bug_type,approach,bug_snip
+8052,428,81,Unchecked-Send,code snippet injection,"function bug_unchk_send23() payable public{
+      msg.sender.transfer(1 ether);}
+"
+979,75,80,Unchecked-Send,code snippet injection,"function bug_unchk_send9() payable public{
+      msg.sender.transfer(1 ether);}
+"
+32268,1301,80,Unchecked-Send,code snippet injection,"function bug_unchk_send8() payable public{
+      msg.sender.transfer(1 ether);}
+"
+33305,1304,80,Unchecked-Send,code snippet injection,"function bug_unchk_send1() payable public{
+      msg.sender.transfer(1 ether);}
+"
+23388,1017,81,Unchecked-Send,code snippet injection,"function bug_unchk_send15() payable public{
+      msg.sender.transfer(1 ether);}
+"
+1396,99,81,Unchecked-Send,code snippet injection,"function bug_unchk_send19() payable public{
+      msg.sender.transfer(1 ether);}
+"
+11147,543,81,Unchecked-Send,code snippet injection,"function bug_unchk_send30() payable public{
+      msg.sender.transfer(1 ether);}
+"
+16748,668,80,Unchecked-Send,code snippet injection,"function bug_unchk_send7() payable public{
+      msg.sender.transfer(1 ether);}
+"
+25437,1032,81,Unchecked-Send,code snippet injection,"function bug_unchk_send31() payable public{
+      msg.sender.transfer(1 ether);}
+"
+8424,431,81,Unchecked-Send,code snippet injection,"function bug_unchk_send14() payable public{
+      msg.sender.transfer(1 ether);}
+"
+3331,200,81,Unchecked-Send,code snippet injection,"function bug_unchk_send11() payable public{
+      msg.sender.transfer(1 ether);}
+"
+18555,748,81,Unchecked-Send,code snippet injection,"function bug_unchk_send17() payable public{
+      msg.sender.transfer(1 ether);}
+"

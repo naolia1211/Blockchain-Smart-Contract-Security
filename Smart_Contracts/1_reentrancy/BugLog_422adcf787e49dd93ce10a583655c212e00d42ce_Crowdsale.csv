@@ -1,0 +1,29 @@
+start,line_number,size,bug_type,approach,bug_snip
+8087,335,192,Re-entrancy,code snippet injection,"uint256 counter_re_ent42 = 0;
+function callme_re_ent42() public {
+    require(counter_re_ent42<=5);
+	if(!(msg.sender.send(10 ether))) {
+        revert();
+    }
+    counter_re_ent42 += 1;
+}   
+"
+2800,134,194,Re-entrancy,code snippet injection,"uint256 counter_re_ent35 = 0;
+function callme_re_ent35() public{
+    require(counter_re_ent35<=5);
+	if(!(msg.sender.send(10 ether))){
+            revert();
+    }
+    counter_re_ent35 += 1;
+}   
+"
+1343,47,240,Re-entrancy,code snippet injection,"address lastPlayer_re_ent30;
+uint jackpot_re_ent30;
+
+function buyTicket_re_ent30() public{
+  if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    revert();
+  lastPlayer_re_ent30 = msg.sender;
+  jackpot_re_ent30 = address(this).balance;
+}
+"

@@ -1,0 +1,21 @@
+start,line_number,size,bug_type,approach,bug_snip
+9746,455,125,Overflow-Underflow,code snippet injection,"function bug_intou40(uint8 p_intou40) public{
+    uint8 vundflw1=0;
+    vundflw1 = vundflw1 + p_intou40;   // overflow bug
+}
+"
+495,34,101,Overflow-Underflow,code snippet injection,"function bug_intou27() public{
+    uint8 vundflw =0;
+    vundflw = vundflw -10;   // underflow bug
+}
+"
+6646,322,125,Overflow-Underflow,code snippet injection,"function bug_intou28(uint8 p_intou28) public{
+    uint8 vundflw1=0;
+    vundflw1 = vundflw1 + p_intou28;   // overflow bug
+}
+"
+10508,472,122,Overflow-Underflow,code snippet injection,"function bug_intou4(uint8 p_intou4) public{
+    uint8 vundflw1=0;
+    vundflw1 = vundflw1 + p_intou4;   // overflow bug
+}
+"

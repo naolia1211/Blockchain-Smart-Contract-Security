@@ -1,0 +1,5 @@
+start,line_number,size,bug_type,approach,bug_snip
+1908,88,93,Unhandled-Exceptions,code snippet injection,"function callnotchecked_unchk13(address callee) public {
+    callee.call.value(1 ether);
+  }
+"
