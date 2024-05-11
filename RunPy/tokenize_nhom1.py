@@ -11,7 +11,7 @@ try:
     tokenizer = RegexpTokenizer(r'\w+|\{|\}|\(|\)|\[|\]|\.|\;|\=|\+|\-|\*|\/|\!|\%|<|>|\||&')
     
     # Specify the output directory
-    output_directory = r'C:\Users\hao30\Documents\GitHub\Blockchain-Smart-Contract-Security\RunPy\output_tokenize'
+    output_directory = r'C:\Users\Admin\Documents\GitHub\Blockchain-Smart-Contract-Security\RunPy\output_tokenize'
     
     # Create the output directory if it doesn't exist
     os.makedirs(output_directory, exist_ok=True)

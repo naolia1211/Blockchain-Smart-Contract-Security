@@ -1,45 +1,63 @@
-import csv
 import os
-from pymongo import MongoClient
+import csv
+import json
+import textwrap
 
-# Kết nối tới MongoDB
+# Đường dẫn đến thư mục chứa các file TXT
+txt_folder = "C:\\Users\\Admin\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\RunPy\\output_tokenize"
+
+# Đường dẫn đến thư mục lưu file CSV đầu ra
+output_folder = "C:\\Users\\Admin\\Documents\\GitHub\\Blockchain-Smart-Contract-Security\\RunPy\\output_table"
+
+# Kết nối đến MongoDB
+from pymongo import MongoClient
 client = MongoClient('mongodb://localhost:27017/')
 db = client['Interaction_and_Contract_State_Vulnerabilities']
 
-# Các nhóm lỗ hổng
-vulnerability_groups = ['reentrancy', 'delegatecall', 'unchecked_send']
+# Danh sách các loại lỗ hổng
+vulnerability_types = ['delegatecall', 'reentrancy', 'unchecked_external_call']
 
-# Đường dẫn tới thư mục chứa các tệp tin tokenize và đầu ra CSV
-tokenize_dir = r'C:\Users\hao30\Documents\GitHub\Blockchain-Smart-Contract-Security\RunPy\output_tokenize'
+# Tạo đường dẫn đầy đủ cho file CSV đầu ra
+output_file = os.path.join(output_folder, 'output.csv')
 
-# Tên file CSV đầu ra
-csv_filename = os.path.join(tokenize_dir, 'vulnerability_data.csv')
+# Tạo file CSV
+with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
+    fieldnames = ['Vulnerabilities', 'Smart Contract', 'Feature Extraction', 'Tokenizer']
+    writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL, delimiter=',', lineterminator='\r\n')
+    writer.writerow(fieldnames)
 
-# Tạo file CSV và ghi dữ liệu vào
-with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
-    fieldnames = ['vulnerability_group', 'smart_contract', 'feature_extraction', 'tokenizer']
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-    writer.writeheader()
-
-    for group in vulnerability_groups:
-        # Lấy dữ liệu từ collection tương ứng
-        collection = db[group]
-        data = collection.find({}, {'filename': 1, 'extract_feature': 1})
-
-        for item in data:
-            filename = item['filename']
-            extract_feature = item['extract_feature']
-
-            # Tìm tệp tin tương ứng trong thư mục tokenize
-            tokenize_file = os.path.join(tokenize_dir, f"{os.path.splitext(filename)[0]}.txt")
-
-            if os.path.exists(tokenize_file):
-                with open(tokenize_file, 'r', encoding='utf-8') as file:
-                    tokenizer = file.read()
+    # Duyệt qua từng loại lỗ hổng
+    for vulnerability_type in vulnerability_types:
+        collection = db[vulnerability_type]
+        
+        # Đọc nội dung file TXT tương ứng
+        txt_file = os.path.join(txt_folder, f"{vulnerability_type}_filtered_tokens.txt")
+        tokenizers = []
+        if os.path.exists(txt_file):
+            try:
+                with open(txt_file, 'r', encoding='utf-8') as file:
+                    tokenizers = file.read().strip().split('\n')
+            except UnicodeDecodeError:
+                print(f"Lỗi khi đọc file {txt_file}. Bỏ qua file này.")
+        
+        # Lấy dữ liệu từ các file JSON trong MongoDB (giới hạn 10 file)
+        docs = list(collection.find().limit(10))
+        
+        # Ghi dữ liệu vào file CSV
+        for i in range(10):
+            if i < len(docs):
+                filename = docs[i].get('filename', '')
+                extract_feature = docs[i].get('extract_feature', [])
+                extract_feature_str = f"Array ({len(extract_feature)})\n" + "\n".join([f"{j}: {textwrap.fill(item, width=100)}" for j, item in enumerate(extract_feature)])
+            else:
+                filename = ''
+                extract_feature_str = ''
+            
+            if i < len(tokenizers):
+                tokenizer = tokenizers[i]
             else:
                 tokenizer = ''
+            
+            writer.writerow([vulnerability_type, filename, extract_feature_str, tokenizer])
 
-            writer.writerow({'vulnerability_group': group, 'smart_contract': filename, 'feature_extraction': extract_feature, 'tokenizer': tokenizer})
-
-print("CSV file created successfully.")
+print("Đã tạo file CSV thành công")

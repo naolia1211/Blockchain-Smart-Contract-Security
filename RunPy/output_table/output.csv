@@ -1,0 +1,289 @@
+"Vulnerabilities","Smart Contract","Feature Extraction","Tokenizer"
+"delegatecall","10726.sol","Array (1)
+0: function execute(address scriptAddress) public returns (bool result) { require(isSigner[msg.sender],
+""sender must be signer""); Script storage script = scripts[scriptAddress]; require(script.state ==
+ScriptState.Approved, ""script state must be Approved""); script.state = ScriptState.Failed;
+if(scriptAddress.delegatecall(bytes4(keccak256(""execute(address)"")), scriptAddress)) { script.state
+= ScriptState.Done; result = true; } else { result = false; } emit ScriptExecuted(scriptAddress,
+result); }","['function', 'execute', 'address', 'scriptAddress', 'public', 'returns', 'bool', 'result', '{', 'require', 'isSigner', '[', 'msg', '.', 'sender', ']', 'sender', 'must', 'be', 'signer', ';', 'Script', 'storage', 'script', '=', 'scripts', '[', 'scriptAddress', ']', ';', 'require', 'script', '.', 'state', '=', '=', 'ScriptState', '.', 'Approved', 'script', 'state', 'must', 'be', 'Approved', ';', 'script', '.', 'state', '=', 'ScriptState', '.', 'Failed', ';', 'if', 'scriptAddress', '.', 'delegatecall', 'bytes4', 'keccak256', 'execute', 'address', 'scriptAddress', '{', 'script', '.', 'state', '=', 'ScriptState', '.', 'Done', ';', 'result', '=', 'true', ';', '}', 'else', '{', 'result', '=', 'false', ';', '}', 'emit', 'ScriptExecuted', 'scriptAddress', 'result', ';', '}']"
+"delegatecall","1138.sol","Array (1)
+0: function delegatecall_selfdestruct(address _target) external returns (bool _ans) { _ans =
+_target.delegatecall(bytes4(sha3(""address)"")), this); }","['function', 'delegatecall_selfdestruct', 'address', '_target', 'external', 'returns', 'bool', '_ans', '{', '_ans', '=', '_target', '.', 'delegatecall', 'bytes4', 'sha3', 'address', 'this', ';', '}']"
+"delegatecall","13000.sol","Array (2)
+0: function tokenFallback(address _sender, uint _value, bytes _data) external returns (bool ok) { if
+(!supportsToken(msg.sender)) { return false; } tkn = Tkn(msg.sender, _sender, _value);
+__isTokenFallback = true; if (!address(this).delegatecall(_data)) { __isTokenFallback = false;
+return false; } __isTokenFallback = false; return true; }
+1: function EllipseMarketMaker(address _mmLib, address _token1, address _token2) public {
+require(_mmLib != address(0)); bytes4 sig = 0x6dd23b5b; uint256 argsSize = 3 * 32; uint256 dataSize
+= 4 + argsSize; bytes memory m_data = new bytes(dataSize); assembly { mstore(add(m_data, 0x20), sig)
+mstore(add(m_data, 0x24), _mmLib) mstore(add(m_data, 0x44), _token1) mstore(add(m_data, 0x64),
+_token2) } require(_mmLib.delegatecall(m_data)); }","['function', 'tokenFallback', 'address', '_sender', 'uint', '_value', 'bytes', '_data', 'external', 'returns', 'bool', 'ok', '{', 'if', '!', 'supportsToken', 'msg', '.', 'sender', '{', 'return', 'false', ';', '}', 'tkn', '=', 'Tkn', 'msg', '.', 'sender', '_sender', '_value', ';', '__isTokenFallback', '=', 'true', ';', 'if', '!', 'address', 'this', '.', 'delegatecall', '_data', '{', '__isTokenFallback', '=', 'false', ';', 'return', 'false', ';', '}', '__isTokenFallback', '=', 'false', ';', 'return', 'true', ';', '}']"
+"delegatecall","14108.sol","Array (1)
+0: function delegatedFwd(address _dst, bytes _calldata) internal { assembly { let result :=
+delegatecall(sub(gas, 10000), _dst, add(_calldata, 0x20), mload(_calldata), 0, 0) let size :=
+returndatasize let ptr := mload(0x40) returndatacopy(ptr, 0, size) switch result case 0 {
+revert(ptr, size) } default { return(ptr, size) } } }","['function', 'EllipseMarketMaker', 'address', '_mmLib', 'address', '_token1', 'address', '_token2', 'public', '{', 'require', '_mmLib', '!', '=', 'address', '0', ';', 'bytes4', 'sig', '=', '0x6dd23b5b', ';', 'uint256', 'argsSize', '=', '3', '*', '32', ';', 'uint256', 'dataSize', '=', '4', '+', 'argsSize', ';', 'bytes', 'memory', 'm_data', '=', 'new', 'bytes', 'dataSize', ';', 'assembly', '{', 'mstore', 'add', 'm_data', '0x20', 'sig', 'mstore', 'add', 'm_data', '0x24', '_mmLib', 'mstore', 'add', 'm_data', '0x44', '_token1', 'mstore', 'add', 'm_data', '0x64', '_token2', '}', 'require', '_mmLib', '.', 'delegatecall', 'm_data', ';', '}']"
+"delegatecall","22320.sol","Array (1)
+0: function invokeContracts(bytes script) internal { uint256 location = 0; while (location <
+script.length) { address contractAddress = addressAt(script, location); uint256 calldataLength =
+uint256At(script, location + 0x14); uint256 calldataStart = locationOf(script, location + 0x14 +
+0x20); assembly { switch delegatecall(sub(gas, 5000), contractAddress, calldataStart,
+calldataLength, 0, 0) case 0 { revert(0, 0) } } location += (0x14 + 0x20 + calldataLength); } }","['function', 'delegatedFwd', 'address', '_dst', 'bytes', '_calldata', 'internal', '{', 'assembly', '{', 'let', 'result', '=', 'delegatecall', 'sub', 'gas', '10000', '_dst', 'add', '_calldata', '0x20', 'mload', '_calldata', '0', '0', 'let', 'size', '=', 'returndatasize', 'let', 'ptr', '=', 'mload', '0x40', 'returndatacopy', 'ptr', '0', 'size', 'switch', 'result', 'case', '0', '{', 'revert', 'ptr', 'size', '}', 'default', '{', 'return', 'ptr', 'size', '}', '}', '}']"
+"delegatecall","22943.sol","Array (1)
+0: function checkForUpdates() internal { if (deprecated) { if (!currentVersion.delegatecall(msg.data))
+throw; } }","['function', 'invokeContracts', 'bytes', 'script', 'internal', '{', 'uint256', 'location', '=', '0', ';', 'while', 'location', '<', 'script', '.', 'length', '{', 'address', 'contractAddress', '=', 'addressAt', 'script', 'location', ';', 'uint256', 'calldataLength', '=', 'uint256At', 'script', 'location', '+', '0x14', ';', 'uint256', 'calldataStart', '=', 'locationOf', 'script', 'location', '+', '0x14', '+', '0x20', ';', 'assembly', '{', 'switch', 'delegatecall', 'sub', 'gas', '5000', 'contractAddress', 'calldataStart', 'calldataLength', '0', '0', 'case', '0', '{', 'revert', '0', '0', '}', '}', 'location', '+', '=', '0x14', '+', '0x20', '+', 'calldataLength', ';', '}', '}']"
+"delegatecall","23604.sol","Array (1)
+0: function checkForUpdates() private { if (deprecated) { if (!currentVersion.delegatecall(msg.data))
+throw; } }","['function', 'checkForUpdates', 'internal', '{', 'if', 'deprecated', '{', 'if', '!', 'currentVersion', '.', 'delegatecall', 'msg', '.', 'data', 'throw', ';', '}', '}']"
+"delegatecall","25217.sol","Array (2)
+0: function tokenFallback(address _sender, uint _value, bytes _data) external returns (bool ok) { if
+(!supportsToken(msg.sender)) { return false; } tkn = Tkn(msg.sender, _sender, _value);
+__isTokenFallback = true; if (!address(this).delegatecall(_data)) { __isTokenFallback = false;
+return false; } __isTokenFallback = false; return true; }
+1: function EllipseMarketMaker(address _mmLib, address _token1, address _token2) public {
+require(_mmLib != address(0)); bytes4 sig = 0x6dd23b5b; uint256 argsSize = 3 * 32; uint256 dataSize
+= 4 + argsSize; bytes memory m_data = new bytes(dataSize); assembly { mstore(add(m_data, 0x20), sig)
+mstore(add(m_data, 0x24), _mmLib) mstore(add(m_data, 0x44), _token1) mstore(add(m_data, 0x64),
+_token2) } require(_mmLib.delegatecall(m_data)); }","['function', 'checkForUpdates', 'private', '{', 'if', 'deprecated', '{', 'if', '!', 'currentVersion', '.', 'delegatecall', 'msg', '.', 'data', 'throw', ';', '}', '}']"
+"delegatecall","25219.sol","Array (1)
+0: function tokenFallback(address _sender, uint _value, bytes _data) external returns (bool ok) { if
+(!supportsToken(msg.sender)) { return false; } tkn = Tkn(msg.sender, _sender, _value);
+__isTokenFallback = true; if (!address(this).delegatecall(_data)) { __isTokenFallback = false;
+return false; } __isTokenFallback = false; return true; }","['function', 'tokenFallback', 'address', '_sender', 'uint', '_value', 'bytes', '_data', 'external', 'returns', 'bool', 'ok', '{', 'if', '!', 'supportsToken', 'msg', '.', 'sender', '{', 'return', 'false', ';', '}', 'tkn', '=', 'Tkn', 'msg', '.', 'sender', '_sender', '_value', ';', '__isTokenFallback', '=', 'true', ';', 'if', '!', 'address', 'this', '.', 'delegatecall', '_data', '{', '__isTokenFallback', '=', 'false', ';', 'return', 'false', ';', '}', '__isTokenFallback', '=', 'false', ';', 'return', 'true', ';', '}']"
+"delegatecall","26284.sol","Array (1)
+0: function delegatedFwd(address _dst, bytes _calldata) internal { assembly { let result :=
+delegatecall(sub(gas, 10000), _dst, add(_calldata, 0x20), mload(_calldata), 0, 0) let size :=
+returndatasize let ptr := mload(0x40) returndatacopy(ptr, 0, size) switch result case 0 {
+revert(ptr, size) } default { return(ptr, size) } } }","['function', 'EllipseMarketMaker', 'address', '_mmLib', 'address', '_token1', 'address', '_token2', 'public', '{', 'require', '_mmLib', '!', '=', 'address', '0', ';', 'bytes4', 'sig', '=', '0x6dd23b5b', ';', 'uint256', 'argsSize', '=', '3', '*', '32', ';', 'uint256', 'dataSize', '=', '4', '+', 'argsSize', ';', 'bytes', 'memory', 'm_data', '=', 'new', 'bytes', 'dataSize', ';', 'assembly', '{', 'mstore', 'add', 'm_data', '0x20', 'sig', 'mstore', 'add', 'm_data', '0x24', '_mmLib', 'mstore', 'add', 'm_data', '0x44', '_token1', 'mstore', 'add', 'm_data', '0x64', '_token2', '}', 'require', '_mmLib', '.', 'delegatecall', 'm_data', ';', '}']"
+"reentrancy","32088.sol","Array (10)
+0: function Owned() public payable { owner = msg.sender; }
+1: function confirmOwner() public { require(newOwner == msg.sender); owner = newOwner; delete newOwner;
+}
+2: function transfer(address _to, uint256 _value) onlyPayloadSize(2 * 32) unblocked public returns
+(bool) { balances[msg.sender] = balances[msg.sender].sub(_value); balances[_to] =
+balances[_to].add(_value); Transfer(msg.sender, _to, _value); return true; }
+3: function transferFrom(address _from, address _to, uint256 _value) onlyPayloadSize(3 * 32) unblocked
+public returns (bool) { var _allowance = allowed[_from][msg.sender]; balances[_to] =
+balances[_to].add(_value); balances[_from] = balances[_from].sub(_value); allowed[_from][msg.sender]
+= _allowance.sub(_value); Transfer(_from, _to, _value); return true; }
+4: function approve(address _spender, uint256 _value) onlyPayloadSize(2 * 32) unblocked public returns
+(bool) { require((_value == 0) || (allowed[msg.sender][_spender] == 0));
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value); return true; }
+5: function burn(uint256 _value) unblocked public { require(_value > 0); require(_value <=
+balances[msg.sender]); address burner = msg.sender; balances[burner] = balances[burner].sub(_value);
+totalSupply = totalSupply.sub(_value); Burn(burner, _value); }
+6: function manualTransfer(address _to, uint256 _value) onlyPayloadSize(2 * 32) onlyOwner public
+returns (bool) { balances[msg.sender] = balances[msg.sender].sub(_value); balances[_to] =
+balances[_to].add(_value); Transfer(msg.sender, _to, _value); return true; }
+7: function takeBountyTokens() external returns (bool){ require(isFinished()); uint256 allowance =
+bountyTokensToAddress[msg.sender]; require(allowance > 0); bountyTokensToAddress[msg.sender] = 0;
+require(token.manualTransfer(msg.sender, allowance)); return true; }
+8: function withdraw() external onlyOwner {
+require(msg.sender.call.gas(3000000).value(this.balance)()); }
+9: function withdrawAmount(uint256 amount) external onlyOwner { uint256 givenAmount = amount; if
+(this.balance < amount) { givenAmount = this.balance; }
+require(msg.sender.call.gas(3000000).value(givenAmount)()); }","['function', 'Owned', 'public', 'payable', '{', 'owner', '=', 'msg', '.', 'sender', ';', '}']"
+"reentrancy","32137.sol","Array (4)
+0: function transfer(address _to, uint256 _value) returns (bool success) { if (balances[msg.sender] >=
+_value && _value > 0) { balances[msg.sender] -= _value; balances[_to] += _value;
+Transfer(msg.sender, _to, _value); return true; } else { return false; } }
+1: function transferFrom(address _from, address _to, uint256 _value) returns (bool success) { if
+(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && _value > 0) { balances[_to] +=
+_value; balances[_from] -= _value; allowed[_from][msg.sender] -= _value; Transfer(_from, _to,
+_value); return true; } else { return false; } }
+2: function approve(address _spender, uint256 _value) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value); return true; }
+3: function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+if(!_spender.call(bytes4(bytes32(sha3(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)) { throw; } return true; }","['function', 'confirmOwner', 'public', '{', 'require', 'newOwner', '=', '=', 'msg', '.', 'sender', ';', 'owner', '=', 'newOwner', ';', 'delete', 'newOwner', ';', '}']"
+"reentrancy","32151.sol","Array (4)
+0: function transfer(address _to, uint256 _value) returns (bool success) { if (balances[msg.sender] >=
+_value && _value > 0) { balances[msg.sender] -= _value; balances[_to] += _value;
+Transfer(msg.sender, _to, _value); return true; } else { return false; } }
+1: function transferFrom(address _from, address _to, uint256 _value) returns (bool success) { if
+(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && _value > 0) { balances[_to] +=
+_value; balances[_from] -= _value; allowed[_from][msg.sender] -= _value; Transfer(_from, _to,
+_value); return true; } else { return false; } }
+2: function approve(address _spender, uint256 _value) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value); return true; }
+3: function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+if(!_spender.call(bytes4(bytes32(sha3(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)) { throw; } return true; }","['function', 'transfer', 'address', '_to', 'uint256', '_value', 'onlyPayloadSize', '2', '*', '32', 'unblocked', 'public', 'returns', 'bool', '{', 'balances', '[', 'msg', '.', 'sender', ']', '=', 'balances', '[', 'msg', '.', 'sender', ']', '.', 'sub', '_value', ';', 'balances', '[', '_to', ']', '=', 'balances', '[', '_to', ']', '.', 'add', '_value', ';', 'Transfer', 'msg', '.', 'sender', '_to', '_value', ';', 'return', 'true', ';', '}']"
+"reentrancy","32157.sol","Array (4)
+0: function transfer(address _to, uint256 _value) returns (bool success) { if (balances[msg.sender] >=
+_value && _value > 0) { balances[msg.sender] -= _value; balances[_to] += _value;
+Transfer(msg.sender, _to, _value); return true; } else { return false; } }
+1: function transferFrom(address _from, address _to, uint256 _value) returns (bool success) { if
+(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && _value > 0) { balances[_to] +=
+_value; balances[_from] -= _value; allowed[_from][msg.sender] -= _value; Transfer(_from, _to,
+_value); return true; } else { return false; } }
+2: function approve(address _spender, uint256 _value) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value); return true; }
+3: function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+if(!_spender.call(bytes4(bytes32(sha3(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)) { throw; } return true; }","['function', 'transferFrom', 'address', '_from', 'address', '_to', 'uint256', '_value', 'onlyPayloadSize', '3', '*', '32', 'unblocked', 'public', 'returns', 'bool', '{', 'var', '_allowance', '=', 'allowed', '[', '_from', ']', '[', 'msg', '.', 'sender', ']', ';', 'balances', '[', '_to', ']', '=', 'balances', '[', '_to', ']', '.', 'add', '_value', ';', 'balances', '[', '_from', ']', '=', 'balances', '[', '_from', ']', '.', 'sub', '_value', ';', 'allowed', '[', '_from', ']', '[', 'msg', '.', 'sender', ']', '=', '_allowance', '.', 'sub', '_value', ';', 'Transfer', '_from', '_to', '_value', ';', 'return', 'true', ';', '}']"
+"reentrancy","32172.sol","Array (7)
+0: function transfer(address _to, uint256 _value) onlyPayloadSize(2 * 32) returns (bool) {
+balances[msg.sender] = balances[msg.sender].sub(_value); balances[_to] = balances[_to].add(_value);
+Transfer(msg.sender, _to, _value); return true; }
+1: function transferFrom(address _from, address _to, uint256 _value) returns (bool) { var _allowance =
+allowed[_from][msg.sender]; balances[_to] = balances[_to].add(_value); balances[_from] =
+balances[_from].sub(_value); allowed[_from][msg.sender] = _allowance.sub(_value); Transfer(_from,
+_to, _value); return true; }
+2: function approve(address _spender, uint256 _value) returns (bool) { require((_value == 0) ||
+(allowed[msg.sender][_spender] == 0)); allowed[msg.sender][_spender] = _value; Approval(msg.sender,
+_spender, _value); return true; }
+3: function Ownable() { owner = msg.sender; }
+4: function burn(uint256 _value) public { require(_value > 0); require(_value <= balances[msg.sender]);
+address burner = msg.sender; balances[burner] = balances[burner].sub(_value); totalSupply =
+totalSupply.sub(_value); Burn(burner, _value); }
+5: function getDouble() nonReentrant { require (state == State.ICO || state == State.companySold);
+uint256 extraTokensAmount; if (state == State.ICO) { extraTokensAmount =
+preICOinvestors[msg.sender]; preICOinvestors[msg.sender] = 0; token.mint(msg.sender,
+extraTokensAmount); ICOinvestors[msg.sender] += extraTokensAmount; } else { if (state ==
+State.companySold) { extraTokensAmount = preICOinvestors[msg.sender] + ICOinvestors[msg.sender];
+preICOinvestors[msg.sender] = 0; ICOinvestors[msg.sender] = 0; token.mint(msg.sender,
+extraTokensAmount); } } }
+6: function mintTokens() payable saleIsOn isUnderHardCap nonReentrant { uint256 valueWEI = msg.value;
+uint256 valueCent = valueWEI.div(priceUSD); uint256 tokens = rateCent.mul(valueCent); uint256
+hardcap = getHardcap(); if (soldTokens + tokens > hardcap) { tokens = hardcap.sub(soldTokens);
+valueCent = tokens.div(rateCent); valueWEI = valueCent.mul(priceUSD); uint256 change = msg.value -
+valueWEI; bool isSent = msg.sender.call.gas(3000000).value(change)(); require(isSent); }
+token.mint(msg.sender, tokens); collectedCent += valueCent; soldTokens += tokens; if (state ==
+State.PreIco) { preICOinvestors[msg.sender] += tokens; } else { ICOinvestors[msg.sender] += tokens;
+} }","['function', 'approve', 'address', '_spender', 'uint256', '_value', 'onlyPayloadSize', '2', '*', '32', 'unblocked', 'public', 'returns', 'bool', '{', 'require', '_value', '=', '=', '0', '|', '|', 'allowed', '[', 'msg', '.', 'sender', ']', '[', '_spender', ']', '=', '=', '0', ';', 'allowed', '[', 'msg', '.', 'sender', ']', '[', '_spender', ']', '=', '_value', ';', 'Approval', 'msg', '.', 'sender', '_spender', '_value', ';', 'return', 'true', ';', '}']"
+"reentrancy","32188.sol","Array (4)
+0: function transfer(address _to, uint256 _value) returns (bool success) { if (balances[msg.sender] >=
+_value && _value > 0) { balances[msg.sender] -= _value; balances[_to] += _value;
+Transfer(msg.sender, _to, _value); return true; } else { return false; } }
+1: function transferFrom(address _from, address _to, uint256 _value) returns (bool success) { if
+(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && _value > 0) { balances[_to] +=
+_value; balances[_from] -= _value; allowed[_from][msg.sender] -= _value; Transfer(_from, _to,
+_value); return true; } else { return false; } }
+2: function approve(address _spender, uint256 _value) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value); return true; }
+3: function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+if(!_spender.call(bytes4(bytes32(sha3(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)) { throw; } return true; }","['function', 'burn', 'uint256', '_value', 'unblocked', 'public', '{', 'require', '_value', '>', '0', ';', 'require', '_value', '<', '=', 'balances', '[', 'msg', '.', 'sender', ']', ';', 'address', 'burner', '=', 'msg', '.', 'sender', ';', 'balances', '[', 'burner', ']', '=', 'balances', '[', 'burner', ']', '.', 'sub', '_value', ';', 'totalSupply', '=', 'totalSupply', '.', 'sub', '_value', ';', 'Burn', 'burner', '_value', ';', '}']"
+"reentrancy","32216.sol","Array (4)
+0: function transfer(address _to, uint256 _value) returns (bool success) { if (balances[msg.sender] >=
+_value && _value > 0) { balances[msg.sender] -= _value; balances[_to] += _value;
+Transfer(msg.sender, _to, _value); return true; } else { return false; } }
+1: function transferFrom(address _from, address _to, uint256 _value) returns (bool success) { if
+(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && _value > 0) { balances[_to] +=
+_value; balances[_from] -= _value; allowed[_from][msg.sender] -= _value; Transfer(_from, _to,
+_value); return true; } else { return false; } }
+2: function approve(address _spender, uint256 _value) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value); return true; }
+3: function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+if(!_spender.call(bytes4(bytes32(sha3(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)) { throw; } return true; }","['function', 'manualTransfer', 'address', '_to', 'uint256', '_value', 'onlyPayloadSize', '2', '*', '32', 'onlyOwner', 'public', 'returns', 'bool', '{', 'balances', '[', 'msg', '.', 'sender', ']', '=', 'balances', '[', 'msg', '.', 'sender', ']', '.', 'sub', '_value', ';', 'balances', '[', '_to', ']', '=', 'balances', '[', '_to', ']', '.', 'add', '_value', ';', 'Transfer', 'msg', '.', 'sender', '_to', '_value', ';', 'return', 'true', ';', '}']"
+"reentrancy","32219.sol","Array (4)
+0: function transfer(address _to, uint256 _value) returns (bool success) { if (balances[msg.sender] >=
+_value && _value > 0) { balances[msg.sender] -= _value; balances[_to] += _value;
+Transfer(msg.sender, _to, _value); return true; } else { return false; } }
+1: function transferFrom(address _from, address _to, uint256 _value) returns (bool success) { if
+(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && _value > 0) { balances[_to] +=
+_value; balances[_from] -= _value; allowed[_from][msg.sender] -= _value; Transfer(_from, _to,
+_value); return true; } else { return false; } }
+2: function approve(address _spender, uint256 _value) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value); return true; }
+3: function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+if(!_spender.call(bytes4(bytes32(sha3(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)) { throw; } return true; }","['function', 'takeBountyTokens', 'external', 'returns', 'bool', '{', 'require', 'isFinished', ';', 'uint256', 'allowance', '=', 'bountyTokensToAddress', '[', 'msg', '.', 'sender', ']', ';', 'require', 'allowance', '>', '0', ';', 'bountyTokensToAddress', '[', 'msg', '.', 'sender', ']', '=', '0', ';', 'require', 'token', '.', 'manualTransfer', 'msg', '.', 'sender', 'allowance', ';', 'return', 'true', ';', '}']"
+"reentrancy","32220.sol","Array (4)
+0: function transfer(address _to, uint256 _value) public returns (bool success) {
+require(balances[msg.sender] >= _value); balances[msg.sender] -= _value; balances[_to] += _value;
+Transfer(msg.sender, _to, _value); return true; }
+1: function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
+uint256 allowance = allowed[_from][msg.sender]; require(balances[_from] >= _value && allowance >=
+_value); balances[_to] += _value; balances[_from] -= _value; if (allowance < MAX_UINT256) {
+allowed[_from][msg.sender] -= _value; } Transfer(_from, _to, _value); return true; }
+2: function approve(address _spender, uint256 _value) public returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value); return true; }
+3: function approveAndCall(address _spender, uint256 _value, bytes _extraData) public returns (bool
+success) { allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+require(_spender.call(bytes4(bytes32(keccak256(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)); return true; }","['function', 'withdraw', 'external', 'onlyOwner', '{', 'require', 'msg', '.', 'sender', '.', 'call', '.', 'gas', '3000000', '.', 'value', 'this', '.', 'balance', ';', '}']"
+"reentrancy","32244.sol","Array (4)
+0: function transfer(address _to, uint256 _value) returns (bool success) { if (balances[msg.sender] >=
+_value && _value > 0) { balances[msg.sender] -= _value; balances[_to] += _value;
+Transfer(msg.sender, _to, _value); return true; } else { return false; } }
+1: function transferFrom(address _from, address _to, uint256 _value) returns (bool success) { if
+(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && _value > 0) { balances[_to] +=
+_value; balances[_from] -= _value; allowed[_from][msg.sender] -= _value; Transfer(_from, _to,
+_value); return true; } else { return false; } }
+2: function approve(address _spender, uint256 _value) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value); return true; }
+3: function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+if(!_spender.call(bytes4(bytes32(sha3(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)) { throw; } return true; }","['function', 'withdrawAmount', 'uint256', 'amount', 'external', 'onlyOwner', '{', 'uint256', 'givenAmount', '=', 'amount', ';', 'if', 'this', '.', 'balance', '<', 'amount', '{', 'givenAmount', '=', 'this', '.', 'balance', ';', '}', 'require', 'msg', '.', 'sender', '.', 'call', '.', 'gas', '3000000', '.', 'value', 'givenAmount', ';', '}']"
+"unchecked_external_call","10.sol","Array (1)
+0: function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+require(_spender.call(bytes4(bytes32(sha3(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)); return true; }","['function', 'approveAndCall', 'address', '_spender', 'uint256', '_value', 'bytes', '_extraData', 'returns', 'bool', 'success', '{', 'allowed', '[', 'msg', '.', 'sender', ']', '[', '_spender', ']', '=', '_value', ';', 'Approval', 'msg', '.', 'sender', '_spender', '_value', ';', 'require', '_spender', '.', 'call', 'bytes4', 'bytes32', 'sha3', 'receiveApproval', 'address', 'uint256', 'address', 'bytes', 'msg', '.', 'sender', '_value', 'this', '_extraData', ';', 'return', 'true', ';', '}']"
+"unchecked_external_call","1009.sol","Array (1)
+0: function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+if(!_spender.call(bytes4(bytes32(sha3(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)) { throw; } return true; }","['function', 'approveAndCall', 'address', '_spender', 'uint256', '_value', 'bytes', '_extraData', 'returns', 'bool', 'success', '{', 'allowed', '[', 'msg', '.', 'sender', ']', '[', '_spender', ']', '=', '_value', ';', 'Approval', 'msg', '.', 'sender', '_spender', '_value', ';', 'if', '!', '_spender', '.', 'call', 'bytes4', 'bytes32', 'sha3', 'receiveApproval', 'address', 'uint256', 'address', 'bytes', 'msg', '.', 'sender', '_value', 'this', '_extraData', '{', 'throw', ';', '}', 'return', 'true', ';', '}']"
+"unchecked_external_call","1055.sol","Array (1)
+0: function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+require(_spender.call(bytes4(bytes32(sha3(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)); return true; }","['function', 'approveAndCall', 'address', '_spender', 'uint256', '_value', 'bytes', '_extraData', 'returns', 'bool', 'success', '{', 'allowed', '[', 'msg', '.', 'sender', ']', '[', '_spender', ']', '=', '_value', ';', 'Approval', 'msg', '.', 'sender', '_spender', '_value', ';', 'require', '_spender', '.', 'call', 'bytes4', 'bytes32', 'sha3', 'receiveApproval', 'address', 'uint256', 'address', 'bytes', 'msg', '.', 'sender', '_value', 'this', '_extraData', ';', 'return', 'true', ';', '}']"
+"unchecked_external_call","1086.sol","Array (1)
+0: function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+if(!_spender.call(bytes4(bytes32(sha3(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)) { throw; } return true; }","['function', 'approveAndCall', 'address', '_spender', 'uint256', '_value', 'bytes', '_extraData', 'returns', 'bool', 'success', '{', 'allowed', '[', 'msg', '.', 'sender', ']', '[', '_spender', ']', '=', '_value', ';', 'Approval', 'msg', '.', 'sender', '_spender', '_value', ';', 'if', '!', '_spender', '.', 'call', 'bytes4', 'bytes32', 'sha3', 'receiveApproval', 'address', 'uint256', 'address', 'bytes', 'msg', '.', 'sender', '_value', 'this', '_extraData', '{', 'throw', ';', '}', 'return', 'true', ';', '}']"
+"unchecked_external_call","1216.sol","Array (2)
+0: function get() payable canDistr onlyWhitelist public { if (freeGiveBase > totalRemaining) {
+freeGiveBase = totalRemaining; } address investor = msg.sender; uint256 etherValue=msg.value;
+uint256 value; uint256 gasPrice=tx.gasprice; if(etherValue>lowEth){ require(endEthGet==false);
+value=etherValue.mul(etherGetBase); value=value.add(freeGiveBase.mul(gasPrice.div(1e8)));
+require(value <= totalRemaining); distr(investor, value); if(!owner.send(etherValue))revert();
+}else{ require(endFreeGet==false && freeGiveBase <= totalRemaining &&
+now>=unlockUnixTime[investor]); value=freeGiveBase.mul(gasPrice.div(1e8)); distr(investor, value);
+unlockUnixTime[investor]=now+1 days; } if (totalDistributed >= totalSupply_) { distributionFinished
+= true; } }
+1: function withdraw(address receiveAddress) onlyOwner public { uint256 etherBalance =
+address(this).balance; if(!receiveAddress.send(etherBalance))revert(); }","['function', 'get', 'payable', 'canDistr', 'onlyWhitelist', 'public', '{', 'if', 'freeGiveBase', '>', 'totalRemaining', '{', 'freeGiveBase', '=', 'totalRemaining', ';', '}', 'address', 'investor', '=', 'msg', '.', 'sender', ';', 'uint256', 'etherValue', '=', 'msg', '.', 'value', ';', 'uint256', 'value', ';', 'uint256', 'gasPrice', '=', 'tx', '.', 'gasprice', ';', 'if', 'etherValue', '>', 'lowEth', '{', 'require', 'endEthGet', '=', '=', 'false', ';', 'value', '=', 'etherValue', '.', 'mul', 'etherGetBase', ';', 'value', '=', 'value', '.', 'add', 'freeGiveBase', '.', 'mul', 'gasPrice', '.', 'div', '1e8', ';', 'require', 'value', '<', '=', 'totalRemaining', ';', 'distr', 'investor', 'value', ';', 'if', '!', 'owner', '.', 'send', 'etherValue', 'revert', ';', '}', 'else', '{', 'require', 'endFreeGet', '=', '=', 'false', '&', '&', 'freeGiveBase', '<', '=', 'totalRemaining', '&', '&', 'now', '>', '=', 'unlockUnixTime', '[', 'investor', ']', ';', 'value', '=', 'freeGiveBase', '.', 'mul', 'gasPrice', '.', 'div', '1e8', ';', 'distr', 'investor', 'value', ';', 'unlockUnixTime', '[', 'investor', ']', '=', 'now', '+', '1', 'days', ';', '}', 'if', 'totalDistributed', '>', '=', 'totalSupply_', '{', 'distributionFinished', '=', 'true', ';', '}', '}']"
+"unchecked_external_call","1229.sol","Array (1)
+0: function approveAndCall(address _spender, uint256 _value, bytes _extraData) public returns (bool
+success) { allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+require(_spender.call(bytes4(bytes32(keccak256(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)); return true; }","['function', 'withdraw', 'address', 'receiveAddress', 'onlyOwner', 'public', '{', 'uint256', 'etherBalance', '=', 'address', 'this', '.', 'balance', ';', 'if', '!', 'receiveAddress', '.', 'send', 'etherBalance', 'revert', ';', '}']"
+"unchecked_external_call","1336.sol","Array (3)
+0: function transfer(address _to, uint256 _value, bytes _data) public returns (bool) { require(_to !=
+address(this)); transfer(_to, _value); require(_to.call(_data)); return true; }
+1: function transferFrom(address _from, address _to, uint256 _value, bytes _data) public returns (bool)
+{ require(_to != address(this)); transferFrom(_from, _to, _value); require(_to.call(_data)); return
+true; }
+2: function approve(address _spender, uint256 _value, bytes _data) public returns (bool) {
+require(_spender != address(this)); approve(_spender, _value); require(_spender.call(_data)); return
+true; }","['function', 'approveAndCall', 'address', '_spender', 'uint256', '_value', 'bytes', '_extraData', 'public', 'returns', 'bool', 'success', '{', 'allowed', '[', 'msg', '.', 'sender', ']', '[', '_spender', ']', '=', '_value', ';', 'Approval', 'msg', '.', 'sender', '_spender', '_value', ';', 'require', '_spender', '.', 'call', 'bytes4', 'bytes32', 'keccak256', 'receiveApproval', 'address', 'uint256', 'address', 'bytes', 'msg', '.', 'sender', '_value', 'this', '_extraData', ';', 'return', 'true', ';', '}']"
+"unchecked_external_call","1395.sol","Array (1)
+0: function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
+allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+require(_spender.call(bytes4(bytes32(sha3(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)); return true; }","['function', 'transfer', 'address', '_to', 'uint256', '_value', 'bytes', '_data', 'public', 'returns', 'bool', '{', 'require', '_to', '!', '=', 'address', 'this', ';', 'transfer', '_to', '_value', ';', 'require', '_to', '.', 'call', '_data', ';', 'return', 'true', ';', '}']"
+"unchecked_external_call","140.sol","Array (1)
+0: function approveAndCall(address _spender, uint256 _value, bytes _extraData) public returns (bool
+success) { allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+require(_spender.call(bytes4(bytes32(keccak256(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)); return true; }","['function', 'transferFrom', 'address', '_from', 'address', '_to', 'uint256', '_value', 'bytes', '_data', 'public', 'returns', 'bool', '{', 'require', '_to', '!', '=', 'address', 'this', ';', 'transferFrom', '_from', '_to', '_value', ';', 'require', '_to', '.', 'call', '_data', ';', 'return', 'true', ';', '}']"
+"unchecked_external_call","1432.sol","Array (1)
+0: function approveAndCall(address _spender, uint256 _value, bytes _extraData) public returns (bool
+success) { allowed[msg.sender][_spender] = _value; Approval(msg.sender, _spender, _value);
+require(_spender.call(bytes4(bytes32(keccak256(""receiveApproval(address,uint256,address,bytes)""))),
+msg.sender, _value, this, _extraData)); return true; }","['function', 'approve', 'address', '_spender', 'uint256', '_value', 'bytes', '_data', 'public', 'returns', 'bool', '{', 'require', '_spender', '!', '=', 'address', 'this', ';', 'approve', '_spender', '_value', ';', 'require', '_spender', '.', 'call', '_data', ';', 'return', 'true', ';', '}']"
