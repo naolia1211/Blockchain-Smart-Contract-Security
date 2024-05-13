@@ -6,18 +6,18 @@ from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
 
 # Đọc dữ liệu từ file CSV
-data = pd.read_csv(r"D:\GitHub\Blockchain-Smart-Contract-Security\RunPy\train.csv")
+data = pd.read_csv(r"C:\Users\hao30\Documents\GitHub\Blockchain-Smart-Contract-Security\RunPy\train.csv")
 
 # Lấy cột "ABSTRACT" và "Computer Physics"
 texts = data["ABSTRACT"].tolist()
-labels = data["Computer Science"].tolist()
+labels = data[["Computer Science", "Physics", "Mathematics", "Statistics", "Quantitative Biology", "Quantitative Finance"]].values.tolist()
 
 # Chia thành tập huấn luyện và tập validation
 train_texts, val_texts, train_labels, val_labels = train_test_split(texts, labels, test_size=0.2, random_state=42)
 
 # Khởi tạo tokenizer và mô hình BERT
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
+model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=6, problem_type="multi_label_classification")
 
 # Định nghĩa lớp Dataset
 class AbstractDataset(Dataset):
@@ -46,7 +46,7 @@ class AbstractDataset(Dataset):
             'text': text,
             'input_ids': encoding['input_ids'].flatten(),
             'attention_mask': encoding['attention_mask'].flatten(),
-            'label': torch.tensor(label, dtype=torch.long)
+            'label': torch.tensor(label, dtype=torch.float)
         }
 
 # Tạo các đối tượng Dataset và DataLoader
@@ -54,7 +54,7 @@ train_dataset = AbstractDataset(train_texts, train_labels, tokenizer)
 val_dataset = AbstractDataset(val_texts, val_labels, tokenizer)
 
 train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
-val_loader = DataLoader(val_dataset, batch_size=32)
+val_loader = DataLoader(val_dataset, batch_size=16)
 
 # Khởi tạo optimizer và learning rate scheduler
 optimizer = AdamW(model.parameters(), lr=2e-5)
