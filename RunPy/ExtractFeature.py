@@ -70,7 +70,7 @@ def extract_functions_with_issues(content):
 
         issues = check_for_reentrancy_issues(function_content)
         if issues:
-            tokenizer = RegexpTokenizer(r'\w+|\{|\}|\(|\)|\[|\]|\;|\=|\+|\-|\*|\/|\!|\%|<|>|\||\&')
+            tokenizer = RegexpTokenizer(r'\w+|\{|\}|\(|\)|\[|\]|\;|\=|\+|\-|\*|\/|\!|\%|<|>|\||\&|\.')
             tokens = tokenizer.tokenize(function_content)
 
             for issue in issues:
