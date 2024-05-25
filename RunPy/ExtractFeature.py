@@ -6,10 +6,10 @@ from nltk.tokenize import RegexpTokenizer
 # Setup MongoDB connection
 client = MongoClient('mongodb://localhost:27017/')
 db = client['Interaction_and_Contract_State_Vulnerabilities']
-collection = db['unchecked_send']
+collection = db['uncheck_send']
 
 def check_for_reentrancy_issues(function_content):
-    # #reentrancy
+# #reentrancy
     # vulnerability_patterns = {
     #     'external_calls': r'(?<!\w)\.(call|delegatecall|send|transfer|staticcall)\b',
     #     'use_of_msg_value_and_sender': r'\b(msg\.value|msg\.sender)\b',
@@ -24,14 +24,14 @@ def check_for_reentrancy_issues(function_content):
 #         'lack_of_error_handling': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(.*?\)\s*;(?!\s*(?:require|assert|revert)\s*\()',
 #         #'fallback_functions_without_gas_check': r'function\s+\(\)\s+(?:external\s+)?payable\s*\{(?![\s\S]*?require\s*\(\s*msg\.gas\s*>=\s*2300\s*\))'
 # }
-#     #delegatecall
-#     vulnerability_patterns = {
-#     'usage_of_delegatecall': r'(?<!\w)delegatecall\s*\(',
-#     'state_variables_manipulation': r'\.delegatecall\s*\((?:[^;\n])*\)[^;\n]*;[^;\n]*\s*\w+\s*=',
-#     'input_and_parameter_validation': r'(?<!\w)delegatecall\s*\((?!.*(?:require|assert|if)\s*\()',
-#     #'context_preservation': r'(?<!\/\/.*)\bdelegatecall\s*\(\s*[^)]*?\s*\)\s*;(?!\s*(?:require|assert)\s*\((?:this|msg\.sender)\s*==\s*)?',
-#     #'library_safe_practices': r'library\s+\w+\s*{(?:[^{}]*(?:{(?:[^{}]*(?:{[^{}]*})*[^{}]*)*})*[^{}]*)*?\bdelegateCall\b(?:[^{}]*(?:{(?:[^{}]*(?:{[^{}]*})*[^{}]*)*})*[^{}]*)*}'
-# }
+    # #delegatecall
+    # vulnerability_patterns = {
+    #     'usage_of_delegatecall': r'\bdelegatecall\s*\(',
+    #     'state_variables_manipulation': r'\bdelegatecall\s*\([^)]*\)[^;]*;[^;]*\b\w+\s*=',
+    #     'input_and_parameter_validation': r'\bdelegatecall\s*\([^)]*\)[^;]*;\s*(?!.*(?:require|assert|if)\s*\()',
+    #     'context_preservation': r'\bdelegatecall\s*\([^)]*\)\s*;\s*(?!.*(?:require|assert)\s*\((?:this|msg\.sender)\s*==\s*)',
+    #     'library_safe_practices': r'\blibrary\s+\w+\s*{[^{}]*?\bdelegatecall\b[^{}]*}'
+    # }
 
     vulnerability_patterns = {
         'unchecked_send': r'\bsend\s*\(.*?\)\s*;',
@@ -96,11 +96,14 @@ def process_directory(directory_path):
                     "content": content,
                     "extract_feature": functions_with_issues,
                 }
-                collection.insert_one(document)
-                print(f"Processed and stored findings for {filename} in MongoDB.")
+                result = collection.insert_one(document)
+                if result.acknowledged:
+                    print(f"Processed and stored findings for {filename} in MongoDB.")
+                else:
+                    print(f"Failed to store findings for {filename}.")
 
 # Specify the directory containing Solidity files
-solidity_files_directory = r'C:\Users\hao30\Documents\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\unchecked send'
+solidity_files_directory = r'D:\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\unchecked send'
 
 # Process the directory
 process_directory(solidity_files_directory)
