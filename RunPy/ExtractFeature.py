@@ -13,7 +13,7 @@ current_dir = Path(__file__).resolve().parent
 solidity_files_directory = current_dir / "../Data/Interaction and Contract State Vulnerabilities/unchecked send"
 
 def check_for_reentrancy_issues(function_content):
-    # #delegatecall
+    #delegatecall
     # vulnerability_patterns = {
     #     'usage_of_delegatecall': r'\bdelegatecall\s*\(',
     #     'state_variables_manipulation': r'\bdelegatecall\s*\([^)]*\)[^;]*;[^;]*\b\w+\s*=',
@@ -21,7 +21,7 @@ def check_for_reentrancy_issues(function_content):
     #     'context_preservation': r'\bdelegatecall\s*\([^)]*\)\s*;\s*(?!.*(?:require|assert)\s*\((?:this|msg\.sender)\s*==\s*)',
     #     'library_safe_practices': r'\blibrary\s+\w+\s*{[^{}]*?\bdelegatecall\b[^{}]*}'
     # }
-    #       #reentrancy
+    #reentrancy
     # vulnerability_patterns = {
     #     'external_calls': r'(?<!\w)\.(call|delegatecall|send|transfer|staticcall)\b',
     #     'use_of_msg_value_and_sender': r'\b(msg\.value|msg\.sender)\b',
@@ -36,13 +36,14 @@ def check_for_reentrancy_issues(function_content):
     #     'lack_of_error_handling': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(.*?\)\s*;(?!\s*(?:require|assert|revert)\s*\()',
     #     'fallback_functions_without_gas_check': r'function\s+\(\)\s+(?:external\s+)?payable\s*\{(?![\s\S]*?require\s*\(\s*msg\.gas\s*>=\s*2300\s*\))'
     # }
-    #unchecked send
+    
+    # #unchecked send
     vulnerability_patterns = {
     'usage_of_send': r'(?<!\\)\bsend\s*\(',
     'unchecked_send_return': r'\bsend\s*\(.*?\)\s*;(?!\s*(?:require|assert|revert|if)\s*\(.*?\)\s*;)',
     'state_update_without_verification': r'\bsend\s*\(.*?\)\s*;[\s\S]*?\s*(?:\w+\s*=|(?:require|assert|revert|if)\s*\()',
     'fallback_function_risks': r'function\s+\(\)\s+(?:external\s+)?payable\s*\{(?!.*(?:require|assert|revert)\s*\(msg\.value\s*(?:<=|<)\s*2300\))[\s\S]*?\bsend\b'
-}
+    }
     # #timestamp dependency
     # vulnerability_patterns = {
     # 'reliance_on_block_timestamp': r'block\.timestamp',
@@ -78,7 +79,7 @@ def extract_functions_with_issues(content):
 
         issues = check_for_reentrancy_issues(function_content)
         if issues:
-            tokenizer = RegexpTokenizer(r'\w+|\{|\}|\(|\)|\[|\]|\;|\=|\+|\-|\*|\/|\!|\%|<|>|\||\&|\.|')
+            tokenizer = RegexpTokenizer(r'\w+|\{|\}|\(|\)|\[|\]|\;|\=|\+|\-|\*|\/|\!|\%|<|>|\||\&|\.|\,')
             tokens = tokenizer.tokenize(function_content)
 
             for issue in issues:
