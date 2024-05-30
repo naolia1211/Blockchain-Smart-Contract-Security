@@ -16,6 +16,52 @@ def check_for_reentrancy_issues(function_content):
         'context_preservation': r'\bdelegatecall\s*\([^)]*\)\s*;\s*(?!.*(?:require|assert)\s*\((?:this|msg\.sender)\s*==\s*)',
         'library_safe_practices': r'\blibrary\s+\w+\s*{[^{}]*?\bdelegatecall\b[^{}]*}'
     }
+       #    #reentrancy
+    # vulnerability_patterns = {
+    #     'external_calls': r'(?<!\w)\.(call|delegatecall|send|transfer|staticcall)\b',
+    #     'use_of_msg_value_and_sender': r'\b(msg\.value|msg\.sender)\b',
+    #     'recursive_calls': r'function\s+(\w+)\s*\(.*?\)\s*\{[\s\S]*?(?<=\{|;)\s*\b\1\b\s*\(.*?\)\s*;',
+    #     'state_changes_after_external_calls': r'\.(call|delegatecall|send|transfer)\(.*?\)\s*;[\s\S]*?\s*\w+\s*=',
+    # }
+    #uncheck external call
+    vulnerability_patterns = {
+        'external_calls': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(',
+        'ignored_return_values': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(.*?\)\s*;(?!\s*(?:require|assert|revert)\s*\()',
+        'state_changes_after_external_calls': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(.*?\)\s*;[\s\S]*?\s*\w+\s*=',
+        'lack_of_error_handling': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(.*?\)\s*;(?!\s*(?:require|assert|revert)\s*\()',
+        #'fallback_functions_without_gas_check': r'function\s+\(\)\s+(?:external\s+)?payable\s*\{(?![\s\S]*?require\s*\(\s*msg\.gas\s*>=\s*2300\s*\))'
+}
+#     #delegatecall
+#     vulnerability_patterns = {
+#     'usage_of_delegatecall': r'(?<!\w)delegatecall\s*\(',
+#     'state_variables_manipulation': r'\.delegatecall\s*\((?:[^;\n])*\)[^;\n]*;[^;\n]*\s*\w+\s*=',
+#     'input_and_parameter_validation': r'(?<!\w)delegatecall\s*\((?!.*(?:require|assert|if)\s*\()',
+#     #'context_preservation': r'(?<!\/\/.*)\bdelegatecall\s*\(\s*[^)]*?\s*\)\s*;(?!\s*(?:require|assert)\s*\((?:this|msg\.sender)\s*==\s*)?',
+#     #'library_safe_practices': r'library\s+\w+\s*{(?:[^{}]*(?:{(?:[^{}]*(?:{[^{}]*})*[^{}]*)*})*[^{}]*)*?\bdelegateCall\b(?:[^{}]*(?:{(?:[^{}]*(?:{[^{}]*})*[^{}]*)*})*[^{}]*)*}'
+# }
+
+#     #unchecked send
+#     vulnerability_patterns = {
+#     'usage_of_send': r'(?<!\\)\bsend\s*\(',
+#     'unchecked_send_return': r'\bsend\s*\(.*?\)\s*;(?!\s*(?:require|assert|revert|if)\s*\(.*?\)\s*;)',
+#     'state_update_without_verification': r'\bsend\s*\(.*?\)\s*;[\s\S]*?\s*(?:\w+\s*=|(?:require|assert|revert|if)\s*\()',
+#     #'fallback_function_risks': r'function\s+\(\)\s+(?:external\s+)?payable\s*\{(?!.*(?:require|assert|revert)\s*\(msg\.value\s*(?:<=|<)\s*2300\))[\s\S]*?\bsend\b'
+# }
+    # #timestamp dependency
+    # vulnerability_patterns = {
+    # 'reliance_on_block_timestamp': r'block\.timestamp',
+    # 'miner_manipulation_risks': r'block\.timestamp|block\.number',
+    # 'incorrect_time_estimation': r'block\.number\s*(?:\*|\/)\s*\d+',
+    # 'timestamp_used_for_randomness': r'block\.timestamp.*%(?:\s*\d+)'
+    # }
+    
+    #block number denpendency
+    # vulnerability_patterns = {
+    # 'dependence_on_block_number': r'block\.number',
+    # 'miner_manipulation_risks': r'block\.(timestamp|number)',
+    # 'usage_in_comparison_operations': r'block\.number\s*(==|!=|>|<|>=|<=)\s*<number>',
+    # 'random_number_generation': r'(block\.blockhash\(block\.number\)|block\.number)'
+    # }
     issues = []
     for issue, pattern in vulnerability_patterns.items():
         if re.search(pattern, function_content, re.MULTILINE | re.DOTALL):
