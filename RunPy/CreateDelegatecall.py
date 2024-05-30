@@ -353,8 +353,8 @@ vulnerability_patterns = {
 }
 # Directory paths
 current_dir = Path(__file__).resolve().parent
-clean_dir = r'D:\GitHub\Blockchain-Smart-Contract-Security\Smart_Contracts\0_clean'
-output_dir = r'D:\GitHub\Blockchain-Smart-Contract-Security\test1'
+clean_dir = current_dir / "../Smart_Contracts/0_clean"
+output_dir = current_dir / "../Data/delegatecall"
 os.makedirs(output_dir, exist_ok=True)
 
 # List of vulnerability functions
@@ -379,7 +379,7 @@ vulnerabilities = [
     library_safe_practices_2,
     library_safe_practices_3,
     library_safe_practices_4
-    # unchecked_send_vulnerability_1,
+    #unchecked_send_vulnerability_1,
     # unchecked_send_vulnerability_2,
     # unchecked_send_vulnerability_3,
     # unchecked_send_vulnerability_4,
