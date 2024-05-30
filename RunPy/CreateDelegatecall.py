@@ -1,6 +1,6 @@
 import os
 import random
-
+from pathlib import Path
 # Define different Solidity code snippets with various vulnerabilities
 
 # Delegatecall vulnerabilities
@@ -257,6 +257,8 @@ def library_safe_practices_4():
         }
     }
 """
+
+
 def unchecked_send_vulnerability_1():
     return """
     function sendEther1(address payable recipient) public {
@@ -350,44 +352,45 @@ vulnerability_patterns = {
     'msg_sender_transfer': r'\bmsg\.sender\.transfer\s*\(.*?\)\s*;'
 }
 # Directory paths
+current_dir = Path(__file__).resolve().parent
 clean_dir = r'D:\GitHub\Blockchain-Smart-Contract-Security\Smart_Contracts\0_clean'
 output_dir = r'D:\GitHub\Blockchain-Smart-Contract-Security\test1'
 os.makedirs(output_dir, exist_ok=True)
 
 # List of vulnerability functions
 vulnerabilities = [
-    # delegatecall_vulnerability_1,
-    # delegatecall_vulnerability_2,
-    # delegatecall_vulnerability_3,
-    # delegatecall_vulnerability_4,
-    # state_variables_manipulation_1,
-    # state_variables_manipulation_2,
-    # state_variables_manipulation_3,
-    # state_variables_manipulation_4,
-    # input_validation_1,
-    # input_validation_2,
-    # input_validation_3,
-    # input_validation_4,
-    # context_preservation_1,
-    # context_preservation_2,
-    # context_preservation_3,
-    # context_preservation_4,
-    # library_safe_practices_1,
-    # library_safe_practices_2,
-    # library_safe_practices_3,
-    # library_safe_practices_4
-    unchecked_send_vulnerability_1,
-    unchecked_send_vulnerability_2,
-    unchecked_send_vulnerability_3,
-    unchecked_send_vulnerability_4,
-    unchecked_transfer_vulnerability_1,
-    unchecked_transfer_vulnerability_2,
-    unchecked_transfer_vulnerability_3,
-    unchecked_transfer_vulnerability_4,
-    msg_sender_transfer_vulnerability_1,
-    msg_sender_transfer_vulnerability_2,
-    msg_sender_transfer_vulnerability_3,
-    msg_sender_transfer_vulnerability_4
+    delegatecall_vulnerability_1,
+    delegatecall_vulnerability_2,
+    delegatecall_vulnerability_3,
+    delegatecall_vulnerability_4,
+    state_variables_manipulation_1,
+    state_variables_manipulation_2,
+    state_variables_manipulation_3,
+    state_variables_manipulation_4,
+    input_validation_1,
+    input_validation_2,
+    input_validation_3,
+    input_validation_4,
+    context_preservation_1,
+    context_preservation_2,
+    context_preservation_3,
+    context_preservation_4,
+    library_safe_practices_1,
+    library_safe_practices_2,
+    library_safe_practices_3,
+    library_safe_practices_4
+    # unchecked_send_vulnerability_1,
+    # unchecked_send_vulnerability_2,
+    # unchecked_send_vulnerability_3,
+    # unchecked_send_vulnerability_4,
+    # unchecked_transfer_vulnerability_1,
+    # unchecked_transfer_vulnerability_2,
+    # unchecked_transfer_vulnerability_3,
+    # unchecked_transfer_vulnerability_4,
+    # msg_sender_transfer_vulnerability_1,
+    # msg_sender_transfer_vulnerability_2,
+    # msg_sender_transfer_vulnerability_3,
+    # msg_sender_transfer_vulnerability_4
 ]
 
 # Get all .sol files from the clean directory
