@@ -52,10 +52,10 @@ def process_directory(input_directory, output_directory):
             process_file(file_path, output_directory)
 
 # Đường dẫn thư mục chứa các file Solidity
-input_directory = r'C:\Users\hao30\Documents\GitHub\Blockchain-Smart-Contract-Security\Smart_Contracts\3_unauthorized_send'
+input_directory = r'D:\GitHub\Blockchain-Smart-Contract-Security\Data\unchecked send'
 
 # Đường dẫn thư mục để lưu các file đã tiền xử lý
-output_directory = r'C:\Users\hao30\Documents\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\unchecked send'
+output_directory = r'D:\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\unchecked send'
 
 # Xử lý thư mục
 process_directory(input_directory, output_directory)
