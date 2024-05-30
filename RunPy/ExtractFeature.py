@@ -2,51 +2,47 @@ import re
 import os
 from pymongo import MongoClient
 from nltk.tokenize import RegexpTokenizer
+from pathlib import Path
 
 # Setup MongoDB connection
 client = MongoClient('mongodb://localhost:27017/')
 db = client['Interaction_and_Contract_State_Vulnerabilities']
-collection = db['uncheck_send']
+collection = db['unchecked_send']
+
+current_dir = Path(__file__).resolve().parent
+solidity_files_directory = current_dir / "../Data/Interaction and Contract State Vulnerabilities/unchecked send"
 
 def check_for_reentrancy_issues(function_content):
-    vulnerability_patterns = {
-        'usage_of_delegatecall': r'\bdelegatecall\s*\(',
-        'state_variables_manipulation': r'\bdelegatecall\s*\([^)]*\)[^;]*;[^;]*\b\w+\s*=',
-        'input_and_parameter_validation': r'\bdelegatecall\s*\([^)]*\)[^;]*;\s*(?!.*(?:require|assert|if)\s*\()',
-        'context_preservation': r'\bdelegatecall\s*\([^)]*\)\s*;\s*(?!.*(?:require|assert)\s*\((?:this|msg\.sender)\s*==\s*)',
-        'library_safe_practices': r'\blibrary\s+\w+\s*{[^{}]*?\bdelegatecall\b[^{}]*}'
-    }
-       #    #reentrancy
+    # #delegatecall
+    # vulnerability_patterns = {
+    #     'usage_of_delegatecall': r'\bdelegatecall\s*\(',
+    #     'state_variables_manipulation': r'\bdelegatecall\s*\([^)]*\)[^;]*;[^;]*\b\w+\s*=',
+    #     'input_and_parameter_validation': r'\bdelegatecall\s*\([^)]*\)[^;]*;\s*(?!.*(?:require|assert|if)\s*\()',
+    #     'context_preservation': r'\bdelegatecall\s*\([^)]*\)\s*;\s*(?!.*(?:require|assert)\s*\((?:this|msg\.sender)\s*==\s*)',
+    #     'library_safe_practices': r'\blibrary\s+\w+\s*{[^{}]*?\bdelegatecall\b[^{}]*}'
+    # }
+    #       #reentrancy
     # vulnerability_patterns = {
     #     'external_calls': r'(?<!\w)\.(call|delegatecall|send|transfer|staticcall)\b',
     #     'use_of_msg_value_and_sender': r'\b(msg\.value|msg\.sender)\b',
     #     'recursive_calls': r'function\s+(\w+)\s*\(.*?\)\s*\{[\s\S]*?(?<=\{|;)\s*\b\1\b\s*\(.*?\)\s*;',
     #     'state_changes_after_external_calls': r'\.(call|delegatecall|send|transfer)\(.*?\)\s*;[\s\S]*?\s*\w+\s*=',
     # }
-    #uncheck external call
+    # #uncheck external call
+    # vulnerability_patterns = {
+    #     'external_calls': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(',
+    #     'ignored_return_values': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(.*?\)\s*;(?!\s*(?:require|assert|revert)\s*\()',
+    #     'state_changes_after_external_calls': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(.*?\)\s*;[\s\S]*?\s*\w+\s*=',
+    #     'lack_of_error_handling': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(.*?\)\s*;(?!\s*(?:require|assert|revert)\s*\()',
+    #     'fallback_functions_without_gas_check': r'function\s+\(\)\s+(?:external\s+)?payable\s*\{(?![\s\S]*?require\s*\(\s*msg\.gas\s*>=\s*2300\s*\))'
+    # }
+    #unchecked send
     vulnerability_patterns = {
-        'external_calls': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(',
-        'ignored_return_values': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(.*?\)\s*;(?!\s*(?:require|assert|revert)\s*\()',
-        'state_changes_after_external_calls': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(.*?\)\s*;[\s\S]*?\s*\w+\s*=',
-        'lack_of_error_handling': r'(?<!\w)(?:address\s*\(\s*\w+\s*\)\s*\.)?(?:send|call|delegatecall)\s*\(.*?\)\s*;(?!\s*(?:require|assert|revert)\s*\()',
-        #'fallback_functions_without_gas_check': r'function\s+\(\)\s+(?:external\s+)?payable\s*\{(?![\s\S]*?require\s*\(\s*msg\.gas\s*>=\s*2300\s*\))'
+    'usage_of_send': r'(?<!\\)\bsend\s*\(',
+    'unchecked_send_return': r'\bsend\s*\(.*?\)\s*;(?!\s*(?:require|assert|revert|if)\s*\(.*?\)\s*;)',
+    'state_update_without_verification': r'\bsend\s*\(.*?\)\s*;[\s\S]*?\s*(?:\w+\s*=|(?:require|assert|revert|if)\s*\()',
+    'fallback_function_risks': r'function\s+\(\)\s+(?:external\s+)?payable\s*\{(?!.*(?:require|assert|revert)\s*\(msg\.value\s*(?:<=|<)\s*2300\))[\s\S]*?\bsend\b'
 }
-#     #delegatecall
-#     vulnerability_patterns = {
-#     'usage_of_delegatecall': r'(?<!\w)delegatecall\s*\(',
-#     'state_variables_manipulation': r'\.delegatecall\s*\((?:[^;\n])*\)[^;\n]*;[^;\n]*\s*\w+\s*=',
-#     'input_and_parameter_validation': r'(?<!\w)delegatecall\s*\((?!.*(?:require|assert|if)\s*\()',
-#     #'context_preservation': r'(?<!\/\/.*)\bdelegatecall\s*\(\s*[^)]*?\s*\)\s*;(?!\s*(?:require|assert)\s*\((?:this|msg\.sender)\s*==\s*)?',
-#     #'library_safe_practices': r'library\s+\w+\s*{(?:[^{}]*(?:{(?:[^{}]*(?:{[^{}]*})*[^{}]*)*})*[^{}]*)*?\bdelegateCall\b(?:[^{}]*(?:{(?:[^{}]*(?:{[^{}]*})*[^{}]*)*})*[^{}]*)*}'
-# }
-
-#     #unchecked send
-#     vulnerability_patterns = {
-#     'usage_of_send': r'(?<!\\)\bsend\s*\(',
-#     'unchecked_send_return': r'\bsend\s*\(.*?\)\s*;(?!\s*(?:require|assert|revert|if)\s*\(.*?\)\s*;)',
-#     'state_update_without_verification': r'\bsend\s*\(.*?\)\s*;[\s\S]*?\s*(?:\w+\s*=|(?:require|assert|revert|if)\s*\()',
-#     #'fallback_function_risks': r'function\s+\(\)\s+(?:external\s+)?payable\s*\{(?!.*(?:require|assert|revert)\s*\(msg\.value\s*(?:<=|<)\s*2300\))[\s\S]*?\bsend\b'
-# }
     # #timestamp dependency
     # vulnerability_patterns = {
     # 'reliance_on_block_timestamp': r'block\.timestamp',
@@ -82,7 +78,7 @@ def extract_functions_with_issues(content):
 
         issues = check_for_reentrancy_issues(function_content)
         if issues:
-            tokenizer = RegexpTokenizer(r'\w+|\{|\}|\(|\)|\[|\]|\;|\=|\+|\-|\*|\/|\!|\%|<|>|\||\&|\.')
+            tokenizer = RegexpTokenizer(r'\w+|\{|\}|\(|\)|\[|\]|\;|\=|\+|\-|\*|\/|\!|\%|<|>|\||\&|\.|')
             tokens = tokenizer.tokenize(function_content)
 
             for issue in issues:
@@ -115,7 +111,7 @@ def process_directory(directory_path):
                     print(f"Failed to store findings for {filename}.")
 
 # Specify the directory containing Solidity files
-solidity_files_directory = r'D:\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\unchecked send'
+
 
 # Process the directory
 process_directory(solidity_files_directory)
