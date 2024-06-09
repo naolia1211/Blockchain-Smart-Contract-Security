@@ -58,7 +58,16 @@ class SolidityDataset(Dataset):
 
 # Chuẩn bị dữ liệu và dataloader
 MAX_LEN = 128
-BATCH_SIZE = 16
+# chạy thống kê xem token dài bao nhiêu để setting lại
+# lớn quá thì nhiều padding và training lâu
+
+# thử với CNN, RNN, LSTM để phân loại head (phân loại)
+
+
+BATCH_SIZE = 16 #tăng lên nếu nhỏ thì không đại diện mẫu. mỗi lần phải 
+# bội của tổng số lỗ hổng
+# không lấy theo thứ tự 
+# 2 cách : radom tại bước training, *(random từ đầu vào)
 
 
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
@@ -78,14 +87,13 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 config = BertConfig(
     hidden_size=768,
-    num_hidden_layers=12,
+    num_hidden_layers=12, #có thể tăng lên và chia nhóm ra 
     num_attention_heads=12,
     intermediate_size=3072,
     hidden_dropout_prob=0.1,
     attention_probs_dropout_prob=0.1,
     max_position_embeddings=512,
     initializer_range=0.02,
-    gradient_checkpointing=False,
     num_labels=len(vulnerabilities)
 )
 model = BertForSequenceClassification.from_pretrained('bert-base-uncased', config = config)
