@@ -70,6 +70,7 @@ def extract_functions_with_issues(content):
     # Enhanced regex pattern for Solidity functions
     function_pattern = re.compile(
         r'function\s+\w+\s*\([^)]*\)\s*(?:public|private|internal|external)?\s*(?:pure|view|payable)?\s*(?:returns\s*\(.*?\))?\s*\{[\s\S]*?\}',
+        r'function\s+\w+\s*\([^)]*\)\s*(?:public|private|internal|external)?\s*(?:pure|view|payable)?\s*(?:returns\s*\(.*?\))?\s*\{[\s\S]*?\}',
         re.MULTILINE | re.DOTALL
     )
 
@@ -81,7 +82,6 @@ def extract_functions_with_issues(content):
         if issues:
             tokenizer = RegexpTokenizer(r'\w+|\{|\}|\(|\)|\[|\]|\;|\=|\+|\-|\*|\/|\!|\%|<|>|\||\&|\.|\,')
             tokens = tokenizer.tokenize(function_content)
-
             for issue in issues:
                 functions_with_issues.append({
                     "feature_type": issue,
@@ -89,7 +89,6 @@ def extract_functions_with_issues(content):
                     "function_content": function_content,
                     "tokens": tokens
                 })
-
     return functions_with_issues
 
 def process_directory(directory_path):
