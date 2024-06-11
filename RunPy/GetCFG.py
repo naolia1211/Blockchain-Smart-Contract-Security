@@ -1,48 +1,70 @@
-import json
 import os
-import shutil
-import subprocess
+from slither import Slither
+from pathlib import Path
+import torch
+from torch_geometric.data import Data
 
-# Define paths
-json_file_path = r'D:\GitHub\Blockchain-Smart-Contract-Security\slither_analyze\reentrancy\33221.json'  # Replace with the correct path
-sol_file_directory = r'D:\GitHub\Blockchain-Smart-Contract-Security\Dataset\reentrancy\source'  # Replace with the directory that contains the .sol file
-destination_directory = r'D:\GitHub\Blockchain-Smart-Contract-Security\cfg\reentrancy'  # Replace with the destination directory for .dot files
+def analyze_contract_to_cfg(file_path):
+    # Phân tích hợp đồng sử dụng Slither
+    slither = Slither(file_path)
+    
+    # Danh sách các cạnh cho CFG
+    edges = []
+    node_idx = 0
+    node_map = {}
 
-# Ensure the destination directory exists
-os.makedirs(destination_directory, exist_ok=True)
+    # Duyệt qua các hợp đồng trong file
+    for contract in slither.contracts:
+        contract_node = contract.name
+        if contract_node not in node_map:
+            node_map[contract_node] = node_idx
+            node_idx += 1
+        
+        # Duyệt qua các hàm của hợp đồng
+        for function in contract.functions:
+            function_node = f"{contract_node}.{function.name}"
+            if function_node not in node_map:
+                node_map[function_node] = node_idx
+                node_idx += 1
+            edges.append((node_map[contract_node], node_map[function_node]))
 
-# Step 1: Read the JSON file
-with open(json_file_path, 'r') as file:
-    data = json.load(file)
-
-# Step 2: Collect all functions with reentrancy-eth error
-reentrancy_dot_files = set()
-for detector in data['results']['detectors']:
-    if detector['check'] == 'reentrancy-eth':
-        for element in detector['elements']:
-            if element['type'] == 'function':
-                function_name = element['name']
-                contract_name = element['type_specific_fields']['parent']['name']
-                # Function names may include parameters, which we need to convert to the .dot file name format
-                # Slither converts function signatures into file names by removing spaces and commas,
-                # and replacing parentheses with underscores
-                function_signature = function_name.replace(' ', '').replace(',', '').replace('()', '()').replace(')', '_').replace('(', '_')
-                reentrancy_dot_files.add(f"{contract_name}-{function_signature}.dot")
+            # Tạo các nút cho mỗi khối mã trong hàm
+            for node in function.nodes:
+                block_label = f"{function_node}.{node.node_id}"
+                if block_label not in node_map:
+                    node_map[block_label] = node_idx
+                    node_idx += 1
                 
-# Step 3: Run slither command to generate .dot files
-subprocess.run(['slither', './33221.sol', '--print', 'cfg'], cwd=sol_file_directory)
-print(reentrancy_dot_files)
+                # Tạo các cạnh giữa các khối mã
+                for successor in node.sons:
+                    successor_label = f"{function_node}.{successor.node_id}"
+                    if successor_label not in node_map:
+                        node_map[successor_label] = node_idx
+                        node_idx += 1
+                    edges.append((node_map[block_label], node_map[successor_label]))
 
-# Step 4: Move the specific .dot files and delete others
-dot_files = [file for file in os.listdir(sol_file_directory) if file.endswith('.dot')]
-print(dot_files)
-# First, move the relevant .dot files
-for file in dot_files:
-    if file in reentrancy_dot_files:
-      
-        shutil.move(os.path.join(sol_file_directory, file), os.path.join(destination_directory, file))
+    return edges, len(node_map)
 
-# Then, remove any remaining .dot files in the source directory
-for file in os.listdir(sol_file_directory):
-     if file.endswith('.dot'):
-        os.remove(os.path.join(sol_file_directory, file))
+def convert_to_pyg_data(edges, num_nodes):
+    edge_index = torch.tensor(edges, dtype=torch.long).t().contiguous()
+    x = torch.ones((num_nodes, 1), dtype=torch.float)  # Đặc trưng nút
+    data = Data(x=x, edge_index=edge_index)
+    return data
+
+def main():
+    current_dir = Path(__file__).resolve().parent
+    folder_path = current_dir / "../Data/Interaction and Contract State Vulnerabilities/delegatecall"   
+    output_folder = current_dir / "../Data/Interaction and Contract State Vulnerabilities/graph"  # Thư mục để lưu các hình ảnh
+    os.makedirs(output_folder, exist_ok=True)
+    
+    for file_name in os.listdir(folder_path):
+        if file_name.endswith(".sol"):
+            file_path = os.path.join(folder_path, file_name)
+            edges, num_nodes = analyze_contract_to_cfg(file_path)
+            data = convert_to_pyg_data(edges, num_nodes)
+            output_file = output_folder / f"{file_name}."
+            torch.save(data, output_file)
+            print(f"Saved CFG data for {file_name} to {output_file}")
+
+if __name__ == "__main__":
+    main()
