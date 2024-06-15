@@ -1,6 +1,7 @@
 import os
 import re
 import logging
+from pathlib import Path
 
 # Thiết lập logging
 logging.getLogger().setLevel(logging.INFO)
@@ -52,6 +53,7 @@ def process_directory(input_directory, output_directory):
             process_file(file_path, output_directory)
 
 # Đường dẫn thư mục chứa các file Solidity
+current_dir = Path(__file__).resolve().parent
 input_directory = r'D:\GitHub\Blockchain-Smart-Contract-Security\Data\unchecked send'
 
 # Đường dẫn thư mục để lưu các file đã tiền xử lý
