@@ -199,7 +199,7 @@ model = model.to(device)
 
 EPOCHS = 13
 LEARNING_RATE = 2e-5
-EPSILON = 1e-4
+EPSILON = 1e-8
 
 optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE, eps=EPSILON)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.1)
