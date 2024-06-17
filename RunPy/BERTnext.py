@@ -6,8 +6,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from tqdm import tqdm
 import math
+import os
 
-# Kết nối tới MongoDB và truy vấn dữ liệu
+# Connect MongoDB
 client = MongoClient('mongodb://localhost:27017/')
 db = client['Interaction_and_Contract_State_Vulnerabilities']
 
@@ -30,7 +31,7 @@ for vulnerability in vulnerabilities:
 
 print(f"Number of samples: {len(data)}")
 
-# Định nghĩa lớp SolidityDataset
+# SolidityDataset
 class SolidityDataset(Dataset):
     def __init__(self, data, tokenizer, max_len):
         self.data = data
@@ -72,7 +73,7 @@ if data:
 else:
     print("No data available to split into training and test sets.")
 
-# Khởi tạo mô hình và các tham số huấn luyện
+# Model and training setup
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 class CustomBertConfig(BertConfig):
@@ -148,11 +149,21 @@ class CustomBertLayer(torch.nn.Module):
 class CustomBertEncoder(torch.nn.Module):
     def __init__(self, config):
         super().__init__()
-        self.layer = torch.nn.ModuleList([CustomBertLayer(config) for _ in range(config.num_hidden_layers)])
+        num_layers = config.num_hidden_layers
+        rnn_layer = num_layers // 3
+        self.layers = torch.nn.ModuleList(
+            [CustomBertLayer(config) if i % 3 == 0 else
+             (torch.nn.RNN(config.hidden_size, config.hidden_size, batch_first=True) if i % 3 == 1 else
+              torch.nn.LSTM(config.hidden_size, config.hidden_size, batch_first=True))
+             for i in range(num_layers)]
+        )
 
     def forward(self, hidden_states, attention_mask=None):
-        for layer_module in self.layer:
-            hidden_states = layer_module(hidden_states, attention_mask)
+        for i, layer_module in enumerate(self.layers):
+            if isinstance(layer_module, CustomBertLayer):
+                hidden_states = layer_module(hidden_states, attention_mask)
+            else:
+                hidden_states, _ = layer_module(hidden_states)
         return hidden_states
 
 class CustomBertModelWithCNN(BertPreTrainedModel):
@@ -165,7 +176,7 @@ class CustomBertModelWithCNN(BertPreTrainedModel):
         self.encoder = CustomBertEncoder(config)
         self.pooler = BertModel(config).pooler
         
-        # Thêm các lớp tích chập (CNN)
+        # Add CNN layers
         self.conv1 = torch.nn.Conv1d(config.hidden_size, 128, kernel_size=3, padding=1)
         self.relu1 = torch.nn.ReLU()
         self.pool1 = torch.nn.MaxPool1d(kernel_size=2, stride=2)
@@ -173,26 +184,27 @@ class CustomBertModelWithCNN(BertPreTrainedModel):
         self.relu2 = torch.nn.ReLU()
         self.pool2 = torch.nn.MaxPool1d(kernel_size=2, stride=2)
         
-        self.classifier = torch.nn.Linear(64 * ((config.max_position_embeddings // 4) + 1), config.num_labels)
+        # Adjusted classifier input size
+        cnn_output_dim = 64 * (config.max_position_embeddings // 4)  # 64 channels, seq_len / 4
+        self.classifier = torch.nn.Linear(cnn_output_dim, config.num_labels)
         self.loss_fn = torch.nn.CrossEntropyLoss()
 
     def forward(self, input_ids, attention_mask=None, labels=None):
         embedding_output = self.embeddings(input_ids=input_ids)
         encoder_output = self.encoder(embedding_output, attention_mask=attention_mask)
-        pooled_output = self.pooler(encoder_output)
         
-        # Thay đổi kích thước của pooled_output để phù hợp với đầu vào của CNN
-        pooled_output = pooled_output.unsqueeze(2)  # Thêm chiều để đại diện cho chiều không gian (spatial dimension)
+        # Transpose the output to have the channel dimension correct
+        cnn_input = encoder_output.transpose(1, 2)  # Shape: (batch_size, hidden_size, seq_length)
         
-        # Truyền qua các lớp tích chập (CNN)
-        cnn_output = self.conv1(pooled_output)
+        # Apply CNN layers
+        cnn_output = self.conv1(cnn_input)
         cnn_output = self.relu1(cnn_output)
         cnn_output = self.pool1(cnn_output)
         cnn_output = self.conv2(cnn_output)
         cnn_output = self.relu2(cnn_output)
         cnn_output = self.pool2(cnn_output)
-        
-        # Flatten đầu ra của CNN và truyền qua lớp phân loại
+
+        # Flatten and classify
         flattened_output = cnn_output.view(cnn_output.size(0), -1)
         logits = self.classifier(flattened_output)
 
@@ -212,21 +224,21 @@ config = CustomBertConfig(
     attention_probs_dropout_prob=0.2,
     max_position_embeddings=512,
     initializer_range=0.02,
-    num_labels=len(vulnerabilities),  # Số lượng lớp đầu ra phải đúng với số lỗ hổng
+    num_labels=len(vulnerabilities),  # Number of vulnerabilities to classify
     num_attention_groups=4
 )
 
 model = CustomBertModelWithCNN.from_pretrained('bert-base-uncased', config=config)
 model = model.to(device)
 
-EPOCHS = 13
-LEARNING_RATE = 2e-5
-EPSILON = 1e-8
+EPOCHS = 15
+LEARNING_RATE = 2e-4
+EPSILON = 1e-7
 
 optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE, eps=EPSILON)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.1)
 
-# Định nghĩa hàm train_epoch và eval_model
+# train_epoch and eval_model
 def train_epoch(model, dataloader, optimizer, device):
     model.train()
     total_loss = 0
@@ -278,7 +290,13 @@ def evaluate_model(true_labels, predicted_labels):
     print("Recall:", recall)
     print("F1-score:", f1)
 
-# Huấn luyện mô hình
+# Directory to save the model and tokenizer
+output_dir = './model_save/'
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
+# Training
+training_stats = []
 for epoch in range(EPOCHS):
     print(f"Epoch {epoch+1}/{EPOCHS}")
     train_loss = train_epoch(model, train_dataloader, optimizer, device)
@@ -286,11 +304,31 @@ for epoch in range(EPOCHS):
     val_loss, val_acc, _, _ = eval_model(model, test_dataloader, device)
     print(f"Train Loss: {train_loss:.4f}")
     print(f"Validation Loss: {val_loss:.4f}, Validation Accuracy: {val_acc:.4f}")
+    
+    # Save model, tokenizer, and training stats after each epoch
+    model.save_pretrained(output_dir)
+    tokenizer.save_pretrained(output_dir)
+    training_stats.append({
+        'epoch': epoch + 1,
+        'Training Loss': train_loss,
+        'Validation Loss': val_loss,
+        'Validation Accuracy': val_acc.item()
+    })
+    torch.save(model.state_dict(), os.path.join(output_dir, f"model_epoch_{epoch+1}.bin"))
 
-# Đánh giá mô hình trên tập kiểm tra
+# Testing
 test_loss, test_acc, test_labels, test_preds = eval_model(model, test_dataloader, device)
 print(f"Test Loss: {test_loss:.4f}, Test Accuracy: {test_acc:.4f}")
 
-# Sử dụng hàm evaluate_model để tính các chỉ số đánh giá
+# Evaluate model
 print("\nEvaluation Metrics:")
 evaluate_model(test_labels, test_preds)
+
+# Save final model and tokenizer
+model.save_pretrained(output_dir)
+tokenizer.save_pretrained(output_dir)
+
+# Save training statistics
+import json
+with open(os.path.join(output_dir, 'training_stats.json'), 'w') as f:
+    json.dump(training_stats, f, indent=4)
