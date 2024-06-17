@@ -69,9 +69,8 @@ def extract_functions_with_issues(content):
     functions_with_issues = []
     # Enhanced regex pattern for Solidity functions
     function_pattern = re.compile(
-        r'function\s+\w+\s*\([^)]*\)\s*(?:public|private|internal|external)?\s*(?:pure|view|payable)?\s*(?:returns\s*\(.*?\))?\s*\{[\s\S]*?\}',
-        re.MULTILINE | re.DOTALL
-    )
+    r'\b(function|modifier)\s+\w+\s*\([^)]*\)\s*(?:public|private|internal|external|view|pure|payable|constant)?\s*(?:returns\s*\(.*?\))?\s*\{[^}]*\}',
+    re.MULTILINE | re.DOTALL)
 
     for match in function_pattern.finditer(content):
         function_declaration = match.group(0)
