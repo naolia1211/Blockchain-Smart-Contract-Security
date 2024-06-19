@@ -23,7 +23,7 @@ def run_solc_and_save(source_directory, destination_directory):
                     max_version = max(version.parse(v) for v in versions)
                     mid_version = str(min_version + (max_version - min_version) / 2)
                 else:
-                    mid_version = str(max(version.parse(v) for v in versions if version.parse(v) < version.parse('0.9.0') and version.parse(v) >= version.parse('0.4.1'))) if versions else 'latest'
+                    mid_version = str(max(version.parse(v) for v in versions if version.parse(v) < version.parse('0.9.0') and version.parse(v) >= version.parse('0.4.1'))) if versions else '0.8.26'
                 if version.parse(mid_version) < version.parse('0.4.22'):
                     mid_version = '0.4.26'
             except Exception as e:
@@ -44,11 +44,10 @@ def run_solc_and_save(source_directory, destination_directory):
         # Run solc and capture the output
         try:
             subprocess.run(["solc", "--bin", filename, "-o", bin_file_path], cwd=source_directory, check=True)
-            # subprocess.run(["slither", filename, "--json", json_file_path], cwd=source_directory, check=True)
 
             print(f"Saved analysis results for {filename} to bin file")
 
         except subprocess.CalledProcessError as e:
             print(f"Solc could not run on {filename}: {e}. Skipping...")
 
-run_solc_and_save(r"D:\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\Unchecked_external_call\source", r"D:\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\Unchecked_external_call\bytecode")
+run_solc_and_save(r"D:\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\deletgatecall\source", r"D:\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\deletgatecall\bytecode")
