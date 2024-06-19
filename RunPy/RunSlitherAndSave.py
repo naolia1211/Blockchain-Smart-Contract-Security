@@ -1,46 +1,54 @@
 import os
 import subprocess
 import re
+from packaging import version
 
-# Đường dẫn đến thư mục chứa các file Solidity
-solidity_dir = r"D:\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\Unchecked_external_call\source"
+def run_solc_and_save(source_directory, destination_directory):
+    # Get all .sol files in source_directory
+    filenames = [f for f in os.listdir(source_directory) if f.endswith('.sol')]
 
-# Đường dẫn đến thư mục đầu ra cho bytecode
-output_dir = r"D:\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\Unchecked_external_call\bytecode"
+    for filename in filenames:
+        file_path = os.path.join(source_directory, filename)
+        
+        # Determine the appropriate Solidity version
+        with open(file_path, 'r', encoding='latin1') as f:
+            lines = f.readlines()
+            pragma_lines = [line for line in lines if line.startswith('pragma solidity')]
+            versions = []
+            try:
+                for pragma_line in pragma_lines:
+                    versions.extend(re.findall(r'\d+\.\d+\.\d+', pragma_line))
+                if len(versions) == 2:
+                    min_version = min(version.parse(v) for v in versions)
+                    max_version = max(version.parse(v) for v in versions)
+                    mid_version = str(min_version + (max_version - min_version) / 2)
+                else:
+                    mid_version = str(max(version.parse(v) for v in versions if version.parse(v) < version.parse('0.9.0') and version.parse(v) >= version.parse('0.4.1'))) if versions else 'latest'
+                if version.parse(mid_version) < version.parse('0.4.22'):
+                    mid_version = '0.4.26'
+            except Exception as e:
+                print(f"Error parsing Solidity version for {filename}: {str(e)}. Skipping...")
+                continue
 
-# Tạo thư mục đầu ra nếu chưa tồn tại
-if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
+        # Use the appropriate Solidity version
+        subprocess.run(['solc-select', 'use', mid_version], cwd=source_directory)
 
-# Duyệt qua từng file Solidity trong thư mục
-for file_name in os.listdir(solidity_dir):
-    if file_name.endswith(".sol"):
-        file_path = os.path.join(solidity_dir, file_name)
-        
-        # Đọc nội dung của file Solidity
-        with open(file_path, "r", encoding='utf-8') as file:
-            content = file.read()
-        
-        # Tìm phiên bản Solidity từ pragma statement
-        match = re.search(r"pragma solidity\s+(\^|>=|>|<=|<)?\s*(\d+\.\d+\.\d+);", content)
-        
-        if match:
-            solc_version = match.group(2)
-        else:
-            solc_version = "0.8.0"  # Giả sử phiên bản mặc định là 0.8.0 nếu không tìm thấy pragma
-        
-        # Chọn phiên bản Solidity compiler bằng solc-select
-        command = f"solc-select use {solc_version}"
-        subprocess.run(command, shell=True, check=True)
-        
-        # Biên dịch file Solidity thành bytecode
-        output_file = file_name.replace(".sol", ".bin")
-        output_path = os.path.join(output_dir, output_file)
-        
-        command = f'solc --bin "{file_path}" -o "{output_dir}"'
-        
+        # Create the path for the bin file (relative to source directory)
+        bin_file_path = os.path.join(destination_directory, f"{os.path.splitext(filename)[0]}")
+
+        # Skip if the bin file already exists
+        if os.path.exists(bin_file_path):
+            print(f"Bin file for {filename} already exists. Skipping...")
+            continue
+
+        # Run solc and capture the output
         try:
-            subprocess.run(command, shell=True, check=True)
-            print(f"Biên dịch {file_name} thành công. Bytecode được lưu trong {output_path}")
+            subprocess.run(["solc", "--bin", filename, "-o", bin_file_path], cwd=source_directory, check=True)
+            # subprocess.run(["slither", filename, "--json", json_file_path], cwd=source_directory, check=True)
+
+            print(f"Saved analysis results for {filename} to bin file")
+
         except subprocess.CalledProcessError as e:
-            print(f"Lỗi biên dịch {file_name}: {e}")
+            print(f"Solc could not run on {filename}: {e}. Skipping...")
+
+run_solc_and_save(r"D:\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\Unchecked_external_call\source", r"D:\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\Unchecked_external_call\bytecode")
