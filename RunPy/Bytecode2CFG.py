@@ -2,10 +2,10 @@ import os
 from evm_cfg_builder.cfg import CFG
 
 # Đường dẫn đến thư mục chứa các tệp .bin
-input_folder = r"D:\GitHub\Blockchain-Smart-Contract-Security\Dataset\block number dependency (BN)\bytecode"
+input_folder = r"D:\GitHub\Blockchain-Smart-Contract-Security\test\bin\2248"
 
 # Đường dẫn đến thư mục mà bạn muốn lưu các tệp .dot
-output_folder = r"D:\GitHub\Blockchain-Smart-Contract-Security\cfg\block number dependency (BN)"
+output_folder = r"D:\GitHub\Blockchain-Smart-Contract-Security\test\bin\2248"
 
 # Duyệt qua tất cả các tệp trong thư mục đầu vào
 for root, dirs, files in os.walk(input_folder):
