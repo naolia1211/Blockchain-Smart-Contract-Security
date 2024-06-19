@@ -1,5 +1,0 @@
-start,line_number,size,bug_type,approach,bug_snip
-2154,118,95,Timestamp-Dependency,code snippet injection,"function bug_tmstmp29() public view returns (bool) {
-  return block.timestamp >= 1546300800;
-}
-"

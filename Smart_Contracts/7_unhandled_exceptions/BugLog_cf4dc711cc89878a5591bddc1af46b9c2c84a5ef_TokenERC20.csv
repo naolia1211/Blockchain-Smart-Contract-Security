@@ -1,9 +1,0 @@
-start,line_number,size,bug_type,approach,bug_snip
-3104,134,86,Unhandled-Exceptions,code snippet injection,"function unhandledsend_unchk14(address callee) public {
-    callee.send(5 ether);
-  }
-"
-163,10,86,Unhandled-Exceptions,code snippet injection,"function unhandledsend_unchk26(address callee) public {
-    callee.send(5 ether);
-  }
-"

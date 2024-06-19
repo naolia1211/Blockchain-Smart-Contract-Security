@@ -1,8 +1,0 @@
-start,line_number,size,bug_type,approach,bug_snip
-6197,212,101,Unhandled-Exceptions,code snippet injection,"function my_func_uncheck48(address dst) public payable{
-        dst.call.value(msg.value)("""");
-    }
-"
-2910,116,73,Unhandled-Exceptions,code snippet injection,"function bug_unchk15(address addr) public
-      {addr.send (42 ether); }
-"

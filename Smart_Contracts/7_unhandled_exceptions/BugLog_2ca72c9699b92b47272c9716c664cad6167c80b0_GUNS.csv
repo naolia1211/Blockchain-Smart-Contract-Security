@@ -1,9 +1,0 @@
-start,line_number,size,bug_type,approach,bug_snip
-6267,200,90,Unhandled-Exceptions,code snippet injection," function my_func_unchk11(address dst) public payable{
-        dst.send(msg.value);
-    }
-"
-7000,204,90,Unhandled-Exceptions,code snippet injection," function my_func_unchk47(address dst) public payable{
-        dst.send(msg.value);
-    }
-"

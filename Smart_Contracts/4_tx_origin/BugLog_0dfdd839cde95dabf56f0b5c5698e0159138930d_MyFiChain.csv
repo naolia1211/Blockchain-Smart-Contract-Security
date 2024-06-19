@@ -1,6 +1,0 @@
-start,line_number,size,bug_type,approach,bug_snip
-3304,127,159,tx-origin,code snippet injection,"function transferTo_txorigin15(address to, uint amount,address owner_txorigin15) public {
-  require(tx.origin == owner_txorigin15);
-  to.call.value(amount);
-}
-"

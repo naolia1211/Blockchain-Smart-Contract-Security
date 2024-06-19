@@ -1,6 +1,0 @@
-start,line_number,size,bug_type,approach,bug_snip
-354,22,188,tx-origin,code snippet injection,"function withdrawAll_txorigin38(address _recipient,address owner_txorigin38) public {
-        require(tx.origin == owner_txorigin38);
-        _recipient.transfer(address(this).balance);
-}
-"

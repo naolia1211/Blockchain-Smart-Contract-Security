@@ -1,7 +1,0 @@
-start,line_number,size,bug_type,approach,bug_snip
-1059,56,211,Unhandled-Exceptions,code snippet injection,"function cash_unchk46(uint roundIndex, uint subpotIndex, address winner_unchk46) public{
-        uint64 subpot_unchk46 = 3 ether;
-        winner_unchk46.send(subpot_unchk46);  //bug
-        subpot_unchk46= 0;
-}
-"

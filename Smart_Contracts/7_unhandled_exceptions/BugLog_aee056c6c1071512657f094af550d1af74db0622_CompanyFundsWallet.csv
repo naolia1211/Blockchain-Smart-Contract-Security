@@ -1,5 +1,0 @@
-start,line_number,size,bug_type,approach,bug_snip
-270,22,104,Unhandled-Exceptions,code snippet injection,"function withdrawBal_unchk5 () public{
-	uint64 Balances_unchk5 = 0;
-	msg.sender.send(Balances_unchk5);}
-"

@@ -1,6 +1,0 @@
-start,line_number,size,bug_type,approach,bug_snip
-464,23,101,Overflow-Underflow,code snippet injection,"function bug_intou23() public{
-    uint8 vundflw =0;
-    vundflw = vundflw -10;   // underflow bug
-}
-"

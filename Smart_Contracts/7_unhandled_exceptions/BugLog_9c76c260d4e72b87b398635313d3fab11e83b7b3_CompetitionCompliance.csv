@@ -1,5 +1,0 @@
-start,line_number,size,bug_type,approach,bug_snip
-2179,99,101,Unhandled-Exceptions,code snippet injection,"function my_func_uncheck12(address dst) public payable{
-        dst.call.value(msg.value)("""");
-    }
-"

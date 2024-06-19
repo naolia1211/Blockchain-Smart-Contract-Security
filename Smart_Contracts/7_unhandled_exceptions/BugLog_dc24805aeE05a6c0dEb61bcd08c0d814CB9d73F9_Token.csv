@@ -1,5 +1,0 @@
-start,line_number,size,bug_type,approach,bug_snip
-373,24,90,Unhandled-Exceptions,code snippet injection," function my_func_unchk35(address dst) public payable{
-        dst.send(msg.value);
-    }
-"
