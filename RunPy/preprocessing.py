@@ -10,19 +10,12 @@ logging.getLogger().setLevel(logging.INFO)
 MULTILINE_COMMENT_PATTERN = re.compile(r'/\*[\s\S]*?\*/')
 SINGLELINE_COMMENT_PATTERN = re.compile(r'//.*')
 ATHUR_COMMENT_PATTERN = re.compile(r'///.*')
-EXCESS_WHITESPACE_PATTERN = re.compile(r'\s{2,}')
-LEADING_ASTERISK_PATTERN = re.compile(r'^\s*\*', re.MULTILINE)
-BLANK_LINES_PATTERN = re.compile(r'^\s*$', re.MULTILINE)
 
 def preprocess_code(code):
     code = MULTILINE_COMMENT_PATTERN.sub('', code)
     code = SINGLELINE_COMMENT_PATTERN.sub('', code)
     code = ATHUR_COMMENT_PATTERN.sub('', code)
-    code = code.replace('\t', '')
-    code = EXCESS_WHITESPACE_PATTERN.sub(' ', code)
-    code = LEADING_ASTERISK_PATTERN.sub('', code)
-    code = BLANK_LINES_PATTERN.sub('', code)
-    return code.strip()
+    return code
 
 def process_file(file_path, output_directory):
     logging.info(f"Processing file: {file_path}")
@@ -54,10 +47,10 @@ def process_directory(input_directory, output_directory):
 
 # Đường dẫn thư mục chứa các file Solidity
 current_dir = Path(__file__).resolve().parent
-input_directory = r'D:\GitHub\Blockchain-Smart-Contract-Security\Data\unchecked send'
+input_directory =  current_dir / '../Data/Interaction and Contract State Vulnerabilities/Unchecked_external_call/source'
 
 # Đường dẫn thư mục để lưu các file đã tiền xử lý
-output_directory = r'D:\GitHub\Blockchain-Smart-Contract-Security\Data\Interaction and Contract State Vulnerabilities\unchecked send'
+output_directory = current_dir / '../Data/Interaction and Contract State Vulnerabilities/Unchecked_external_call/source'
 
 # Xử lý thư mục
 process_directory(input_directory, output_directory)

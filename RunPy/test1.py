@@ -12,7 +12,7 @@ def extract_function_implementations(source_code: str) -> List[str]:
 
 def extract_from_source_code(implementations: List[str]) -> Dict[str, List[str]]:
     vulnerabilities = {
-        "External Call Utilization": [],
+        "Unsafe External Call": [],
         "State changes after External Calls": [],
         "Error Handling": [],
         "Fallback Function Interaction": [],
@@ -23,20 +23,22 @@ def extract_from_source_code(implementations: List[str]) -> Dict[str, List[str]]
         "Use of delegatecall()": [],
         "Library safe practices": [],
         "Input and parameter validation": [],
+        "Gas limitations in fallback functions": [],
     }
 
     for impl in implementations:
-        vulnerabilities["External Call Utilization"].extend(re.findall(r'\.(call|send|delegatecall|transfer)\s*\(', impl))
+        vulnerabilities["Unsafe External Call"].extend(re.findall(r'\.(call|send|delegatecall|transfer)\s*\(\s*[\w\.\(\)]*\s*\)', impl))
         vulnerabilities["State changes after External Calls"].extend(re.findall(r'\.(call|send|delegatecall|transfer)\s*\(.*\).*=', impl))
-        vulnerabilities["Error Handling"].extend(re.findall(r'\b(require|revert|assert)\s*\(', impl))
-        vulnerabilities["Fallback Function Interaction"].extend(re.findall(r'function\s+fallback\s*\(\)', impl))
-        vulnerabilities["Ignored Return Value"].extend(re.findall(r'\.(call|send|delegatecall|transfer)\s*\(.*\)', impl))
-        vulnerabilities["State variables manipulation"].extend(re.findall(r'(storage|memory)\s+.*=', impl))
-        vulnerabilities["Recursive calls"].extend(re.findall(r'function\s+.*\(.*\).*{.*\s+.*\(.*\).*}', impl))
+        vulnerabilities["Error Handling"].extend(re.findall(r'\b(require|revert|assert)\s*\(.*\)', impl))
+        vulnerabilities["Fallback Function Interaction"].extend(re.findall(r'\bfallback\s*\(\)\s*(?:external|public|internal|private)?(?:\s+payable)?\s*\{', impl))
+        vulnerabilities["Ignored Return Value"].extend(re.findall(r'\.(call|send|delegatecall|transfer)\s*\(.*\)(?!\s*=)', impl))
+        vulnerabilities["State variables manipulation"].extend(re.findall(r'(?:(?:(?:private|internal|public)\s+)?(?:uint\d*|int\d*|bool|string|address|bytes\d*)\s+[a-zA-Z_$][a-zA-Z_$\d]*|mapping\s*\(.*\)\s*[a-zA-Z_$][a-zA-Z_$\d]*|struct\s+[a-zA-Z_$][a-zA-Z_$\d]*\s*\{(?:(?!\})[\s\S])*\})\s*(?:=|;)', impl))
+        vulnerabilities["Recursive calls"].extend(re.findall(r'function\s+(\w+)\s*\(.*\).*\{(?:(?!\})[\s\S])*\s*\1\s*\(.*\)\s*;(?:(?!\})[\s\S])*\}', impl))
         vulnerabilities["Use of 'msg.value' or 'msg.sender'"].extend(re.findall(r'\b(msg\.value|msg\.sender)\b', impl))
         vulnerabilities["Use of delegatecall()"].extend(re.findall(r'\.delegatecall\s*\(', impl))
-        vulnerabilities["Library safe practices"].extend(re.findall(r'library\s+.*{.*}', impl))
-        vulnerabilities["Input and parameter validation"].extend(re.findall(r'require\s*\(.*\)', impl))
+        vulnerabilities["Library safe practices"].extend(re.findall(r'\blibrary\s+\w+\s*\{[\s\S]*(require|assert|revert)\s*\((?:(?!\))[\s\S])*\)[\s\S]*\}', impl))
+        vulnerabilities["Input and parameter validation"].extend(re.findall(r'\brequire\s*\(\s*[^)]*\s*\)', impl))
+        vulnerabilities["Gas limitations in fallback functions"].extend(re.findall(r'\bfallback\s*\(\)\s*(?:external|public|internal|private)?(?:\s+payable)?\s*\{(?:(?!\})(?!return)[\s\S])+\}', impl))
 
     return vulnerabilities
 
