@@ -1,133 +1,181 @@
-# ThreatDetectionModel.py
-import pandas as pd
-import nltk
-from nltk.tokenize import RegexpTokenizer
-from datasets import Dataset
-from transformers import PreTrainedTokenizerFast, AutoModelForSequenceClassification, TrainingArguments, Trainer, BertModel
-from transformers.trainer_callback import TrainerCallback
+import re, os, json
 import torch
 import torch.nn as nn
-import json
-from torch_geometric.nn import GCNConv
+import pandas as pd
+from collections import Counter
+from transformers import RobertaModel, RobertaConfig, TrainingArguments, Trainer
+from transformers.trainer_callback import TrainerCallback
+from datasets import Dataset
+from torch.utils.data import DataLoader
+from sklearn.metrics import accuracy_score, classification_report
+from nltk.tokenize import RegexpTokenizer
 
-# Download necessary NLTK data
-nltk.download('punkt')
+MAX_VOCAB_SIZE = 100000
+MAX_LENGTH = 52
+VOCAB_PATH = "D:\\DLResearches\\giang\\Model\\vocabulary\\vocab.json"
+DEBUG_PATH = "D:\\DLResearches\\giang\\Model\\debug_info.json"
+MODEL_NAME = "roberta-base"
+FREQUENCY_THRESHOLD = 7
 
-# Define a custom tokenizer using RegexpTokenizer
 class CustomTokenizerWrapper:
-    def __init__(self, pattern=r'\w+|[^\w\s]+'):
+    def __init__(self, pattern=r'\w+|\{|\}|\(|\)|\[|\]|\;|\=|\+|\-|\*|\/|\!|\%|<|>|\||\&|\.|\,'):
         self.tokenizer = RegexpTokenizer(pattern)
+        self.vocabulary = {}
 
-    def tokenize(self, text):
-        return self.tokenizer.tokenize(text)
+    def train(self, dataset):
+        token_counter = Counter()
+        for _, row in dataset.iterrows():
+            combined_data = self.tokenize_features(row)
+            token_counter.update(combined_data)
 
-    def __call__(self, text, **kwargs):
-        tokens = self.tokenize(text)
+        filtered_tokens = [token for token, count in token_counter.items() if count > FREQUENCY_THRESHOLD]
+        new_tokens = filtered_tokens[:MAX_VOCAB_SIZE - len(self.vocabulary)]
+        self.vocabulary = {token: idx for idx, token in enumerate(new_tokens)}
+
+    def save_vocabulary(self, filename=VOCAB_PATH):
+        with open(filename, 'w') as outfile:
+            json.dump(self.vocabulary, outfile)
+
+    def load_vocabulary(self, filename=VOCAB_PATH):
+        try:
+            with open(filename, "r") as json_file:
+                self.vocabulary = json.load(json_file)
+        except FileNotFoundError:
+            print(f"Error: File {filename} not found! Using empty vocabulary.")
+            self.vocabulary = {}
+
+    def tokenize_features(self, row):
+        tokens = []
+        for feature_name in row.index:
+            if pd.notna(row[feature_name]):
+                feature_tokens = self.tokenizer.tokenize(str(row[feature_name]))
+                tokens.extend(feature_tokens)
+        return tokens
+
+    def convert_tokens_to_ids(self, tokens):
+        ids = [self.vocabulary.get(token, len(self.vocabulary)) for token in tokens]
+        return ids
+
+    def __call__(self, row):
+        tokens = self.tokenize_features(row)
+        input_ids = self.convert_tokens_to_ids(tokens)
+        attention_mask = [1] * len(input_ids)
+        
+        if len(input_ids) < MAX_LENGTH:
+            input_ids += [0] * (MAX_LENGTH - len(input_ids))
+            attention_mask += [0] * (MAX_LENGTH - len(attention_mask))
+        else:
+            input_ids = input_ids[:MAX_LENGTH]
+            attention_mask = attention_mask[:MAX_LENGTH]
+        
+        return {'input_ids': input_ids, 'attention_mask': attention_mask}
+
+class CustomDataset(torch.utils.data.Dataset):
+    def __init__(self, tokenized_data, labels):
+        self.tokenized_data = tokenized_data
+        self.labels = labels
+
+    def __len__(self):
+        return len(self.tokenized_data)
+
+    def __getitem__(self, idx):
+        item = self.tokenized_data[idx]
         return {
-            'input_ids': list(range(len(tokens))),  # Dummy input_ids for illustration
-            'attention_mask': [1] * len(tokens),
+            'input_ids': torch.tensor(item['input_ids'], dtype=torch.long),
+            'attention_mask': torch.tensor(item['attention_mask'], dtype=torch.long),
+            'labels': torch.tensor(self.labels[idx], dtype=torch.long)
         }
 
-# Load dataset
-data = pd.read_csv('http_attacks.csv')
-dataset = Dataset.from_pandas(data)
+class ThreatDetectionModel(nn.Module):
+    def __init__(self, model_name, num_labels):
+        super(ThreatDetectionModel, self).__init__()
+        self.bert = RobertaModel.from_pretrained(model_name, ignore_mismatched_sizes=True)
+        self.config = self.bert.config
+        self.num_labels = num_labels
 
-# Initialize custom tokenizer
-custom_tokenizer = CustomTokenizerWrapper()
+        self.pooling = nn.MaxPool1d(kernel_size=6, stride=6)
+        self.rnn = nn.LSTM(self.config.hidden_size // 6, self.config.hidden_size // 6, batch_first=True)
+        self.cnn = nn.Conv1d(self.config.hidden_size // 6, self.config.hidden_size // 6, kernel_size=3, padding=1)
+        self.feedforward = nn.Sequential(
+            nn.Linear(self.config.hidden_size // 6, self.config.hidden_size // 6),
+            nn.ReLU()
+        )
+        self.dense = nn.Linear(self.config.hidden_size // 2, num_labels)
+        self.softmax = nn.Softmax(dim=-1)
 
-# Save custom tokenizer configuration
-tokenizer_file = "custom_tokenizer.json"
-with open(tokenizer_file, "w") as f:
-    json.dump({"tokenizer": "custom"}, f)
+    def forward(self, input_ids, attention_mask=None, token_type_ids=None):
+        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask, token_type_ids=token_type_ids)
+        encoder_outputs = outputs.last_hidden_state
 
-# Load custom tokenizer with PreTrainedTokenizerFast
-tokenizer = PreTrainedTokenizerFast(tokenizer_file=tokenizer_file, tokenizer_object=custom_tokenizer)
+        pooled_output = self.pooling(encoder_outputs.permute(0, 2, 1)).permute(0, 2, 1)
+        split_size = self.config.hidden_size // 6
+        attention_heads = pooled_output.split(split_size, dim=-1)
 
-# Tokenize the dataset and save to file
-def tokenize_function(examples):
-    return tokenizer(examples["text"], padding="max_length", truncation=True)
+        rnn_output, _ = self.rnn(attention_heads[0])
+        rnn_output = rnn_output[:, 0, :]  # Take the output of the first time step
 
-tokenized_datasets = dataset.map(tokenize_function, batched=True)
-tokenized_datasets.save_to_disk("tokenized_dataset")
+        cnn_output = self.cnn(attention_heads[1].permute(0, 2, 1)).permute(0, 2, 1)
+        cnn_output = cnn_output[:, 0, :]  # Take the output of the first time step
 
-# Define training callback for saving metrics
+        ff_output = self.feedforward(attention_heads[2])
+        ff_output = ff_output[:, 0, :]  # Take the output of the first time step
+
+        combined_output = torch.cat((rnn_output, cnn_output, ff_output), dim=-1)
+        logits = self.dense(combined_output)
+        probs = self.softmax(logits)
+
+        return probs
+
 class SaveMetricsCallback(TrainerCallback):
     def on_epoch_end(self, args, state, control, **kwargs):
         logs = state.log_history
         with open('training_metrics.json', 'w') as f:
             json.dump(logs, f)
 
-# Load pre-trained model
-model_name = "microsoft/codebert-base"  # Change to any pre-trained model like "microsoft/codebert-base" or others
-base_model = BertModel.from_pretrained(model_name)
+# Load datasets
+delegatecall_df = pd.read_csv("delegatecall.csv")
+reentrancy_df = pd.read_csv("reentrancy.csv")
+unchecked_external_call_df = pd.read_csv("unchecked_external_call.csv")
+unchecked_send_df = pd.read_csv("unchecked_send.csv")
 
-# Custom model for smart contract detection/classification
-class SmartContractDetectionModel(nn.Module):
-    def __init__(self, model_name, num_labels):
-        super(SmartContractDetectionModel, self).__init__()
-        self.bert = BertModel.from_pretrained(model_name)
-        self.config = self.bert.config
-        self.num_labels = num_labels
+# Combine datasets into a single DataFrame
+combined_df = pd.concat([delegatecall_df, reentrancy_df, unchecked_external_call_df, unchecked_send_df])
 
-        # Divide BERT layers into groups and add custom layers
-        self.group1 = nn.ModuleList(self.bert.encoder.layer[:4])
-        self.group2 = nn.ModuleList(self.bert.encoder.layer[4:8])
-        self.group3 = nn.ModuleList(self.bert.encoder.layer[8:12])
+# Create a Dataset from the combined DataFrame
+dataset = Dataset.from_pandas(combined_df)
 
-        self.rnn = nn.LSTM(self.config.hidden_size, self.config.hidden_size, batch_first=True)
-        self.cnn = nn.Conv1d(self.config.hidden_size, self.config.hidden_size, kernel_size=3, padding=1)
+# Initialize custom tokenizer
+custom_tokenizer = CustomTokenizerWrapper()
 
-        # GNN layers for graph-based features
-        self.gnn1 = GCNConv(self.config.hidden_size, self.config.hidden_size)
-        self.gnn2 = GCNConv(self.config.hidden_size, self.config.hidden_size)
+# Train the tokenizer on the combined dataset
+custom_tokenizer.train(combined_df)
 
-        # Classification layer
-        self.classifier = nn.Linear(self.config.hidden_size * 3, num_labels)
-        self.softmax = nn.Softmax(dim=-1)
+# Save the trained vocabulary
+custom_tokenizer.save_vocabulary(VOCAB_PATH)
 
-    def forward(self, input_ids, attention_mask=None, token_type_ids=None, edge_index=None, node_features=None):
-        # Pass through embedding layers
-        embedding_output = self.bert.embeddings(input_ids=input_ids, position_ids=None, token_type_ids=token_type_ids)
-        encoder_outputs = embedding_output
+# Tokenize the dataset
+tokenized_data = dataset.map(custom_tokenizer, batched=True, remove_columns=dataset.column_names)
 
-        # Group 1 with RNN
-        for layer in self.group1:
-            encoder_outputs = layer(encoder_outputs, attention_mask=attention_mask)[0]
-        rnn_output, _ = self.rnn(encoder_outputs)
+# Create labels
+labels = combined_df['label'].tolist()
 
-        # Group 2 with CNN
-        encoder_outputs = rnn_output
-        for layer in self.group2:
-            encoder_outputs = layer(encoder_outputs, attention_mask=attention_mask)[0]
-        cnn_output = self.cnn(encoder_outputs.permute(0, 2, 1)).permute(0, 2, 1)
-
-        # Group 3
-        encoder_outputs = cnn_output
-        for layer in self.group3:
-            encoder_outputs = layer(encoder_outputs, attention_mask=attention_mask)[0]
-
-        # GNN layers for graph-based features
-        gnn_output1 = self.gnn1(node_features, edge_index)
-        gnn_output2 = self.gnn2(gnn_output1, edge_index)
-
-        # Combine outputs
-        combined_output = torch.cat((rnn_output[:, 0, :], cnn_output[:, 0, :], gnn_output2), dim=-1)
-
-        # Classification
-        logits = self.classifier(combined_output)
-        probs = self.softmax(logits)
-
-        return probs
-
-
-# Example usage for smart contract detection
-num_labels_smart_contract = 5  # Number of vulnerability types
-model_smart_contract = SmartContractDetectionModel(model_name, num_labels_smart_contract)
+# Create CustomDataset
+custom_dataset = CustomDataset(tokenized_data, labels)
 
 # Split the dataset
-train_test_split = tokenized_datasets.train_test_split(test_size=0.2)
-train_dataset = train_test_split['train']
-test_dataset = train_test_split['test']
+train_size = int(0.8 * len(custom_dataset))
+train_dataset, val_dataset = torch.utils.data.random_split(custom_dataset, [train_size, len(custom_dataset) - train_size])
+
+# Initialize the model
+num_labels = len(combined_df['label'].unique())
+model = ThreatDetectionModel(MODEL_NAME, num_labels=num_labels)
+
+# Set device to use all available GPUs
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+if torch.cuda.device_count() > 1:
+    print(f"Using {torch.cuda.device_count()} GPUs")
+    model = torch.nn.DataParallel(model)
+model.to(device)
 
 # Define training arguments
 training_args = TrainingArguments(
@@ -140,16 +188,17 @@ training_args = TrainingArguments(
     weight_decay=0.01,
 )
 
-trainer_smart_contract = Trainer(
-    model=model_smart_contract,
+# Fine-tune the model
+trainer = Trainer(
+    model=model,
     args=training_args,
     train_dataset=train_dataset,
-    eval_dataset=test_dataset,
+    eval_dataset=val_dataset,
     callbacks=[SaveMetricsCallback],
 )
 
-trainer_smart_contract.train()
+trainer.train()
 
-# Save the fine-tuned models and tokenizer
-model_smart_contract.save_pretrained("./fine-tuned-smart-contract-detector")
-tokenizer.save_pretrained("./fine-tuned-tokenizer")
+# Save the fine-tuned model and tokenizer
+model.save_pretrained("./fine-tuned-vulnerability-detector")
+custom_tokenizer.save_vocabulary("./fine-tuned-vulnerability-detector/vocab.json")
