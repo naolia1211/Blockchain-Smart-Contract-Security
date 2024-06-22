@@ -47,10 +47,10 @@ def process_directory(input_directory, output_directory):
 
 # Đường dẫn thư mục chứa các file Solidity
 current_dir = Path(__file__).resolve().parent
-input_directory =  current_dir / '../Data/BigData/Resource_(Gas)_usage_vulnerabilities/out_of_gas'
+input_directory =  current_dir / '../BigData/Clean'
 
 # Đường dẫn thư mục để lưu các file đã tiền xử lý
-output_directory = current_dir / '../Data/BigData/Resource_(Gas)_usage_vulnerabilities/out_of_gas'
+output_directory = current_dir / '../BigData/Clean'
 
 # Xử lý thư mục
 process_directory(input_directory, output_directory)
