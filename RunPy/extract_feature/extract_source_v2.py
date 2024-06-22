@@ -5,11 +5,11 @@ from pathlib import Path
 
 # Setup MongoDB connection
 client = MongoClient('mongodb://localhost:27017/')
-db = client['Datatrain']
+db = client['Data']
 collection = db['Data']
 
 current_dir = Path(__file__).resolve().parent
-solidity_files_directory = r"D:\GitHub\Blockchain-Smart-Contract-Security\Data\BigData"
+solidity_files_directory = r"D:\GitHub\Blockchain-Smart-Contract-Security\BigData"
 
 def extract_functions(contract_code):
     function_pattern = re.compile(
@@ -21,7 +21,7 @@ def extract_functions(contract_code):
 def extract_info(function_content):
     patterns = {
         #Interaction and Contract State Vulnerabilities.
-        'unsafe_external_call_function': r'\.(call|send|delegatecall|transfer)\s*\(',
+        'external_call_function': r'\.(call|send|delegatecall|transfer)\s*\(',
         'state_changes_after_external_calls': r'\.(call|send|delegatecall|transfer)\s*\(.*?\)\s*;[\s\S]*?\w+\s*=',
         'error_handling': r'\b(require|revert|assert)\s*\(.*?\);',
         'fallback_function_interaction': r'function\s+(fallback|receive)\s*\(\s*\)\s*(external|public)?',
@@ -80,7 +80,7 @@ def extract_info(function_content):
 def extract_functions_with_issues(contract_code):
     # Initialize the dictionary with all features
     functions_with_issues = {key: [] for key in [
-        'unsafe_external_call_function', 'state_changes_after_external_calls', 'error_handling', 
+        'external_call_function', 'state_changes_after_external_calls', 'error_handling', 
         'fallback_function_interaction', 'ignored_return_value', 'state_variables_manipulation', 
         'recursive_calls', 'use_of_msg_value_or_sender', 'use_of_delegatecall', 'library_safe_practices', 
         'input_and_parameter_validation', 'gas_limitations_in_fallback_functions', 'usage_of_block_timestamp', 
@@ -107,10 +107,10 @@ def extract_functions_with_issues(contract_code):
 
 # Dictionary để ánh xạ từ tên nhóm lỗ hổng sang giá trị số nguyên
 label_map = {
-    "Interaction_and_Contract_State_Vulnerabilities": 0,
-    "Dependency_vulnerabilities": 1,
-    "Authentication_and_Authorization_Vulnerabilities": 2,
-    "Resource_(Gas)_usage_vulnerabilities": 3
+    "Authentication_and_Authorization_Vulnerabilities": 1,
+    "Dependency_vulnerabilities": 2,
+    "Interaction_and_constract_state_vulnerabilities": 3,
+    "Resource_(Gas)_usage_vulnerabilities": 4
 }
 
 def process_file(file_path):
@@ -120,9 +120,9 @@ def process_file(file_path):
     
     # Xác định label dựa trên thư mục con ở lớp đầu tiên
     label = None
-    for folder, label_value in label_map.items():
+    for folder in label_map.keys():
         if folder in file_path:
-            label = label_value
+            label = folder
             break
     
     document = {
