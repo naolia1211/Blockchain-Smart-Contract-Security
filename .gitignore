@@ -1,6 +1,6 @@
 .venv/
 slither_analyze/
-Dataset/
+BigData/
 .vs/
 .vscode/
 cfg/
@@ -8,4 +8,7 @@ testdata/
 myenv/
 Data/
 Smart_Contracts/
-RunPy/Clean
+Clean/
+microsoft/
+microsoft_graphcodebert-base/
+model/
