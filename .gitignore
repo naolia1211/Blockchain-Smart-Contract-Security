@@ -14,3 +14,12 @@ microsoft_graphcodebert-base/
 model/
 Dataset2/
 MoreClean/
+Dataset/
+Dataset(not_arithm)/
+Dataset2-1/
+Dependency_vulnerabilities/
+MoreClean1/
+venv/
+Clean_Dep_Int/
+arithmetic/
+solidity_analyzer/
